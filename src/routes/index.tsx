@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/dravonix/Nav";
 import { Hero } from "@/components/dravonix/Hero";
 import { Metrics } from "@/components/dravonix/Metrics";
+import { ClientBar } from "@/components/dravonix/ClientBar";
 import { Services } from "@/components/dravonix/Services";
 import { Process } from "@/components/dravonix/Process";
 import { Portfolio } from "@/components/dravonix/Portfolio";
@@ -21,6 +22,7 @@ function Index() {
       <main>
         <Hero />
         <Metrics />
+        <ClientBar />
         <Services />
         <Process />
         <Portfolio />
@@ -32,3 +34,4 @@ function Index() {
     </div>
   );
 }
+

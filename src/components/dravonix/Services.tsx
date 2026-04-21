@@ -1,53 +1,59 @@
-import { ArrowRight, Film, Target, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Film, Compass } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const services = [
   {
+    icon: Sparkles,
+    title: "Branding",
+    desc: "Logo, identity, voice, visual system, and brand guidelines built to last.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid ads, targeting, funnel strategy, and ROI-focused campaigns that convert.",
+  },
+  {
     icon: Film,
     title: "Content Creation",
-    desc: "Scripts, reels, carousels, and graphics built to stop the scroll and drive measurable action.",
+    desc: "Reels, carousels, scripts, and graphics — platform-native content that performs.",
   },
   {
-    icon: Target,
+    icon: Compass,
     title: "Marketing Strategy",
-    desc: "Audience targeting, funnel planning, and platform strategy engineered for sustained growth.",
-  },
-  {
-    icon: Sparkles,
-    title: "Brand Building",
-    desc: "Identity, voice, messaging, and growth roadmaps that position you to lead your category.",
+    desc: "Audience research, platform strategy, and growth roadmaps engineered for scale.",
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="bg-[var(--offwhite)] py-24 md:py-32">
+    <section id="services" className="bg-[var(--navy)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--blue-brand)]">
-            What We Do
+          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+            Our Services
           </span>
-          <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-[var(--navy)] md:text-5xl">
-            Three disciplines. One outcome — performance.
+          <h2 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+            Built for brands that refuse to be average.
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 100}>
-              <article className="group relative h-full rounded-xl border border-[var(--navy)]/15 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
-                <div className="grid h-12 w-12 place-items-center rounded-lg bg-[var(--blue-brand)]/10 text-[var(--blue-brand)]">
+            <Reveal key={s.title} delay={i * 90}>
+              <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
+                <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-[var(--blue-brand)]" />
+                <div className="grid h-12 w-12 place-items-center rounded-lg bg-[var(--blue-brand)]/15 text-[var(--blue-brand)]">
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-bold text-[var(--navy)]">
+                <h3 className="mt-6 font-display text-xl font-bold text-white">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--navy)]/70">
+                <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
                   {s.desc}
                 </p>
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--blue-brand)] transition-all group-hover:gap-2.5"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2.5"
                 >
                   Learn More <ArrowRight className="h-4 w-4" />
                 </a>

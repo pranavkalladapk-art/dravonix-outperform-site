@@ -21,14 +21,14 @@ export function CTA() {
           </h2>
         </Reveal>
         <Reveal delay={100}>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/85">
+          <p className="mx-auto mt-5 max-w-xl text-lg text-white/90">
             Let's engineer your brand's next chapter.
           </p>
         </Reveal>
         <Reveal delay={180}>
           <a
             href="mailto:hello@dravonix.com"
-            className="group mt-10 inline-flex items-center gap-2 rounded-md bg-white px-7 py-4 font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
+            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
           >
             Book a Free Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

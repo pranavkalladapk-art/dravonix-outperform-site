@@ -4,10 +4,11 @@ import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
+  { href: "#top", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "About Us" },
+  { href: "#work", label: "Case Studies" },
+  { href: "#blog", label: "Blog" },
 ];
 
 export function Nav() {
@@ -21,6 +22,13 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
       className={cn(
@@ -32,7 +40,7 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <Logo />
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -44,33 +52,35 @@ export function Nav() {
           ))}
           <a
             href="#contact"
-            className="rounded-md bg-gradient-brand px-4 py-2 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
           >
-            Get Started
+            Contact Us
           </a>
         </nav>
         <button
           aria-label={open ? "Close menu" : "Open menu"}
-          className="grid h-10 w-10 place-items-center rounded-md text-white md:hidden"
+          className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
-      {/* Mobile drawer */}
+
+      {/* Mobile full-screen overlay */}
       <div
         className={cn(
-          "overflow-hidden border-t border-white/10 bg-[oklch(0.196_0.04_257/0.97)] backdrop-blur-md transition-[max-height] duration-300 md:hidden",
-          open ? "max-h-96" : "max-h-0",
+          "fixed inset-0 z-40 bg-[var(--navy)] transition-opacity duration-300 lg:hidden",
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <div className="flex flex-col gap-1 px-5 py-4">
-          {links.map((l) => (
+        <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
+          {links.map((l, i) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-3 text-base font-medium text-white/80 hover:bg-white/5 hover:text-white"
+              className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
+              style={{ transitionDelay: `${i * 40}ms` }}
             >
               {l.label}
             </a>
@@ -78,9 +88,9 @@ export function Nav() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-md bg-gradient-brand px-4 py-3 text-center text-sm font-semibold text-white"
+            className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
           >
-            Get Started
+            Contact Us
           </a>
         </div>
       </div>
