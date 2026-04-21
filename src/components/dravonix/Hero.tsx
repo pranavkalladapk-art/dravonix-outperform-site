@@ -65,18 +65,19 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-7xl px-5 md:px-8">
         <Reveal delay={80}>
-          <h1 className="max-w-5xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[5.5rem]">
-            We Don't Market.
+          <h1 className="max-w-5xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[5.5rem]">
+            WE DON&rsquo;T MARKET.
             <br />
-            We Engineer{" "}
-            <span className="text-[var(--blue-brand)]">Growth.</span>
+            WE ENGINEER{" "}
+            <span className="text-[var(--blue-brand)]">GROWTH.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={160}>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
             Data-driven strategies. Creative excellence.
-            <br className="hidden sm:block" /> Results that speak.
+            <br />
+            Results that speak.
           </p>
         </Reveal>
 
