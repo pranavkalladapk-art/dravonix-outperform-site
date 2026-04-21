@@ -3,6 +3,7 @@ import { Nav } from "@/components/dravonix/Nav";
 import { Hero } from "@/components/dravonix/Hero";
 import { ValuePillars } from "@/components/dravonix/ValuePillars";
 import { Services } from "@/components/dravonix/Services";
+import { AIStudio } from "@/components/dravonix/AIStudio";
 import { Process } from "@/components/dravonix/Process";
 import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
@@ -21,6 +22,7 @@ function Index() {
         <Hero />
         <ValuePillars />
         <Services />
+        <AIStudio />
         <Process />
         <WhyDravonix />
         <About />

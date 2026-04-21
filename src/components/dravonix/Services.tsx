@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Film, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const services = [
@@ -13,9 +13,9 @@ const services = [
     desc: "Strategic content calendars, daily posting, community management and platform growth.",
   },
   {
-    icon: Film,
-    title: "Content Creation",
-    desc: "Reels, carousels, graphics, scripts — platform-native content engineered to perform.",
+    icon: Wand2,
+    title: "AI-Integrated Video & Design",
+    desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
   },
   {
     icon: TrendingUp,

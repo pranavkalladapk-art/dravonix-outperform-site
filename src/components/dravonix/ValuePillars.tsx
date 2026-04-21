@@ -10,7 +10,7 @@ const pillars = [
   {
     icon: MessageSquareHeart,
     title: "Content That Converts",
-    desc: "We create content with purpose — built to stop the scroll and start conversations.",
+    desc: "AI-accelerated production meets human creative direction — content built to stop the scroll and start conversations.",
   },
   {
     icon: TrendingUp,
