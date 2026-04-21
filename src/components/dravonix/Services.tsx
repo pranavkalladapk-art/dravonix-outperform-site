@@ -1,0 +1,61 @@
+import { ArrowRight, Film, Target, Sparkles } from "lucide-react";
+import { Reveal } from "./Reveal";
+
+const services = [
+  {
+    icon: Film,
+    title: "Content Creation",
+    desc: "Scripts, reels, carousels, and graphics built to stop the scroll and drive measurable action.",
+  },
+  {
+    icon: Target,
+    title: "Marketing Strategy",
+    desc: "Audience targeting, funnel planning, and platform strategy engineered for sustained growth.",
+  },
+  {
+    icon: Sparkles,
+    title: "Brand Building",
+    desc: "Identity, voice, messaging, and growth roadmaps that position you to lead your category.",
+  },
+];
+
+export function Services() {
+  return (
+    <section id="services" className="bg-[var(--offwhite)] py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <Reveal>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--blue-brand)]">
+            What We Do
+          </span>
+          <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-[var(--navy)] md:text-5xl">
+            Three disciplines. One outcome — performance.
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 100}>
+              <article className="group relative h-full rounded-xl border border-[var(--navy)]/15 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
+                <div className="grid h-12 w-12 place-items-center rounded-lg bg-[var(--blue-brand)]/10 text-[var(--blue-brand)]">
+                  <s.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-6 font-display text-xl font-bold text-[var(--navy)]">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--navy)]/70">
+                  {s.desc}
+                </p>
+                <a
+                  href="#contact"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--blue-brand)] transition-all group-hover:gap-2.5"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </a>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
