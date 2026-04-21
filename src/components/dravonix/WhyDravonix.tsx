@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Reveal } from "./Reveal";
+import dMark from "@/assets/dravonix-dmark.png";
 
 const reasons = [
   "Boutique attention — your brand is never one of fifty clients",
