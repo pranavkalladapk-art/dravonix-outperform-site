@@ -7,6 +7,12 @@ const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   business: z.string().trim().min(1, "Business name is required").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Enter a valid contact number")
+    .max(20, "Enter a valid contact number")
+    .regex(/^[+\d\s()-]+$/, "Enter a valid contact number"),
   need: z.enum(["Branding", "Social Media", "Content", "Strategy", "All of the above"], {
     errorMap: () => ({ message: "Please choose an option" }),
   }),
@@ -24,6 +30,7 @@ export function LeadCapture() {
       name: fd.get("name"),
       business: fd.get("business"),
       email: fd.get("email"),
+      phone: fd.get("phone"),
       need: fd.get("need"),
     });
     if (!parsed.success) {
@@ -115,6 +122,21 @@ export function LeadCapture() {
                   placeholder="you@brand.com"
                 />
               </div>
+              <div>
+                <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                  Contact Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  maxLength={20}
+                  inputMode="tel"
+                  autoComplete="tel"
+                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
+                  placeholder="+1 555 123 4567"
+                />
               <div>
                 <label htmlFor="need" className="text-xs font-semibold uppercase tracking-widest text-white/60">
                   What do you need help with?
