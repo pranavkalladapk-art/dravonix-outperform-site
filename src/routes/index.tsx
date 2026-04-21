@@ -1,14 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/dravonix/Nav";
 import { Hero } from "@/components/dravonix/Hero";
-import { Metrics } from "@/components/dravonix/Metrics";
-import { ClientBar } from "@/components/dravonix/ClientBar";
+import { ValuePillars } from "@/components/dravonix/ValuePillars";
 import { Services } from "@/components/dravonix/Services";
 import { Process } from "@/components/dravonix/Process";
-import { Portfolio } from "@/components/dravonix/Portfolio";
+import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
-import { Testimonials } from "@/components/dravonix/Testimonials";
-import { CTA } from "@/components/dravonix/CTA";
+import { LeadCapture } from "@/components/dravonix/LeadCapture";
 import { Footer } from "@/components/dravonix/Footer";
 
 export const Route = createFileRoute("/")({
@@ -21,17 +19,14 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Metrics />
-        <ClientBar />
+        <ValuePillars />
         <Services />
         <Process />
-        <Portfolio />
+        <WhyDravonix />
         <About />
-        <Testimonials />
-        <CTA />
+        <LeadCapture />
       </main>
       <Footer />
     </div>
   );
 }
-

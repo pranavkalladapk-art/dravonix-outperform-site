@@ -7,21 +7,21 @@ const steps = [
     icon: Zap,
     title: "Discover",
     tag: "Speed",
-    desc: "We audit your brand, audience, and competitors. Zero guesswork.",
+    desc: "We learn your brand, audience, and goals inside out.",
   },
   {
     n: "02",
     icon: Crosshair,
-    title: "Build",
+    title: "Engineer",
     tag: "Precision",
-    desc: "We engineer your content system and strategy — built to convert.",
+    desc: "We build your content system, strategy, and creative direction.",
   },
   {
     n: "03",
     icon: TrendingUp,
-    title: "Scale",
+    title: "Launch & Scale",
     tag: "Progress",
-    desc: "We execute, optimise, and grow your presence month over month.",
+    desc: "We execute, analyse, and optimise — every week, every platform.",
   },
 ];
 
