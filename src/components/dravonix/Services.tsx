@@ -1,26 +1,26 @@
-import { ArrowRight, Sparkles, TrendingUp, Film, Compass } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Film, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const services = [
   {
     icon: Sparkles,
-    title: "Branding",
-    desc: "Logo, identity, voice, visual system, and brand guidelines built to last.",
+    title: "Brand Identity",
+    desc: "Build a brand that commands attention — logo, visual system, tone of voice, brand guidelines.",
   },
   {
-    icon: TrendingUp,
-    title: "Performance Marketing",
-    desc: "Paid ads, targeting, funnel strategy, and ROI-focused campaigns that convert.",
+    icon: CalendarRange,
+    title: "Social Media Management",
+    desc: "Strategic content calendars, daily posting, community management and platform growth.",
   },
   {
     icon: Film,
     title: "Content Creation",
-    desc: "Reels, carousels, scripts, and graphics — platform-native content that performs.",
+    desc: "Reels, carousels, graphics, scripts — platform-native content engineered to perform.",
   },
   {
-    icon: Compass,
-    title: "Marketing Strategy",
-    desc: "Audience research, platform strategy, and growth roadmaps engineered for scale.",
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
   },
 ];
 
@@ -30,14 +30,14 @@ export function Services() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-            Our Services
+            What We Do
           </span>
           <h2 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
-            Built for brands that refuse to be average.
+            Everything your brand needs to compete and win.
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 90}>
               <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
