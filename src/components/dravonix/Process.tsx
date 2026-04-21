@@ -27,13 +27,13 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="relative overflow-hidden bg-[var(--navy)] py-24 md:py-32">
+    <section id="process" className="relative overflow-hidden bg-[var(--navy)] py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
             Our Process
           </span>
-          <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             A system, not a sprint.
           </h2>
         </Reveal>
@@ -59,7 +59,7 @@ export function Process() {
             />
           </svg>
 
-          <div className="grid gap-12 md:grid-cols-3 md:gap-6">
+          <div className="grid gap-10 md:grid-cols-3 md:gap-6">
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 150}>
                 <div className="relative">

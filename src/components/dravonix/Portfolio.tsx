@@ -38,14 +38,14 @@ const cases = [
 
 export function Portfolio() {
   return (
-    <section id="work" className="bg-[var(--offwhite)] py-24 md:py-32">
+    <section id="work" className="bg-[var(--offwhite)] py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--blue-brand)]">
             Case Studies
           </span>
           <div className="mt-3 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-[var(--navy)] md:text-5xl">
+            <h2 className="max-w-2xl font-display text-3xl font-bold tracking-tight text-[var(--navy)] sm:text-4xl md:text-5xl">
               Results we've engineered.
             </h2>
             <p className="max-w-md text-[var(--navy)]/65">
@@ -54,7 +54,7 @@ export function Portfolio() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
           {cases.map((c, i) => (
             <Reveal key={c.brand} delay={(i % 2) * 100}>
               <article className="group relative h-full overflow-hidden rounded-xl border border-[var(--navy)]/15 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
