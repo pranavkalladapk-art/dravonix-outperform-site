@@ -6,6 +6,7 @@ const services = [
     icon: Sparkles,
     title: "Brand Identity",
     desc: "Build a brand that commands attention — logo, visual system, tone of voice, brand guidelines.",
+    href: "/brand-identity",
   },
   {
     icon: CalendarRange,
