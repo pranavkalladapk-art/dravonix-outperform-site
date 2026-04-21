@@ -24,6 +24,7 @@ const services = [
     icon: TrendingUp,
     title: "Performance Marketing",
     desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
+    href: "/performance-marketing",
   },
 ];
 
