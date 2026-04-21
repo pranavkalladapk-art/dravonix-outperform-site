@@ -16,6 +16,7 @@ const services = [
     icon: Wand2,
     title: "AI-Integrated Video & Design",
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
+    href: "#ai-studio",
   },
   {
     icon: TrendingUp,
@@ -52,7 +53,7 @@ export function Services() {
                   {s.desc}
                 </p>
                 <a
-                  href="#contact"
+                  href={(s as { href?: string }).href ?? "#contact"}
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2.5"
                 >
                   Learn More <ArrowRight className="h-4 w-4" />
