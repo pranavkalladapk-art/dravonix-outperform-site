@@ -16,16 +16,16 @@ export function WhyDravonix() {
   return (
     <section className="bg-[var(--navy)]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 lg:grid-cols-2">
-        <Reveal className="px-5 py-20 md:px-12 md:py-28 lg:px-16">
+        <Reveal className="px-5 py-16 md:px-12 md:py-28 lg:px-16">
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
             Why Dravonix
           </span>
-          <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
             Why work with us?
           </h2>
-          <ul className="mt-10 space-y-5">
+          <ul className="mt-8 space-y-4 md:mt-10 md:space-y-5">
             {reasons.map((r) => (
-              <li key={r} className="flex items-start gap-4">
+              <li key={r} className="flex items-start gap-3 md:gap-4">
                 <span className="mt-0.5 grid h-7 w-7 flex-none place-items-center rounded-full bg-[var(--blue-brand)] text-white">
                   <Check className="h-4 w-4" strokeWidth={3} />
                 </span>
@@ -39,7 +39,7 @@ export function WhyDravonix() {
 
         <Reveal
           delay={120}
-          className="relative flex min-h-[360px] items-center justify-center overflow-hidden border-l border-white/5 bg-[var(--card-dark)] p-10"
+          className="relative hidden min-h-[360px] items-center justify-center overflow-hidden border-l border-white/5 bg-[var(--card-dark)] p-10 lg:flex"
         >
           <div aria-hidden className="absolute inset-0">
             <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.4)] blur-3xl" />

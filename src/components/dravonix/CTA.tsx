@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 export function CTA() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[var(--blue-brand)] py-24 md:py-32">
+    <section id="contact" className="relative overflow-hidden bg-[var(--blue-brand)] py-20 md:py-32">
       <div aria-hidden className="absolute inset-0 opacity-25">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -16,7 +16,7 @@ export function CTA() {
       </div>
       <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
         <Reveal>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-6xl">
             Ready to Outperform?
           </h2>
         </Reveal>

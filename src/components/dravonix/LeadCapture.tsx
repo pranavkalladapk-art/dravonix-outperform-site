@@ -48,7 +48,7 @@ export function LeadCapture() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[var(--blue-brand)] py-24 md:py-28"
+      className="relative overflow-hidden bg-[var(--blue-brand)] py-20 md:py-28"
     >
       <div aria-hidden className="absolute inset-0 opacity-20">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -61,15 +61,15 @@ export function LeadCapture() {
         </svg>
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-5 md:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Let's Engineer Your Brand.
           </h2>
-          <p className="mt-5 max-w-md text-lg text-white/90">
+          <p className="mt-4 max-w-md text-base text-white/90 md:mt-5 md:text-lg">
             Book a free 30-minute strategy call. No commitment. Just clarity.
           </p>
-          <ul className="mt-8 space-y-2 text-sm text-white/85">
+          <ul className="mt-6 space-y-2 text-sm text-white/85 md:mt-8">
             <li>• Audit of your current presence</li>
             <li>• A clear plan for your next 90 days</li>
             <li>• Honest answers — not a sales pitch</li>
@@ -79,7 +79,7 @@ export function LeadCapture() {
         <Reveal delay={120}>
           <form
             onSubmit={onSubmit}
-            className="rounded-2xl bg-[var(--navy)] p-6 shadow-2xl md:p-8"
+            className="rounded-2xl bg-[var(--navy)] p-5 shadow-2xl sm:p-6 md:p-8"
           >
             <div className="grid gap-4">
               <div>

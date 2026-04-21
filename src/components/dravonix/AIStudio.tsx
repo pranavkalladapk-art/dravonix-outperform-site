@@ -28,7 +28,7 @@ export function AIStudio() {
   return (
     <section
       id="ai-studio"
-      className="relative overflow-hidden bg-[var(--card-dark)] py-24 md:py-32"
+      className="relative overflow-hidden bg-[var(--card-dark)] py-20 md:py-32"
     >
       <div
         aria-hidden
@@ -57,7 +57,7 @@ export function AIStudio() {
             </span>
           </div>
 
-          <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+          <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-6xl">
             Where AI meets{" "}
             <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
               brand craft.
@@ -113,19 +113,19 @@ export function AIStudio() {
 
         {/* Stat strip */}
         <Reveal delay={120}>
-          <div className="mx-auto mt-14 grid max-w-3xl grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-[var(--navy)]/60 py-5 backdrop-blur">
+          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-[var(--navy)]/60 py-5 backdrop-blur md:mt-14">
             {[
               { v: "10x", l: "Faster output" },
               { v: "100%", l: "On-brand" },
               { v: "<1m", l: "First render" },
             ].map((s) => (
-              <div key={s.l} className="px-4">
-                <div className="font-display text-2xl font-bold text-white md:text-3xl">
+              <div key={s.l} className="px-2 sm:px-4">
+                <div className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
                     {s.v}
                   </span>
                 </div>
-                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60 sm:text-[11px] sm:tracking-[0.18em]">
                   {s.l}
                 </div>
               </div>

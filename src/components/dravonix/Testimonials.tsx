@@ -21,18 +21,18 @@ const quotes = [
 
 export function Testimonials() {
   return (
-    <section className="bg-[var(--navy)] py-24 md:py-32">
+    <section className="bg-[var(--navy)] py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
             Trusted By Operators
           </span>
-          <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Words from the teams we scale.
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
           {quotes.map((t, i) => (
             <Reveal key={t.name} delay={i * 100}>
               <figure className="relative flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-7 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
