@@ -61,7 +61,7 @@ export function LeadCapture() {
         </svg>
       </div>
 
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal>
           <h2 className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             Let's Engineer Your Brand.
