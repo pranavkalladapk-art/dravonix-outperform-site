@@ -5,6 +5,11 @@ const reasons = [
   "Boutique attention — your brand is never one of fifty clients",
   "Strategy first — we plan before we post",
   "Built for growth — every piece of content has a purpose",
+  "Senior-only team — no hand-offs, no juniors learning on your budget",
+  "Attribution-first reporting tied to revenue, not vanity metrics",
+  "In-house creative studio for speed and consistency",
+  "Sprint-based execution with weekly performance reviews",
+  "Transparent pricing and full ownership of every asset",
 ];
 
 export function WhyDravonix() {
