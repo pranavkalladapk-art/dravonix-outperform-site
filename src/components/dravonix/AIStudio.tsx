@@ -39,112 +39,101 @@ export function AIStudio() {
         className="pointer-events-none absolute -bottom-32 left-0 h-[360px] w-[360px] rounded-full bg-[var(--cyan-accent)]/15 blur-3xl animate-ambient"
       />
 
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-5 md:grid-cols-2 md:items-center md:gap-16 md:px-8">
-        {/* Left column */}
-        <div>
-          <Reveal>
+      {/* Decorative grid backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]"
+      />
+
+      <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
+        <Reveal>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[var(--navy)]/60 px-4 py-1.5 backdrop-blur">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--cyan-accent)] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--cyan-accent)]" />
+            </span>
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
               AI × Creative
             </span>
-            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Where AI meets{" "}
-              <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
-                brand craft.
-              </span>
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted-text)]">
-              We embed AI into every stage of video and design production —
-              from concept to final cut — so your brand ships more, tests
-              faster, and stays unmistakably on-brand.
-            </p>
-          </Reveal>
+          </div>
 
-          <ul className="mt-10 space-y-5">
-            {capabilities.map((c, i) => (
-              <Reveal key={c.title} delay={i * 80}>
-                <li className="flex gap-4">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[var(--blue-brand)]/15 text-[var(--cyan-accent)]">
-                    <c.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-bold text-white">
-                      {c.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-white/65">
-                      {c.desc}
-                    </p>
-                  </div>
-                </li>
-              </Reveal>
+          <h2 className="mt-6 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Where AI meets{" "}
+            <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
+              brand craft.
+            </span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+            We embed AI into every stage of video and design production —
+            from concept to final cut — so your brand ships more, tests
+            faster, and stays unmistakably on-brand.
+          </p>
+
+          {/* Floating tag chips */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+            {[
+              "Prompt → Render",
+              "On-brand",
+              "10x throughput",
+              "Cinematic cuts",
+              "Auto-captions",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/75 backdrop-blur"
+              >
+                {tag}
+              </span>
             ))}
-          </ul>
+          </div>
+        </Reveal>
+
+        {/* Capability grid — 2x2 centered */}
+        <div className="mx-auto mt-14 grid max-w-3xl gap-5 sm:grid-cols-2">
+          {capabilities.map((c, i) => (
+            <Reveal key={c.title} delay={i * 80}>
+              <div className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--navy)]/60 p-6 text-left backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--cyan-accent)] to-transparent opacity-60"
+                />
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-[var(--blue-brand)]/15 text-[var(--cyan-accent)]">
+                  <c.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 font-display text-base font-bold text-white">
+                  {c.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/65">
+                  {c.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
-        {/* Right column — prompt → render visual */}
+        {/* Stat strip */}
         <Reveal delay={120}>
-          <div className="relative mx-auto w-full max-w-md">
-            <div
-              aria-hidden
-              className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-[var(--blue-brand)]/30 to-[var(--cyan-accent)]/20 blur-2xl"
-            />
-
-            {/* Prompt card */}
-            <div className="relative rounded-xl border border-white/10 bg-[var(--navy)]/80 p-5 shadow-glow-brand backdrop-blur">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--cyan-accent)]">
-                  Prompt
-                </span>
-                <span className="ml-auto h-2 w-2 rounded-full bg-[var(--cyan-accent)] animate-pulse" />
-              </div>
-              <p className="mt-3 font-mono text-sm leading-relaxed text-white/85">
-                <span className="text-[var(--cyan-accent)]">{">"}</span>{" "}
-                30s reel · product hero · cinematic, brand palette, hook in
-                first 1.5s
-              </p>
-            </div>
-
-            {/* Connector */}
-            <div className="my-4 flex items-center gap-2 pl-6">
-              <div className="h-px flex-1 bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)]" />
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
-                Render
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[var(--cyan-accent)] to-transparent" />
-            </div>
-
-            {/* Render card stack */}
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute inset-0 translate-x-3 translate-y-3 rounded-xl border border-white/5 bg-[var(--navy)]/60"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-xl border border-white/10 bg-[var(--navy)]/80"
-              />
-              <div className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[var(--blue-brand)]/30 via-[var(--navy)] to-[var(--cyan-accent)]/20 p-6">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                    Output · v3
-                  </span>
-                  <span className="rounded-full bg-[var(--cyan-accent)]/20 px-2 py-0.5 text-[10px] font-semibold text-[var(--cyan-accent)]">
-                    On-brand
+          <div className="mx-auto mt-14 grid max-w-3xl grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-[var(--navy)]/60 py-5 backdrop-blur">
+            {[
+              { v: "10x", l: "Faster output" },
+              { v: "100%", l: "On-brand" },
+              { v: "<1m", l: "First render" },
+            ].map((s) => (
+              <div key={s.l} className="px-4">
+                <div className="font-display text-2xl font-bold text-white md:text-3xl">
+                  <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
+                    {s.v}
                   </span>
                 </div>
-                <div className="mt-5 grid grid-cols-3 gap-2">
-                  <div className="aspect-square rounded-md bg-gradient-to-br from-[var(--blue-brand)] to-[var(--blue-brand)]/40" />
-                  <div className="aspect-square rounded-md bg-gradient-to-br from-[var(--cyan-accent)]/80 to-[var(--blue-brand)]/40" />
-                  <div className="aspect-square rounded-md bg-gradient-to-br from-white/20 to-[var(--cyan-accent)]/40" />
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-xs text-white/70">
-                  <Sparkles className="h-3.5 w-3.5 text-[var(--cyan-accent)]" />
-                  Generated in 38s · 6 variations
+                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                  {s.l}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </Reveal>
       </div>
     </section>
   );
 }
+
