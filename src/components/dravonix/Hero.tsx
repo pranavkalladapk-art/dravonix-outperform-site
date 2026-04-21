@@ -91,12 +91,18 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#work"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/0 px-7 py-3.5 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              View Case Studies
+              Book a Free Strategy Call
             </a>
           </div>
+        </Reveal>
+
+        <Reveal delay={320}>
+          <p className="mt-8 text-sm font-medium uppercase tracking-[0.18em] text-[var(--cyan-accent)]/80">
+            Launching ambitious brands from zero to visible.
+          </p>
         </Reveal>
       </div>
     </section>

@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "#top", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#about", label: "About Us" },
-  { href: "#work", label: "Case Studies" },
-  { href: "#blog", label: "Blog" },
+  { href: "#process", label: "Our Process" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -54,7 +54,7 @@ export function Nav() {
             href="#contact"
             className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
           >
-            Contact Us
+            Get a Free Audit
           </a>
         </nav>
         <button
@@ -90,7 +90,7 @@ export function Nav() {
             onClick={() => setOpen(false)}
             className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
           >
-            Contact Us
+            Get a Free Audit
           </a>
         </div>
       </div>
