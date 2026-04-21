@@ -9,10 +9,10 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  { value: 200, suffix: "+", label: "Brands Scaled" },
-  { value: 98, suffix: "%", label: "Client Retention" },
-  { value: 5, suffix: "M+", label: "Content Impressions" },
-  { value: 3, suffix: "x", label: "Avg. Engagement Growth" },
+  { value: 50, suffix: "+", label: "Brands Grown" },
+  { value: 250, suffix: "%", label: "Avg. Growth" },
+  { value: 10, suffix: "M+", prefix: "$", label: "Revenue Generated" },
+  { value: 5, suffix: "+", label: "Countries" },
 ];
 
 function Counter({ metric }: { metric: Metric }) {
@@ -23,7 +23,7 @@ function Counter({ metric }: { metric: Metric }) {
   useEffect(() => {
     if (!inView || started.current) return;
     started.current = true;
-    const duration = 1600;
+    const duration = 1800;
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {
@@ -37,16 +37,16 @@ function Counter({ metric }: { metric: Metric }) {
     return () => cancelAnimationFrame(raf);
   }, [inView, metric.value]);
 
-  const display = metric.value < 10 ? n.toFixed(n === metric.value ? 0 : 1) : Math.round(n).toString();
+  const display = Math.round(n).toString();
 
   return (
-    <div ref={ref} className="text-center md:text-left">
+    <div ref={ref} className="px-4 text-center">
       <div className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
         {metric.prefix}
         {display}
         {metric.suffix}
       </div>
-      <div className="mt-2 text-xs font-medium uppercase tracking-[0.16em] text-[var(--cyan-accent)]">
+      <div className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
         {metric.label}
       </div>
     </div>
@@ -55,8 +55,8 @@ function Counter({ metric }: { metric: Metric }) {
 
 export function Metrics() {
   return (
-    <section className="bg-[var(--slate-mid)] py-14 md:py-20">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-5 md:grid-cols-4 md:px-8">
+    <section className="bg-[var(--slate-mid)] py-14 md:py-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-10 px-5 md:grid-cols-4 md:px-8 md:divide-x md:divide-white/15">
         {metrics.map((m) => (
           <Counter key={m.label} metric={m} />
         ))}

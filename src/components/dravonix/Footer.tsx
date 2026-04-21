@@ -1,32 +1,32 @@
-import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Music2 } from "lucide-react";
 import { Logo } from "./Logo";
 
 const cols = [
   {
     title: "Services",
-    links: ["Content Creation", "Marketing Strategy", "Brand Building", "Paid Social"],
+    links: ["Branding", "Performance Marketing", "Content Creation", "Marketing Strategy"],
   },
   {
     title: "Company",
-    links: ["About", "Work", "Careers", "Contact"],
+    links: ["About", "Case Studies", "Blog", "Contact"],
   },
 ];
 
 const socials = [
   { Icon: Instagram, href: "#", label: "Instagram" },
   { Icon: Linkedin, href: "#", label: "LinkedIn" },
-  { Icon: Twitter, href: "#", label: "Twitter" },
-  { Icon: Youtube, href: "#", label: "YouTube" },
+  { Icon: Music2, href: "#", label: "TikTok" },
+  { Icon: Twitter, href: "#", label: "X" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--navy)] pt-16 pb-8">
+    <footer className="border-t border-[var(--blue-brand)] bg-[var(--navy)] pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
             <Logo />
-            <p className="mt-4 text-sm text-white/55">
+            <p className="mt-4 text-sm text-[var(--muted-text)]">
               Engineered to Outperform.
             </p>
           </div>
@@ -39,7 +39,7 @@ export function Footer() {
               <ul className="mt-4 space-y-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-sm text-white/60 transition-colors hover:text-white">
+                    <a href="#" className="text-sm text-[var(--muted-text)] transition-colors hover:text-white">
                       {l}
                     </a>
                   </li>
@@ -66,7 +66,7 @@ export function Footer() {
             </div>
             <a
               href="mailto:hello@dravonix.com"
-              className="mt-6 inline-block text-sm text-white/60 transition-colors hover:text-white"
+              className="mt-6 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-white"
             >
               hello@dravonix.com
             </a>
@@ -74,8 +74,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-white/45">© 2025 Dravonix. All rights reserved.</p>
-          <p className="text-xs text-white/45">Built with precision.</p>
+          <p className="text-xs text-[var(--muted-text)]">© 2025 Dravonix. All rights reserved.</p>
+          <p className="text-xs text-[var(--muted-text)]">www.dravonix.com</p>
         </div>
       </div>
     </footer>

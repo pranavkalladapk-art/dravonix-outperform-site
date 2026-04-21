@@ -21,10 +21,10 @@ const quotes = [
 
 export function Testimonials() {
   return (
-    <section className="bg-[oklch(0.24_0.04_257)] py-24 md:py-32">
+    <section className="bg-[var(--navy)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--cyan-accent)]">
+          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
             Trusted By Operators
           </span>
           <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
@@ -35,7 +35,7 @@ export function Testimonials() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {quotes.map((t, i) => (
             <Reveal key={t.name} delay={i * 100}>
-              <figure className="flex h-full flex-col rounded-xl border border-white/10 bg-[var(--navy)] p-7 transition-colors hover:border-[var(--cyan-accent)]/50">
+              <figure className="relative flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-7 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
                 <div className="flex gap-0.5 text-[var(--cyan-accent)]">
                   {Array.from({ length: 5 }).map((_, k) => (
                     <Star key={k} className="h-4 w-4 fill-current" />
@@ -46,7 +46,7 @@ export function Testimonials() {
                 </blockquote>
                 <figcaption className="mt-6 border-t border-white/10 pt-4">
                   <div className="font-display text-sm font-bold text-white">{t.name}</div>
-                  <div className="text-xs text-white/55">{t.role}</div>
+                  <div className="text-xs text-[var(--muted-text)]">{t.role}</div>
                 </figcaption>
               </figure>
             </Reveal>
