@@ -1,15 +1,18 @@
 import { Instagram, Linkedin, Twitter, Music2 } from "lucide-react";
 import { Logo } from "./Logo";
 
-const cols = [
-  {
-    title: "Services",
-    links: ["Branding", "Performance Marketing", "Content Creation", "Marketing Strategy"],
-  },
-  {
-    title: "Company",
-    links: ["About", "Case Studies", "Blog", "Contact"],
-  },
+const serviceLinks = [
+  { label: "Brand Identity", href: "/brand-identity" },
+  { label: "Social Media Management", href: "/social-media-management" },
+  { label: "AI-Integrated Video & Design", href: "/#ai-studio" },
+  { label: "Performance Marketing", href: "/performance-marketing" },
+];
+
+const companyLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Case Studies", href: "/#portfolio" },
+  { label: "Blog", href: "#" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socials = [
@@ -31,22 +34,41 @@ export function Footer() {
             </p>
           </div>
 
-          {cols.map((c) => (
-            <div key={c.title}>
-              <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
-                {c.title}
-              </h4>
-              <ul className="mt-4 space-y-3">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-sm text-[var(--muted-text)] transition-colors hover:text-white">
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
+              Services
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {serviceLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
+              Company
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {companyLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div>
             <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
