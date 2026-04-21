@@ -12,6 +12,7 @@ const services = [
     icon: CalendarRange,
     title: "Social Media Management",
     desc: "Strategic content calendars, daily posting, community management and platform growth.",
+    href: "/social-media-management",
   },
   {
     icon: Wand2,
