@@ -137,6 +137,7 @@ export function LeadCapture() {
                   className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
                   placeholder="+1 555 123 4567"
                 />
+              </div>
               <div>
                 <label htmlFor="need" className="text-xs font-semibold uppercase tracking-widest text-white/60">
                   What do you need help with?
