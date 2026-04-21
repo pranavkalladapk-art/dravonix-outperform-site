@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/dravonix-logo.png";
+import dMark from "@/assets/dravonix-dmark.png";
 import { LogoMark } from "./LogoMark";
 
 type LogoVariant = "auto" | "white" | "blue";
@@ -8,9 +8,9 @@ type LogoVariant = "auto" | "white" | "blue";
 type LogoProps = {
   className?: string;
   /**
-   * - "auto": use the full-color transparent PNG, fall back to white SVG on error
-   * - "white": always render the solid white SVG fallback
-   * - "blue": always render the solid brand-blue SVG fallback
+   * - "auto": D-mark PNG icon + "Dravonix" wordmark text. Falls back to solid SVG on image error.
+   * - "white": always solid white SVG mark + wordmark
+   * - "blue": always solid brand-blue SVG mark + wordmark
    */
   variant?: LogoVariant;
 };
@@ -18,31 +18,45 @@ type LogoProps = {
 export function Logo({ className, variant = "auto" }: LogoProps) {
   const [imgFailed, setImgFailed] = useState(false);
 
-  const useFallback = variant !== "auto" || imgFailed;
-  const fallbackColor =
-    variant === "blue" ? "var(--blue-brand)" : "#FFFFFF";
+  if (variant !== "auto") {
+    const color = variant === "blue" ? "var(--blue-brand)" : "#FFFFFF";
+    return (
+      <a
+        href="#top"
+        aria-label="Dravonix — Engineered to Outperform"
+        className={cn("inline-flex items-center", className)}
+      >
+        <LogoMark color={color} className="h-9 w-auto md:h-10" />
+      </a>
+    );
+  }
 
   return (
     <a
       href="#top"
       aria-label="Dravonix — Engineered to Outperform"
-      className={cn("inline-flex items-center", className)}
+      className={cn("group inline-flex items-center gap-2.5", className)}
     >
-      {useFallback ? (
+      {imgFailed ? (
         <LogoMark
-          color={fallbackColor}
-          className="h-9 w-auto md:h-10"
+          color="var(--blue-brand)"
+          showWordmark={false}
+          className="h-9 w-9"
         />
       ) : (
         <img
-          src={logo}
-          alt="Dravonix"
+          src={dMark}
+          alt=""
+          aria-hidden="true"
           onError={() => setImgFailed(true)}
-          className="h-10 w-auto object-contain md:h-12"
+          className="h-9 w-9 object-contain md:h-10 md:w-10"
           loading="eager"
           decoding="async"
         />
       )}
+      <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
+        Dravonix
+      </span>
     </a>
   );
 }
