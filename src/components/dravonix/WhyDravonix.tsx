@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 import { Reveal } from "./Reveal";
-import dMark from "@/assets/dravonix-dmark.png";
 
 const reasons = [
   "Boutique attention — your brand is never one of fifty clients",
@@ -45,13 +44,27 @@ export function WhyDravonix() {
           <div aria-hidden className="absolute inset-0">
             <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.4)] blur-3xl" />
           </div>
-          <img
-            src={dMark}
-            alt="Dravonix mark"
-            className="relative h-64 w-64 object-contain md:h-80 md:w-80"
-            loading="lazy"
-            decoding="async"
-          />
+          <svg viewBox="0 0 320 320" className="relative h-64 w-64 md:h-80 md:w-80" fill="none">
+            <defs>
+              <linearGradient id="why-dgrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stopColor="#2563EB" />
+                <stop offset="100%" stopColor="#06B6D4" />
+              </linearGradient>
+              <filter id="why-dglow">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#why-dglow)">
+              <path d="M70 50 H170 a100 110 0 0 1 0 220 H70 Z" stroke="url(#why-dgrad)" strokeWidth="3" />
+              <path d="M100 90 H160 a70 70 0 0 1 0 140 H100 Z" stroke="url(#why-dgrad)" strokeWidth="2" opacity="0.55" />
+              <path d="M130 130 H155 a30 30 0 0 1 0 60 H130 Z" stroke="url(#why-dgrad)" strokeWidth="2" opacity="0.35" />
+            </g>
+            <path d="M50 160 L240 160" stroke="#06B6D4" strokeWidth="1" opacity="0.5" />
+          </svg>
         </Reveal>
       </div>
     </section>
