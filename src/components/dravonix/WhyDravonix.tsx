@@ -40,7 +40,7 @@ export function WhyDravonix() {
 
         <Reveal
           delay={120}
-          className="relative flex min-h-[360px] items-center justify-center overflow-hidden border-l border-white/5 bg-[var(--card-dark)] p-10"
+          className="relative flex min-h-[360px] items-center justify-center overflow-hidden bg-[var(--navy)] p-10 lg:border-l lg:border-white/5"
         >
           <div aria-hidden className="absolute inset-0">
             <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.4)] blur-3xl" />
