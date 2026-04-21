@@ -56,8 +56,10 @@
 
   /* Brand palette (oklch equivalents of hex) */
   --navy: oklch(0.196 0.04 257);          /* #0B1220 */
+  --card-dark: oklch(0.243 0.03 261);     /* #111827 */
   --slate-mid: oklch(0.401 0.043 257);    /* #334155 */
   --offwhite: oklch(0.984 0.003 247);     /* #F8FAFC */
+  --muted-text: oklch(0.704 0.03 257);    /* #94A3B8 */
   --blue-brand: oklch(0.546 0.219 263);   /* #2563EB */
   --cyan-accent: oklch(0.738 0.13 215);   /* #06B6D4 */
 
@@ -152,4 +154,35 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  @keyframes wave-drift {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(-4%, -2%, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+  .animate-wave-drift { animation: wave-drift 18s ease-in-out infinite; }
+
+  @keyframes streak {
+    0% { transform: translateX(-30%); opacity: 0; }
+    20% { opacity: 0.6; }
+    100% { transform: translateX(130%); opacity: 0; }
+  }
+  .animate-streak { animation: streak 7s linear infinite; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 28s linear infinite; }
+
+  @keyframes draw-line {
+    0% { stroke-dashoffset: 1000; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  @keyframes ambient-glow {
+    0%, 100% { opacity: 0.45; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.06); }
+  }
+  .animate-ambient { animation: ambient-glow 6s ease-in-out infinite; }
 }
