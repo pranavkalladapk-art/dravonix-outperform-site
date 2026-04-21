@@ -1,46 +1,43 @@
 
-
 ## Goal
-Tell visitors that Dravonix offers **AI-integrated video & design creation** — make it feel like a signature differentiator, not a buried bullet.
+Make the "Brand Identity" service card on the home page navigate to a new dedicated **Brand Identity** page that presents the full brand identity offering as described.
 
-## Recommended placement (3 coordinated touchpoints)
+## Changes
 
-**1. Update the existing "Content Creation" service card → "AI-Integrated Video & Design"**
-In `src/components/dravonix/Services.tsx`, replace the `Film` card with a sharper, AI-forward version:
-- Title: `AI-Integrated Video & Design`
-- Icon: swap `Film` for `Wand2` (lucide) to signal AI
-- Desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft."
+**1. New route: `src/routes/brand-identity.tsx`**
+A standalone page (not a hash anchor) following the TanStack Start route convention used elsewhere in the site.
 
-**2. Add a new dedicated section: "AI-Powered Creative Studio"**
-New component `src/components/dravonix/AIStudio.tsx`, inserted in `src/routes/index.tsx` between `<Services />` and `<Process />`. This is the hero moment for the AI message.
+Page sections (all on `--navy` background, reusing existing tokens and the `Reveal` scroll-in pattern):
 
-Layout (2-column on desktop, stacked on mobile, dark `--card-dark` background with cyan accent glow consistent with the rest of the site):
-- **Left column**: eyebrow `AI × Creative`, headline `Where AI meets brand craft.`, supporting paragraph, and 4 capability bullets with icons:
-  - `Sparkles` — AI-assisted video editing & cuts
-  - `Wand2` — Generative design & visual concepts
-  - `Zap` — Rapid iteration cycles (10x throughput)
-  - `Layers` — Human-led art direction on every output
-- **Right column**: animated visual — a stylized "prompt → render" card stack using the existing gradient/glow tokens (no new assets needed), reusing the `animate-ambient` and gradient patterns already in `Hero.tsx` for visual consistency.
+- **Hero block** (centered, max-w-4xl)
+  - Eyebrow: `Brand Identity`
+  - Headline (font-display, text-5xl/6xl, bold, white): *"Build a brand that commands attention."*
+  - Description paragraph: Dravonix creates complete brand identity systems — logo design, visual identity, tone of voice, and brand guidelines — combining strategy and creativity to build powerful, memorable brands.
 
-**3. Add a third value pillar mention**
-In `src/components/dravonix/ValuePillars.tsx`, the existing 3 pillars stay, but update the middle pillar copy to reference AI:
-- Title stays: `Content That Converts`
-- Desc: "AI-accelerated production meets human creative direction — content built to stop the scroll and start conversations."
+- **Key Services grid** (5 cards, responsive: 1 col mobile / 2 col md / 3 col lg, last row centered)
+  Each card uses the same styling language as `Services.tsx` (rounded-xl, border white/10, `--card-dark` bg, top accent bar, icon tile, hover lift + `shadow-glow-brand`):
+  1. `PenTool` — Logo & Brand Mark Design
+  2. `Palette` — Visual Identity System
+  3. `MessageSquare` — Tone of Voice & Messaging
+  4. `BookOpen` — Brand Guidelines
+  5. `Target` — Brand Positioning
 
-## Why this placement
-- **Services card** = where buyers scan for capabilities (must appear here)
-- **Dedicated AIStudio section** = gives the differentiator room to breathe and be remembered
-- **ValuePillars mention** = reinforces it early in the scroll, before users reach Services
+- **CTA block** (centered)
+  - Premium button: **"Contact →"** linking to `/#contact` (the existing `LeadCapture` section on home).
+  - Styled with `bg-[var(--blue-brand)]`, white text, `shadow-glow-brand`, hover lift — matching the primary CTA style used in `Hero.tsx` / `CTA.tsx`.
+
+- Page-level `head()` with unique title + description + og:title/og:description for SEO (per TanStack routing rules — no shared metadata with home).
+
+**2. Wire navigation from the Brand Identity service card**
+In `src/components/dravonix/Services.tsx`, add `href: "/brand-identity"` to the `Brand Identity` service object. The existing `href` resolution in the card already supports this — no component logic changes needed. The "Learn More" link will now route to the new page.
 
 ## Files touched
-- `src/components/dravonix/Services.tsx` (edit one card)
-- `src/components/dravonix/ValuePillars.tsx` (edit one description)
-- `src/components/dravonix/AIStudio.tsx` (new)
-- `src/routes/index.tsx` (import + place new section)
+- `src/routes/brand-identity.tsx` (new)
+- `src/components/dravonix/Services.tsx` (add `href` to one item)
 
 ## Design notes
-- Reuses existing tokens: `--navy`, `--card-dark`, `--blue-brand`, `--cyan-accent`, `shadow-glow-brand`, `animate-ambient`
+- Reuses existing tokens: `--navy`, `--card-dark`, `--blue-brand`, `--cyan-accent`, `shadow-glow-brand`
 - No new dependencies, no new assets
-- Maintains the `Reveal` scroll-in pattern used across the site
-- Section ID `ai-studio` so it can be linked from nav later if desired
-
+- Lucide icons already available in the project
+- Route file uses `createFileRoute("/brand-identity")` per TanStack Start conventions
+- Contact button deep-links back to the home page's `#contact` section so the existing `LeadCapture` form remains the single submission point
