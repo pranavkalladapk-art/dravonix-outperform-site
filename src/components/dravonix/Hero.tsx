@@ -64,24 +64,17 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-5 md:px-8">
-        <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white/70 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]" />
-            Engineered to Outperform
-          </span>
-        </Reveal>
-
         <Reveal delay={80}>
-          <h1 className="mt-6 max-w-5xl font-display text-5xl font-bold leading-[1.02] tracking-tight text-white md:text-7xl lg:text-8xl">
+          <h1 className="max-w-5xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[5.5rem]">
             We Don't Market.
             <br />
             We Engineer{" "}
-            <span className="text-[var(--cyan-accent)]">GROWTH.</span>
+            <span className="text-[var(--blue-brand)]">Growth.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={160}>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
             Data-driven strategies. Creative excellence.
             <br className="hidden sm:block" /> Results that speak.
           </p>
