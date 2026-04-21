@@ -100,9 +100,15 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={320}>
-          <p className="mt-8 text-sm font-medium uppercase tracking-[0.18em] text-[var(--cyan-accent)]/80">
-            Launching ambitious brands from zero to visible.
-          </p>
+          <div className="mt-8 flex items-center gap-4">
+            <span aria-hidden className="h-px w-10 bg-gradient-to-r from-transparent via-[var(--cyan-accent)]/70 to-[var(--cyan-accent)]" />
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/80">
+              Launching ambitious brands from{" "}
+              <span className="text-[var(--blue-brand)]">zero</span> to{" "}
+              <span className="text-[var(--blue-brand)]">visible</span>.
+            </p>
+            <span aria-hidden className="h-px w-10 bg-gradient-to-l from-transparent via-[var(--cyan-accent)]/70 to-[var(--cyan-accent)]" />
+          </div>
         </Reveal>
       </div>
     </section>
