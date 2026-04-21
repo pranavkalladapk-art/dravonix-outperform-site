@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
+  id: '/social-media-management',
+  path: '/social-media-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrandIdentityRoute = BrandIdentityRouteImport.update({
   id: '/brand-identity',
   path: '/brand-identity',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/brand-identity'
+  fullPaths: '/' | '/brand-identity' | '/social-media-management'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/brand-identity'
-  id: '__root__' | '/' | '/brand-identity'
+  to: '/' | '/brand-identity' | '/social-media-management'
+  id: '__root__' | '/' | '/brand-identity' | '/social-media-management'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
+  SocialMediaManagementRoute: typeof SocialMediaManagementRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/social-media-management': {
+      id: '/social-media-management'
+      path: '/social-media-management'
+      fullPath: '/social-media-management'
+      preLoaderRoute: typeof SocialMediaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brand-identity': {
       id: '/brand-identity'
       path: '/brand-identity'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BrandIdentityRoute: BrandIdentityRoute,
+  SocialMediaManagementRoute: SocialMediaManagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
