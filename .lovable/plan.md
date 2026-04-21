@@ -1,43 +1,46 @@
 
-# Dravonix — One-Page Marketing Site
 
-A bold, dark-first single-page site for Dravonix, built to feel like a high-performance tech brand. Sharp typography, geometric layout, and subtle motion — engineered for clarity and conversion.
+## Goal
+Tell visitors that Dravonix offers **AI-integrated video & design creation** — make it feel like a signature differentiator, not a buried bullet.
 
-## Structure (single page, anchor-scroll nav)
+## Recommended placement (3 coordinated touchpoints)
 
-1. **Sticky Nav** — Logo left, links right (Services, Work, About, Contact). Transparent on hero, darkens with blur on scroll. Hamburger drawer on mobile.
-2. **Hero** — Dark navy with subtle abstract arrow/speed motion graphic (SVG). Headline "Engineered to Outperform." with blue→cyan gradient text. Sub-headline + dual CTAs.
-3. **Metrics Bar** — Slate background, 4 animated counters (count up when scrolled into view): 200+ Brands Scaled · 98% Client Retention · 5M+ Content Impressions · 3x Avg. Engagement Growth.
-4. **Services** — Light section, 3 cards (Content Creation, Marketing Strategy, Brand Building) with blue Lucide icons, dark borders, hover lift, "Learn More →" links.
-5. **How We Work** — Dark section, 3-step horizontal timeline (Discover → Build → Scale) with Speed/Precision/Progress icons, cyan connector line. Stacks vertically on mobile.
-6. **Portfolio** — Light section, 6 case study cards in 2/3-column grid. Each shows brand name, platform icons, and headline metric in blue (e.g. "+412% reach in 90 days").
-7. **About** — Split layout: dark navy copy on left, abstract geometric "D" mark on right.
-8. **Testimonials** — Dark section, 3 quote cards with star ratings, name, company.
-9. **CTA Banner** — Full-width primary blue, "Ready to Outperform?" + white "Book a Free Strategy Call" button.
-10. **Footer** — Dark navy, 4 columns (Brand, Services, Company, Connect with social icons), bottom copyright bar.
+**1. Update the existing "Content Creation" service card → "AI-Integrated Video & Design"**
+In `src/components/dravonix/Services.tsx`, replace the `Film` card with a sharper, AI-forward version:
+- Title: `AI-Integrated Video & Design`
+- Icon: swap `Film` for `Wand2` (lucide) to signal AI
+- Desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft."
 
-## Design System
+**2. Add a new dedicated section: "AI-Powered Creative Studio"**
+New component `src/components/dravonix/AIStudio.tsx`, inserted in `src/routes/index.tsx` between `<Services />` and `<Process />`. This is the hero moment for the AI message.
 
-- **Tokens** (added to `src/styles.css`): primary `#2563EB`, accent cyan `#06B6D4`, navy bg `#0B1220`, slate `#334155`, off-white `#F8FAFC`. Wired into Tailwind theme variables.
-- **Font**: Space Grotesk (400/500/700) loaded via Google Fonts in `__root.tsx` head.
-- **Gradient**: blue→cyan reserved exclusively for hero headline + primary CTAs.
-- **Icons**: Lucide React (Zap for Speed, Target for Precision, TrendingUp for Progress, etc.).
+Layout (2-column on desktop, stacked on mobile, dark `--card-dark` background with cyan accent glow consistent with the rest of the site):
+- **Left column**: eyebrow `AI × Creative`, headline `Where AI meets brand craft.`, supporting paragraph, and 4 capability bullets with icons:
+  - `Sparkles` — AI-assisted video editing & cuts
+  - `Wand2` — Generative design & visual concepts
+  - `Zap` — Rapid iteration cycles (10x throughput)
+  - `Layers` — Human-led art direction on every output
+- **Right column**: animated visual — a stylized "prompt → render" card stack using the existing gradient/glow tokens (no new assets needed), reusing the `animate-ambient` and gradient patterns already in `Hero.tsx` for visual consistency.
 
-## Motion & Interactions
+**3. Add a third value pillar mention**
+In `src/components/dravonix/ValuePillars.tsx`, the existing 3 pillars stay, but update the middle pillar copy to reference AI:
+- Title stays: `Content That Converts`
+- Desc: "AI-accelerated production meets human creative direction — content built to stop the scroll and start conversations."
 
-- Scroll-triggered fade/slide-in via IntersectionObserver hook (`useInView`) — subtle, 400ms.
-- Animated counters using `requestAnimationFrame`, triggered once on view.
-- Sticky nav adds backdrop-blur + dark bg after 40px scroll.
-- Smooth scroll for in-page anchor links.
-- Hover: card lift, button glow on primary CTAs.
+## Why this placement
+- **Services card** = where buyers scan for capabilities (must appear here)
+- **Dedicated AIStudio section** = gives the differentiator room to breathe and be remembered
+- **ValuePillars mention** = reinforces it early in the scroll, before users reach Services
 
-## Tech
+## Files touched
+- `src/components/dravonix/Services.tsx` (edit one card)
+- `src/components/dravonix/ValuePillars.tsx` (edit one description)
+- `src/components/dravonix/AIStudio.tsx` (new)
+- `src/routes/index.tsx` (import + place new section)
 
-- Single route `src/routes/index.tsx` (replaces placeholder) composed of section components in `src/components/sections/`.
-- Shared `useInView` hook in `src/hooks/`.
-- Fully responsive: mobile-first, tablet at md, desktop at lg.
-- No backend, no DB — pure static marketing page, fast load.
+## Design notes
+- Reuses existing tokens: `--navy`, `--card-dark`, `--blue-brand`, `--cyan-accent`, `shadow-glow-brand`, `animate-ambient`
+- No new dependencies, no new assets
+- Maintains the `Reveal` scroll-in pattern used across the site
+- Section ID `ai-studio` so it can be linked from nav later if desired
 
-## Copy
-
-Sharp, action-led, numbers-forward. Every line written in the Dravonix voice — confident, engineered, no filler.
