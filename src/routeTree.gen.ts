@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
+import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
   id: '/social-media-management',
   path: '/social-media-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
+  id: '/performance-marketing',
+  path: '/performance-marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrandIdentityRoute = BrandIdentityRouteImport.update({
@@ -32,30 +38,47 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/brand-identity' | '/social-media-management'
+  fullPaths:
+    | '/'
+    | '/brand-identity'
+    | '/performance-marketing'
+    | '/social-media-management'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/brand-identity' | '/social-media-management'
-  id: '__root__' | '/' | '/brand-identity' | '/social-media-management'
+  to:
+    | '/'
+    | '/brand-identity'
+    | '/performance-marketing'
+    | '/social-media-management'
+  id:
+    | '__root__'
+    | '/'
+    | '/brand-identity'
+    | '/performance-marketing'
+    | '/social-media-management'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
+  PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
 }
 
@@ -66,6 +89,13 @@ declare module '@tanstack/react-router' {
       path: '/social-media-management'
       fullPath: '/social-media-management'
       preLoaderRoute: typeof SocialMediaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/performance-marketing': {
+      id: '/performance-marketing'
+      path: '/performance-marketing'
+      fullPath: '/performance-marketing'
+      preLoaderRoute: typeof PerformanceMarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brand-identity': {
@@ -88,6 +118,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BrandIdentityRoute: BrandIdentityRoute,
+  PerformanceMarketingRoute: PerformanceMarketingRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
 }
 export const routeTree = rootRouteImport
