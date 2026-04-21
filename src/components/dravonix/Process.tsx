@@ -27,11 +27,11 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="relative overflow-hidden bg-[var(--navy)] py-24 md:py-32">
+    <section id="process" className="relative overflow-hidden bg-[var(--navy)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-            How We Work
+            Our Process
           </span>
           <h2 className="mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
             A system, not a sprint.
