@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter, Music2 } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Logo } from "./Logo";
 
 const serviceLinks = [
@@ -15,9 +15,9 @@ const companyLinks = [
 ];
 
 const socials = [
+  { Icon: Facebook, href: "#", label: "Facebook" },
   { Icon: Instagram, href: "#", label: "Instagram" },
   { Icon: Linkedin, href: "#", label: "LinkedIn" },
-  { Icon: Music2, href: "#", label: "TikTok" },
   { Icon: Twitter, href: "#", label: "X" },
 ];
 
