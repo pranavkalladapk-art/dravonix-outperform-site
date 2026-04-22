@@ -224,6 +224,29 @@ Reply directly to this email to respond to ${data.name}.`;
   </div>
 </div>`;
 
+    // Persist enquiry to DB (best-effort — email is the primary path)
+    try {
+      const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+      const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+      if (SUPABASE_URL && SERVICE_ROLE) {
+        const dbRes = await fetch(`${SUPABASE_URL}/rest/v1/contact_enquiries`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: SERVICE_ROLE,
+            Authorization: `Bearer ${SERVICE_ROLE}`,
+            Prefer: "return=minimal",
+          },
+          body: JSON.stringify(data),
+        });
+        if (!dbRes.ok) {
+          console.error("DB insert failed:", dbRes.status, await dbRes.text());
+        }
+      }
+    } catch (dbErr) {
+      console.error("DB insert error:", dbErr);
+    }
+
     await sendViaSmtp({
       host: "smtp.zoho.com",
       port: 465,
