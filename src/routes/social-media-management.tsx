@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarRange, Send, Users, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarRange, Send, Users, TrendingUp } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
