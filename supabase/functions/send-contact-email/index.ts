@@ -1,5 +1,6 @@
 // Sends contact form enquiries to admin@dravonixmedia.com via Zoho SMTP.
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
+// Implements a minimal SMTP-over-TLS client using Deno TLS sockets to keep
+// CPU usage low (heavy SMTP libs hit the Edge Function CPU limit).
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -8,6 +9,8 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
+const TO_ADDRESS = "admin@dravonixmedia.com";
+
 interface Payload {
   name: string;
   business: string;
@@ -15,8 +18,6 @@ interface Payload {
   phone: string;
   need: string;
 }
-
-const TO_ADDRESS = "admin@dravonixmedia.com";
 
 function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
@@ -42,26 +43,108 @@ function validate(input: unknown): Payload | string {
 
   if (!name || name.length > 100) return "Invalid name";
   if (!business || business.length > 100) return "Invalid business name";
-  if (!email || email.length > 255 || !isValidEmail(email))
-    return "Invalid email";
+  if (!email || email.length > 255 || !isValidEmail(email)) return "Invalid email";
   if (phone.length < 7 || phone.length > 20 || !/^[+\d\s()-]+$/.test(phone))
     return "Invalid contact number";
-  const allowed = [
-    "Branding",
-    "Social Media",
-    "Content",
-    "Strategy",
-    "All of the above",
-  ];
+  const allowed = ["Branding", "Social Media", "Content", "Strategy", "All of the above"];
   if (!allowed.includes(need)) return "Invalid selection";
 
   return { name, business, email, phone, need };
 }
 
-Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+// Minimal SMTP client over a TLS socket.
+async function sendViaSmtp(opts: {
+  host: string;
+  port: number;
+  user: string;
+  pass: string;
+  from: string;
+  fromName: string;
+  to: string;
+  replyTo: string;
+  subject: string;
+  text: string;
+  html: string;
+}) {
+  const conn = await Deno.connectTls({ hostname: opts.host, port: opts.port });
+  const enc = new TextEncoder();
+  const dec = new TextDecoder();
+  const buf = new Uint8Array(4096);
+
+  async function read(): Promise<string> {
+    const n = await conn.read(buf);
+    if (n === null) throw new Error("SMTP connection closed");
+    return dec.decode(buf.subarray(0, n));
   }
+  async function write(line: string) {
+    await conn.write(enc.encode(line + "\r\n"));
+  }
+  async function expect(code: string, label: string) {
+    const resp = await read();
+    if (!resp.startsWith(code)) {
+      throw new Error(`SMTP ${label} failed: ${resp.trim()}`);
+    }
+    return resp;
+  }
+
+  try {
+    await expect("220", "greet");
+    await write(`EHLO dravonixmedia.com`);
+    await expect("250", "EHLO");
+
+    await write("AUTH LOGIN");
+    await expect("334", "AUTH");
+    await write(btoa(opts.user));
+    await expect("334", "AUTH user");
+    await write(btoa(opts.pass));
+    await expect("235", "AUTH pass");
+
+    await write(`MAIL FROM:<${opts.from}>`);
+    await expect("250", "MAIL FROM");
+    await write(`RCPT TO:<${opts.to}>`);
+    await expect("250", "RCPT TO");
+    await write("DATA");
+    await expect("354", "DATA");
+
+    const boundary = "----=_DRX_" + crypto.randomUUID().replace(/-/g, "");
+    const headers = [
+      `From: "${opts.fromName}" <${opts.from}>`,
+      `To: <${opts.to}>`,
+      `Reply-To: ${opts.replyTo}`,
+      `Subject: ${opts.subject}`,
+      `MIME-Version: 1.0`,
+      `Content-Type: multipart/alternative; boundary="${boundary}"`,
+      ``,
+      `--${boundary}`,
+      `Content-Type: text/plain; charset="utf-8"`,
+      `Content-Transfer-Encoding: 8bit`,
+      ``,
+      opts.text,
+      ``,
+      `--${boundary}`,
+      `Content-Type: text/html; charset="utf-8"`,
+      `Content-Transfer-Encoding: 8bit`,
+      ``,
+      opts.html,
+      ``,
+      `--${boundary}--`,
+      ``,
+      `.`,
+    ].join("\r\n");
+
+    await conn.write(enc.encode(headers + "\r\n"));
+    await expect("250", "send");
+
+    await write("QUIT");
+    // best-effort read of 221, ignore errors
+    try { await read(); } catch { /* noop */ }
+  } finally {
+    try { conn.close(); } catch { /* noop */ }
+  }
+}
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
       status: 405,
@@ -84,23 +167,11 @@ Deno.serve(async (req) => {
     const SMTP_PASSWORD = Deno.env.get("ZOHO_SMTP_PASSWORD");
     if (!SMTP_USER || !SMTP_PASSWORD) {
       console.error("Missing Zoho SMTP credentials");
-      return new Response(
-        JSON.stringify({ error: "Email service not configured" }),
-        {
-          status: 500,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        },
-      );
+      return new Response(JSON.stringify({ error: "Email service not configured" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
-
-    const client = new SMTPClient({
-      connection: {
-        hostname: "smtp.zoho.com",
-        port: 465,
-        tls: true,
-        auth: { username: SMTP_USER, password: SMTP_PASSWORD },
-      },
-    });
 
     const submittedAt = new Date().toUTCString();
     const subject = `New enquiry from ${data.name} — ${data.business}`;
@@ -117,8 +188,7 @@ Submitted: ${submittedAt}
 
 Reply directly to this email to respond to ${data.name}.`;
 
-    const html = `
-<div style="font-family:Arial,sans-serif;background:#0b1220;padding:24px;color:#fff;">
+    const html = `<div style="font-family:Arial,sans-serif;background:#0b1220;padding:24px;color:#fff;">
   <div style="max-width:560px;margin:0 auto;background:#0f1a33;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
     <div style="padding:20px 24px;background:linear-gradient(135deg,#1d4ed8,#06b6d4);">
       <h1 style="margin:0;font-size:18px;letter-spacing:.5px;">New enquiry — Dravonix</h1>
@@ -135,18 +205,21 @@ Reply directly to this email to respond to ${data.name}.`;
       <p style="margin-top:8px;font-size:12px;color:#9ca3af;">Reply directly to this email to respond.</p>
     </div>
   </div>
-</div>`.trim();
+</div>`;
 
-    await client.send({
-      from: `Dravonix Website <${SMTP_USER}>`,
+    await sendViaSmtp({
+      host: "smtp.zoho.com",
+      port: 465,
+      user: SMTP_USER,
+      pass: SMTP_PASSWORD,
+      from: SMTP_USER,
+      fromName: "Dravonix Website",
       to: TO_ADDRESS,
       replyTo: `${data.name} <${data.email}>`,
       subject,
-      content: text,
+      text,
       html,
     });
-
-    await client.close();
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
@@ -154,12 +227,9 @@ Reply directly to this email to respond to ${data.name}.`;
     });
   } catch (err) {
     console.error("send-contact-email error:", err);
-    return new Response(
-      JSON.stringify({ error: "Failed to send enquiry" }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      },
-    );
+    return new Response(JSON.stringify({ error: "Failed to send enquiry" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 });
