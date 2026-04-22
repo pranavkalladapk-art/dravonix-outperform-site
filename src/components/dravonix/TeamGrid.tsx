@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import pranavPhoto from "@/assets/team-pranav.jpg";
 
 type Member = {
   initials: string;
@@ -9,6 +10,7 @@ type Member = {
   tagline: string;
   vision: string;
   gradient: string;
+  photo?: string;
 };
 
 const members: Member[] = [
@@ -20,6 +22,7 @@ const members: Member[] = [
     vision:
       "To build Dravonix into a digitally driven powerhouse where technology and creativity merge — creating scalable systems, high-impact content, and seamless brand experiences that set new industry standards.",
     gradient: "from-[var(--cyan-accent)]/40 via-[var(--blue-brand)]/20 to-transparent",
+    photo: pranavPhoto,
   },
   {
     initials: "SS",
@@ -68,10 +71,22 @@ export function TeamGrid() {
                     m.gradient,
                   )}
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_60%)]" />
-                <span className="relative font-display text-6xl font-bold tracking-tight text-white/90">
-                  {m.initials}
-                </span>
+                {m.photo ? (
+                  <img
+                    src={m.photo}
+                    alt={`${m.name} portrait`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_60%)]" />
+                    <span className="relative font-display text-6xl font-bold tracking-tight text-white/90">
+                      {m.initials}
+                    </span>
+                  </>
+                )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/60 via-transparent to-transparent" />
               </div>
 
               <h3 className="font-display text-2xl font-bold tracking-tight text-white">
