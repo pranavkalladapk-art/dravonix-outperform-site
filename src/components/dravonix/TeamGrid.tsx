@@ -33,6 +33,7 @@ const members: Member[] = [
     vision:
       "To shape Dravonix as a storytelling-first agency — where every brand communicates with clarity, emotion, and purpose, turning content into meaningful connections that audiences trust and remember.",
     gradient: "from-[var(--blue-brand)]/40 via-[var(--cyan-accent)]/20 to-transparent",
+    photo: sreeragPhoto,
   },
   {
     initials: "AR",
