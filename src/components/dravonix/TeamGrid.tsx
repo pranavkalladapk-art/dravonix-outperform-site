@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
+import pranavPhoto from "@/assets/team-pranav.jpg";
 
 type Member = {
   initials: string;
@@ -9,6 +10,7 @@ type Member = {
   tagline: string;
   vision: string;
   gradient: string;
+  photo?: string;
 };
 
 const members: Member[] = [
