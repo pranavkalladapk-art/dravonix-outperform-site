@@ -13,6 +13,8 @@ import { Route as SocialMediaManagementRouteImport } from './routes/social-media
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
 const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
   id: '/social-media-management',
@@ -34,18 +36,32 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEnquiriesRoute = AdminEnquiriesRouteImport.update({
+  id: '/admin/enquiries',
+  path: '/admin/enquiries',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,6 +69,8 @@ export interface FileRoutesById {
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/admin/enquiries': typeof AdminEnquiriesRoute
+  '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -61,18 +79,24 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/admin/enquiries'
+    | '/admin/login'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/admin/enquiries'
+    | '/admin/login'
   id:
     | '__root__'
     | '/'
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/admin/enquiries'
+    | '/admin/login'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -80,6 +104,8 @@ export interface RootRouteChildren {
   BrandIdentityRoute: typeof BrandIdentityRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
+  AdminEnquiriesRoute: typeof AdminEnquiriesRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -112,6 +138,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/enquiries': {
+      id: '/admin/enquiries'
+      path: '/admin/enquiries'
+      fullPath: '/admin/enquiries'
+      preLoaderRoute: typeof AdminEnquiriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -120,6 +160,8 @@ const rootRouteChildren: RootRouteChildren = {
   BrandIdentityRoute: BrandIdentityRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
+  AdminEnquiriesRoute: AdminEnquiriesRoute,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
