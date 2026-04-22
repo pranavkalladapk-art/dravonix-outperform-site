@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
@@ -16,6 +17,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
   id: '/social-media-management',
   path: '/social-media-management',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/social-media-management': typeof SocialMediaManagementRoute
+  '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/team'
     | '/admin/enquiries'
     | '/admin/login'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/team'
     | '/admin/enquiries'
     | '/admin/login'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/performance-marketing'
     | '/social-media-management'
+    | '/team'
     | '/admin/enquiries'
     | '/admin/login'
   fileRoutesById: FileRoutesById
@@ -104,12 +116,20 @@ export interface RootRouteChildren {
   BrandIdentityRoute: typeof BrandIdentityRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
+  TeamRoute: typeof TeamRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/social-media-management': {
       id: '/social-media-management'
       path: '/social-media-management'
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrandIdentityRoute: BrandIdentityRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
+  TeamRoute: TeamRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
 }

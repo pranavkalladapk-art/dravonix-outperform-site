@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 export function About() {
@@ -23,13 +24,13 @@ export function About() {
           </p>
         </Reveal>
         <Reveal delay={200}>
-          <a
-            href="#contact"
+          <Link
+            to="/team"
             className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan-accent)]"
           >
             Meet the Team
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>
