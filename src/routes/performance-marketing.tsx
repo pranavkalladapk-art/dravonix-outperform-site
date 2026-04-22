@@ -53,29 +53,31 @@ function PerformanceMarketingPage() {
       <Nav />
 
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
             <Link
               to="/"
-              className="mb-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Home
             </Link>
           </Reveal>
-          <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-              Performance Marketing
-            </span>
-            <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
-              Turn ad spend into measurable growth.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-              Dravonix delivers performance marketing through paid social campaigns, advanced
-              audience targeting, and strategic funnel design — all focused on maximizing ROI and
-              scaling results efficiently.
-            </p>
-          </Reveal>
+          <div className="mt-8 text-center">
+            <Reveal>
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+                Performance Marketing
+              </span>
+              <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+                Turn ad spend into measurable growth.
+              </h1>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+                Dravonix delivers performance marketing through paid social campaigns, advanced
+                audience targeting, and strategic funnel design — all focused on maximizing ROI and
+                scaling results efficiently.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
