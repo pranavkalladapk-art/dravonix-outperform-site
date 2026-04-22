@@ -15,9 +15,9 @@ const companyLinks = [
 ];
 
 const socials = [
-  { Icon: Instagram, href: "#", label: "Instagram" },
-  { Icon: Linkedin, href: "#", label: "LinkedIn" },
-  { Icon: Twitter, href: "#", label: "X" },
+  { Icon: Instagram, href: "https://www.instagram.com/dravonixmedia/", label: "Instagram" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/dravonix/", label: "LinkedIn" },
+  { Icon: Twitter, href: "https://x.com/dravonixmedia", label: "X" },
 ];
 
 export function Footer() {
