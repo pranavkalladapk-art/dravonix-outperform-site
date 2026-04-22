@@ -1,43 +1,58 @@
 
+
 ## Goal
-Make the "Brand Identity" service card on the home page navigate to a new dedicated **Brand Identity** page that presents the full brand identity offering as described.
+Make the contact form on the home page actually deliver enquiries to **admin@dravonixmedia.com** (your Zoho mailbox), instead of only showing a success toast.
+
+## Approach
+The form currently runs only in the browser — there is no backend, so it can't send mail. We'll add a small server endpoint that receives the form submission and emails it to your Zoho address. The visitor never sees your address; it stays server-side.
+
+## How email will be sent
+
+I recommend using **Lovable's built-in email infrastructure** (no extra account, no API keys to manage). It needs:
+
+1. **Lovable Cloud** enabled on the project (one-click).
+2. A **verified sender domain** — a subdomain of `dravonixmedia.com` (e.g. `notify.dravonixmedia.com`) delegated to Lovable's nameservers. Enquiries will be sent **from** something like `noreply@dravonixmedia.com` and delivered **to** `admin@dravonixmedia.com`.
+3. Email infrastructure scaffolding (queues, retry, suppression — set up automatically).
+
+> Important: your Zoho setup for `admin@dravonixmedia.com` (MX records on the root domain) is **not affected**. We only delegate a small `notify.` subdomain for sending. Receiving on `admin@dravonixmedia.com` continues to work exactly as today.
+
+If you prefer to send through Zoho's own SMTP/API instead, that's possible but requires creating an app password / API token in Zoho and storing it as a secret — let me know and I'll switch the plan.
 
 ## Changes
 
-**1. New route: `src/routes/brand-identity.tsx`**
-A standalone page (not a hash anchor) following the TanStack Start route convention used elsewhere in the site.
+**1. Enable Lovable Cloud** (prerequisite for any backend/email).
 
-Page sections (all on `--navy` background, reusing existing tokens and the `Reveal` scroll-in pattern):
+**2. Set up sender email domain** — guided dialog where you'll add 2 NS records at your domain registrar for `notify.dravonixmedia.com`. Verification can take a few minutes to a few hours.
 
-- **Hero block** (centered, max-w-4xl)
-  - Eyebrow: `Brand Identity`
-  - Headline (font-display, text-5xl/6xl, bold, white): *"Build a brand that commands attention."*
-  - Description paragraph: Dravonix creates complete brand identity systems — logo design, visual identity, tone of voice, and brand guidelines — combining strategy and creativity to build powerful, memorable brands.
+**3. Email infrastructure setup** — automatic, creates the send queue and tables.
 
-- **Key Services grid** (5 cards, responsive: 1 col mobile / 2 col md / 3 col lg, last row centered)
-  Each card uses the same styling language as `Services.tsx` (rounded-xl, border white/10, `--card-dark` bg, top accent bar, icon tile, hover lift + `shadow-glow-brand`):
-  1. `PenTool` — Logo & Brand Mark Design
-  2. `Palette` — Visual Identity System
-  3. `MessageSquare` — Tone of Voice & Messaging
-  4. `BookOpen` — Brand Guidelines
-  5. `Target` — Brand Positioning
+**4. New "Contact Enquiry" email template** (`src/lib/email-templates/contact-enquiry.tsx`)
+A clean branded email containing:
+- Name, Business, Email, Phone, What they need
+- Submission timestamp
+- Reply-To header set to the visitor's email so you can reply directly from Zoho
 
-- **CTA block** (centered)
-  - Premium button: **"Contact →"** linking to `/#contact` (the existing `LeadCapture` section on home).
-  - Styled with `bg-[var(--blue-brand)]`, white text, `shadow-glow-brand`, hover lift — matching the primary CTA style used in `Hero.tsx` / `CTA.tsx`.
+**5. New public server route** (`src/routes/api/public/contact.ts`)
+- Accepts POST with the form fields
+- Validates with Zod (same rules as the client)
+- Basic in-memory rate limit (per IP) to deter spam
+- Sends the email to `admin@dravonixmedia.com`
+- Returns `{ ok: true }` or a structured error
 
-- Page-level `head()` with unique title + description + og:title/og:description for SEO (per TanStack routing rules — no shared metadata with home).
+**6. Update `src/components/dravonix/LeadCapture.tsx`**
+- Replace the fake `setTimeout` with a real `fetch('/api/public/contact', …)`
+- Keep existing validation, toast on success/failure, form reset on success
+- Show a clear error toast if delivery fails
 
-**2. Wire navigation from the Brand Identity service card**
-In `src/components/dravonix/Services.tsx`, add `href: "/brand-identity"` to the `Brand Identity` service object. The existing `href` resolution in the card already supports this — no component logic changes needed. The "Learn More" link will now route to the new page.
+## Files
 
-## Files touched
-- `src/routes/brand-identity.tsx` (new)
-- `src/components/dravonix/Services.tsx` (add `href` to one item)
+- `src/lib/email-templates/contact-enquiry.tsx` (new)
+- `src/lib/email-templates/registry.ts` (updated to register the template)
+- `src/routes/api/public/contact.ts` (new)
+- `src/components/dravonix/LeadCapture.tsx` (updated submit handler)
 
-## Design notes
-- Reuses existing tokens: `--navy`, `--card-dark`, `--blue-brand`, `--cyan-accent`, `shadow-glow-brand`
-- No new dependencies, no new assets
-- Lucide icons already available in the project
-- Route file uses `createFileRoute("/brand-identity")` per TanStack Start conventions
-- Contact button deep-links back to the home page's `#contact` section so the existing `LeadCapture` form remains the single submission point
+## What you'll need to do
+- Approve enabling Lovable Cloud
+- Add 2 NS records at your domain registrar when prompted (for `notify.dravonixmedia.com`)
+- That's it — enquiries will start arriving at `admin@dravonixmedia.com`
+
