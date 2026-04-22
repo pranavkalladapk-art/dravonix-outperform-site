@@ -8,6 +8,7 @@ type Member = {
   initials: string;
   name: string;
   role: string;
+  email: string;
   tagline: string;
   vision: string;
   gradient: string;
