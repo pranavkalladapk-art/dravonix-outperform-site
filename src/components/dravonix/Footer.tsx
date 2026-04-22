@@ -15,9 +15,9 @@ const companyLinks = [
 ];
 
 const socials = [
-  { Icon: Instagram, href: "#", label: "Instagram" },
-  { Icon: Linkedin, href: "#", label: "LinkedIn" },
-  { Icon: Twitter, href: "#", label: "X" },
+  { Icon: Instagram, href: "https://www.instagram.com/dravonixmedia/", label: "Instagram" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/dravonix/", label: "LinkedIn" },
+  { Icon: Twitter, href: "https://x.com/dravonixmedia", label: "X" },
 ];
 
 export function Footer() {
@@ -77,6 +77,8 @@ export function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="grid h-10 w-10 place-items-center rounded-md border border-white/10 text-white/70 transition-all hover:border-[var(--cyan-accent)] hover:text-[var(--cyan-accent)]"
                 >
