@@ -85,10 +85,10 @@ export function Footer() {
               ))}
             </div>
             <a
-              href="mailto:hello@dravonixdigital.com"
+              href="mailto:admin@dravonixmedia.com"
               className="mt-6 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-white"
             >
-              hello@dravonixdigital.com
+              admin@dravonixmedia.com
             </a>
           </div>
         </div>

@@ -27,7 +27,7 @@ export function CTA() {
         </Reveal>
         <Reveal delay={180}>
           <a
-            href="mailto:hello@dravonixdigital.com"
+            href="mailto:admin@dravonixmedia.com"
             className="group mt-10 inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
           >
             Book a Free Strategy Call
