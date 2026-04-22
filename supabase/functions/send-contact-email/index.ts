@@ -154,7 +154,7 @@ async function sendViaSmtp(opts: {
 
     await write("QUIT");
     // best-effort read of 221, ignore errors
-    try { await read(); } catch { /* noop */ }
+    try { await readResponse(); } catch { /* noop */ }
   } finally {
     try { conn.close(); } catch { /* noop */ }
   }
