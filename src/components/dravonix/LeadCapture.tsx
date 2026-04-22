@@ -23,7 +23,7 @@ const needs = ["Branding", "Social Media", "Content", "Strategy", "All of the ab
 
 export function LeadCapture() {
   const [submitting, setSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
