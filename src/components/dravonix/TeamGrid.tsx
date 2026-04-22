@@ -2,6 +2,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import pranavPhoto from "@/assets/team-pranav.jpg";
+import sreeragPhoto from "@/assets/team-sreerag.png";
 
 type Member = {
   initials: string;
