@@ -71,10 +71,22 @@ export function TeamGrid() {
                     m.gradient,
                   )}
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_60%)]" />
-                <span className="relative font-display text-6xl font-bold tracking-tight text-white/90">
-                  {m.initials}
-                </span>
+                {m.photo ? (
+                  <img
+                    src={m.photo}
+                    alt={`${m.name} portrait`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_60%)]" />
+                    <span className="relative font-display text-6xl font-bold tracking-tight text-white/90">
+                      {m.initials}
+                    </span>
+                  </>
+                )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/60 via-transparent to-transparent" />
               </div>
 
               <h3 className="font-display text-2xl font-bold tracking-tight text-white">
