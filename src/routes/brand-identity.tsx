@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, PenTool, Palette, MessageSquare, BookOpen, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, PenTool, Palette, MessageSquare, BookOpen, Target } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
