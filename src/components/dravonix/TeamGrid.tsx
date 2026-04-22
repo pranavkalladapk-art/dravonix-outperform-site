@@ -22,6 +22,7 @@ const members: Member[] = [
     vision:
       "To build Dravonix into a digitally driven powerhouse where technology and creativity merge — creating scalable systems, high-impact content, and seamless brand experiences that set new industry standards.",
     gradient: "from-[var(--cyan-accent)]/40 via-[var(--blue-brand)]/20 to-transparent",
+    photo: pranavPhoto,
   },
   {
     initials: "SS",
