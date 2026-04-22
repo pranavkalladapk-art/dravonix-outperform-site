@@ -38,8 +38,7 @@ function AdminEnquiries() {
         return;
       }
 
-      // @ts-expect-error - table not yet in generated types
-      const { data: rows, error } = await supabase
+      const { data: rows, error } = await (supabase as any)
         .from("contact_enquiries")
         .select("id, name, business, email, phone, need, created_at")
         .order("created_at", { ascending: false })
