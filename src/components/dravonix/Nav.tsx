@@ -83,13 +83,6 @@ export function Nav() {
               "text-sm font-medium text-white/70 transition-colors hover:text-white",
             ),
           )}
-          <Link
-            to="/team"
-            className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-            activeProps={{ className: "text-sm font-medium text-white" }}
-          >
-            Team
-          </Link>
           {onHome ? (
             <a
               href="#contact"
@@ -132,13 +125,6 @@ export function Nav() {
               { transitionDelay: `${i * 40}ms` },
             ),
           )}
-          <Link
-            to="/team"
-            onClick={() => setOpen(false)}
-            className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
-          >
-            Team
-          </Link>
           {onHome ? (
             <a
               href="#contact"
