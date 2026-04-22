@@ -44,21 +44,23 @@ function TeamPage() {
                 Back to Home
               </Link>
             </Reveal>
-            <Reveal delay={80}>
-              <span className="mt-8 block text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-                Our People
-              </span>
-            </Reveal>
-            <Reveal delay={140}>
-              <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                Meet the Team
-              </h1>
-            </Reveal>
-            <Reveal delay={220}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-                The minds shaping Dravonix.
-              </p>
-            </Reveal>
+            <div className="mt-8 text-center">
+              <Reveal delay={80}>
+                <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+                  Our People
+                </span>
+              </Reveal>
+              <Reveal delay={140}>
+                <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                  Meet the Team
+                </h1>
+              </Reveal>
+              <Reveal delay={220}>
+                <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+                  The minds shaping Dravonix.
+                </p>
+              </Reveal>
+            </div>
           </div>
         </section>
 
