@@ -8,6 +8,7 @@ type Member = {
   initials: string;
   name: string;
   role: string;
+  email: string;
   tagline: string;
   vision: string;
   gradient: string;
@@ -19,6 +20,7 @@ const members: Member[] = [
     initials: "PA",
     name: "Pranav A",
     role: "Video Editor • Content Creator • Web Developer",
+    email: "pranav@dravonixmedia.com",
     tagline: "Where technology meets creativity.",
     vision:
       "To build Dravonix into a digitally driven powerhouse where technology and creativity merge — creating scalable systems, high-impact content, and seamless brand experiences that set new industry standards.",
@@ -29,6 +31,7 @@ const members: Member[] = [
     initials: "SS",
     name: "Sreerag S",
     role: "Photographer • Content Creator • Content Writer",
+    email: "sreerag@dravonixmedia.com",
     tagline: "Storytelling that audiences trust.",
     vision:
       "To shape Dravonix as a storytelling-first agency — where every brand communicates with clarity, emotion, and purpose, turning content into meaningful connections that audiences trust and remember.",
@@ -39,6 +42,7 @@ const members: Member[] = [
     initials: "AR",
     name: "Arunraj R",
     role: "Cinematographer • Video Editor • Content Creator",
+    email: "arunraj@dravonixmedia.com",
     tagline: "Cinematic brand storytelling.",
     vision:
       "To position Dravonix as a leader in cinematic brand storytelling — delivering visually powerful content that elevates perception, builds identity, and creates lasting impact in the digital space.",
@@ -97,6 +101,13 @@ export function TeamGrid() {
               <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
                 {m.role}
               </p>
+              <a
+                href={`mailto:${m.email}`}
+                onClick={(e) => e.stopPropagation()}
+                className="mt-2 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-[var(--cyan-accent)]"
+              >
+                {m.email}
+              </a>
               <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
                 {m.tagline}
               </p>
