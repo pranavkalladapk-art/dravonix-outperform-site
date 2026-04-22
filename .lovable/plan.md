@@ -1,58 +1,48 @@
 
 
 ## Goal
-Make the contact form on the home page actually deliver enquiries to **admin@dravonixmedia.com** (your Zoho mailbox), instead of only showing a success toast.
+Make the "Meet the Team" link on the home page navigate to a new dedicated `/team` page that introduces Pranav A, Sreerag S, and Arunraj R with a premium, cinematic feel matching the rest of Dravonix.
 
-## Approach
-The form currently runs only in the browser — there is no backend, so it can't send mail. We'll add a small server endpoint that receives the form submission and emails it to your Zoho address. The visitor never sees your address; it stays server-side.
+## What you'll see
 
-## How email will be sent
+A new page at `/team` containing:
 
-I recommend using **Lovable's built-in email infrastructure** (no extra account, no API keys to manage). It needs:
+- **Header**: Eyebrow "Our People", title **Meet the Team**, subtitle *"The minds shaping Dravonix."*
+- **3-column team grid** (stacks to 1 column on mobile, 2 on tablet) — one premium card per founder with:
+  - Portrait area with soft cyan/blue gradient lighting behind it
+  - Name (large display font)
+  - Role line (e.g. *Video Editor • Content Creator • Web Developer*)
+  - A short tagline preview of their vision
+  - Hover: subtle zoom on portrait, glow ring around card, lift animation
+  - Click: smoothly **expands the card inline** to reveal the full Founder Vision quote (no separate page — keeps it fast and elegant)
+- **Closing CTA** strip: "Want to build with us?" → links to the contact form on the home page.
 
-1. **Lovable Cloud** enabled on the project (one-click).
-2. A **verified sender domain** — a subdomain of `dravonixmedia.com` (e.g. `notify.dravonixmedia.com`) delegated to Lovable's nameservers. Enquiries will be sent **from** something like `noreply@dravonixmedia.com` and delivered **to** `admin@dravonixmedia.com`.
-3. Email infrastructure scaffolding (queues, retry, suppression — set up automatically).
+Visual direction: dark navy background, white text, thin white/10 borders, cyan accent, scroll-triggered reveal animations (using your existing `Reveal` component), Apple-style spacing and typography hierarchy.
 
-> Important: your Zoho setup for `admin@dravonixmedia.com` (MX records on the root domain) is **not affected**. We only delegate a small `notify.` subdomain for sending. Receiving on `admin@dravonixmedia.com` continues to work exactly as today.
+### Founder content used
 
-If you prefer to send through Zoho's own SMTP/API instead, that's possible but requires creating an app password / API token in Zoho and storing it as a secret — let me know and I'll switch the plan.
+- **Pranav A** — Video Editor • Content Creator • Web Developer
+  *"To build Dravonix into a digitally driven powerhouse where technology and creativity merge — creating scalable systems, high-impact content, and seamless brand experiences that set new industry standards."*
+- **Sreerag S** — Photographer • Content Creator • Content Writer
+  *"To shape Dravonix as a storytelling-first agency — where every brand communicates with clarity, emotion, and purpose, turning content into meaningful connections that audiences trust and remember."*
+- **Arunraj R** — Cinematographer • Video Editor • Content Creator
+  *"To position Dravonix as a leader in cinematic brand storytelling — delivering visually powerful content that elevates perception, builds identity, and creates lasting impact in the digital space."*
 
-## Changes
+### Portrait images
+Since no photos were provided, each card will use a tasteful **monogram portrait** (initials over a soft gradient) as a placeholder. You can drop real photos in later — the layout will accept them without changes.
 
-**1. Enable Lovable Cloud** (prerequisite for any backend/email).
+## Navigation wiring
 
-**2. Set up sender email domain** — guided dialog where you'll add 2 NS records at your domain registrar for `notify.dravonixmedia.com`. Verification can take a few minutes to a few hours.
+- The existing **"Meet the Team"** link inside the About section will point to `/team` instead of `#contact`.
+- Add **"Team"** to the main nav (desktop + mobile menu) so visitors can reach it from anywhere.
+- The `/team` page gets its own back-to-home link in a top bar and reuses the global Nav and Footer.
 
-**3. Email infrastructure setup** — automatic, creates the send queue and tables.
+## Technical notes (for the build step)
 
-**4. New "Contact Enquiry" email template** (`src/lib/email-templates/contact-enquiry.tsx`)
-A clean branded email containing:
-- Name, Business, Email, Phone, What they need
-- Submission timestamp
-- Reply-To header set to the visitor's email so you can reply directly from Zoho
-
-**5. New public server route** (`src/routes/api/public/contact.ts`)
-- Accepts POST with the form fields
-- Validates with Zod (same rules as the client)
-- Basic in-memory rate limit (per IP) to deter spam
-- Sends the email to `admin@dravonixmedia.com`
-- Returns `{ ok: true }` or a structured error
-
-**6. Update `src/components/dravonix/LeadCapture.tsx`**
-- Replace the fake `setTimeout` with a real `fetch('/api/public/contact', …)`
-- Keep existing validation, toast on success/failure, form reset on success
-- Show a clear error toast if delivery fails
-
-## Files
-
-- `src/lib/email-templates/contact-enquiry.tsx` (new)
-- `src/lib/email-templates/registry.ts` (updated to register the template)
-- `src/routes/api/public/contact.ts` (new)
-- `src/components/dravonix/LeadCapture.tsx` (updated submit handler)
-
-## What you'll need to do
-- Approve enabling Lovable Cloud
-- Add 2 NS records at your domain registrar when prompted (for `notify.dravonixmedia.com`)
-- That's it — enquiries will start arriving at `admin@dravonixmedia.com`
+- New route file: `src/routes/team.tsx` with its own `head()` meta (title, description, og:title, og:description) so the page is independently shareable and SEO-indexable.
+- New component: `src/components/dravonix/TeamGrid.tsx` containing the cards, expand-on-click state, and scroll reveals (reuses `Reveal` and existing CSS variables `--navy`, `--cyan-accent`, `--blue-brand`, `--muted-text`).
+- Update `src/components/dravonix/About.tsx`: change the `<a href="#contact">` "Meet the Team" CTA to a TanStack `<Link to="/team">`.
+- Update `src/components/dravonix/Nav.tsx`: convert the in-page hash links to work from any route (prefix with `/` when not on home) and add a **Team** entry pointing to `/team`. The "Get a Free Audit" CTA will route to `/#contact` so it works from `/team` too.
+- Page metadata: `title: "Meet the Team — Dravonix"`, description summarizing the three founders.
+- No backend changes, no new dependencies.
 
