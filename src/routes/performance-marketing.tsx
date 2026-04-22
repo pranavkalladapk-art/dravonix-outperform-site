@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Megaphone, Crosshair, Filter, LineChart } from "lucide-react";
+import { ArrowLeft, ArrowRight, Megaphone, Crosshair, Filter, LineChart } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -54,6 +54,15 @@ function PerformanceMarketingPage() {
 
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
+          <Reveal>
+            <Link
+              to="/"
+              className="mb-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Link>
+          </Reveal>
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
               Performance Marketing
