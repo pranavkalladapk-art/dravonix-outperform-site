@@ -69,18 +69,35 @@ async function sendViaSmtp(opts: {
   const conn = await Deno.connectTls({ hostname: opts.host, port: opts.port });
   const enc = new TextEncoder();
   const dec = new TextDecoder();
-  const buf = new Uint8Array(4096);
+  let pending = "";
 
-  async function read(): Promise<string> {
-    const n = await conn.read(buf);
-    if (n === null) throw new Error("SMTP connection closed");
-    return dec.decode(buf.subarray(0, n));
+  async function readResponse(): Promise<string> {
+    // Read until we see a final SMTP line: "NNN " (space, not dash) followed by CRLF.
+    const buf = new Uint8Array(4096);
+    while (true) {
+      // Check if pending already contains a complete response.
+      const lines = pending.split("\r\n");
+      // Last element is partial (no trailing CRLF) — keep it for next read.
+      for (let i = 0; i < lines.length - 1; i++) {
+        if (/^\d{3} /.test(lines[i])) {
+          // Found terminator. Reconstruct full response up to and including this line.
+          const completeLines = lines.slice(0, i + 1);
+          const remainder = lines.slice(i + 1).join("\r\n");
+          pending = remainder;
+          return completeLines.join("\r\n");
+        }
+      }
+      const n = await conn.read(buf);
+      if (n === null) throw new Error("SMTP connection closed");
+      pending += dec.decode(buf.subarray(0, n));
+    }
   }
+
   async function write(line: string) {
     await conn.write(enc.encode(line + "\r\n"));
   }
   async function expect(code: string, label: string) {
-    const resp = await read();
+    const resp = await readResponse();
     if (!resp.startsWith(code)) {
       throw new Error(`SMTP ${label} failed: ${resp.trim()}`);
     }
