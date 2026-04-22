@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "./Reveal";
 
 const schema = z.object({
@@ -22,10 +23,12 @@ const needs = ["Branding", "Social Media", "Content", "Strategy", "All of the ab
 
 export function LeadCapture() {
   const [submitting, setSubmitting] = useState(false);
+  
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const parsed = schema.safeParse({
       name: fd.get("name"),
       business: fd.get("business"),
@@ -38,12 +41,21 @@ export function LeadCapture() {
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: parsed.data,
+      });
+      if (error) throw error;
       toast.success("Request received — we'll respond within 24 hours.");
-      e.currentTarget?.reset?.();
-    }, 600);
+      form.reset();
+    } catch (err) {
+      console.error("Contact submit failed:", err);
+      toast.error("Couldn't send right now. Please try again or email admin@dravonixmedia.com.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
 
   return (
     <section
