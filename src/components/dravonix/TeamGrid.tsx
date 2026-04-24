@@ -48,6 +48,7 @@ const members: Member[] = [
     vision:
       "To position Dravonix as a leader in cinematic brand storytelling — delivering visually powerful content that elevates perception, builds identity, and creates lasting impact in the digital space.",
     gradient: "from-[var(--cyan-accent)]/50 via-[var(--blue-brand)]/25 to-transparent",
+    photo: arunrajPhoto,
   },
 ];
 
