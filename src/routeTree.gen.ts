@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as IndexRouteImport } from './routes/index'
@@ -25,6 +26,11 @@ const TeamRoute = TeamRouteImport.update({
 const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
   id: '/social-media-management',
   path: '/social-media-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/brand-identity'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
     | '/admin/enquiries'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/brand-identity'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
     | '/admin/enquiries'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/brand-identity'
     | '/performance-marketing'
+    | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
     | '/admin/enquiries'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
   TeamRoute: typeof TeamRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/social-media-management'
       fullPath: '/social-media-management'
       preLoaderRoute: typeof SocialMediaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/performance-marketing': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BrandIdentityRoute: BrandIdentityRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
   TeamRoute: TeamRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
