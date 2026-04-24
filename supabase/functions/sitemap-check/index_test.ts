@@ -4,7 +4,8 @@ import {
   assert,
 } from "https://deno.land/std@0.224.0/assert/mod.ts";
 
-const SITE = "https://dravonixmedia.com";
+// Override with SITEMAP_CHECK_SITE env var when running against preview/staging.
+const SITE = Deno.env.get("SITEMAP_CHECK_SITE") ?? "https://dravonixmedia.com";
 
 const EXPECTED_PATHS = [
   "/",
