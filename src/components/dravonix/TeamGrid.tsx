@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import pranavPhoto from "@/assets/team-pranav.jpg";
 import sreeragPhoto from "@/assets/team-sreerag.png";
+import arunrajPhoto from "@/assets/team-arunraj.jpg";
 
 type Member = {
   initials: string;
