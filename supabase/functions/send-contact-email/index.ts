@@ -32,14 +32,19 @@ function escapeHtml(s: string) {
     .replace(/'/g, "&#39;");
 }
 
+// Strip CR/LF and other control characters to prevent SMTP header injection.
+function sanitize(s: string) {
+  return s.replace(/[\r\n\t\v\f\x00-\x1F\x7F]/g, "").trim();
+}
+
 function validate(input: unknown): Payload | string {
   if (!input || typeof input !== "object") return "Invalid request body";
   const p = input as Record<string, unknown>;
-  const name = String(p.name ?? "").trim();
-  const business = String(p.business ?? "").trim();
-  const email = String(p.email ?? "").trim();
-  const phone = String(p.phone ?? "").trim();
-  const need = String(p.need ?? "").trim();
+  const name = sanitize(String(p.name ?? ""));
+  const business = sanitize(String(p.business ?? ""));
+  const email = sanitize(String(p.email ?? ""));
+  const phone = sanitize(String(p.phone ?? ""));
+  const need = sanitize(String(p.need ?? ""));
 
   if (!name || name.length > 100) return "Invalid name";
   if (!business || business.length > 100) return "Invalid business name";
