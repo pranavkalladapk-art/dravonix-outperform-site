@@ -56,10 +56,12 @@ export function Services() {
                   {s.desc}
                 </p>
                 <a
-                  href={(s as { href?: string }).href ?? "#contact"}
+                  href={s.href ?? "#contact"}
+                  aria-label={`Explore ${s.title} services`}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2.5 md:mt-6"
                 >
-                  Learn More <ArrowRight className="h-4 w-4" />
+                  {`Explore ${s.title} Services`}
+                  <ArrowRight className="h-4 w-4" />
                 </a>
               </article>
             </Reveal>
