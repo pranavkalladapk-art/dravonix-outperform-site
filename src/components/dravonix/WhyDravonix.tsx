@@ -28,28 +28,27 @@ export function WhyDravonix() {
             </span>
             ?
           </h2>
-          <ul className="mt-8 space-y-4 md:mt-10 md:space-y-5">
-            {reasons.map((r) => (
-              <li key={r} className="flex items-start gap-3 md:gap-4">
-                <span className="mt-0.5 grid h-7 w-7 flex-none place-items-center rounded-full bg-[var(--blue-brand)] text-white">
-                  <Check className="h-4 w-4" strokeWidth={3} />
-                </span>
-                <span className="text-base leading-relaxed text-white/85 md:text-lg">
-                  {r}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-4 max-w-md text-base text-white/70 md:text-lg">
+            Eight reasons brands choose Dravonix as their long-term growth partner.
+          </p>
         </Reveal>
 
         <Reveal
           delay={120}
-          className="relative hidden min-h-[360px] items-center justify-center overflow-hidden border-l border-white/5 bg-[var(--card-dark)] p-10 lg:flex"
+          className="relative flex min-h-[480px] items-center justify-center overflow-hidden border-t border-white/5 bg-[var(--card-dark)] px-5 py-16 md:px-10 md:py-20 lg:border-l lg:border-t-0"
         >
-          <div aria-hidden className="absolute inset-0">
-            <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.4)] blur-3xl" />
+          {/* Ambient glow */}
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.35)] blur-3xl" />
           </div>
-          <svg viewBox="0 0 320 320" className="relative h-64 w-64 md:h-80 md:w-80" fill="none">
+
+          {/* Centered D watermark */}
+          <svg
+            aria-hidden
+            viewBox="0 0 320 320"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[110%] w-auto -translate-x-1/2 -translate-y-1/2 opacity-20"
+            fill="none"
+          >
             <defs>
               <linearGradient id="why-dgrad" x1="0" x2="1" y1="0" y2="1">
                 <stop offset="0%" stopColor="#2563EB" />
@@ -64,12 +63,45 @@ export function WhyDravonix() {
               </filter>
             </defs>
             <g filter="url(#why-dglow)">
-              <path d="M70 50 H170 a100 110 0 0 1 0 220 H70 Z" stroke="url(#why-dgrad)" strokeWidth="3" />
-              <path d="M100 90 H160 a70 70 0 0 1 0 140 H100 Z" stroke="url(#why-dgrad)" strokeWidth="2" opacity="0.55" />
-              <path d="M130 130 H155 a30 30 0 0 1 0 60 H130 Z" stroke="url(#why-dgrad)" strokeWidth="2" opacity="0.35" />
+              <path
+                d="M70 50 H170 a100 110 0 0 1 0 220 H70 Z"
+                stroke="url(#why-dgrad)"
+                strokeWidth="3"
+              />
+              <path
+                d="M100 90 H160 a70 70 0 0 1 0 140 H100 Z"
+                stroke="url(#why-dgrad)"
+                strokeWidth="2"
+                opacity="0.55"
+              />
+              <path
+                d="M130 130 H155 a30 30 0 0 1 0 60 H130 Z"
+                stroke="url(#why-dgrad)"
+                strokeWidth="2"
+                opacity="0.35"
+              />
             </g>
-            <path d="M50 160 L240 160" stroke="#06B6D4" strokeWidth="1" opacity="0.5" />
           </svg>
+
+          {/* Subtle dark overlay for readability */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--card-dark)]/70 via-[var(--card-dark)]/40 to-[var(--card-dark)]/70"
+          />
+
+          {/* Checklist overlay */}
+          <ul className="relative z-10 w-full max-w-lg space-y-4 md:space-y-5">
+            {reasons.map((r) => (
+              <li key={r} className="flex items-start gap-3 md:gap-4">
+                <span className="mt-0.5 grid h-7 w-7 flex-none place-items-center rounded-full bg-[var(--blue-brand)] text-white shadow-[0_4px_14px_oklch(0.546_0.219_263/0.5)]">
+                  <Check className="h-4 w-4" strokeWidth={3} />
+                </span>
+                <span className="text-base leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] md:text-lg">
+                  {r}
+                </span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>
