@@ -83,7 +83,10 @@ export function TeamGrid() {
                   <img
                     src={m.photo}
                     alt={`${m.name} portrait`}
+                    width={440}
+                    height={440}
                     loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
