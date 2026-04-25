@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
@@ -83,19 +84,19 @@ export function Hero() {
 
         <Reveal delay={240}>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10">
-            <a
-              href="#services"
+            <Link
+              to="/services"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--blue-brand)] px-6 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 sm:px-7 sm:text-base"
             >
               Explore Services
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/0 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:px-7 sm:text-base"
             >
               Book a Free Strategy Call
-            </a>
+            </Link>
           </div>
         </Reveal>
 
