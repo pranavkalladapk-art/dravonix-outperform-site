@@ -29,7 +29,7 @@ const BOTTOM_THRESHOLD = 80;
 export function scrollToSection(sectionId: string, behavior: ScrollBehavior = "smooth") {
   const el = document.getElementById(sectionId);
   if (!el) return;
-  if (sectionId === "top") {
+  if (sectionId === "home") {
     if (window.scrollY <= ALREADY_IN_PLACE_TOLERANCE) return;
     window.scrollTo({ top: 0, behavior });
     return;
