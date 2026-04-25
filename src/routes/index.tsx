@@ -11,6 +11,9 @@ import { LeadCapture } from "@/components/dravonix/LeadCapture";
 import { Footer } from "@/components/dravonix/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [{ rel: "canonical", href: "https://dravonixmedia.com/" }],
+  }),
   component: Index,
 });
 

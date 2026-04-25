@@ -20,6 +20,7 @@ export const Route = createFileRoute("/performance-marketing")({
           "Paid social campaigns, advanced targeting, funnel strategy and ROI tracking focused on measurable growth.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://dravonixmedia.com/performance-marketing" }],
   }),
   component: PerformanceMarketingPage,
 });

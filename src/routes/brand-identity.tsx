@@ -20,6 +20,7 @@ export const Route = createFileRoute("/brand-identity")({
           "Complete brand identity systems combining strategy and creativity to build powerful, memorable brands.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://dravonixmedia.com/brand-identity" }],
   }),
   component: BrandIdentityPage,
 });

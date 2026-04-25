@@ -20,6 +20,7 @@ export const Route = createFileRoute("/social-media-management")({
           "Strategic content calendars, daily posting, community management and platform growth.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://dravonixmedia.com/social-media-management" }],
   }),
   component: SocialMediaManagementPage,
 });
