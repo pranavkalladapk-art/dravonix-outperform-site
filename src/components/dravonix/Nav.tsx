@@ -1,16 +1,28 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
-const navLinks: Array<{ to: string; label: string }> = [
-  { to: "/home", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/process", label: "Our Process" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+const navLinks: Array<{ id: string; label: string }> = [
+  { id: "home", label: "Home" },
+  { id: "services", label: "Services" },
+  { id: "process", label: "Our Process" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ];
+
+const NAV_OFFSET = 80;
+
+function smoothScrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  // Reflect in URL without triggering navigation/scroll fights
+  if (window.history.replaceState) {
+    window.history.replaceState(null, "", `#${id}`);
+  }
+}
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,6 +42,20 @@ export function Nav() {
     };
   }, [open]);
 
+  // Honor incoming hash (e.g. /#contact) on first paint
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const t = window.setTimeout(() => smoothScrollToId(hash), 200);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setOpen(false);
+    smoothScrollToId(id);
+  };
+
   return (
     <header
       className={cn(
@@ -40,24 +66,31 @@ export function Nav() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <Logo />
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "home")}
+          aria-label="Go to top"
+        >
+          <Logo />
+        </a>
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={(e) => handleNavClick(e, l.id)}
               className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-              activeProps={{ className: "text-sm font-medium text-white" }}
             >
               {l.label}
-            </Link>
+            </a>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "contact")}
             className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
           >
             Get a Free Audit
-          </Link>
+          </a>
         </nav>
         <button
           aria-label={open ? "Close menu" : "Open menu"}
@@ -77,23 +110,23 @@ export function Nav() {
       >
         <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
           {navLinks.map((l, i) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              onClick={() => setOpen(false)}
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={(e) => handleNavClick(e, l.id)}
               className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
               {l.label}
-            </Link>
+            </a>
           ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "contact")}
             className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
           >
             Get a Free Audit
-          </Link>
+          </a>
         </div>
       </div>
     </header>

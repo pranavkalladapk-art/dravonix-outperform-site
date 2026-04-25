@@ -3,7 +3,7 @@ import { useLocation } from "@tanstack/react-router";
 
 // Section id -> URL path
 export const SECTION_TO_PATH: Record<string, string> = {
-  top: "/home",
+  home: "/home",
   services: "/services",
   "ai-studio": "/ai-studio",
   process: "/process",
@@ -12,8 +12,8 @@ export const SECTION_TO_PATH: Record<string, string> = {
 };
 
 export const PATH_TO_SECTION: Record<string, string> = {
-  "/": "top",
-  "/home": "top",
+  "/": "home",
+  "/home": "home",
   "/services": "services",
   "/ai-studio": "ai-studio",
   "/process": "process",
@@ -29,7 +29,7 @@ const BOTTOM_THRESHOLD = 80;
 export function scrollToSection(sectionId: string, behavior: ScrollBehavior = "smooth") {
   const el = document.getElementById(sectionId);
   if (!el) return;
-  if (sectionId === "top") {
+  if (sectionId === "home") {
     if (window.scrollY <= ALREADY_IN_PLACE_TOLERANCE) return;
     window.scrollTo({ top: 0, behavior });
     return;

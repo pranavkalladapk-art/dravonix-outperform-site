@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 export function Hero() {
   return (
     <section
-      id="top"
+      id="home"
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[var(--navy)] pt-28 pb-20 md:pt-40 md:pb-36"
     >
       {/* Animated fluid blue wave background */}
