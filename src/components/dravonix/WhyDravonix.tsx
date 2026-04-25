@@ -15,6 +15,22 @@ const reasons = [
 export function WhyDravonix() {
   return (
     <section className="relative overflow-hidden bg-[var(--navy)] px-5 py-20 md:px-12 md:py-28 lg:px-16">
+      {/* Ambient blur orbs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 right-0 h-[420px] w-[420px] rounded-full bg-[var(--blue-brand)]/20 blur-3xl animate-ambient"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 left-0 h-[360px] w-[360px] rounded-full bg-[var(--cyan-accent)]/15 blur-3xl animate-ambient"
+      />
+
+      {/* Decorative grid backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]"
+      />
+
       {/* Faint D watermark */}
       <svg
         aria-hidden
