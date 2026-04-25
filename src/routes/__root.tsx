@@ -52,10 +52,15 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Preload the Google Fonts CSS so the request starts in parallel with HTML parse,
-      // shortening the critical request chain (HTML → CSS → woff2).
-      { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" },
+      // Load Google Fonts stylesheet asynchronously to avoid render-blocking.
+      // Trick: request as "style" preload, then swap rel to "stylesheet" on load.
+      {
+        rel: "preload",
+        as: "style",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
+        // @ts-expect-error - onLoad swap for async CSS loading
+        onLoad: "this.onload=null;this.rel='stylesheet'",
+      },
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
   }),
