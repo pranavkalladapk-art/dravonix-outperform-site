@@ -3,7 +3,7 @@ import { useLocation } from "@tanstack/react-router";
 
 // Section id -> URL path
 export const SECTION_TO_PATH: Record<string, string> = {
-  top: "/home",
+  home: "/home",
   services: "/services",
   "ai-studio": "/ai-studio",
   process: "/process",
@@ -12,8 +12,8 @@ export const SECTION_TO_PATH: Record<string, string> = {
 };
 
 export const PATH_TO_SECTION: Record<string, string> = {
-  "/": "top",
-  "/home": "top",
+  "/": "home",
+  "/home": "home",
   "/services": "services",
   "/ai-studio": "ai-studio",
   "/process": "process",
