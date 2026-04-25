@@ -51,6 +51,17 @@ const members: Member[] = [
     gradient: "from-[var(--cyan-accent)]/50 via-[var(--blue-brand)]/25 to-transparent",
     photo: arunrajPhoto,
   },
+  {
+    initials: "AP",
+    name: "Akhil PH",
+    role: "Strategic Managing Partner • Marketing Specialist",
+    email: "akhil@dravonixmedia.com",
+    tagline: "Driving strategy with data and creative marketing intelligence.",
+    vision:
+      "Focused on building scalable strategies, strengthening brand positioning, and driving measurable growth through innovative marketing and data-driven decision making.",
+    gradient: "from-[var(--blue-brand)]/45 via-[var(--cyan-accent)]/25 to-transparent",
+    photo: akhilPhoto,
+  },
 ];
 
 export function TeamGrid() {
