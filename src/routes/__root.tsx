@@ -58,9 +58,8 @@ export const Route = createRootRoute({
         rel: "preload",
         as: "style",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
-        // @ts-expect-error - data attribute used by inline loader script below
         "data-async-font": "true",
-      },
+      } as any,
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
   }),
