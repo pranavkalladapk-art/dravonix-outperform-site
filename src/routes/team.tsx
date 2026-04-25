@@ -67,6 +67,19 @@ function TeamPage() {
         {/* Team grid */}
         <section className="pb-24 md:pb-32">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="mb-12 text-center md:mb-16">
+              <Reveal>
+                <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--cyan-accent)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]" />
+                  Leadership
+                </span>
+              </Reveal>
+              <Reveal delay={100}>
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+                  Co-<span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">Founders</span>
+                </h2>
+              </Reveal>
+            </div>
             <TeamGrid />
           </div>
         </section>
