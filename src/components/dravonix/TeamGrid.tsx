@@ -112,53 +112,57 @@ export function TeamGrid() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/60 via-transparent to-transparent" />
               </div>
 
-              <h3 className="font-display text-2xl font-bold tracking-tight text-white">
-                {m.name}
-              </h3>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                {m.role}
-              </p>
-              <a
-                href={`mailto:${m.email}`}
-                onClick={(e) => e.stopPropagation()}
-                className="mt-2 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-[var(--cyan-accent)]"
-              >
-                {m.email}
-              </a>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
-                {m.tagline}
-              </p>
+              <div className="flex flex-1 flex-col">
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-white">
+                    {m.name}
+                  </h3>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
+                    {m.role}
+                  </p>
+                  <a
+                    href={`mailto:${m.email}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-2 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-[var(--cyan-accent)]"
+                  >
+                    {m.email}
+                  </a>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
+                    {m.tagline}
+                  </p>
 
-              {/* Expandable vision */}
-              <div
-                className={cn(
-                  "grid overflow-hidden transition-all duration-500 ease-out",
-                  isOpen ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="min-h-0">
-                  <div className="border-t border-white/10 pt-5">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-                      Founder Vision
-                    </span>
-                    <p className="mt-3 text-base italic leading-relaxed text-white/85">
-                      &ldquo;{m.vision}&rdquo;
-                    </p>
+                  {/* Expandable vision */}
+                  <div
+                    className={cn(
+                      "grid overflow-hidden transition-all duration-500 ease-out",
+                      isOpen ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    )}
+                  >
+                    <div className="min-h-0">
+                      <div className="border-t border-white/10 pt-5">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+                          Founder Vision
+                        </span>
+                        <p className="mt-3 text-base italic leading-relaxed text-white/85">
+                          &ldquo;{m.vision}&rdquo;
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                {isOpen ? "Hide vision" : "Read vision"}
-                <span
-                  className={cn(
-                    "transition-transform duration-300",
-                    isOpen ? "rotate-180" : "rotate-0",
-                  )}
-                >
-                  ↓
+                <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
+                  {isOpen ? "Hide vision" : "Read vision"}
+                  <span
+                    className={cn(
+                      "transition-transform duration-300",
+                      isOpen ? "rotate-180" : "rotate-0",
+                    )}
+                  >
+                    ↓
+                  </span>
                 </span>
-              </span>
+              </div>
             </button>
           </Reveal>
         );
