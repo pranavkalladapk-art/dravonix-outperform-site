@@ -37,8 +37,11 @@ export function Services() {
             What We Do
           </span>
           <h2 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything your brand needs to compete and win.
+            Services that move the needle.
           </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+            Everything your brand needs to compete and win.
+          </p>
         </Reveal>
 
         <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
