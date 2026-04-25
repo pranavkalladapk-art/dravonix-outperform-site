@@ -38,13 +38,13 @@ export function Services() {
             What We Do
           </span>
           <h2 className="mt-4 mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-            Services that move the needle.
-          </h2>
-          <p className="mt-4 mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
             Everything your brand needs to{" "}
-            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text font-semibold text-transparent">
+            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
               compete and win.
             </span>
+          </h2>
+          <p className="mt-4 mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+            Services that move the needle.
           </p>
         </Reveal>
 
