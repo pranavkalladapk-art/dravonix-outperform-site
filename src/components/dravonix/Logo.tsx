@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import dMark from "@/assets/dravonix-dmark.png";
 import { LogoMark } from "./LogoMark";
@@ -21,19 +22,19 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
   if (variant !== "auto") {
     const color = variant === "blue" ? "var(--blue-brand)" : "#FFFFFF";
     return (
-      <a
-        href="#top"
+      <Link
+        to="/home"
         aria-label="Dravonix — Engineered to Outperform"
         className={cn("inline-flex items-center", className)}
       >
         <LogoMark color={color} className="h-9 w-auto md:h-10" />
-      </a>
+      </Link>
     );
   }
 
   return (
-    <a
-      href="#top"
+    <Link
+      to="/home"
       aria-label="Dravonix — Engineered to Outperform"
       className={cn("group inline-flex items-center gap-2.5", className)}
     >
@@ -57,6 +58,6 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
       <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
         Dravonix
       </span>
-    </a>
+    </Link>
   );
 }

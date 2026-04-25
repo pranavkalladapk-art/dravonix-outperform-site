@@ -4,14 +4,14 @@ import { Logo } from "./Logo";
 const serviceLinks = [
   { label: "Brand Identity", href: "/brand-identity" },
   { label: "Social Media Management", href: "/social-media-management" },
-  { label: "AI-Integrated Video & Design", href: "/#ai-studio" },
+  { label: "AI-Integrated Video & Design", href: "/ai-studio" },
   { label: "Performance Marketing", href: "/performance-marketing" },
 ];
 
 const companyLinks = [
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Team", href: "/team" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const socials = [

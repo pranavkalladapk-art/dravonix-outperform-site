@@ -12,8 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
+import { Route as AiStudioRouteImport } from './routes/ai-studio'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
@@ -33,14 +39,44 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
   id: '/performance-marketing',
   path: '/performance-marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrandIdentityRoute = BrandIdentityRouteImport.update({
   id: '/brand-identity',
   path: '/brand-identity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioRoute = AiStudioRouteImport.update({
+  id: '/ai-studio',
+  path: '/ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -61,8 +97,14 @@ const AdminEnquiriesRoute = AdminEnquiriesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/contact': typeof ContactRoute
+  '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/process': typeof ProcessRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
@@ -71,8 +113,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/contact': typeof ContactRoute
+  '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/process': typeof ProcessRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
@@ -82,8 +130,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/contact': typeof ContactRoute
+  '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/process': typeof ProcessRoute
+  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
@@ -94,8 +148,14 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/ai-studio'
     | '/brand-identity'
+    | '/contact'
+    | '/home'
     | '/performance-marketing'
+    | '/process'
+    | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
@@ -104,8 +164,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/ai-studio'
     | '/brand-identity'
+    | '/contact'
+    | '/home'
     | '/performance-marketing'
+    | '/process'
+    | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
@@ -114,8 +180,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/ai-studio'
     | '/brand-identity'
+    | '/contact'
+    | '/home'
     | '/performance-marketing'
+    | '/process'
+    | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
@@ -125,8 +197,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiStudioRoute: typeof AiStudioRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
+  ContactRoute: typeof ContactRoute
+  HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  ProcessRoute: typeof ProcessRoute
+  ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
   TeamRoute: typeof TeamRoute
@@ -157,6 +235,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/performance-marketing': {
       id: '/performance-marketing'
       path: '/performance-marketing'
@@ -164,11 +256,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PerformanceMarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brand-identity': {
       id: '/brand-identity'
       path: '/brand-identity'
       fullPath: '/brand-identity'
       preLoaderRoute: typeof BrandIdentityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio': {
+      id: '/ai-studio'
+      path: '/ai-studio'
+      fullPath: '/ai-studio'
+      preLoaderRoute: typeof AiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -197,8 +317,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiStudioRoute: AiStudioRoute,
   BrandIdentityRoute: BrandIdentityRoute,
+  ContactRoute: ContactRoute,
+  HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  ProcessRoute: ProcessRoute,
+  ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
   TeamRoute: TeamRoute,

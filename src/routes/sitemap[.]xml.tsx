@@ -4,6 +4,12 @@ const SITE = "https://dravonixmedia.com";
 
 const routes: Array<{ path: string; changefreq: string; priority: string }> = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/home", changefreq: "weekly", priority: "0.9" },
+  { path: "/services", changefreq: "monthly", priority: "0.9" },
+  { path: "/ai-studio", changefreq: "monthly", priority: "0.8" },
+  { path: "/process", changefreq: "monthly", priority: "0.8" },
+  { path: "/about", changefreq: "monthly", priority: "0.8" },
+  { path: "/contact", changefreq: "monthly", priority: "0.8" },
   { path: "/brand-identity", changefreq: "monthly", priority: "0.8" },
   { path: "/performance-marketing", changefreq: "monthly", priority: "0.8" },
   { path: "/social-media-management", changefreq: "monthly", priority: "0.8" },

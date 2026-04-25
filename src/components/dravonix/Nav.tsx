@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
-const hashLinks = [
-  { hash: "top", label: "Home" },
-  { hash: "services", label: "Services" },
-  { hash: "process", label: "Our Process" },
-  { hash: "about", label: "About" },
-  { hash: "contact", label: "Contact" },
+const navLinks: Array<{ to: string; label: string }> = [
+  { to: "/home", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/process", label: "Our Process" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const onHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -32,39 +30,6 @@ export function Nav() {
     };
   }, [open]);
 
-  const renderHashLink = (
-    l: { hash: string; label: string },
-    className: string,
-    onClick?: () => void,
-    style?: React.CSSProperties,
-  ) => {
-    if (onHome) {
-      return (
-        <a
-          key={l.hash}
-          href={`#${l.hash}`}
-          onClick={onClick}
-          className={className}
-          style={style}
-        >
-          {l.label}
-        </a>
-      );
-    }
-    return (
-      <Link
-        key={l.hash}
-        to="/"
-        hash={l.hash}
-        onClick={onClick}
-        className={className}
-        style={style}
-      >
-        {l.label}
-      </Link>
-    );
-  };
-
   return (
     <header
       className={cn(
@@ -77,28 +42,22 @@ export function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <Logo />
         <nav className="hidden items-center gap-8 lg:flex">
-          {hashLinks.map((l) =>
-            renderHashLink(
-              l,
-              "text-sm font-medium text-white/70 transition-colors hover:text-white",
-            ),
-          )}
-          {onHome ? (
-            <a
-              href="#contact"
-              className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
-            >
-              Get a Free Audit
-            </a>
-          ) : (
+          {navLinks.map((l) => (
             <Link
-              to="/"
-              hash="contact"
-              className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
+              key={l.to}
+              to={l.to}
+              className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+              activeProps={{ className: "text-sm font-medium text-white" }}
             >
-              Get a Free Audit
+              {l.label}
             </Link>
-          )}
+          ))}
+          <Link
+            to="/contact"
+            className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
+          >
+            Get a Free Audit
+          </Link>
         </nav>
         <button
           aria-label={open ? "Close menu" : "Open menu"}
@@ -117,32 +76,24 @@ export function Nav() {
         )}
       >
         <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
-          {hashLinks.map((l, i) =>
-            renderHashLink(
-              l,
-              "font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]",
-              () => setOpen(false),
-              { transitionDelay: `${i * 40}ms` },
-            ),
-          )}
-          {onHome ? (
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
-            >
-              Get a Free Audit
-            </a>
-          ) : (
+          {navLinks.map((l, i) => (
             <Link
-              to="/"
-              hash="contact"
+              key={l.to}
+              to={l.to}
               onClick={() => setOpen(false)}
-              className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
+              className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
+              style={{ transitionDelay: `${i * 40}ms` }}
             >
-              Get a Free Audit
+              {l.label}
             </Link>
-          )}
+          ))}
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
+          >
+            Get a Free Audit
+          </Link>
         </div>
       </div>
     </header>
