@@ -52,10 +52,14 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Preload the Google Fonts CSS so the request starts in parallel with HTML parse,
-      // shortening the critical request chain (HTML → CSS → woff2).
-      { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" },
+      // Async-load Google Fonts: preload as style, then a tiny script swaps it to a stylesheet.
+      // Avoids render-blocking the critical path while preserving fonts.
+      {
+        rel: "preload",
+        as: "style",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
+        "data-async-font": "true",
+      } as any,
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
   }),
@@ -69,6 +73,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Async-load Google Fonts CSS to avoid render-blocking; preserves design. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.querySelector('link[data-async-font]');if(l){l.rel='stylesheet';}})();",
+          }}
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+          />
+        </noscript>
       </head>
       <body>
         {children}
