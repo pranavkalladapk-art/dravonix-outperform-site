@@ -68,23 +68,23 @@ export function TeamGrid() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
       {members.map((m, i) => {
         const isOpen = openIdx === i;
         return (
-          <Reveal key={m.name} delay={i * 100}>
+          <Reveal key={m.name} delay={i * 100} className="h-full">
             <button
               type="button"
               onClick={() => setOpenIdx(isOpen ? null : i)}
               aria-expanded={isOpen}
               className={cn(
-                "group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-left transition-all duration-500",
+                "group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-left transition-all duration-500",
                 "hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40 hover:bg-white/[0.04] hover:shadow-[0_20px_60px_-20px_var(--cyan-accent)]",
                 isOpen && "border-[var(--cyan-accent)]/50 bg-white/[0.04] shadow-[0_20px_60px_-20px_var(--cyan-accent)]",
               )}
             >
               {/* Portrait */}
-              <div className="relative mx-auto mb-6 grid aspect-square w-full max-w-[220px] place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
+              <div className="relative mb-6 grid h-[280px] w-full place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-110",
@@ -99,7 +99,7 @@ export function TeamGrid() {
                     height={440}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 h-full w-full object-cover object-[center_top] transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
                   <>
@@ -112,53 +112,57 @@ export function TeamGrid() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/60 via-transparent to-transparent" />
               </div>
 
-              <h3 className="font-display text-2xl font-bold tracking-tight text-white">
-                {m.name}
-              </h3>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                {m.role}
-              </p>
-              <a
-                href={`mailto:${m.email}`}
-                onClick={(e) => e.stopPropagation()}
-                className="mt-2 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-[var(--cyan-accent)]"
-              >
-                {m.email}
-              </a>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
-                {m.tagline}
-              </p>
+              <div className="flex flex-1 flex-col">
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl font-bold tracking-tight text-white">
+                    {m.name}
+                  </h3>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
+                    {m.role}
+                  </p>
+                  <a
+                    href={`mailto:${m.email}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="mt-2 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-[var(--cyan-accent)]"
+                  >
+                    {m.email}
+                  </a>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
+                    {m.tagline}
+                  </p>
 
-              {/* Expandable vision */}
-              <div
-                className={cn(
-                  "grid overflow-hidden transition-all duration-500 ease-out",
-                  isOpen ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                )}
-              >
-                <div className="min-h-0">
-                  <div className="border-t border-white/10 pt-5">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-                      Founder Vision
-                    </span>
-                    <p className="mt-3 text-base italic leading-relaxed text-white/85">
-                      &ldquo;{m.vision}&rdquo;
-                    </p>
+                  {/* Expandable vision */}
+                  <div
+                    className={cn(
+                      "grid overflow-hidden transition-all duration-500 ease-out",
+                      isOpen ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    )}
+                  >
+                    <div className="min-h-0">
+                      <div className="border-t border-white/10 pt-5">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+                          Founder Vision
+                        </span>
+                        <p className="mt-3 text-base italic leading-relaxed text-white/85">
+                          &ldquo;{m.vision}&rdquo;
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                {isOpen ? "Hide vision" : "Read vision"}
-                <span
-                  className={cn(
-                    "transition-transform duration-300",
-                    isOpen ? "rotate-180" : "rotate-0",
-                  )}
-                >
-                  ↓
+                <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
+                  {isOpen ? "Hide vision" : "Read vision"}
+                  <span
+                    className={cn(
+                      "transition-transform duration-300",
+                      isOpen ? "rotate-180" : "rotate-0",
+                    )}
+                  >
+                    ↓
+                  </span>
                 </span>
-              </span>
+              </div>
             </button>
           </Reveal>
         );
