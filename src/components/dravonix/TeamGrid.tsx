@@ -68,7 +68,7 @@ export function TeamGrid() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
       {members.map((m, i) => {
         const isOpen = openIdx === i;
         return (
