@@ -26,12 +26,6 @@ const services = [
     desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
     href: "/performance-marketing",
   },
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
-    href: "/brand-identity",
-  },
 ];
 
 export function Services() {
