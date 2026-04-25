@@ -54,7 +54,7 @@ const services = [
   {
     icon: Globe,
     title: "Website Development",
-    desc: "From landing pages to full business websites — fast, modern, and conversion-focused builds that reflect your brand perfectly.",
+    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
   },
   {
     icon: Layout,
