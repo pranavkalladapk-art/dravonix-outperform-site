@@ -27,14 +27,19 @@ export const Route = createFileRoute("/brand-identity")({
 
 const services = [
   {
-    icon: PenTool,
-    title: "Logo & Brand Mark Design",
-    desc: "Distinctive logos and marks crafted to anchor your brand with clarity and longevity.",
+    icon: Globe,
+    title: "Website Development",
+    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
   },
   {
-    icon: Palette,
-    title: "Visual Identity System",
-    desc: "Color, typography, layout and visual language unified into a cohesive system.",
+    icon: Layout,
+    title: "Website Design",
+    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
+  },
+  {
+    icon: Target,
+    title: "Brand Positioning",
+    desc: "Sharp positioning that differentiates you and earns a defensible space in your market.",
   },
   {
     icon: MessageSquare,
@@ -47,19 +52,14 @@ const services = [
     desc: "Comprehensive guidelines so every team and partner stays on-brand, every time.",
   },
   {
-    icon: Target,
-    title: "Brand Positioning",
-    desc: "Sharp positioning that differentiates you and earns a defensible space in your market.",
+    icon: Palette,
+    title: "Visual Identity System",
+    desc: "Color, typography, layout and visual language unified into a cohesive system.",
   },
   {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
-  },
-  {
-    icon: Layout,
-    title: "Website Design",
-    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
+    icon: PenTool,
+    title: "Logo & Brand Mark Design",
+    desc: "Distinctive logos and marks crafted to anchor your brand with clarity and longevity.",
   },
 ];
 
