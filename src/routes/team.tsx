@@ -21,6 +21,7 @@ export const Route = createFileRoute("/team")({
           "The minds shaping Dravonix — founders blending technology, storytelling and cinematic craft.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://dravonixmedia.com/team" }],
   }),
   component: TeamPage,
 });
