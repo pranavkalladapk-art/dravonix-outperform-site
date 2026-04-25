@@ -102,7 +102,11 @@ function BrandIdentityPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
+              <Reveal
+                key={s.title}
+                delay={i * 80}
+                className={i === services.length - 1 ? "lg:col-start-2" : undefined}
+              >
                 <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
                   <span
                     aria-hidden
