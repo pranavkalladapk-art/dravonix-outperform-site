@@ -1,29 +1,31 @@
-# Match Services / Process / WhyDravonix headers to the About section style
+## Problem
 
-Restyle the section headers for **Services ("What We Do")**, **Process ("Our Process")**, and **WhyDravonix ("Why Dravonix")** so they share the exact visual signature used by the About section.
+When clicking a nav link (e.g. `/services`, `/process`, `/about`) or while scrolling between sections, the page **jumps** before smoothly scrolling. Two systems are fighting each other:
 
-## Reference pattern (from `About.tsx`)
-- Centered header block wrapped in `<Reveal className="text-center">`.
-- Eyebrow chip: `inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]` with a small solid cyan dot (`h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]`).
-- Headline: `font-display ... text-white` with one phrase wrapped in the cyan→blue gradient.
+1. **TanStack Router's `scrollRestoration: true`** (in `src/router.tsx`) instantly snaps the window to top/restored position on every route change.
+2. **`useSectionUrlSync`** (in `src/hooks/use-section-url-sync.ts`) then triggers a smooth `window.scrollTo` to the matching section.
 
-## Changes
+Result: instant snap → smooth scroll = visible "jump" stutter. The scroll-spy IntersectionObserver also updates the URL while the user is mid-scroll, which on a fast scroll can re-trigger another smooth scroll before the suppression window (700ms) elapses.
 
-**1. `src/components/dravonix/Services.tsx`**
-- Replace the plain `<span>` eyebrow with the dot chip (label: "What We Do").
-- Center the header block and the supporting paragraph (`mx-auto max-w-2xl`).
-- Keep existing gradient on "compete and win." in the subhead. Cards grid unchanged.
+## Fix
 
-**2. `src/components/dravonix/Process.tsx`**
-- Replace the plain eyebrow with the dot chip (label: "Our Process").
-- Center the header (`<Reveal className="text-center">`, `mx-auto max-w-2xl`).
-- Headline keeps gradient on "system". Steps grid + connector line unchanged.
+### 1. `src/router.tsx`
+- Set `scrollRestoration: false` so TanStack Router stops snapping the viewport on internal navigations. Our hook owns scrolling between the synced sections.
 
-**3. `src/components/dravonix/WhyDravonix.tsx`**
-- Replace the plain eyebrow with the dot chip (label: "Why Dravonix").
-- Keep the two-column layout (left text / right SVG); heading copy and gradient on "work with us" stay as-is. Left alignment preserved because of the asymmetric layout — the chip itself is the unifying signature.
+### 2. `src/hooks/use-section-url-sync.ts`
+- **Detect "synced" route changes**: when navigating between paths that map to sections on the same single page (`/home`, `/services`, `/ai-studio`, `/process`, `/about`, `/contact`), always use smooth scroll — never `auto`.
+- **Lengthen the scroll-spy suppression window** from 700ms → 1200ms so a programmatic smooth scroll fully completes before the observer is allowed to overwrite the URL.
+- **Guard against double-trigger**: if the target section is already roughly in view (within ~120px of the nav offset), skip the scroll entirely instead of re-scrolling.
+- **First-load behavior**: only use `behavior: "auto"` on the very first mount (deep-link to `/services` etc.), not on subsequent in-app navigations.
+- Initialize `currentPathRef` correctly so the first navigation isn't misclassified as "first load".
+
+### 3. `src/styles.css`
+- Keep `html { scroll-behavior: smooth }` but add `@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }` for accessibility (no behavior change for typical users; just hygiene).
+
+## Files to edit
+- `src/router.tsx` — flip `scrollRestoration` to `false`.
+- `src/hooks/use-section-url-sync.ts` — smarter scroll trigger + longer suppression + skip-if-already-visible.
+- `src/styles.css` — add reduced-motion guard (small accessibility tweak).
 
 ## Out of scope
-- No copy changes; no layout/grid changes beyond centering the Services and Process header blocks.
-- No changes to About or AI Studio (already correct).
-- No new files, no routing changes.
+- No changes to `Nav.tsx`, route files, or section components. The nav links keep using `<Link to="/...">` exactly as today; only the scroll mechanics underneath change.
