@@ -17,7 +17,8 @@ export function WhyDravonix() {
     <section className="bg-[var(--navy)]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 lg:grid-cols-2">
         <Reveal className="px-5 py-16 md:px-12 md:py-28 lg:px-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]" />
             Why Dravonix
           </span>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">

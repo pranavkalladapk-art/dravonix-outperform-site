@@ -1,59 +1,29 @@
-## Goal
-Give each section heading a unique copy/structure while sharing **one consistent color treatment** — a cyan→blue gradient on a key accent word — so the site feels visually cohesive.
+# Match Services / Process / WhyDravonix headers to the About section style
 
-The gradient already used by **About** and **AI Studio** becomes the standard:
-```
-bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent
-```
+Restyle the section headers for **Services ("What We Do")**, **Process ("Our Process")**, and **WhyDravonix ("Why Dravonix")** so they share the exact visual signature used by the About section.
 
-(About currently uses `from-cyan to-blue`; AI Studio uses `from-blue to-cyan`. I'll standardize all 5 to **`from-cyan-accent to-blue-brand`** for true uniformity.)
+## Reference pattern (from `About.tsx`)
+- Centered header block wrapped in `<Reveal className="text-center">`.
+- Eyebrow chip: `inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]` with a small solid cyan dot (`h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]`).
+- Headline: `font-display ... text-white` with one phrase wrapped in the cyan→blue gradient.
 
 ## Changes
 
-### 1. `src/components/dravonix/Services.tsx` (line 42–44)
-The line "Everything your brand needs to compete and win." is currently a `<p>` subheading. Promote the accent words `compete and win` with the gradient span. Keep the existing h2 ("Services that move the needle.") unchanged.
+**1. `src/components/dravonix/Services.tsx`**
+- Replace the plain `<span>` eyebrow with the dot chip (label: "What We Do").
+- Center the header block and the supporting paragraph (`mx-auto max-w-2xl`).
+- Keep existing gradient on "compete and win." in the subhead. Cards grid unchanged.
 
-```jsx
-<p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-  Everything your brand needs to{" "}
-  <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text font-semibold text-transparent">
-    compete and win.
-  </span>
-</p>
-```
+**2. `src/components/dravonix/Process.tsx`**
+- Replace the plain eyebrow with the dot chip (label: "Our Process").
+- Center the header (`<Reveal className="text-center">`, `mx-auto max-w-2xl`).
+- Headline keeps gradient on "system". Steps grid + connector line unchanged.
 
-### 2. `src/components/dravonix/AIStudio.tsx` (line 60–64)
-Already has the gradient on "brand craft" but uses `from-blue to-cyan`. Flip the direction to match the unified scheme `from-cyan-accent to-blue-brand`.
+**3. `src/components/dravonix/WhyDravonix.tsx`**
+- Replace the plain eyebrow with the dot chip (label: "Why Dravonix").
+- Keep the two-column layout (left text / right SVG); heading copy and gradient on "work with us" stay as-is. Left alignment preserved because of the asymmetric layout — the chip itself is the unifying signature.
 
-### 3. `src/components/dravonix/Process.tsx` (line 36–38)
-Wrap "system" with the gradient span:
-```jsx
-<h2 className="...">
-  A{" "}
-  <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
-    system
-  </span>
-  , not a sprint.
-</h2>
-```
-
-### 4. `src/components/dravonix/WhyDravonix.tsx` (line 23–25)
-Wrap "work with us" with the gradient span:
-```jsx
-<h2 className="...">
-  Why{" "}
-  <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
-    work with us
-  </span>
-  ?
-</h2>
-```
-
-### 5. `src/components/dravonix/About.tsx` (line 22–27)
-Already has the gradient on "Performance" with `from-cyan-accent to-blue-brand`. **No change needed** — this is the reference style.
-
-## Result
-- All 5 sections have a single cyan→blue gradient accent on one meaningful word.
-- Each heading still reads uniquely (different copy, different accent word).
-- One unified color signature ties the whole page together.
-- No layout, spacing, or font-size changes.
+## Out of scope
+- No copy changes; no layout/grid changes beyond centering the Services and Process header blocks.
+- No changes to About or AI Studio (already correct).
+- No new files, no routing changes.
