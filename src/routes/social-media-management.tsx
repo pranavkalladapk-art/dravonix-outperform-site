@@ -57,7 +57,7 @@ function SocialMediaManagementPage() {
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
             <Link
-              to="/"
+              to="/contact"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -114,8 +114,7 @@ function SocialMediaManagementPage() {
               Let's turn your social channels into a daily growth engine.
             </p>
             <Link
-              to="/"
-              hash="contact"
+              to="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-all hover:-translate-y-0.5 hover:bg-[var(--blue-brand)]/90"
             >
               Contact <ArrowRight className="h-4 w-4" />

@@ -38,7 +38,7 @@ function TeamPage() {
           <div className="relative mx-auto max-w-5xl px-5 md:px-8">
             <Reveal>
               <Link
-                to="/"
+                to="/contact"
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -100,8 +100,7 @@ function TeamPage() {
             </Reveal>
             <Reveal delay={200}>
               <Link
-                to="/"
-                hash="contact"
+                to="/contact"
                 className="group mt-9 inline-flex items-center gap-2 rounded-full bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
               >
                 Start a Conversation
