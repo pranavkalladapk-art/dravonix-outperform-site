@@ -72,7 +72,7 @@ function BrandIdentityPage() {
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
             <Link
-              to="/"
+              to="/home"
               hash="services"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
             >
