@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
-import pranavPhoto from "@/assets/team-pranav.jpg";
-import sreeragPhoto from "@/assets/team-sreerag.png";
-import arunrajPhoto from "@/assets/team-arunraj.jpg";
+import pranavPhoto from "@/assets/team-pranav.webp";
+import sreeragPhoto from "@/assets/team-sreerag.webp";
+import arunrajPhoto from "@/assets/team-arunraj.webp";
 
 type Member = {
   initials: string;
@@ -83,7 +83,10 @@ export function TeamGrid() {
                   <img
                     src={m.photo}
                     alt={`${m.name} portrait`}
+                    width={440}
+                    height={440}
                     loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
