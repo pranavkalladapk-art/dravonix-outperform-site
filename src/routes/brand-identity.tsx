@@ -27,14 +27,19 @@ export const Route = createFileRoute("/brand-identity")({
 
 const services = [
   {
-    icon: PenTool,
-    title: "Logo & Brand Mark Design",
-    desc: "Distinctive logos and marks crafted to anchor your brand with clarity and longevity.",
+    icon: Globe,
+    title: "Website Development",
+    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
   },
   {
-    icon: Palette,
-    title: "Visual Identity System",
-    desc: "Color, typography, layout and visual language unified into a cohesive system.",
+    icon: Layout,
+    title: "Website Design",
+    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
+  },
+  {
+    icon: Target,
+    title: "Brand Positioning",
+    desc: "Sharp positioning that differentiates you and earns a defensible space in your market.",
   },
   {
     icon: MessageSquare,
@@ -47,19 +52,14 @@ const services = [
     desc: "Comprehensive guidelines so every team and partner stays on-brand, every time.",
   },
   {
-    icon: Target,
-    title: "Brand Positioning",
-    desc: "Sharp positioning that differentiates you and earns a defensible space in your market.",
+    icon: Palette,
+    title: "Visual Identity System",
+    desc: "Color, typography, layout and visual language unified into a cohesive system.",
   },
   {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
-  },
-  {
-    icon: Layout,
-    title: "Website Design",
-    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
+    icon: PenTool,
+    title: "Logo & Brand Mark Design",
+    desc: "Distinctive logos and marks crafted to anchor your brand with clarity and longevity.",
   },
 ];
 
@@ -102,7 +102,11 @@ function BrandIdentityPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
+              <Reveal
+                key={s.title}
+                delay={i * 80}
+                className={i === services.length - 1 ? "lg:col-start-2" : undefined}
+              >
                 <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
                   <span
                     aria-hidden
