@@ -14,13 +14,18 @@ export function useInView<T extends Element = HTMLDivElement>(
       return;
     }
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          if (once) observer.disconnect();
-        } else if (!once) {
-          setInView(false);
-        }
+      // Defer state updates to the next animation frame so DOM mutations
+      // happen at a frame boundary, avoiding forced sync layout/reflow
+      // when many Reveal elements activate in the same tick.
+      requestAnimationFrame(() => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            if (once) observer.disconnect();
+          } else if (!once) {
+            setInView(false);
+          }
+        });
       });
     }, options);
     observer.observe(node);
