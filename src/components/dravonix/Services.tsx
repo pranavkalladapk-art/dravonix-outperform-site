@@ -32,14 +32,15 @@ export function Services() {
   return (
     <section id="services" className="bg-[var(--navy)] py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+        <Reveal className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]" />
             What We Do
           </span>
-          <h2 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
             Services that move the needle.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
+          <p className="mt-4 mx-auto max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
             Everything your brand needs to{" "}
             <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text font-semibold text-transparent">
               compete and win.
