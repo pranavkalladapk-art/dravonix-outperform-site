@@ -99,7 +99,7 @@ export function TeamGrid() {
                     height={440}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 h-full w-full object-cover object-[center_top] transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
                   <>
