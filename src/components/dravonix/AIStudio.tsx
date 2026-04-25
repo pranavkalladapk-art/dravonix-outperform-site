@@ -59,7 +59,7 @@ export function AIStudio() {
 
           <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-6xl">
             Where AI meets{" "}
-            <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
               brand craft.
             </span>
           </h2>

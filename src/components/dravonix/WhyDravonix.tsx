@@ -21,7 +21,11 @@ export function WhyDravonix() {
             Why Dravonix
           </span>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-            Why work with us?
+            Why{" "}
+            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
+              work with us
+            </span>
+            ?
           </h2>
           <ul className="mt-8 space-y-4 md:mt-10 md:space-y-5">
             {reasons.map((r) => (

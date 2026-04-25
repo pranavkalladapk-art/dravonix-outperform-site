@@ -34,7 +34,11 @@ export function Process() {
             Our Process
           </span>
           <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-            A system, not a sprint.
+            A{" "}
+            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">
+              system
+            </span>
+            , not a sprint.
           </h2>
         </Reveal>
 
