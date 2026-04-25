@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, PenTool, Palette, MessageSquare, BookOpen, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, PenTool, Palette, MessageSquare, BookOpen, Target, Globe, Layout } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -50,6 +50,16 @@ const services = [
     icon: Target,
     title: "Brand Positioning",
     desc: "Sharp positioning that differentiates you and earns a defensible space in your market.",
+  },
+  {
+    icon: Globe,
+    title: "Website Development",
+    desc: "From landing pages to full business websites — fast, modern, and conversion-focused builds that reflect your brand perfectly.",
+  },
+  {
+    icon: Layout,
+    title: "Website Design",
+    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
   },
 ];
 

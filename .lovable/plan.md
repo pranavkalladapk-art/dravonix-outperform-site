@@ -1,28 +1,49 @@
-# Add AI Studio-style background grid to Why Dravonix section
+# Add Website Development & Website Design Service Cards
 
 ## Goal
-Match the **Why Dravonix** section's background to the **AI × Creative (AIStudio)** section — same decorative grid backdrop and ambient blue/cyan blur orbs, while keeping the existing faint "D" watermark, heading, and 2-column checklist intact.
+Add two new service cards to the `/brand-identity` page and one new "Website Development" card to the Home page Services section, all matching the existing visual style.
 
-## File to edit
-- `src/components/dravonix/WhyDravonix.tsx`
+## Files to edit
 
-## Changes
-The `<section>` already has `relative overflow-hidden`. Inside it, before the existing D watermark SVG, add the same decorative layers used in `AIStudio.tsx`:
+### 1. `src/routes/brand-identity.tsx`
+Add two entries to the `services` array (rendered in the existing 3-column grid):
 
-1. **Ambient blur orbs** (top-right blue, bottom-left cyan):
-   ```tsx
-   <div aria-hidden className="pointer-events-none absolute -top-40 right-0 h-[420px] w-[420px] rounded-full bg-[var(--blue-brand)]/20 blur-3xl animate-ambient" />
-   <div aria-hidden className="pointer-events-none absolute -bottom-32 left-0 h-[360px] w-[360px] rounded-full bg-[var(--cyan-accent)]/15 blur-3xl animate-ambient" />
-   ```
+- Update the import line to include `Globe` and `Layout`:
+  ```ts
+  import { ArrowLeft, ArrowRight, PenTool, Palette, MessageSquare, BookOpen, Target, Globe, Layout } from "lucide-react";
+  ```
+- Append to the `services` array:
+  ```ts
+  {
+    icon: Globe,
+    title: "Website Development",
+    desc: "From landing pages to full business websites — fast, modern, and conversion-focused builds that reflect your brand perfectly.",
+  },
+  {
+    icon: Layout,
+    title: "Website Design",
+    desc: "Pixel-perfect UI/UX design crafted to reflect your brand identity — clean, intuitive, and built to convert visitors into clients.",
+  },
+  ```
+The existing grid is `md:grid-cols-2 lg:grid-cols-3` — 7 cards will fill 3 rows cleanly (3+3+1) on desktop and stay balanced on tablet/mobile. No layout changes needed.
 
-2. **Decorative grid backdrop** with radial mask (identical to AIStudio):
-   ```tsx
-   <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
-   ```
-
-3. Keep the existing faint "D" SVG watermark layered on top of the grid (already `opacity-[0.06]`).
-
-4. Keep the content wrapper `<div className="relative mx-auto max-w-6xl">` so heading + checklist stay above all decorative layers.
+### 2. `src/components/dravonix/Services.tsx`
+- Add `Globe` to the lucide-react import:
+  ```ts
+  import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe } from "lucide-react";
+  ```
+- Append a new entry to the `services` array (after Performance Marketing):
+  ```ts
+  {
+    icon: Globe,
+    title: "Website Development",
+    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
+    href: "/brand-identity",
+  },
+  ```
+The existing grid is `md:grid-cols-2`. With 5 cards, the 5th will span one column on the last row — visually fine, but to keep balance we'll leave the grid as-is (existing pattern; the last card centers naturally in column 1). No styling changes — the card markup already renders `Explore {title} Services` so the link label automatically becomes "Explore Website Development Services →".
 
 ## Result
-Why Dravonix will visually echo the AI Studio section: subtle white grid fading at the edges via radial mask, plus two soft blue/cyan ambient glows — unifying both sections' premium backdrop without altering any text content or layout.
+- `/brand-identity` page shows 7 service cards including Website Development & Website Design with matching styling.
+- Home Services section gains a 5th card "Website Development" with the same dark card styling, blue icon box, white title, muted description, and blue arrow CTA linking to `/brand-identity`.
+- No other files affected; no new dependencies required (icons already shipped with `lucide-react`).
