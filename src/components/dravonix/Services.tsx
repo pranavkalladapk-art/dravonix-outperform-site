@@ -40,7 +40,10 @@ export function Services() {
             Services that move the needle.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-            Everything your brand needs to compete and win.
+            Everything your brand needs to{" "}
+            <span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text font-semibold text-transparent">
+              compete and win.
+            </span>
           </p>
         </Reveal>
 
