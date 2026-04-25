@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const services = [
@@ -25,12 +25,6 @@ const services = [
     title: "Performance Marketing",
     desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
     href: "/performance-marketing",
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Fast, modern, conversion-focused websites built to reflect your brand and drive real business results.",
-    href: "/brand-identity",
   },
 ];
 
