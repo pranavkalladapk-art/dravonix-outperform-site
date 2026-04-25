@@ -69,11 +69,23 @@ export function useSectionUrlSync(enabled: boolean = true) {
 
     if (samePath && !isFirstMount) return;
 
-    const behavior: ScrollBehavior = isFirstMount ? "auto" : "smooth";
     suppressUntilRef.current = Date.now() + SCROLL_SUPPRESS_MS;
 
+    if (isFirstMount) {
+      // Deep link / refresh: jump to top instantly, then smoothly scroll to
+      // the target section so the user sees the motion and lands cleanly.
+      window.scrollTo({ top: 0, behavior: "auto" });
+      // Wait for layout (fonts, images, reveal animations) to settle before
+      // measuring the section's position.
+      const t = window.setTimeout(() => {
+        scrollToSection(section, "smooth");
+        suppressUntilRef.current = Date.now() + SCROLL_SUPPRESS_MS;
+      }, 250);
+      return () => window.clearTimeout(t);
+    }
+
     const t = window.setTimeout(() => {
-      scrollToSection(section, behavior);
+      scrollToSection(section, "smooth");
       suppressUntilRef.current = Date.now() + SCROLL_SUPPRESS_MS;
     }, 30);
     return () => window.clearTimeout(t);
