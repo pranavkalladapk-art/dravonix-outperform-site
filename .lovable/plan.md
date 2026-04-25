@@ -1,35 +1,28 @@
-I’ll fix the page scroll behavior by making the section URL sync passive during manual scrolling, so it no longer traps the user around `/process` or prevents reaching the bottom/contact area.
+# Add AI Studio-style background grid to Why Dravonix section
 
-Implementation plan:
+## Goal
+Match the **Why Dravonix** section's background to the **AI × Creative (AIStudio)** section — same decorative grid backdrop and ambient blue/cyan blur orbs, while keeping the existing faint "D" watermark, heading, and 2-column checklist intact.
 
-1. Update the section scroll sync hook
-   - In `src/hooks/use-section-url-sync.ts`, stop programmatic section scrolling from running during normal browser/manual scrolling.
-   - Only run `scrollToSection(...)` when the route/path actually changes through navigation, not when the hook’s own scroll-spy updates the URL with `history.replaceState`.
-   - Keep the URL changing as the user scrolls through sections, but make that URL update non-invasive so it does not trigger another scroll jump.
+## File to edit
+- `src/components/dravonix/WhyDravonix.tsx`
 
-2. Improve bottom-of-page detection
-   - Adjust the scroll-spy logic so the contact section can become active when the user reaches the bottom of the page.
-   - Add a bottom guard such as: if the user is near `document.documentElement.scrollHeight`, prefer the `contact` section instead of keeping the URL stuck on `/process` or `/about`.
+## Changes
+The `<section>` already has `relative overflow-hidden`. Inside it, before the existing D watermark SVG, add the same decorative layers used in `AIStudio.tsx`:
 
-3. Preserve smooth navigation clicks
-   - Keep top nav clicks smooth when moving between Home, Services, Process, About, and Contact.
-   - Maintain the fixed nav offset so section headings are not hidden under the header.
+1. **Ambient blur orbs** (top-right blue, bottom-left cyan):
+   ```tsx
+   <div aria-hidden className="pointer-events-none absolute -top-40 right-0 h-[420px] w-[420px] rounded-full bg-[var(--blue-brand)]/20 blur-3xl animate-ambient" />
+   <div aria-hidden className="pointer-events-none absolute -bottom-32 left-0 h-[360px] w-[360px] rounded-full bg-[var(--cyan-accent)]/15 blur-3xl animate-ambient" />
+   ```
 
-4. Keep accessibility behavior
-   - Preserve the existing `prefers-reduced-motion` behavior so users who request reduced motion do not get forced smooth scrolling.
+2. **Decorative grid backdrop** with radial mask (identical to AIStudio):
+   ```tsx
+   <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
+   ```
 
-Technical details:
+3. Keep the existing faint "D" SVG watermark layered on top of the grid (already `opacity-[0.06]`).
 
-- Files to edit:
-  - `src/hooks/use-section-url-sync.ts`
-- Likely fix:
-  - Track whether the path change was caused by internal scroll-spy URL replacement versus a real route navigation.
-  - Use `window.history.replaceState(...)` for passive URL updates only.
-  - Avoid calling `scrollToSection(...)` in response to those passive updates.
-  - Add near-bottom logic based on `window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold`.
+4. Keep the content wrapper `<div className="relative mx-auto max-w-6xl">` so heading + checklist stay above all decorative layers.
 
-Expected result:
-
-- The user can scroll from top to the full end of the page smoothly.
-- The page will not jump back to earlier sections while scrolling.
-- Navigation menu clicks will still smoothly scroll to their target sections.
+## Result
+Why Dravonix will visually echo the AI Studio section: subtle white grid fading at the edges via radial mask, plus two soft blue/cyan ambient glows — unifying both sections' premium backdrop without altering any text content or layout.
