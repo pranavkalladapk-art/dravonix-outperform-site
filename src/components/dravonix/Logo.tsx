@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
-import dMark from "@/assets/dravonix-dmark.png";
+import dMark from "@/assets/dravonix-dmark.webp";
 import { LogoMark } from "./LogoMark";
 
 type LogoVariant = "auto" | "white" | "blue";
