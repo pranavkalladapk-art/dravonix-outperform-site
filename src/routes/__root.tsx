@@ -73,6 +73,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Async-load Google Fonts CSS to avoid render-blocking; preserves design. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.querySelector('link[data-async-font]');if(l){l.rel='stylesheet';}})();",
+          }}
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+          />
+        </noscript>
       </head>
       <body>
         {children}
