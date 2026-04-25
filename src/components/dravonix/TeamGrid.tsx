@@ -4,6 +4,7 @@ import { Reveal } from "./Reveal";
 import pranavPhoto from "@/assets/team-pranav.webp";
 import sreeragPhoto from "@/assets/team-sreerag.webp";
 import arunrajPhoto from "@/assets/team-arunraj.webp";
+import akhilPhoto from "@/assets/team-akhil.webp";
 
 type Member = {
   initials: string;
