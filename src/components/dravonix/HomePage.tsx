@@ -11,9 +11,9 @@ import { Footer } from "@/components/dravonix/Footer";
 import { useSectionUrlSync } from "@/hooks/use-section-url-sync";
 
 export function HomePage() {
-  // Scroll-spy disabled: it was rewriting the URL during manual scrolling
-  // and triggering the route effect to scroll back, which fought the user.
-  // Nav links still smoothly scroll to sections via the route-change effect.
+  // Re-enabled with passive scroll-spy disabled: route changes (e.g. clicking
+  // a nav link) smoothly scroll to the matching section. The hook does NOT
+  // rewrite the URL while the user scrolls.
   useSectionUrlSync(false);
   return (
     <div className="min-h-screen bg-[var(--navy)]">
