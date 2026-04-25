@@ -22,13 +22,9 @@ export const PATH_TO_SECTION: Record<string, string> = {
 };
 
 const NAV_OFFSET = 80;
-// How long to ignore scroll-spy URL updates after a programmatic scroll.
-// Must comfortably exceed the smooth-scroll duration so the observer
-// doesn't fight the in-flight animation.
-const SCROLL_SUPPRESS_MS = 1200;
-// If the section is already within this many pixels of the desired
-// position, skip scrolling entirely (prevents tiny re-jumps).
+const SCROLL_SUPPRESS_MS = 1000;
 const ALREADY_IN_PLACE_TOLERANCE = 120;
+const BOTTOM_THRESHOLD = 80;
 
 export function scrollToSection(sectionId: string, behavior: ScrollBehavior = "smooth") {
   const el = document.getElementById(sectionId);
@@ -49,8 +45,12 @@ export function useSectionUrlSync(enabled: boolean = true) {
   const suppressUntilRef = useRef<number>(0);
   const currentPathRef = useRef<string>(location.pathname);
   const isFirstMountRef = useRef<boolean>(true);
+  // Tracks paths set by our own scroll-spy via history.replaceState — we must
+  // NOT react to those by scrolling, otherwise we fight the user.
+  const internalPathsRef = useRef<Set<string>>(new Set());
 
-  // Scroll to matching section when pathname changes
+  // Scroll to matching section ONLY when the path change came from a real
+  // navigation (nav link click, back/forward), not from our scroll-spy.
   useEffect(() => {
     const section = PATH_TO_SECTION[location.pathname];
     if (!section) return;
@@ -60,13 +60,16 @@ export function useSectionUrlSync(enabled: boolean = true) {
     const samePath = currentPathRef.current === location.pathname;
     currentPathRef.current = location.pathname;
 
-    // No work if path didn't actually change (and we're past first mount).
+    // If this path was just written by our own scroll-spy, consume the marker
+    // and do nothing — the user is already scrolling there manually.
+    if (internalPathsRef.current.has(location.pathname)) {
+      internalPathsRef.current.delete(location.pathname);
+      return;
+    }
+
     if (samePath && !isFirstMount) return;
 
-    // Deep-link / first paint: jump instantly. Otherwise smooth scroll.
     const behavior: ScrollBehavior = isFirstMount ? "auto" : "smooth";
-
-    // Suppress scroll-spy updates immediately so it can't race the scroll start.
     suppressUntilRef.current = Date.now() + SCROLL_SUPPRESS_MS;
 
     const t = window.setTimeout(() => {
@@ -76,7 +79,7 @@ export function useSectionUrlSync(enabled: boolean = true) {
     return () => window.clearTimeout(t);
   }, [location.pathname]);
 
-  // Scroll-spy: update URL as user scrolls
+  // Scroll-spy: update URL as user scrolls (passive, no scrolling triggered).
   useEffect(() => {
     if (!enabled) return;
     if (typeof IntersectionObserver === "undefined") return;
@@ -89,14 +92,18 @@ export function useSectionUrlSync(enabled: boolean = true) {
 
     const visibility = new Map<string, number>();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          visibility.set(entry.target.id, entry.intersectionRatio);
-        }
-        if (Date.now() < suppressUntilRef.current) return;
+    const updateUrl = () => {
+      if (Date.now() < suppressUntilRef.current) return;
 
-        let topId = "";
+      // Bottom-of-page guard: prefer "contact" when near the end.
+      const nearBottom =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - BOTTOM_THRESHOLD;
+
+      let topId = "";
+      if (nearBottom && document.getElementById("contact")) {
+        topId = "contact";
+      } else {
         let topRatio = 0;
         for (const [id, ratio] of visibility) {
           if (ratio > topRatio) {
@@ -105,17 +112,27 @@ export function useSectionUrlSync(enabled: boolean = true) {
           }
         }
         if (!topId || topRatio < 0.15) return;
+      }
 
-        const targetPath = SECTION_TO_PATH[topId];
-        if (!targetPath) return;
-        const current = window.location.pathname;
-        // Treat "/" as equivalent to "/home"
-        const normalized = current === "/" ? "/home" : current;
-        if (normalized === targetPath) return;
-        // Only override if we're on one of the synced paths
-        if (!PATH_TO_SECTION[current]) return;
-        window.history.replaceState(null, "", targetPath);
-        currentPathRef.current = targetPath;
+      const targetPath = SECTION_TO_PATH[topId];
+      if (!targetPath) return;
+      const current = window.location.pathname;
+      const normalized = current === "/" ? "/home" : current;
+      if (normalized === targetPath) return;
+      if (!PATH_TO_SECTION[current]) return;
+
+      // Mark as internal so the navigation effect above ignores it.
+      internalPathsRef.current.add(targetPath);
+      window.history.replaceState(null, "", targetPath);
+      currentPathRef.current = targetPath;
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          visibility.set(entry.target.id, entry.intersectionRatio);
+        }
+        updateUrl();
       },
       {
         threshold: [0.15, 0.3, 0.5, 0.75],
@@ -124,6 +141,15 @@ export function useSectionUrlSync(enabled: boolean = true) {
     );
 
     elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    // Also re-check on scroll for the bottom-of-page case (contact may not
+    // hit a high intersection ratio if it's short).
+    const onScroll = () => updateUrl();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [enabled]);
 }
