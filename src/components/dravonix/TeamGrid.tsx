@@ -68,23 +68,23 @@ export function TeamGrid() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
       {members.map((m, i) => {
         const isOpen = openIdx === i;
         return (
-          <Reveal key={m.name} delay={i * 100}>
+          <Reveal key={m.name} delay={i * 100} className="h-full">
             <button
               type="button"
               onClick={() => setOpenIdx(isOpen ? null : i)}
               aria-expanded={isOpen}
               className={cn(
-                "group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-left transition-all duration-500",
+                "group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-left transition-all duration-500",
                 "hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40 hover:bg-white/[0.04] hover:shadow-[0_20px_60px_-20px_var(--cyan-accent)]",
                 isOpen && "border-[var(--cyan-accent)]/50 bg-white/[0.04] shadow-[0_20px_60px_-20px_var(--cyan-accent)]",
               )}
             >
               {/* Portrait */}
-              <div className="relative mx-auto mb-6 grid aspect-square w-full max-w-[220px] place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
+              <div className="relative mb-6 grid h-[280px] w-full place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-110",
