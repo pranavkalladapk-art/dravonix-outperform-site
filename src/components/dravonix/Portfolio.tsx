@@ -1,4 +1,5 @@
 import { ArrowRight, Instagram, Youtube, Linkedin, Music2, Twitter, Facebook } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 const cases = [
@@ -99,12 +100,12 @@ export function Portfolio() {
 
         <Reveal delay={150}>
           <div className="mt-12 text-center">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 font-semibold text-[var(--blue-brand)] transition-all hover:gap-3"
             >
               View All Case Studies <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>
