@@ -4,6 +4,7 @@ import { Reveal } from "./Reveal";
 import pranavPhoto from "@/assets/team-pranav.webp";
 import sreeragPhoto from "@/assets/team-sreerag.webp";
 import arunrajPhoto from "@/assets/team-arunraj.webp";
+import akhilPhoto from "@/assets/team-akhil.webp";
 
 type Member = {
   initials: string;
@@ -50,13 +51,24 @@ const members: Member[] = [
     gradient: "from-[var(--cyan-accent)]/50 via-[var(--blue-brand)]/25 to-transparent",
     photo: arunrajPhoto,
   },
+  {
+    initials: "AP",
+    name: "Akhil PH",
+    role: "Strategic Managing Partner • Marketing Specialist",
+    email: "akhil@dravonixmedia.com",
+    tagline: "Driving strategy with data and creative marketing intelligence.",
+    vision:
+      "Focused on building scalable strategies, strengthening brand positioning, and driving measurable growth through innovative marketing and data-driven decision making.",
+    gradient: "from-[var(--blue-brand)]/45 via-[var(--cyan-accent)]/25 to-transparent",
+    photo: akhilPhoto,
+  },
 ];
 
 export function TeamGrid() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
       {members.map((m, i) => {
         const isOpen = openIdx === i;
         return (
