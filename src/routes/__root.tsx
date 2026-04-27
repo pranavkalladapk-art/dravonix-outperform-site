@@ -52,14 +52,6 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Async-load Google Fonts: preload as style, then a tiny script swaps it to a stylesheet.
-      // Avoids render-blocking the critical path while preserving fonts.
-      {
-        rel: "preload",
-        as: "style",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
-        "data-async-font": "true",
-      } as any,
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
   }),
