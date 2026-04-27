@@ -52,14 +52,6 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Async-load Google Fonts: preload as style, then a tiny script swaps it to a stylesheet.
-      // Avoids render-blocking the critical path while preserving fonts.
-      {
-        rel: "preload",
-        as: "style",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap",
-        "data-async-font": "true",
-      } as any,
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
   }),
@@ -73,11 +65,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Async-load Google Fonts CSS to avoid render-blocking; preserves design. */}
+        {/* Async-load Google Fonts via JS-injected link — non-render-blocking and hydration-safe (link is not React-managed) */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "(function(){var l=document.querySelector('link[data-async-font]');if(l){l.rel='stylesheet';}})();",
+              "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap';l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();",
           }}
         />
         <noscript>
