@@ -65,12 +65,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Async-load Google Fonts CSS to avoid render-blocking; preserves design. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){var l=document.querySelector('link[data-async-font]');if(l){l.rel='stylesheet';}})();",
-          }}
+        {/* Async-load Google Fonts via media-swap trick — non-render-blocking, hydration-safe */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+          media="print"
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          {...({ onLoad: "this.media='all'" } as any)}
         />
         <noscript>
           <link
