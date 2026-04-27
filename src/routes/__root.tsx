@@ -65,13 +65,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Async-load Google Fonts via media-swap trick — non-render-blocking, hydration-safe */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
-          media="print"
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          {...({ onLoad: "this.media='all'" } as any)}
+        {/* Async-load Google Fonts via JS-injected link — non-render-blocking and hydration-safe (link is not React-managed) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap';l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();",
+          }}
         />
         <noscript>
           <link
