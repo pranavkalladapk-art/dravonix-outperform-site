@@ -59,7 +59,11 @@ export function Nav() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setOpen(false);
-    smoothScrollToId(id);
+    if (isOnHomeRoute) {
+      smoothScrollToId(id);
+    } else {
+      navigate({ to: "/home", hash: id });
+    }
   };
 
   return (
