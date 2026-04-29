@@ -105,8 +105,8 @@ function WorkPage() {
                   </p>
                   <p className="mt-2 max-w-md text-sm text-[var(--muted-text)]">
                     {active === "all"
-                      ? "We&rsquo;re finalising case studies. New work will appear here shortly."
-                      : "We haven&rsquo;t published items in this category yet — check back soon."}
+                      ? "We're finalising case studies. New work will appear here shortly."
+                      : "We haven't published items in this category yet — check back soon."}
                   </p>
                 </div>
               </Reveal>
