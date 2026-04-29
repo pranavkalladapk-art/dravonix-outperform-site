@@ -13,6 +13,7 @@ const routes: Array<{ path: string; changefreq: string; priority: string }> = [
   { path: "/brand-identity", changefreq: "monthly", priority: "0.8" },
   { path: "/performance-marketing", changefreq: "monthly", priority: "0.8" },
   { path: "/social-media-management", changefreq: "monthly", priority: "0.8" },
+  { path: "/work", changefreq: "weekly", priority: "0.8" },
   { path: "/team", changefreq: "monthly", priority: "0.7" },
 ];
 

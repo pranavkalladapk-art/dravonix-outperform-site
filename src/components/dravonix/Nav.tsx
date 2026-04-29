@@ -9,6 +9,7 @@ const HOME_PATHS = new Set(["/", "/home", "/services", "/process", "/about", "/c
 const navLinks: Array<{ id: string; label: string }> = [
   { id: "home", label: "Home" },
   { id: "services", label: "Services" },
+  { id: "work", label: "Work" },
   { id: "process", label: "Our Process" },
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
