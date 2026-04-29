@@ -84,15 +84,6 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
           </p>
         </div>
       )}
-      {/* Footer */}
-      <div className="flex flex-1 flex-col gap-1 p-4">
-        <h3 className="font-display text-base font-semibold text-white">{item.title}</h3>
-        {item.client && (
-          <p className="text-xs uppercase tracking-[0.16em] text-[var(--muted-text)]">
-            {item.client}
-          </p>
-        )}
-      </div>
     </a>
   );
 }
