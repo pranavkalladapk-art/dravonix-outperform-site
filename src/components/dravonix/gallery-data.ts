@@ -6,6 +6,8 @@ import postDecolux03 from "@/assets/post-decolux-03.png";
 import postDecolux04 from "@/assets/post-decolux-04.png";
 import postDecolux05 from "@/assets/post-decolux-05.png";
 import postDecolux06 from "@/assets/post-decolux-06.png";
+import reelJoineryThumb from "@/assets/reel-joinery.jpg";
+import reelCityWalkThumb from "@/assets/reel-city-walk-502.jpg";
 
 export type GalleryItemType = "website" | "post" | "reel";
 
@@ -97,5 +99,25 @@ export const galleryItems: GalleryItem[] = [
     client: "DECOLUX",
     thumb: postDecolux06,
     link: "https://dtsgulf.com/",
+  },
+  {
+    id: "reel-joinery-ad",
+    type: "reel",
+    title: "Joinery Ad",
+    client: "DTS Gulf",
+    thumb: reelJoineryThumb,
+    videoSrc: "/reels/joinery-ad.mp4",
+    link: "https://dtsgulf.com/",
+    featured: true,
+  },
+  {
+    id: "reel-city-walk-502",
+    type: "reel",
+    title: "City Walk 502",
+    client: "DTS Gulf",
+    thumb: reelCityWalkThumb,
+    videoSrc: "/reels/city-walk-502.mp4",
+    link: "https://dtsgulf.com/",
+    featured: true,
   },
 ];
