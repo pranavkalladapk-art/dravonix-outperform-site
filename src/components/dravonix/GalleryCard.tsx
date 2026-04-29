@@ -1,13 +1,7 @@
 import { useRef } from "react";
-import { ExternalLink, Play, Instagram } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { GalleryItem } from "./gallery-data";
-
-const TYPE_LABEL: Record<GalleryItem["type"], string> = {
-  website: "Website",
-  post: "Social Post",
-  reel: "Reel",
-};
 
 // Uniform aspect ratio across all card types so the grid aligns cleanly
 // regardless of which card types appear together in the same row.
