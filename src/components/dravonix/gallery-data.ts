@@ -1,5 +1,11 @@
 import wizardfingersThumb from "@/assets/work-wizardfingers.jpg";
 import dtsgulfThumb from "@/assets/work-dtsgulf.jpg";
+import postDecolux01 from "@/assets/post-decolux-01.png";
+import postDecolux02 from "@/assets/post-decolux-02.png";
+import postDecolux03 from "@/assets/post-decolux-03.png";
+import postDecolux04 from "@/assets/post-decolux-04.png";
+import postDecolux05 from "@/assets/post-decolux-05.png";
+import postDecolux06 from "@/assets/post-decolux-06.png";
 
 export type GalleryItemType = "website" | "post" | "reel";
 
@@ -40,5 +46,56 @@ export const galleryItems: GalleryItem[] = [
     link: "https://dtsgulf.com/",
     domain: "dtsgulf.com",
     featured: true,
+  },
+  {
+    id: "decolux-transforming-villas",
+    type: "post",
+    title: "Transforming Villas Into Statements",
+    client: "DECOLUX",
+    thumb: postDecolux01,
+    link: "https://dtsgulf.com/",
+    featured: true,
+  },
+  {
+    id: "decolux-designed-to-impress",
+    type: "post",
+    title: "Designed to Impress. Built to Endure.",
+    client: "DECOLUX",
+    thumb: postDecolux02,
+    link: "https://dtsgulf.com/",
+    featured: true,
+  },
+  {
+    id: "decolux-spaces-define-status",
+    type: "post",
+    title: "Spaces That Define Status",
+    client: "DECOLUX",
+    thumb: postDecolux03,
+    link: "https://dtsgulf.com/",
+  },
+  {
+    id: "decolux-design-becomes-distinction",
+    type: "post",
+    title: "Where Design Becomes Distinction",
+    client: "DECOLUX",
+    thumb: postDecolux04,
+    link: "https://dtsgulf.com/",
+    featured: true,
+  },
+  {
+    id: "decolux-crafted-beyond-surface",
+    type: "post",
+    title: "Crafted Beyond the Surface",
+    client: "DECOLUX",
+    thumb: postDecolux05,
+    link: "https://dtsgulf.com/",
+  },
+  {
+    id: "decolux-new-standard-of-living",
+    type: "post",
+    title: "A New Standard of Living",
+    client: "DECOLUX",
+    thumb: postDecolux06,
+    link: "https://dtsgulf.com/",
   },
 ];
