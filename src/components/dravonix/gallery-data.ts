@@ -1,3 +1,6 @@
+import wizardfingersThumb from "@/assets/work-wizardfingers.jpg";
+import dtsgulfThumb from "@/assets/work-dtsgulf.jpg";
+
 export type GalleryItemType = "website" | "post" | "reel";
 
 export interface GalleryItem {
@@ -17,4 +20,25 @@ export interface GalleryItem {
   featured?: boolean;
 }
 
-export const galleryItems: GalleryItem[] = [];
+export const galleryItems: GalleryItem[] = [
+  {
+    id: "wizardfingers",
+    type: "website",
+    title: "Wizard Fingers",
+    client: "Wizard Fingers",
+    thumb: wizardfingersThumb,
+    link: "https://wizardfingers.com/",
+    domain: "wizardfingers.com",
+    featured: true,
+  },
+  {
+    id: "dtsgulf",
+    type: "website",
+    title: "DTS Gulf",
+    client: "DTS Gulf",
+    thumb: dtsgulfThumb,
+    link: "https://dtsgulf.com/",
+    domain: "dtsgulf.com",
+    featured: true,
+  },
+];
