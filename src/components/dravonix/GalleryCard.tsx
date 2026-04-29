@@ -1,13 +1,7 @@
 import { useRef } from "react";
-import { ExternalLink, Play, Instagram } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { GalleryItem } from "./gallery-data";
-
-const TYPE_LABEL: Record<GalleryItem["type"], string> = {
-  website: "Website",
-  post: "Social Post",
-  reel: "Reel",
-};
 
 // Uniform aspect ratio across all card types so the grid aligns cleanly
 // regardless of which card types appear together in the same row.
@@ -41,19 +35,11 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       onMouseLeave={onLeave}
       className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--cyan-accent)] hover:shadow-glow-brand"
     >
-      {/* Type badge */}
-      <span className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--navy)]/80 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)] backdrop-blur">
-        {item.type === "post" && <Instagram className="h-3 w-3" />}
-        {item.type === "reel" && <Play className="h-3 w-3 fill-current" />}
-        {item.type === "website" && <ExternalLink className="h-3 w-3" />}
-        {TYPE_LABEL[item.type]}
-      </span>
-
       {/* Media */}
       <div className={cn("relative w-full overflow-hidden bg-[var(--navy)]", ASPECT[item.type])}>
         <img
           src={item.thumb}
-          alt={item.title}
+          alt={item.client ?? ""}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -91,14 +77,13 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       </div>
 
       {/* Footer */}
-      <div className="flex flex-1 flex-col gap-1 p-4">
-        <h3 className="font-display text-base font-semibold text-white">{item.title}</h3>
-        {item.client && (
+      {item.client && (
+        <div className="flex flex-1 flex-col justify-center p-4">
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--muted-text)]">
             {item.client}
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </a>
   );
 }

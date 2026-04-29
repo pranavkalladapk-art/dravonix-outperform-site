@@ -1,13 +1,11 @@
-import { useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { GalleryCard } from "@/components/dravonix/GalleryCard";
-import { galleryItems, type GalleryItemType } from "@/components/dravonix/gallery-data";
+import { galleryItems } from "@/components/dravonix/gallery-data";
 import { buildHead } from "@/lib/seo";
-import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/work")({
   head: () =>
@@ -19,23 +17,7 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
 });
 
-type Filter = "all" | GalleryItemType;
-
-const FILTERS: Array<{ id: Filter; label: string }> = [
-  { id: "all", label: "All" },
-  { id: "website", label: "Websites" },
-  { id: "post", label: "Social Posts" },
-  { id: "reel", label: "Reels" },
-];
-
 function WorkPage() {
-  const [active, setActive] = useState<Filter>("all");
-
-  const items = useMemo(
-    () => (active === "all" ? galleryItems : galleryItems.filter((i) => i.type === active)),
-    [active],
-  );
-
   return (
     <div className="min-h-screen bg-[var(--navy)] text-white">
       <Nav />
@@ -76,49 +58,13 @@ function WorkPage() {
 
         <section className="pb-24 md:pb-32">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            {/* Filter tabs */}
-            <Reveal>
-              <div className="mb-10 flex flex-wrap items-center justify-center gap-2 md:mb-14">
-                {FILTERS.map((f) => (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => setActive(f.id)}
-                    className={cn(
-                      "rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-all",
-                      active === f.id
-                        ? "border-[var(--cyan-accent)] bg-[var(--cyan-accent)]/10 text-[var(--cyan-accent)]"
-                        : "border-white/10 bg-white/[0.02] text-white/70 hover:border-white/20 hover:text-white",
-                    )}
-                  >
-                    {f.label}
-                  </button>
-                ))}
-              </div>
-            </Reveal>
-
-            {items.length === 0 ? (
-              <Reveal delay={100}>
-                <div className="grid place-items-center rounded-xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-20 text-center md:py-28">
-                  <p className="font-display text-xl text-white">
-                    {active === "all" ? "Gallery launching soon." : "Nothing here yet."}
-                  </p>
-                  <p className="mt-2 max-w-md text-sm text-[var(--muted-text)]">
-                    {active === "all"
-                      ? "We're finalising case studies. New work will appear here shortly."
-                      : "We haven't published items in this category yet — check back soon."}
-                  </p>
-                </div>
-              </Reveal>
-            ) : (
-              <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-                {items.map((item, i) => (
-                  <Reveal key={item.id} delay={(i % 3) * 80} className="h-full">
-                    <GalleryCard item={item} />
-                  </Reveal>
-                ))}
-              </div>
-            )}
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              {galleryItems.map((item, i) => (
+                <Reveal key={item.id} delay={(i % 3) * 80} className="h-full">
+                  <GalleryCard item={item} />
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
