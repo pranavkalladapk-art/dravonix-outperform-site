@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
+
+const HOME_PATHS = new Set(["/", "/home", "/services", "/process", "/about", "/contact", "/ai-studio"]);
 
 const navLinks: Array<{ id: string; label: string }> = [
   { id: "home", label: "Home" },
@@ -27,6 +30,9 @@ function smoothScrollToId(id: string) {
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isOnHomeRoute = HOME_PATHS.has(location.pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -53,7 +59,11 @@ export function Nav() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setOpen(false);
-    smoothScrollToId(id);
+    if (isOnHomeRoute) {
+      smoothScrollToId(id);
+    } else {
+      navigate({ to: "/home", hash: id });
+    }
   };
 
   return (
