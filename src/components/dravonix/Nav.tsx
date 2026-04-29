@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
+
+const HOME_PATHS = new Set(["/", "/home", "/services", "/process", "/about", "/contact", "/ai-studio"]);
 
 const navLinks: Array<{ id: string; label: string }> = [
   { id: "home", label: "Home" },
