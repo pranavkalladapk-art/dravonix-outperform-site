@@ -30,6 +30,9 @@ function smoothScrollToId(id: string) {
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isOnHomeRoute = HOME_PATHS.has(location.pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
