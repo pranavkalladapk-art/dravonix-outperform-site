@@ -9,10 +9,12 @@ const TYPE_LABEL: Record<GalleryItem["type"], string> = {
   reel: "Reel",
 };
 
+// Uniform aspect ratio across all card types so the grid aligns cleanly
+// regardless of which card types appear together in the same row.
 const ASPECT: Record<GalleryItem["type"], string> = {
-  website: "aspect-[16/10]",
-  post: "aspect-square",
-  reel: "aspect-[9/16]",
+  website: "aspect-[4/3]",
+  post: "aspect-[4/3]",
+  reel: "aspect-[4/3]",
 };
 
 export function GalleryCard({ item }: { item: GalleryItem }) {

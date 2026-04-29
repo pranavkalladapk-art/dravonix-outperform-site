@@ -111,9 +111,9 @@ function WorkPage() {
                 </div>
               </Reveal>
             ) : (
-              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
                 {items.map((item, i) => (
-                  <Reveal key={item.id} delay={(i % 3) * 80}>
+                  <Reveal key={item.id} delay={(i % 3) * 80} className="h-full">
                     <GalleryCard item={item} />
                   </Reveal>
                 ))}
