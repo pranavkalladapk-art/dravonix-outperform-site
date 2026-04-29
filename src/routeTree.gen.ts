@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -24,6 +25,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/work'
     | '/admin/enquiries'
     | '/admin/login'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/work'
     | '/admin/enquiries'
     | '/admin/login'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/work'
     | '/admin/enquiries'
     | '/admin/login'
   fileRoutesById: FileRoutesById
@@ -208,12 +220,20 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
   TeamRoute: typeof TeamRoute
+  WorkRoute: typeof WorkRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/team': {
       id: '/team'
       path: '/team'
@@ -328,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
   TeamRoute: TeamRoute,
+  WorkRoute: WorkRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
 }

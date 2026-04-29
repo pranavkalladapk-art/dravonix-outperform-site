@@ -5,6 +5,7 @@ import { Hero } from "@/components/dravonix/Hero";
 import { ValuePillars } from "@/components/dravonix/ValuePillars";
 import { Services } from "@/components/dravonix/Services";
 import { AIStudio } from "@/components/dravonix/AIStudio";
+import { GalleryPreview } from "@/components/dravonix/GalleryPreview";
 import { Process } from "@/components/dravonix/Process";
 import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
@@ -41,6 +42,7 @@ export function HomePage() {
         <ValuePillars />
         <Services />
         <AIStudio />
+        <GalleryPreview />
         <Process />
         <WhyDravonix />
         <About />
