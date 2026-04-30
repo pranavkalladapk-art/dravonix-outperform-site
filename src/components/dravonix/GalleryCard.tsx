@@ -6,8 +6,8 @@ import type { GalleryItem } from "./gallery-data";
 // Uniform aspect ratio across all card types so the grid aligns cleanly.
 const ASPECT: Record<GalleryItem["type"], string> = {
   website: "aspect-[4/3]",
-  post: "aspect-[4/3]",
-  reel: "aspect-[4/3]",
+  post: "aspect-square sm:aspect-[4/3]",
+  reel: "aspect-[4/5] sm:aspect-[4/3]",
 };
 
 export function GalleryCard({ item }: { item: GalleryItem }) {
