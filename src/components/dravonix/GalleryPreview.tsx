@@ -36,7 +36,7 @@ export function GalleryPreview() {
             </div>
           </Reveal>
         ) : (
-          <div className="mt-10 grid auto-rows-fr gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <div className="mt-10 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {items.map((item, i) => (
               <Reveal key={item.id} delay={(i % 3) * 80} className="h-full">
                 <GalleryCard item={item} />

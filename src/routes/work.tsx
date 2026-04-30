@@ -58,7 +58,7 @@ function WorkPage() {
 
         <section className="pb-24 md:pb-32">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            <div className="grid auto-rows-fr grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {galleryItems.map((item, i) => (
                 <Reveal key={item.id} delay={(i % 3) * 80} className="h-full">
                   <GalleryCard item={item} />
