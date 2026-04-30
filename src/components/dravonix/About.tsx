@@ -3,11 +3,13 @@ import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 const paragraphs = [
-  "Dravonix is built for brands that refuse to be average. Our team brings experience across both national and international markets, giving us a clear understanding of what drives real business growth.",
-  "At Dravonix, this isn\u2019t just work for us \u2014 it\u2019s what we\u2019re passionate about. We don\u2019t approach projects with a transactional mindset. Instead, we focus on building long-term value by understanding your goals and delivering work that creates real impact.",
-  "We combine strategy, data, and creative execution to deliver measurable results. Every project follows a clear process \u2014 understanding your business, identifying opportunities, and executing with precision.",
-  "Our team works closely with clients at every stage, ensuring transparency, consistency, and outcomes that align with real goals. No shortcuts. No inflated promises. Just focused work that performs.",
-  "Because for us, the real reward isn\u2019t just revenue \u2014 it\u2019s the results we create and the growth our clients achieve.",
+  "Dravonix is built for brands that refuse to settle for average.",
+  "Our team brings hands-on experience across both national and international markets, giving us a sharp understanding of what truly drives sustainable business growth.",
+  "At Dravonix, this is more than just work \u2014 it\u2019s what drives us. We don\u2019t operate with a transactional mindset or chase quick wins. Instead, we invest in building long-term value, aligning deeply with your vision to create meaningful and lasting impact.",
+  "We blend strategy, data, and creative execution into a seamless process designed to deliver measurable results. Every project begins with clarity \u2014 understanding your business, uncovering opportunities, and executing with precision.",
+  "Collaboration is at the core of how we work. From start to finish, we stay closely connected with our clients, ensuring transparency, consistency, and outcomes that truly reflect your goals.",
+  "No shortcuts. No inflated promises. Just focused, performance-driven work.",
+  "Because for us, success isn\u2019t defined by revenue alone \u2014 it\u2019s measured by the results we deliver and the growth our clients achieve.",
 ];
 
 export function About() {
