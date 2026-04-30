@@ -86,8 +86,8 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       </div>
 
       {item.client && (
-        <div className="flex flex-1 flex-col justify-center p-4">
-          <p className="text-xs uppercase tracking-[0.16em] text-[var(--muted-text)]">
+        <div className="flex flex-1 flex-col justify-center px-3 py-2.5 sm:p-4">
+          <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted-text)] sm:text-xs">
             {item.client}
           </p>
         </div>
