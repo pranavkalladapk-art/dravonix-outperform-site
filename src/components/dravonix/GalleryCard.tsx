@@ -129,20 +129,30 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
           role="dialog"
           aria-modal="true"
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[100] grid place-items-center bg-black/85 p-4 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex flex-col bg-black/90 backdrop-blur-sm animate-in fade-in duration-200"
+          style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          <button
-            type="button"
-            onClick={() => setOpen(false)}
-            aria-label="Close"
-            className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          >
-            <X className="h-5 w-5" />
-          </button>
+          <div className="flex items-center justify-between px-4 py-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
+              {item.client ?? "Preview"}
+            </span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpen(false);
+              }}
+              aria-label="Close"
+              className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/25"
+            >
+              <X className="h-4 w-4" />
+              Close
+            </button>
+          </div>
 
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[90vh] w-full max-w-5xl"
+            className="flex flex-1 items-center justify-center px-3 pb-4"
           >
             {item.type === "reel" && item.videoSrc ? (
               <video
@@ -151,13 +161,13 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
                 controls
                 autoPlay
                 playsInline
-                className="mx-auto max-h-[90vh] w-auto rounded-lg bg-black"
+                className="max-h-full max-w-full rounded-lg bg-black"
               />
             ) : (
               <img
                 src={item.thumb}
                 alt={item.client ?? ""}
-                className="mx-auto max-h-[90vh] w-auto rounded-lg object-contain"
+                className="max-h-full max-w-full rounded-lg object-contain"
               />
             )}
           </div>
