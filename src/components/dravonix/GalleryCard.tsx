@@ -66,20 +66,20 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
         )}
 
         {item.type === "reel" && (
-          <div className="pointer-events-none absolute inset-0 grid place-items-center transition-opacity group-hover:opacity-0">
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-[var(--cyan-accent)]/90 text-[var(--navy)] shadow-glow-brand">
-              <Play className="h-6 w-6 fill-current" />
+          <div className="pointer-events-none absolute inset-0 grid place-items-center transition-opacity sm:group-hover:opacity-0">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-[var(--cyan-accent)]/90 text-[var(--navy)] shadow-glow-brand sm:h-14 sm:w-14">
+              <Play className="h-5 w-5 fill-current sm:h-6 sm:w-6" />
             </span>
           </div>
         )}
 
         {isWebsite && (
-          <div className="pointer-events-none absolute inset-0 flex items-end justify-between bg-gradient-to-t from-[var(--navy)]/90 via-transparent to-transparent p-4 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="pointer-events-none absolute inset-0 flex items-end justify-between bg-gradient-to-t from-[var(--navy)]/90 via-transparent to-transparent p-3 opacity-100 transition-opacity sm:p-4 sm:opacity-0 sm:group-hover:opacity-100">
             {item.domain && (
-              <span className="text-xs font-medium text-white/85">{item.domain}</span>
+              <span className="text-[11px] font-medium text-white/85 sm:text-xs">{item.domain}</span>
             )}
-            <span className="ml-auto inline-flex items-center gap-1.5 rounded-md bg-[var(--blue-brand)] px-3 py-1.5 text-xs font-semibold text-white">
-              Visit site <ExternalLink className="h-3.5 w-3.5" />
+            <span className="ml-auto inline-flex items-center gap-1.5 rounded-md bg-[var(--blue-brand)] px-2.5 py-1 text-[11px] font-semibold text-white sm:px-3 sm:py-1.5 sm:text-xs">
+              Visit <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </span>
           </div>
         )}
