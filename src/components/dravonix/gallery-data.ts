@@ -103,8 +103,8 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "reel-joinery-ad",
     type: "reel",
-    title: "Joinery Ad",
-    client: "DTS Gulf",
+    title: "Ai",
+    client: "Ai",
     thumb: reelJoineryThumb,
     videoSrc: "/reels/joinery-ad.mp4",
     link: "https://dtsgulf.com/",
@@ -113,8 +113,8 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "reel-city-walk-502",
     type: "reel",
-    title: "City Walk 502",
-    client: "DTS Gulf",
+    title: "Normal reel",
+    client: "Normal reel",
     thumb: reelCityWalkThumb,
     videoSrc: "/reels/city-walk-502.mp4",
     link: "https://dtsgulf.com/",
