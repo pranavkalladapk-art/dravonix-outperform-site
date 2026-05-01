@@ -13,9 +13,9 @@ export function Hero() {
         <div className="absolute -left-32 top-1/4 h-[560px] w-[560px] animate-ambient rounded-full bg-[oklch(0.546_0.219_263/0.22)] blur-3xl" />
         <div className="absolute -right-32 bottom-0 h-[520px] w-[520px] animate-ambient rounded-full bg-[oklch(0.738_0.13_215/0.18)] blur-3xl [animation-delay:-3s]" />
 
-        {/* Animated wave SVG */}
+        {/* Animated wave SVG — desktop only (heavy paint on mobile) */}
         <svg
-          className="absolute inset-x-0 bottom-0 h-[60%] w-full animate-wave-drift opacity-40"
+          className="absolute inset-x-0 bottom-0 hidden h-[60%] w-full animate-wave-drift opacity-40 md:block"
           viewBox="0 0 1440 600"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -44,8 +44,8 @@ export function Hero() {
           />
         </svg>
 
-        {/* Light streaks */}
-        <div className="absolute inset-0">
+        {/* Light streaks — desktop only */}
+        <div className="absolute inset-0 hidden md:block">
           <div className="absolute top-[28%] h-[2px] w-1/3 animate-streak bg-gradient-to-r from-transparent via-[var(--cyan-accent)] to-transparent" />
           <div className="absolute top-[58%] h-[1px] w-1/4 animate-streak bg-gradient-to-r from-transparent via-[var(--blue-brand)] to-transparent [animation-delay:-3.5s]" />
           <div className="absolute top-[72%] h-[2px] w-1/3 animate-streak bg-gradient-to-r from-transparent via-white/60 to-transparent [animation-delay:-5s]" />

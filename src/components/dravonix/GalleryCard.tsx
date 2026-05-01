@@ -50,9 +50,11 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
           src={item.thumb}
           alt={item.client ?? ""}
           loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
+        {/* Desktop hover-preview only — skipped on touch devices to save memory & bandwidth */}
         {item.type === "reel" && item.videoSrc && (
           <video
             ref={videoRef}
@@ -61,7 +63,7 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
             loop
             playsInline
             preload="none"
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            className="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
           />
         )}
 
