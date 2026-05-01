@@ -12,7 +12,9 @@ const ASPECT: Record<GalleryItem["type"], string> = {
 
 export function GalleryCard({ item }: { item: GalleryItem }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   const onEnter = () => {
     if (item.type === "reel" && videoRef.current) {
@@ -25,6 +27,36 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
       videoRef.current.currentTime = 0;
     }
   };
+
+  // Auto-play reels when they scroll into view; pause when they leave.
+  // Skipped if user prefers reduced motion or while the lightbox is open.
+  useEffect(() => {
+    if (item.type !== "reel" || !item.videoSrc) return;
+    const node = containerRef.current;
+    const video = videoRef.current;
+    if (!node || !video) return;
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            if (open) return;
+            video.play().then(() => setVideoReady(true)).catch(() => {});
+          } else {
+            video.pause();
+            setVideoReady(false);
+          }
+        });
+      },
+      { threshold: [0, 0.5, 1] },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [item.type, item.videoSrc, open]);
 
   // Lock body scroll & close on Escape while lightbox is open
   useEffect(() => {
@@ -45,7 +77,10 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
 
   const cardInner = (
     <>
-      <div className={cn("relative w-full overflow-hidden bg-[var(--navy)]", ASPECT[item.type])}>
+      <div
+        ref={containerRef}
+        className={cn("relative w-full overflow-hidden bg-[var(--navy)]", ASPECT[item.type])}
+      >
         <img
           src={item.thumb}
           alt={item.client ?? ""}
@@ -54,7 +89,7 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* Desktop hover-preview only — skipped on touch devices to save memory & bandwidth */}
+        {/* Inline reel preview — auto-plays via IntersectionObserver, also on hover */}
         {item.type === "reel" && item.videoSrc && (
           <video
             ref={videoRef}
@@ -62,8 +97,12 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
             muted
             loop
             playsInline
-            preload="none"
-            className="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
+            preload="metadata"
+            poster={item.thumb}
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-100",
+              videoReady ? "opacity-100" : "opacity-0",
+            )}
           />
         )}
 
