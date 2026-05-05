@@ -1,5 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts, redirect } from "@tanstack/react-router";
-import { getWebRequest } from "@tanstack/react-start/server";
+import { getRequest } from "@tanstack/react-start/server";
 
 import appCss from "../styles.css?url";
 
@@ -29,7 +29,7 @@ export const Route = createRootRoute({
   beforeLoad: () => {
     if (typeof window !== "undefined") return;
     try {
-      const req = getWebRequest();
+      const req = getRequest();
       if (!req) return;
       const url = new URL(req.url);
       if (url.hostname === "www.dravonixmedia.com") {
