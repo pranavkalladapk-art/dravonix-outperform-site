@@ -1,4 +1,5 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, redirect } from "@tanstack/react-router";
+import { getWebRequest } from "@tanstack/react-start/server";
 
 import appCss from "../styles.css?url";
 
@@ -25,6 +26,21 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
+  beforeLoad: () => {
+    if (typeof window !== "undefined") return;
+    try {
+      const req = getWebRequest();
+      if (!req) return;
+      const url = new URL(req.url);
+      if (url.hostname === "www.dravonixmedia.com") {
+        url.hostname = "dravonixmedia.com";
+        url.protocol = "https:";
+        throw redirect({ href: url.toString(), statusCode: 301 });
+      }
+    } catch (e) {
+      if (e && typeof e === "object" && "isRedirect" in e) throw e;
+    }
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
