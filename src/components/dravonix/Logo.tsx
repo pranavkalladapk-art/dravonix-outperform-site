@@ -55,8 +55,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
           className="h-9 w-9 object-contain md:h-10 md:w-10"
           loading="eager"
           decoding="async"
-          // @ts-expect-error - fetchpriority is valid HTML, React types lag
-          fetchpriority="high"
+          fetchPriority="high"
         />
       )}
       <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
