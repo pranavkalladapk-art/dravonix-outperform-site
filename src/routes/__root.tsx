@@ -85,6 +85,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Redirect www → apex domain */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){if(location.hostname==='www.dravonixmedia.com'){location.replace('https://dravonixmedia.com'+location.pathname+location.search+location.hash);}})();",
+          }}
+        />
         {/* Async-load Google Fonts via JS-injected link — non-render-blocking and hydration-safe (link is not React-managed) */}
         <script
           dangerouslySetInnerHTML={{
