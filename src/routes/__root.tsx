@@ -54,6 +54,26 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "canonical", href: "https://dravonixmedia.com/" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Dravonix",
+          url: "https://dravonixmedia.com",
+          logo: "https://dravonixmedia.com/og-image.jpg",
+          description:
+            "Data-driven strategy, creative excellence, and AI-integrated production for brands that refuse to be average.",
+          email: "admin@dravonixmedia.com",
+          sameAs: [
+            "https://www.instagram.com/dravonixmedia/",
+            "https://www.linkedin.com/in/dravonix/",
+            "https://x.com/dravonixmedia",
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
