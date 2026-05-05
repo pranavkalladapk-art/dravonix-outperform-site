@@ -25,21 +25,6 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  beforeLoad: () => {
-    if (typeof window !== "undefined") return;
-    try {
-      const req = getRequest();
-      if (!req) return;
-      const url = new URL(req.url);
-      if (url.hostname === "www.dravonixmedia.com") {
-        url.hostname = "dravonixmedia.com";
-        url.protocol = "https:";
-        throw redirect({ href: url.toString(), statusCode: 301 });
-      }
-    } catch (e) {
-      if (e && typeof e === "object" && "isRedirect" in e) throw e;
-    }
-  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
