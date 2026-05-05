@@ -1,5 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, redirect } from "@tanstack/react-router";
-import { getRequest } from "@tanstack/react-start/server";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -26,21 +25,6 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  beforeLoad: () => {
-    if (typeof window !== "undefined") return;
-    try {
-      const req = getRequest();
-      if (!req) return;
-      const url = new URL(req.url);
-      if (url.hostname === "www.dravonixmedia.com") {
-        url.hostname = "dravonixmedia.com";
-        url.protocol = "https:";
-        throw redirect({ href: url.toString(), statusCode: 301 });
-      }
-    } catch (e) {
-      if (e && typeof e === "object" && "isRedirect" in e) throw e;
-    }
-  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -101,6 +85,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Redirect www → apex domain */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){if(location.hostname==='www.dravonixmedia.com'){location.replace('https://dravonixmedia.com'+location.pathname+location.search+location.hash);}})();",
+          }}
+        />
         {/* Async-load Google Fonts via JS-injected link — non-render-blocking and hydration-safe (link is not React-managed) */}
         <script
           dangerouslySetInnerHTML={{
