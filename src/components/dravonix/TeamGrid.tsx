@@ -84,7 +84,7 @@ export function TeamGrid() {
               )}
             >
               {/* Portrait */}
-              <div className="relative mb-6 grid h-[280px] w-full place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
+              <div className="relative mb-6 grid aspect-square w-full place-items-center overflow-hidden rounded-2xl border border-white/10 bg-[var(--navy)]">
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-110",
