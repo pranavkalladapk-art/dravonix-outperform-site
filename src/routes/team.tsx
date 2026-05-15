@@ -76,11 +76,6 @@ function TeamPage() {
                   Leadership
                 </span>
               </Reveal>
-              <Reveal delay={100}>
-                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-                  Co-<span className="bg-gradient-to-r from-[var(--cyan-accent)] to-[var(--blue-brand)] bg-clip-text text-transparent">Founders</span>
-                </h2>
-              </Reveal>
             </div>
             <TeamGrid />
           </div>
