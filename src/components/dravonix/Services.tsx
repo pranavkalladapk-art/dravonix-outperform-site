@@ -18,7 +18,7 @@ const services = [
     icon: Wand2,
     title: "AI-Integrated Video & Design",
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
-    href: "#ai-studio",
+    href: "/ai-studio",
   },
   {
     icon: TrendingUp,
