@@ -51,6 +51,16 @@ export const galleryItems: GalleryItem[] = [
     featured: true,
   },
   {
+    id: "abodoo-properties",
+    type: "website",
+    title: "Abodoo Properties",
+    client: "Abodoo Properties",
+    thumb: abodooThumb,
+    link: "https://abodooproperties.co.uk/",
+    domain: "abodooproperties.co.uk",
+    featured: true,
+  },
+  {
     id: "decolux-transforming-villas",
     type: "post",
     title: "Transforming Villas Into Statements",
