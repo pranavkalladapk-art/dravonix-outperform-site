@@ -63,7 +63,7 @@ export function Services() {
                   {s.desc}
                 </p>
                 <a
-                  href={s.href ?? "#contact"}
+                  href={s.href ?? "/contact"}
                   aria-label={`Explore ${s.title} services`}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2.5 md:mt-6"
                 >
