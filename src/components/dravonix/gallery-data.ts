@@ -8,6 +8,7 @@ import postDecolux05 from "@/assets/post-decolux-05.webp";
 import postDecolux06 from "@/assets/post-decolux-06.webp";
 import reelJoineryThumb from "@/assets/reel-joinery.jpg";
 import reelCityWalkThumb from "@/assets/reel-city-walk-502.jpg";
+import abodooThumb from "@/assets/work-abodoo.webp";
 
 export type GalleryItemType = "website" | "post" | "reel";
 
