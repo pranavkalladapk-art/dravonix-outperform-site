@@ -29,9 +29,9 @@ export function ValuePillars() {
               <div className="grid h-12 w-12 place-items-center rounded-lg bg-[var(--blue-brand)]/20 text-[var(--cyan-accent)]">
                 <p.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-5 font-display text-lg font-bold text-white">
+              <h2 className="mt-5 font-display text-lg font-bold text-white">
                 {p.title}
-              </h3>
+              </h2>
               <p className="mt-2 text-sm leading-relaxed text-white/70">
                 {p.desc}
               </p>
