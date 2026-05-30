@@ -103,8 +103,8 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "reel-joinery-ad",
     type: "reel",
-    title: "Ai",
-    client: "Ai",
+    title: "AI Joinery Ad Reel",
+    client: "AI Joinery Ad",
     thumb: reelJoineryThumb,
     videoSrc: "/reels/joinery-ad.mp4",
     link: "https://dtsgulf.com/",

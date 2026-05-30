@@ -1,0 +1,17 @@
+# Dravonix Media
+
+> Dravonix Media is a boutique brand and growth studio. We build data-driven strategy, creative content, AI-integrated video & design, and performance marketing for brands engineered to outperform.
+
+## Pages
+
+- [Home](/): Engineered to Outperform — overview of Dravonix Media.
+- [Services](/services): Brand identity, social media management, AI studio, and performance marketing.
+- [Brand Identity](/brand-identity): Strategic brand systems built for distinction.
+- [Social Media Management](/social-media-management): Always-on social systems that compound.
+- [AI Studio](/ai-studio): AI-integrated video and design at 10x throughput.
+- [Performance Marketing](/performance-marketing): Attribution-first paid media tied to revenue.
+- [Process](/process): How we discover, strategize, create, and scale.
+- [Work](/work): Selected case studies and creative output.
+- [About](/about): Why Dravonix exists and how we operate.
+- [Team](/team): The people behind Dravonix.
+- [Contact](/contact): Book a free 30-minute strategy call.
