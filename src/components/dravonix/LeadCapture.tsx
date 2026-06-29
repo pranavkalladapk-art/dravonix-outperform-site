@@ -24,6 +24,7 @@ const needs = ["Branding", "Social Media", "Content", "Strategy", "All of the ab
 
 export function LeadCapture() {
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const need = sessionStorage.getItem("dravonix_contact_need");
