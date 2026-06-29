@@ -45,8 +45,17 @@ async def verify_route(page, href, label):
 
     if href in SECTION_ROUTES:
         section_id = SECTION_ROUTES[href]
-        # Wait for smooth scroll to complete.
-        await page.wait_for_timeout(1200)
+        # Wait for smooth scroll to complete (long page = longer animation).
+        await page.wait_for_function(
+            """(id) => {
+                const el = document.getElementById(id);
+                if (!el) return false;
+                const top = el.getBoundingClientRect().top;
+                return Math.abs(top - 80) < 160;
+            }""",
+            arg=section_id,
+            timeout=6000,
+        )
         result = await page.evaluate(
             """(id) => {
                 const el = document.getElementById(id);
