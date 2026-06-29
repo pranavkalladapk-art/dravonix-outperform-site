@@ -3,6 +3,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "./Reveal";
+import { CheckCircle2 } from "lucide-react";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
