@@ -12,6 +12,8 @@ type Member = {
   role: string;
   email: string;
   tagline: string;
+  bio: string;
+  skillTag: string;
   vision: string;
   gradient: string;
   photo?: string;
@@ -24,6 +26,8 @@ const members: Member[] = [
     role: "Video Editor • Content Creator • Web Developer",
     email: "pranav@dravonixmedia.com",
     tagline: "Where technology meets creativity.",
+    bio: "Pranav blends a background in web development with hands-on video and content production, shipping work across both code and camera. He leads Dravonix's build pipeline — from websites to short-form creative — keeping every output sharp, fast and on-brand.",
+    skillTag: "Web Development & Creative Production",
     vision:
       "To build Dravonix into a digitally driven powerhouse where technology and creativity merge — creating scalable systems, high-impact content, and seamless brand experiences that set new industry standards.",
     gradient: "from-[var(--cyan-accent)]/40 via-[var(--blue-brand)]/20 to-transparent",
@@ -35,6 +39,8 @@ const members: Member[] = [
     role: "Photographer • Content Creator • Content Writer",
     email: "sreerag@dravonixmedia.com",
     tagline: "Storytelling that audiences trust.",
+    bio: "Sreerag has spent years behind the lens and behind the page, working with brands to translate ideas into visuals and words that connect. At Dravonix he leads storytelling, photography direction and brand copy across every project.",
+    skillTag: "Brand Storytelling & Photography",
     vision:
       "To shape Dravonix as a storytelling-first agency — where every brand communicates with clarity, emotion, and purpose, turning content into meaningful connections that audiences trust and remember.",
     gradient: "from-[var(--blue-brand)]/40 via-[var(--cyan-accent)]/20 to-transparent",
@@ -46,6 +52,8 @@ const members: Member[] = [
     role: "Cinematographer • Video Editor • Content Creator",
     email: "arunraj@dravonixmedia.com",
     tagline: "Cinematic brand storytelling.",
+    bio: "Arunraj brings a cinematographer's eye to brand work, with experience producing commercial, lifestyle and short-form content for clients across regions. He leads Dravonix's video division — from concept and shoot to final cut.",
+    skillTag: "Cinematography & Video Production",
     vision:
       "To position Dravonix as a leader in cinematic brand storytelling — delivering visually powerful content that elevates perception, builds identity, and creates lasting impact in the digital space.",
     gradient: "from-[var(--cyan-accent)]/50 via-[var(--blue-brand)]/25 to-transparent",
@@ -57,6 +65,8 @@ const members: Member[] = [
     role: "Strategic Managing Partner • Marketing Specialist",
     email: "akhil@dravonixmedia.com",
     tagline: "Driving strategy with data and creative marketing intelligence.",
+    bio: "Akhil brings cross-market marketing experience across the UK and UAE, working with brands on positioning, paid media and growth strategy. He leads Dravonix's strategic engagements and client partnerships end-to-end.",
+    skillTag: "Brand Strategy & Paid Social",
     vision:
       "Focused on building scalable strategies, strengthening brand positioning, and driving measurable growth through innovative marketing and data-driven decision making.",
     gradient: "from-[var(--blue-brand)]/45 via-[var(--cyan-accent)]/25 to-transparent",
@@ -128,8 +138,11 @@ export function TeamGrid() {
                     {m.email}
                   </a>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">
-                    {m.tagline}
+                    {m.bio}
                   </p>
+                  <span className="mt-4 inline-flex items-center rounded-full border border-[var(--cyan-accent)]/40 bg-[var(--cyan-accent)]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--cyan-accent)]">
+                    {m.skillTag}
+                  </span>
 
                   {/* Expandable vision */}
                   <div
