@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,7 +23,18 @@ const needs = ["Branding", "Social Media", "Content", "Strategy", "All of the ab
 
 export function LeadCapture() {
   const [submitting, setSubmitting] = useState(false);
-  
+
+  useEffect(() => {
+    const need = sessionStorage.getItem("dravonix_contact_need");
+    if (need) {
+      const select = document.getElementById("need") as HTMLSelectElement | null;
+      if (select) {
+        select.value = need;
+        select.focus();
+      }
+      sessionStorage.removeItem("dravonix_contact_need");
+    }
+  }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
