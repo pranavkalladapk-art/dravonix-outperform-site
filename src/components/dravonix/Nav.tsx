@@ -37,31 +37,33 @@ export function Nav() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.85)] backdrop-blur-md"
-          : "bg-transparent",
+          ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.9)] backdrop-blur-md"
+          : "bg-[var(--navy)]/80 backdrop-blur-sm",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <Link to="/" aria-label="Go to home">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
+        <Link to="/" aria-label="Go to home" className="shrink-0">
           <Logo />
         </Link>
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+              activeProps={{ className: "text-white font-semibold" }}
+              activeOptions={{ exact: l.to === "/" }}
+              className="text-sm font-normal text-white/70 transition-colors hover:text-white"
             >
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className="rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
-          >
-            Get a Free Audit
-          </Link>
         </nav>
+        <Link
+          to="/contact"
+          className="hidden shrink-0 rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 lg:inline-flex"
+        >
+          Get a Free Audit
+        </Link>
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
