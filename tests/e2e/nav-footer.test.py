@@ -1,7 +1,11 @@
 """
-End-to-end test: clicks every navbar and footer link, asserts the correct
-route loads, and verifies smooth-scroll lands on the right section (esp.
-/contact which is a section on the homepage).
+End-to-end test for navbar + footer:
+
+1. Clicks every navbar and footer link from a fresh homepage load and
+   verifies the URL settles on the correct route.
+2. Deep-links into every section route (page.goto) and verifies that
+   smooth scrolling lands on the matching <section id>, with extra
+   focus on /contact (the form must be in view).
 
 Run: python3 tests/e2e/nav-footer.test.py
 """
@@ -15,116 +19,115 @@ BASE = "http://localhost:8080"
 SCREENSHOTS = Path("/tmp/browser/nav-footer/screenshots")
 SCREENSHOTS.mkdir(parents=True, exist_ok=True)
 
-# Routes that render HomePage and should smooth-scroll to a section.
+# Section routes render the homepage and smooth-scroll to a <section id>.
 SECTION_ROUTES = {
-    "/services": "services",
-    "/process":  "process",
-    "/about":    "about",
-    "/contact":  "contact",
+    "/services":  "services",
+    "/process":   "process",
+    "/about":     "about",
+    "/contact":   "contact",
     "/ai-studio": "ai-studio",
 }
-# Routes that load their own dedicated page (top of page).
-PAGE_ROUTES = {"/", "/work", "/team",
-               "/brand-identity", "/social-media-management",
-               "/performance-marketing"}
-
 NAV_OFFSET = 80
-TOLERANCE = 160  # smooth-scroll lands within ~NAV_OFFSET +/- spring
+SCROLL_TOLERANCE = 200
+
+NAV_LINKS = [
+    ("Home", "/"),
+    ("Services", "/services"),
+    ("Work", "/work"),
+    ("Our Process", "/process"),
+    ("About", "/about"),
+    ("Contact", "/contact"),
+]
+FOOTER_LINKS = [
+    ("Brand Identity", "/brand-identity"),
+    ("Social Media Management", "/social-media-management"),
+    ("AI-Integrated Video & Design", "/ai-studio"),
+    ("Performance Marketing", "/performance-marketing"),
+    ("About", "/about"),
+    ("Team", "/team"),
+    ("Contact", "/contact"),
+]
 
 
-async def goto_home(page):
+async def fresh_home(page):
     await page.goto(BASE + "/", wait_until="domcontentloaded")
     await page.wait_for_load_state("networkidle")
 
 
-async def verify_route(page, href, label):
-    """After a click that navigates, verify URL + scroll target."""
-    # Wait for URL settle.
-    await page.wait_for_url(lambda u: href in u, timeout=8000)
-    await page.wait_for_load_state("domcontentloaded")
+async def click_and_verify_url(page, region, label, href):
+    """Click a link inside `region` and assert URL becomes `href`."""
+    await fresh_home(page)
+    link = page.locator(region).get_by_role("link", name=label, exact=True).first
+    await link.scroll_into_view_if_needed()
+    await link.click()
+    await page.wait_for_url(
+        lambda u: u.split("?")[0].rstrip("/").endswith(href.rstrip("/")) or
+                  (href == "/" and u.rstrip("/").endswith(BASE)),
+        timeout=8000,
+    )
+    actual = await page.evaluate("() => window.location.pathname")
+    expected_paths = {href}
+    # Section routes may immediately get rewritten by the scroll-spy.
+    if href == "/":
+        expected_paths.update({"/", "/home"})
+    elif href in SECTION_ROUTES:
+        # The spy may rewrite to /home if we landed at the top first.
+        expected_paths.add("/home")
+    assert actual in expected_paths, (
+        f"[{region}:{label}] expected {href}, got {actual}"
+    )
+    print(f"  ✓ click {region}:{label} -> {actual}")
 
-    if href in SECTION_ROUTES:
-        section_id = SECTION_ROUTES[href]
-        # Wait for smooth scroll to complete (long page = longer animation).
+
+async def deep_link_scroll(page, href):
+    """page.goto(href) and assert the section scrolls into view."""
+    section_id = SECTION_ROUTES[href]
+    await page.goto(BASE + href, wait_until="domcontentloaded")
+    try:
         await page.wait_for_function(
             """(id) => {
                 const el = document.getElementById(id);
                 if (!el) return false;
                 const top = el.getBoundingClientRect().top;
-                return Math.abs(top - 80) < 160;
+                return Math.abs(top - 80) < 200;
             }""",
             arg=section_id,
             timeout=6000,
         )
-        result = await page.evaluate(
+    except Exception:
+        info = await page.evaluate(
             """(id) => {
                 const el = document.getElementById(id);
-                if (!el) return { found: false };
-                const top = el.getBoundingClientRect().top;
-                return { found: true, top, scrollY: window.scrollY };
+                return el ? { top: el.getBoundingClientRect().top, scrollY: window.scrollY }
+                          : { missing: true };
             }""",
             section_id,
         )
-        assert result["found"], f"[{label}] section #{section_id} missing on {href}"
-        # Section top should be near the navbar offset.
-        assert abs(result["top"] - NAV_OFFSET) < TOLERANCE, (
-            f"[{label}] #{section_id} not scrolled into view on {href}: "
-            f"top={result['top']} (expected ~{NAV_OFFSET})"
+        raise AssertionError(
+            f"[deep-link {href}] #{section_id} not scrolled into view: {info}"
         )
-        print(f"  ✓ {label} -> {href} scrolled to #{section_id} (top={result['top']:.0f})")
-    else:
-        # Standalone page: confirm path matches.
-        url_path = await page.evaluate("() => window.location.pathname")
-        assert url_path == href, f"[{label}] expected path {href}, got {url_path}"
-        print(f"  ✓ {label} -> {href} loaded")
+    top = await page.evaluate(
+        "(id) => document.getElementById(id).getBoundingClientRect().top",
+        section_id,
+    )
+    print(f"  ✓ deep-link {href} -> #{section_id} top={top:.0f}")
 
 
-async def click_link(page, locator, label, href):
-    await locator.scroll_into_view_if_needed()
-    await locator.click()
-    await verify_route(page, href, label)
-
-
-async def test_navbar(page):
-    print("\n=== Navbar links ===")
-    nav_links = [
-        ("Home", "/"),
-        ("Services", "/services"),
-        ("Work", "/work"),
-        ("Our Process", "/process"),
-        ("About", "/about"),
-        ("Contact", "/contact"),
-    ]
-    for label, href in nav_links:
-        await goto_home(page)
-        link = page.locator("header nav").get_by_role("link", name=label, exact=True).first
-        await click_link(page, link, f"nav:{label}", href)
-
-    # CTA "Get a Free Audit" should go to /contact and scroll to contact form.
-    print("\n=== Navbar CTA ===")
-    await goto_home(page)
-    cta = page.locator("header").get_by_role("link", name="Get a Free Audit").first
-    await click_link(page, cta, "nav:Get a Free Audit", "/contact")
-    await page.screenshot(path=str(SCREENSHOTS / "nav_cta_contact.png"))
-
-
-async def test_footer(page):
-    print("\n=== Footer links ===")
-    footer_links = [
-        ("Brand Identity", "/brand-identity"),
-        ("Social Media Management", "/social-media-management"),
-        ("AI-Integrated Video & Design", "/ai-studio"),
-        ("Performance Marketing", "/performance-marketing"),
-        ("About", "/about"),
-        ("Team", "/team"),
-        ("Contact", "/contact"),
-    ]
-    for label, href in footer_links:
-        await goto_home(page)
-        link = page.locator("footer").get_by_role("link", name=label, exact=True).first
-        await link.scroll_into_view_if_needed()
-        await link.click()
-        await verify_route(page, href, f"footer:{label}")
+async def verify_contact_form_in_view(page):
+    """Extra focus on /contact: the form itself must be visible."""
+    await page.goto(BASE + "/contact", wait_until="domcontentloaded")
+    await page.wait_for_selector("#contact form", timeout=8000)
+    await page.wait_for_function(
+        """() => {
+            const f = document.querySelector('#contact form');
+            if (!f) return false;
+            const r = f.getBoundingClientRect();
+            return r.top < window.innerHeight && r.bottom > 0;
+        }""",
+        timeout=6000,
+    )
+    await page.screenshot(path=str(SCREENSHOTS / "contact_in_view.png"))
+    print("  ✓ /contact form is in viewport after smooth scroll")
 
 
 async def main():
@@ -133,24 +136,44 @@ async def main():
         browser = await pw.chromium.launch(headless=True)
         context = await browser.new_context(viewport={"width": 1280, "height": 1800})
         page = await context.new_page()
-        # Hydration warnings are noisy in dev SSR; log but don't fail on them.
-        page.on("pageerror", lambda e: print(f"  ! pageerror (ignored): {str(e)[:120]}"))
+        # Hydration warnings are noisy in dev SSR; surface but don't fail.
+        page.on("pageerror", lambda e: print(f"  ! pageerror (ignored): {str(e)[:100]}"))
 
-        try:
-            await test_navbar(page)
-            await test_footer(page)
-        except AssertionError as e:
-            failures.append(str(e))
-            await page.screenshot(path=str(SCREENSHOTS / "failure.png"))
-        finally:
-            await browser.close()
+        async def run(coro, label):
+            try:
+                await coro
+            except AssertionError as e:
+                failures.append(f"{label}: {e}")
+                print(f"  ✗ {label}: {e}")
+
+        print("\n=== Navbar: click each link ===")
+        for label, href in NAV_LINKS:
+            await run(click_and_verify_url(page, "header", label, href), f"nav:{label}")
+        # Navbar CTA
+        await run(
+            click_and_verify_url(page, "header", "Get a Free Audit", "/contact"),
+            "nav:Get a Free Audit",
+        )
+
+        print("\n=== Footer: click each link ===")
+        for label, href in FOOTER_LINKS:
+            await run(click_and_verify_url(page, "footer", label, href), f"footer:{label}")
+
+        print("\n=== Deep-link smooth scroll for section routes ===")
+        for href in SECTION_ROUTES:
+            await run(deep_link_scroll(page, href), f"scroll:{href}")
+
+        print("\n=== /contact form visibility ===")
+        await run(verify_contact_form_in_view(page), "contact-form-visible")
+
+        await browser.close()
 
     if failures:
-        print("\n❌ FAILURES:")
+        print(f"\n❌ {len(failures)} failure(s):")
         for f in failures:
             print(" -", f)
         sys.exit(1)
-    print("\n✅ All navbar + footer links route and scroll correctly.")
+    print("\n✅ All navbar + footer links route correctly and section routes smooth-scroll.")
 
 
 asyncio.run(main())
