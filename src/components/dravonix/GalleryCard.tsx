@@ -126,13 +126,25 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
         )}
       </div>
 
-      {item.client && (
-        <div className="flex flex-1 flex-col justify-center px-3 py-2.5 sm:p-4">
+      <div className="flex flex-1 flex-col gap-2 px-3 py-3 sm:p-4">
+        {item.client && (
           <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--muted-text)] sm:text-xs">
             {item.client}
           </p>
-        </div>
-      )}
+        )}
+        {item.description && (
+          <p className="text-sm font-semibold leading-snug text-white">
+            {item.description}
+          </p>
+        )}
+        {item.niche && (
+          <p className="text-[11px] text-[var(--muted-text)]">{item.niche}</p>
+        )}
+        <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2">
+          {isWebsite ? "View Project" : "View Project"}
+          <ExternalLink className="h-3 w-3" />
+        </span>
+      </div>
     </>
   );
 

@@ -17,6 +17,10 @@ export interface GalleryItem {
   type: GalleryItemType;
   title: string;
   client?: string;
+  /** One-line description of what was delivered, e.g. "Brand identity + website" */
+  description?: string;
+  /** Industry / niche label, e.g. "Real Estate · UK" */
+  niche?: string;
   /** Image URL — screenshot for websites, post image, reel cover */
   thumb: string;
   /** Live website URL, social post URL, or reel URL — opens in new tab */
