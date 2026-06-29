@@ -59,7 +59,7 @@ export function LeadCapture() {
         body: parsed.data,
       });
       if (error) throw error;
-      toast.success("Request received — we'll respond within 24 hours.");
+      setSubmitted(true);
       form.reset();
     } catch (err) {
       console.error("Contact submit failed:", err);
@@ -68,6 +68,8 @@ export function LeadCapture() {
       setSubmitting(false);
     }
   };
+
+  const handleReset = () => setSubmitted(false);
 
 
   return (
