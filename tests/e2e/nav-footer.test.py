@@ -83,38 +83,42 @@ async def deep_link_scroll(page, href):
     """page.goto(href) and assert the section scrolls into view."""
     section_id = SECTION_ROUTES[href]
     await page.goto(BASE + href, wait_until="domcontentloaded")
-    # Trailing sections (e.g. #contact) can't always align to NAV_OFFSET
-    # because the page can't scroll past its bottom — accept "in viewport".
-    try:
-        await page.wait_for_function(
-            """(id) => {
-                const el = document.getElementById(id);
-                if (!el) return false;
-                const r = el.getBoundingClientRect();
-                const alignedTop = Math.abs(r.top - 80) < 200;
-                const inViewport = r.top < window.innerHeight && r.bottom > 0;
-                return alignedTop || inViewport;
-            }""",
-            arg=section_id,
-            timeout=6000,
-        )
-    except Exception:
-        info = await page.evaluate(
-            """(id) => {
-                const el = document.getElementById(id);
-                return el ? { top: el.getBoundingClientRect().top, scrollY: window.scrollY }
-                          : { missing: true };
-            }""",
-            section_id,
-        )
-        raise AssertionError(
-            f"[deep-link {href}] #{section_id} not in view: {info}"
-        )
-    top = await page.evaluate(
-        "(id) => document.getElementById(id).getBoundingClientRect().top",
+    # Wait for smooth scroll to settle (scrollY stable for 2 consecutive samples).
+    last = -1
+    for _ in range(20):
+        await page.wait_for_timeout(150)
+        y = await page.evaluate("window.scrollY")
+        if y == last and y > 0:
+            break
+        last = y
+    info = await page.evaluate(
+        """(id) => {
+            const el = document.getElementById(id);
+            if (!el) return { missing: true };
+            const r = el.getBoundingClientRect();
+            return {
+                top: r.top, bottom: r.bottom,
+                vh: window.innerHeight, scrollY: window.scrollY,
+                inViewport: r.top < window.innerHeight && r.bottom > 0,
+                alignedNearNav: Math.abs(r.top - 80) < 200,
+            };
+        }""",
         section_id,
     )
-    print(f"  ✓ deep-link {href} -> #{section_id} top={top:.0f}")
+    assert not info.get("missing"), f"[deep-link {href}] #{section_id} missing"
+    assert info["scrollY"] > 100, (
+        f"[deep-link {href}] page did not scroll (scrollY={info['scrollY']})"
+    )
+    # Either the section aligned near the navbar, OR (for trailing sections
+    # that can't scroll further) it ended up clearly inside the viewport.
+    assert info["alignedNearNav"] or info["inViewport"], (
+        f"[deep-link {href}] #{section_id} not visible: {info}"
+    )
+    print(
+        f"  ✓ deep-link {href} -> #{section_id} top={info['top']:.0f} "
+        f"scrollY={info['scrollY']:.0f}"
+    )
+
 
 
 
