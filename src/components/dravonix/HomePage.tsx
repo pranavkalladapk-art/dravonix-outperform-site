@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { Nav } from "@/components/dravonix/Nav";
 import { Hero } from "@/components/dravonix/Hero";
+import { FounderStats } from "@/components/dravonix/FounderStats";
 import { ValuePillars } from "@/components/dravonix/ValuePillars";
 import { Services } from "@/components/dravonix/Services";
 import { AIStudio } from "@/components/dravonix/AIStudio";
@@ -9,6 +10,8 @@ import { GalleryPreview } from "@/components/dravonix/GalleryPreview";
 import { Process } from "@/components/dravonix/Process";
 import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
+import { Pricing } from "@/components/dravonix/Pricing";
+import { FAQ } from "@/components/dravonix/FAQ";
 import { LeadCapture } from "@/components/dravonix/LeadCapture";
 import { Footer } from "@/components/dravonix/Footer";
 import { useSectionUrlSync, scrollToSection } from "@/hooks/use-section-url-sync";
@@ -39,6 +42,7 @@ export function HomePage() {
       <Nav />
       <main>
         <Hero />
+        <FounderStats />
         <ValuePillars />
         <Services />
         <AIStudio />
@@ -46,6 +50,8 @@ export function HomePage() {
         <Process />
         <WhyDravonix />
         <About />
+        <Pricing />
+        <FAQ />
         <LeadCapture />
       </main>
       <Footer />

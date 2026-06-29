@@ -42,6 +42,14 @@ export function About() {
                 We&rsquo;re just getting started. So are you. Let&rsquo;s build something
                 exceptional together.
               </p>
+              <p className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-[var(--muted-text)] md:text-base">
+                <span className="text-xl leading-none" aria-hidden>🇬🇧 🇦🇪</span>
+                <span>
+                  We work with brands across the <span className="text-white">UK</span>,
+                  {" "}<span className="text-white">UAE</span>, and internationally —
+                  remotely and in-person.
+                </span>
+              </p>
             </div>
           </div>
         </Reveal>

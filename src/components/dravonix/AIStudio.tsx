@@ -111,27 +111,6 @@ export function AIStudio() {
           ))}
         </div>
 
-        {/* Stat strip */}
-        <Reveal delay={120}>
-          <div className="mx-auto mt-12 grid max-w-3xl grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-[var(--navy)]/60 py-5 backdrop-blur md:mt-14">
-            {[
-              { v: "10x", l: "Faster output" },
-              { v: "100%", l: "On-brand" },
-              { v: "<1m", l: "First render" },
-            ].map((s) => (
-              <div key={s.l} className="px-2 sm:px-4">
-                <div className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
-                  <span className="bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] bg-clip-text text-transparent">
-                    {s.v}
-                  </span>
-                </div>
-                <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60 sm:text-[11px] sm:tracking-[0.18em]">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

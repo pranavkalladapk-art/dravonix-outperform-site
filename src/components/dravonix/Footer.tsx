@@ -30,6 +30,10 @@ export function Footer() {
             <p className="mt-4 text-sm text-[var(--muted-text)]">
               Engineered to Outperform.
             </p>
+            <p className="mt-4 flex items-center gap-2 text-xs text-[var(--muted-text)]">
+              <span className="text-base leading-none" aria-hidden>🇬🇧 🇦🇪</span>
+              <span>UK · UAE · International</span>
+            </p>
           </div>
 
           <div>

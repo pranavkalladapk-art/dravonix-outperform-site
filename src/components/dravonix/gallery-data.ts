@@ -17,6 +17,10 @@ export interface GalleryItem {
   type: GalleryItemType;
   title: string;
   client?: string;
+  /** One-line description of what was delivered, e.g. "Brand identity + website" */
+  description?: string;
+  /** Industry / niche label, e.g. "Real Estate · UK" */
+  niche?: string;
   /** Image URL — screenshot for websites, post image, reel cover */
   thumb: string;
   /** Live website URL, social post URL, or reel URL — opens in new tab */
@@ -35,6 +39,8 @@ export const galleryItems: GalleryItem[] = [
     type: "website",
     title: "Wizard Fingers",
     client: "Wizard Fingers",
+    description: "Brand identity + website",
+    niche: "Music & Arts · International",
     thumb: wizardfingersThumb,
     link: "https://wizardfingers.com/",
     domain: "wizardfingers.com",
@@ -45,6 +51,8 @@ export const galleryItems: GalleryItem[] = [
     type: "website",
     title: "DTS Gulf",
     client: "DTS Gulf",
+    description: "Website design + build",
+    niche: "Interiors & Joinery · UAE",
     thumb: dtsgulfThumb,
     link: "https://dtsgulf.com/",
     domain: "dtsgulf.com",
@@ -55,6 +63,8 @@ export const galleryItems: GalleryItem[] = [
     type: "website",
     title: "Abodoo Properties",
     client: "Abodoo Properties",
+    description: "Brand identity + website",
+    niche: "Real Estate · UK",
     thumb: abodooThumb,
     link: "https://abodooproperties.co.uk/",
     domain: "abodooproperties.co.uk",
@@ -65,6 +75,8 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "Transforming Villas Into Statements",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux01,
     link: "https://dtsgulf.com/",
     featured: true,
@@ -74,6 +86,8 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "Designed to Impress. Built to Endure.",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux02,
     link: "https://dtsgulf.com/",
     featured: true,
@@ -83,6 +97,8 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "Spaces That Define Status",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux03,
     link: "https://dtsgulf.com/",
   },
@@ -91,6 +107,8 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "Where Design Becomes Distinction",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux04,
     link: "https://dtsgulf.com/",
     featured: true,
@@ -100,6 +118,8 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "Crafted Beyond the Surface",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux05,
     link: "https://dtsgulf.com/",
   },
@@ -108,14 +128,18 @@ export const galleryItems: GalleryItem[] = [
     type: "post",
     title: "A New Standard of Living",
     client: "DECOLUX",
+    description: "Social campaign creative",
+    niche: "Luxury Interiors · UAE",
     thumb: postDecolux06,
     link: "https://dtsgulf.com/",
   },
   {
     id: "reel-joinery-ad",
     type: "reel",
-    title: "AI Joinery Ad Reel",
+    title: "AI Joinery Ad",
     client: "AI Joinery Ad",
+    description: "AI-assisted short-form reel",
+    niche: "Interiors & Joinery · UAE",
     thumb: reelJoineryThumb,
     videoSrc: "/reels/joinery-ad.mp4",
     link: "https://dtsgulf.com/",
@@ -124,8 +148,10 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "reel-city-walk-502",
     type: "reel",
-    title: "Normal reel",
-    client: "Normal reel",
+    title: "City Walk 502",
+    client: "City Walk 502",
+    description: "Short-form social reel",
+    niche: "Lifestyle · UAE",
     thumb: reelCityWalkThumb,
     videoSrc: "/reels/city-walk-502.mp4",
     link: "https://dtsgulf.com/",
