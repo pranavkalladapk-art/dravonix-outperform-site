@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 const services = [
@@ -62,14 +63,14 @@ export function Services() {
                 <p className="mt-2.5 text-sm leading-relaxed text-[var(--muted-text)] md:mt-3">
                   {s.desc}
                 </p>
-                <a
-                  href={s.href ?? "/contact"}
+                <Link
+                  to={s.href ?? "/contact"}
                   aria-label={`Explore ${s.title} services`}
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2.5 md:mt-6"
                 >
                   {`Explore ${s.title} Services`}
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </article>
             </Reveal>
           ))}

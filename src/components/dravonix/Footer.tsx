@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 const serviceLinks = [
@@ -43,12 +44,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               {serviceLinks.map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
+                  <Link
+                    to={l.href}
                     className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,12 +62,13 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               {companyLinks.map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
+                  <Link
+                    to={l.href}
+                    activeProps={{ className: "text-white font-semibold" }}
                     className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
