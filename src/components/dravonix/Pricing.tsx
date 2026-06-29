@@ -8,6 +8,7 @@ const tiers = [
     name: "Starter",
     tagline: "One-time project",
     desc: "Brand identity or social setup — perfect for new and relaunching brands.",
+    need: "Branding",
     features: [
       "Brand identity OR social media setup",
       "Logo, colour and type system",
@@ -20,6 +21,7 @@ const tiers = [
     name: "Growth",
     tagline: "Monthly retainer",
     desc: "Strategy, content and management — the engine room for compounding presence.",
+    need: "Social Media",
     features: [
       "Monthly content strategy",
       "Reels, posts and creative production",
@@ -32,6 +34,7 @@ const tiers = [
     name: "Scale",
     tagline: "Full-service partnership",
     desc: "Creative, paid, strategy and reporting under one roof.",
+    need: "All of the above",
     features: [
       "Everything in Growth",
       "Performance marketing & paid ads",
@@ -43,6 +46,13 @@ const tiers = [
 ];
 
 export function Pricing() {
+  const navigate = useNavigate();
+
+  const handleBookCall = (need: string) => {
+    sessionStorage.setItem("dravonix_contact_need", need);
+    navigate({ to: "/contact" });
+  };
+
   return (
     <section id="pricing" className="bg-[var(--navy)] py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -94,10 +104,11 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <Link
-                  to="/contact"
+                <button
+                  type="button"
+                  onClick={() => handleBookCall(t.need)}
                   className={cn(
-                    "mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5",
+                    "mt-8 inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5",
                     t.highlight
                       ? "bg-[var(--blue-brand)] text-white shadow-glow-brand"
                       : "border border-white/20 text-white hover:bg-white/10",
@@ -105,7 +116,7 @@ export function Pricing() {
                 >
                   Book a Call
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </button>
               </article>
             </Reveal>
           ))}
