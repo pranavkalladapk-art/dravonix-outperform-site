@@ -104,99 +104,117 @@ export function LeadCapture() {
         </Reveal>
 
         <Reveal delay={120}>
-          <form
-            onSubmit={onSubmit}
-            className="rounded-2xl bg-[var(--navy)] p-5 shadow-2xl sm:p-6 md:p-8"
-          >
-            <div className="grid gap-4">
-              <div>
-                <label htmlFor="name" className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  required
-                  maxLength={100}
-                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label htmlFor="business" className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Business / Brand name
-                </label>
-                <input
-                  id="business"
-                  name="business"
-                  required
-                  maxLength={100}
-                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
-                  placeholder="Company or brand"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  maxLength={255}
-                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
-                  placeholder="you@brand.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Contact Number
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  maxLength={20}
-                  inputMode="tel"
-                  autoComplete="tel"
-                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
-                  placeholder="+1 555 123 4567"
-                />
-              </div>
-              <div>
-                <label htmlFor="need" className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  What do you need help with?
-                </label>
-                <select
-                  id="need"
-                  name="need"
-                  required
-                  defaultValue=""
-                  className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white focus:border-[var(--cyan-accent)] focus:outline-none"
+          <div className="rounded-2xl bg-[var(--navy)] p-5 shadow-2xl sm:p-6 md:p-8">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-10 text-center md:py-14">
+                <CheckCircle2 className="h-12 w-12 text-emerald-400" strokeWidth={2} />
+                <p className="mt-4 text-lg font-semibold text-white sm:text-xl">
+                  Thanks! The team will get in touch with you shortly.
+                </p>
+                <p className="mt-2 text-sm text-white/60">
+                  We typically respond within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="mt-6 text-sm text-white/70 underline underline-offset-4 transition-colors hover:text-white"
                 >
-                  <option value="" disabled className="bg-[var(--navy)]">
-                    Select an option
-                  </option>
-                  {needs.map((n) => (
-                    <option key={n} value={n} className="bg-[var(--navy)]">
-                      {n}
-                    </option>
-                  ))}
-                </select>
+                  Send another message
+                </button>
               </div>
+            ) : (
+              <form onSubmit={onSubmit}>
+                <div className="grid gap-4">
+                  <div>
+                    <label htmlFor="name" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      maxLength={100}
+                      className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="business" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      Business / Brand name
+                    </label>
+                    <input
+                      id="business"
+                      name="business"
+                      required
+                      maxLength={100}
+                      className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
+                      placeholder="Company or brand"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      maxLength={255}
+                      className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
+                      placeholder="you@brand.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      Contact Number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      maxLength={20}
+                      inputMode="tel"
+                      autoComplete="tel"
+                      className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 focus:border-[var(--cyan-accent)] focus:outline-none"
+                      placeholder="+1 555 123 4567"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="need" className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                      What do you need help with?
+                    </label>
+                    <select
+                      id="need"
+                      name="need"
+                      required
+                      defaultValue=""
+                      className="mt-2 w-full rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white focus:border-[var(--cyan-accent)] focus:outline-none"
+                    >
+                      <option value="" disabled className="bg-[var(--navy)]">
+                        Select an option
+                      </option>
+                      {needs.map((n) => (
+                        <option key={n} value={n} className="bg-[var(--navy)]">
+                          {n}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-              <button
-                type="submit"
-                disabled={submitting}
-                className="mt-3 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5 disabled:opacity-60"
-              >
-                {submitting ? "Sending..." : "Book My Free Call"}
-              </button>
-              <p className="text-center text-xs text-white/60">We respond within 24 hours.</p>
-            </div>
-          </form>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="mt-3 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+                  >
+                    {submitting ? "Sending..." : "Book My Free Call"}
+                  </button>
+                  <p className="text-center text-xs text-white/60">We respond within 24 hours.</p>
+                </div>
+              </form>
+            )}
+          </div>
         </Reveal>
       </div>
     </section>
