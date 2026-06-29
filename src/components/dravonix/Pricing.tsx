@@ -1,5 +1,5 @@
 import { Check, ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import { cn } from "@/lib/utils";
 
