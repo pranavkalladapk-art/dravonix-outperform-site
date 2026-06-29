@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "We operate remotely across the UK and UAE, and work with clients internationally.",
+    a: "We operate remotely across the UK, UAE, and India — working with brands internationally.",
   },
 ];
 
