@@ -63,7 +63,7 @@ function validate(input: unknown): Payload | string {
   if (!name || name.length > 100) return "Invalid name";
   if (!business || business.length > 100) return "Invalid business name";
   if (!email || email.length > 255 || !isValidEmail(email)) return "Invalid email";
-  if (phone.length < 7 || phone.length > 20 || !/^[+\d\s'}()_]+$/.test(phone))
+  if (phone.length < 7 || phone.length > 20 || !/^[+\d\s()-]+$/.test(phone))
     return "Invalid contact number";
   const allowed = ["Branding", "Social Media", "Content", "Strategy", "All of the above"];
   if (!allowed.includes(need)) return "Invalid selection";
