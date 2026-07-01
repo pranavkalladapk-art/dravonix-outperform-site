@@ -139,7 +139,7 @@ async function sendViaSmtp(opts: {
     await expect("250", "MAIL FROM");
     await write(`RCPT TO:<${opts.to}>`);
     await expect("250", "RCPT TO");
- "DATA");
+    await write("DATA");
     await expect("354", "DATA");
 
     const boundary = "----=_DRX_" + crypto.randomUUID().replace(/-/g, "");
