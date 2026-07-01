@@ -42,9 +42,8 @@ export function Nav() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
-        <Link to="/" aria-label="Go to home" className="shrink-0">
-          <Logo />
-        </Link>
+        <Logo className="shrink-0" />
+
         <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((l) => (
             <Link
