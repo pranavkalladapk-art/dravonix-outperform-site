@@ -68,23 +68,35 @@ function Stars({
 }
 
 export function Reviews() {
-  const [reviews, setReviews] = useState<Review[]>(PLACEHOLDER_REVIEWS);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [rating, setRating] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    (async () => {
+    const load = async () => {
       const { data, error } = await supabase
         .from("reviews")
         .select("id,name,business,rating,message")
         .eq("approved", true)
         .order("created_at", { ascending: false })
         .limit(9);
-      if (!error && data && data.length > 0) {
-        setReviews(data as Review[]);
-      }
-    })();
+      if (!error && data) setReviews(data as Review[]);
+    };
+    load();
+
+    const channel = supabase
+      .channel("reviews-approved")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "reviews" },
+        () => load(),
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
