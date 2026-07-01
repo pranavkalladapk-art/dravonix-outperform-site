@@ -58,7 +58,7 @@ function validate(input: unknown): Payload | string {
   const business = sanitize(String(p.business ?? ""));
   const email = sanitize(String(p.email ?? ""));
   const phone = sanitize(String(p.phone ?? ""));
-  const need = sanitize(String(p.need to ?? ""));
+  const need = sanitize(String(p.need ?? ""));
 
   if (!name || name.length > 100) return "Invalid name";
   if (!business || business.length > 100) return "Invalid business name";
