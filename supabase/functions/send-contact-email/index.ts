@@ -274,7 +274,7 @@ Reply directly to this email to respond to ${data.name}.`;
       from: SMTP_USER,
       fromName: "Dravonix Website",
       to: TO_ADDRESS,
-      replyTo: `${data.name} <${data.email}>`,\
+      replyTo: `${data.name} <${data.email}>`,"
       subject,
       text,
       html,
