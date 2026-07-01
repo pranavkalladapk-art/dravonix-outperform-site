@@ -147,22 +147,24 @@ export function Reviews() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
-          {reviews.map((r, i) => (
-            <Reveal key={r.id} delay={i * 80}>
-              <figure className="flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-6 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
-                <Stars value={r.rating} />
-                <blockquote className="mt-4 flex-1 text-base leading-relaxed text-white/85">
-                  "{r.message}"
-                </blockquote>
-                <figcaption className="mt-6 border-t border-white/10 pt-4">
-                  <div className="font-display text-sm font-bold text-white">{r.name}</div>
-                  <div className="text-xs text-[var(--muted-text)]">{r.business}</div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        {reviews.length > 0 && (
+          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
+            {reviews.map((r, i) => (
+              <Reveal key={r.id} delay={i * 80}>
+                <figure className="flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-6 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
+                  <Stars value={r.rating} />
+                  <blockquote className="mt-4 flex-1 text-base leading-relaxed text-white/85">
+                    "{r.message}"
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-white/10 pt-4">
+                    <div className="font-display text-sm font-bold text-white">{r.name}</div>
+                    <div className="text-xs text-[var(--muted-text)]">{r.business}</div>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         {/* Submit form */}
         <div className="mt-16 md:mt-20">
