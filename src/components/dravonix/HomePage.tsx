@@ -52,6 +52,7 @@ export function HomePage() {
         <WhyDravonix />
         <About />
         <Pricing />
+        <Reviews />
         <FAQ />
         <LeadCapture />
       </main>
