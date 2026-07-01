@@ -14,32 +14,8 @@ type Review = {
   message: string;
 };
 
-const PLACEHOLDER_REVIEWS: Review[] = [
-  {
-    id: "p1",
-    name: "Ayesha Rahman",
-    business: "Founder, Lumen Skincare",
-    rating: 5,
-    message:
-      "Dravonix rebuilt our brand from scratch and our launch sold out in 10 days. Sharp thinking, clean execution.",
-  },
-  {
-    id: "p2",
-    name: "James Whitmore",
-    business: "Director, DTS Gulf",
-    rating: 5,
-    message:
-      "They treat our socials like a real growth channel. Reporting is honest and results compound month over month.",
-  },
-  {
-    id: "p3",
-    name: "Neha Kapoor",
-    business: "Marketing Lead, Abodoo Properties",
-    rating: 5,
-    message:
-      "Beautiful work, on time, every time. It genuinely feels like they care about the outcome, not just the deliverable.",
-  },
-];
+
+
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
