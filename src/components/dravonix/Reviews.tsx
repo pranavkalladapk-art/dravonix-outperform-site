@@ -14,32 +14,8 @@ type Review = {
   message: string;
 };
 
-const PLACEHOLDER_REVIEWS: Review[] = [
-  {
-    id: "p1",
-    name: "Ayesha Rahman",
-    business: "Founder, Lumen Skincare",
-    rating: 5,
-    message:
-      "Dravonix rebuilt our brand from scratch and our launch sold out in 10 days. Sharp thinking, clean execution.",
-  },
-  {
-    id: "p2",
-    name: "James Whitmore",
-    business: "Director, DTS Gulf",
-    rating: 5,
-    message:
-      "They treat our socials like a real growth channel. Reporting is honest and results compound month over month.",
-  },
-  {
-    id: "p3",
-    name: "Neha Kapoor",
-    business: "Marketing Lead, Abodoo Properties",
-    rating: 5,
-    message:
-      "Beautiful work, on time, every time. It genuinely feels like they care about the outcome, not just the deliverable.",
-  },
-];
+
+
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -92,23 +68,35 @@ function Stars({
 }
 
 export function Reviews() {
-  const [reviews, setReviews] = useState<Review[]>(PLACEHOLDER_REVIEWS);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [rating, setRating] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    (async () => {
+    const load = async () => {
       const { data, error } = await supabase
         .from("reviews")
         .select("id,name,business,rating,message")
         .eq("approved", true)
         .order("created_at", { ascending: false })
         .limit(9);
-      if (!error && data && data.length > 0) {
-        setReviews(data as Review[]);
-      }
-    })();
+      if (!error && data) setReviews(data as Review[]);
+    };
+    load();
+
+    const channel = supabase
+      .channel("reviews-approved")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "reviews" },
+        () => load(),
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -159,22 +147,24 @@ export function Reviews() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
-          {reviews.map((r, i) => (
-            <Reveal key={r.id} delay={i * 80}>
-              <figure className="flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-6 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
-                <Stars value={r.rating} />
-                <blockquote className="mt-4 flex-1 text-base leading-relaxed text-white/85">
-                  "{r.message}"
-                </blockquote>
-                <figcaption className="mt-6 border-t border-white/10 pt-4">
-                  <div className="font-display text-sm font-bold text-white">{r.name}</div>
-                  <div className="text-xs text-[var(--muted-text)]">{r.business}</div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        {reviews.length > 0 && (
+          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
+            {reviews.map((r, i) => (
+              <Reveal key={r.id} delay={i * 80}>
+                <figure className="flex h-full flex-col rounded-xl border border-white/10 border-l-2 border-l-[var(--blue-brand)] bg-[var(--card-dark)] p-6 transition-colors hover:border-[var(--cyan-accent)]/50 hover:border-l-[var(--blue-brand)]">
+                  <Stars value={r.rating} />
+                  <blockquote className="mt-4 flex-1 text-base leading-relaxed text-white/85">
+                    "{r.message}"
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-white/10 pt-4">
+                    <div className="font-display text-sm font-bold text-white">{r.name}</div>
+                    <div className="text-xs text-[var(--muted-text)]">{r.business}</div>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         {/* Submit form */}
         <div className="mt-16 md:mt-20">
