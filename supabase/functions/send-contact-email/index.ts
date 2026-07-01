@@ -2,12 +2,26 @@
 // Implements a minimal SMTP-over-TLS client using Deno TLS sockets to keep
 // CPU usage low (heavy SMTP libs hit the Edge Function CPU limit).
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+const ALLOWED_ORIGINS = [
+  "https://dravonixmedia.com",
+  "https://www.dravonixmedia.com",
+  "https://id-preview--6f375153-b965-42e9-9222-f84d3f560846.lovable.app",
+  "https://dravonix-outperform-site.lovable.app",
+  "http://localhost:8080",
+  "http://localhost:3000",
+];
+
+function getCorsHeaders(req: Request) {
+  const origin = req.headers.get("origin") || "";
+  const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : "*";
+  return {
+    "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+  };
+}
 
 const TO_ADDRESS = "admin@dravonixmedia.com";
 
@@ -166,11 +180,11 @@ async function sendViaSmtp(opts: {
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+  if (req.method === "OPTIONS") return new Response(null, { headers: getCorsHeaders(req) });
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
       status: 405,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers: { ...getCorsHeaders(req), "Content-Type": "application/json" },
     });
   }
 
@@ -180,7 +194,7 @@ Deno.serve(async (req) => {
     if (typeof result === "string") {
       return new Response(JSON.stringify({ error: result }), {
         status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { ...getCorsHeaders(req), "Content-Type": "application/json" },
       });
     }
     const data = result;
@@ -191,7 +205,7 @@ Deno.serve(async (req) => {
       console.error("Missing Zoho SMTP credentials");
       return new Response(JSON.stringify({ error: "Email service not configured" }), {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { ...getCorsHeaders(req), "Content-Type": "application/json" },
       });
     }
 
@@ -268,13 +282,13 @@ Reply directly to this email to respond to ${data.name}.`;
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers: { ...getCorsHeaders(req), "Content-Type": "application/json" },
     });
   } catch (err) {
     console.error("send-contact-email error:", err);
     return new Response(JSON.stringify({ error: "Failed to send enquiry" }), {
       status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
+      headers: { ...getCorsHeaders(req), "Content-Type": "application/json" },
     });
   }
 });
