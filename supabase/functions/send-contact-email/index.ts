@@ -58,12 +58,12 @@ function validate(input: unknown): Payload | string {
   const business = sanitize(String(p.business ?? ""));
   const email = sanitize(String(p.email ?? ""));
   const phone = sanitize(String(p.phone ?? ""));
-  const need = sanitize(String(p.need ?? ""));
+  const need = sanitize(String(p.need to ?? ""));
 
   if (!name || name.length > 100) return "Invalid name";
   if (!business || business.length > 100) return "Invalid business name";
   if (!email || email.length > 255 || !isValidEmail(email)) return "Invalid email";
-  if (phone.length < 7 || phone.length > 20 || !/^[+\d\s()-]+$/.test(phone))
+  if (phone.length < 7 || phone.length > 20 || !/^[+\d\s'}()_]+$/.test(phone))
     return "Invalid contact number";
   const allowed = ["Branding", "Social Media", "Content", "Strategy", "All of the above"];
   if (!allowed.includes(need)) return "Invalid selection";
@@ -274,7 +274,7 @@ Reply directly to this email to respond to ${data.name}.`;
       from: SMTP_USER,
       fromName: "Dravonix Website",
       to: TO_ADDRESS,
-      replyTo: `${data.name} <${data.email}>`,"
+      replyTo: `${data.name} <${data.email}>`,
       subject,
       text,
       html,
