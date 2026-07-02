@@ -4,7 +4,7 @@ const stats = [
   { v: "4", l: "Core Services" },
   { v: "3", l: "Countries Served" },
   { v: "10+", l: "Brands Launched" },
-  { v: "100%", l: "Asset Ownership — Always" },
+  { v: "100%", l: "Trusted Digital Management" },
 ];
 
 export function FounderStats() {
