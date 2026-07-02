@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "./Reveal";
 import { CheckCircle2 } from "lucide-react";
 
@@ -55,10 +54,12 @@ export function LeadCapture() {
     }
     setSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: parsed.data,
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
       });
-      if (error) throw error;
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSubmitted(true);
       form.reset();
     } catch (err) {
@@ -70,7 +71,6 @@ export function LeadCapture() {
   };
 
   const handleReset = () => setSubmitted(false);
-
 
   return (
     <section
