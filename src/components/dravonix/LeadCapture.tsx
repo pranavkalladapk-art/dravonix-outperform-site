@@ -3,6 +3,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { CheckCircle2 } from "lucide-react";
+import { sendContactEmail } from "@/lib/sendContactEmail";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -54,12 +55,7 @@ export function LeadCapture() {
     }
     setSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      await sendContactEmail({ data: parsed.data });
       setSubmitted(true);
       form.reset();
     } catch (err) {
