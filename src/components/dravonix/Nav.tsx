@@ -36,9 +36,11 @@ export function Nav() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.9)] backdrop-blur-md"
-          : "bg-[var(--navy)]/80 backdrop-blur-sm",
+        open
+          ? "bg-[#0B1220]"
+          : scrolled
+            ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.9)] backdrop-blur-md"
+            : "bg-[var(--navy)]/80 backdrop-blur-sm",
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
