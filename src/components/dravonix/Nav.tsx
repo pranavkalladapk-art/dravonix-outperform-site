@@ -78,11 +78,12 @@ export function Nav() {
       {/* Mobile full-screen overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-[55] bg-[#0B1220] transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-[55] transition-opacity duration-300 lg:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
+        style={{ backgroundColor: open ? menuBg : undefined }}
       >
-        <div className="flex h-full flex-col items-center justify-center gap-6 px-8" style={{ backgroundColor: menuBg }}>
+        <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
           {navLinks.map((l, i) => (
             <Link
               key={l.to}
