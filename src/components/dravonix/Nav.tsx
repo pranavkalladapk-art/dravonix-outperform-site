@@ -17,6 +17,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const menuBg = "#0B1220";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,51 +34,56 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.9)] backdrop-blur-md"
-          : "bg-[var(--navy)]/80 backdrop-blur-sm",
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
-        <Logo className="shrink-0" />
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          open
+            ? "bg-[#0B1220]"
+            : scrolled
+              ? "border-b border-white/10 bg-[oklch(0.196_0.04_257/0.9)] backdrop-blur-md"
+              : "bg-[var(--navy)]/80 backdrop-blur-sm",
+        )}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
+          <Logo className="shrink-0" />
 
-        <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
-          {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              activeProps={{ className: "text-white font-semibold" }}
-              activeOptions={{ exact: l.to === "/" }}
-              className="text-sm font-normal text-white/70 transition-colors hover:text-white"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-        <Link
-          to="/contact"
-          className="hidden shrink-0 rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 lg:inline-flex"
-        >
-          Get a Free Audit
-        </Link>
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
+          <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "text-white font-semibold" }}
+                activeOptions={{ exact: l.to === "/" }}
+                className="text-sm font-normal text-white/70 transition-colors hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+          <Link
+            to="/contact"
+            className="hidden shrink-0 rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 lg:inline-flex"
+          >
+            Get a Free Audit
+          </Link>
+          <button
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile full-screen overlay */}
+      {/* Mobile full-screen overlay — rendered outside header so backdrop-filter on header does not clip it */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[var(--navy)] transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-40 transition-opacity duration-300 lg:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
+        style={{ backgroundColor: open ? menuBg : undefined }}
       >
         <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
           {navLinks.map((l, i) => (
@@ -100,6 +106,6 @@ export function Nav() {
           </Link>
         </div>
       </div>
-    </header>
+    </>
   );
 }
