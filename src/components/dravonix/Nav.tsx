@@ -75,7 +75,7 @@ export function Nav() {
       {/* Mobile full-screen overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[var(--navy)] transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-[55] bg-[#0B1220] transition-opacity duration-300 lg:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
