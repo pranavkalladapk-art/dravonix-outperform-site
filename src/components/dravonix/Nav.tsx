@@ -82,7 +82,7 @@ export function Nav() {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
+        <div className="flex h-full flex-col items-center justify-center gap-6 px-8" style={{ backgroundColor: menuBg }}>
           {navLinks.map((l, i) => (
             <Link
               key={l.to}
