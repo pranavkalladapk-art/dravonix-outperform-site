@@ -77,10 +77,10 @@ export function Nav() {
         </div>
       </header>
 
-      {/* Mobile full-screen overlay — rendered outside header so fixed inset-0 covers the viewport */}
+      {/* Mobile full-screen overlay — rendered outside header so backdrop-filter on header does not clip it */}
       <div
         className={cn(
-          "fixed inset-0 z-[55] transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-40 transition-opacity duration-300 lg:hidden",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
         style={{ backgroundColor: open ? menuBg : undefined }}
