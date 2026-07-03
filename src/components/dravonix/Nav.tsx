@@ -17,6 +17,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const menuBg = "#0B1220";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
