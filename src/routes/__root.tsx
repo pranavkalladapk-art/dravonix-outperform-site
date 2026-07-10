@@ -134,11 +134,13 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isFirst = useRef(true);
   useEffect(() => {
-    if (isFirst.current) {
+    const firstRender = isFirst.current;
+    if (firstRender) {
       isFirst.current = false;
-      return; // initial PageView fired by inline pixel script
+      // Initial PageView fired by inline pixel script — don't duplicate.
+    } else {
+      trackEvent("PageView");
     }
-    trackEvent("PageView");
     const servicePages: Record<string, string> = {
       "/services": "All Services",
       "/brand-identity": "Brand Identity",
