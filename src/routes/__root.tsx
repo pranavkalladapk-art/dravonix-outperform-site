@@ -1,4 +1,5 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -100,6 +101,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
               "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap';l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();",
           }}
         />
+        {/* Meta Pixel */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1003198699295646');fbq('track','PageView');",
+          }}
+        />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1003198699295646&ev=PageView&noscript=1" alt="" />',
+          }}
+        />
         <noscript>
           <link
             rel="stylesheet"
@@ -116,5 +130,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isFirst = useRef(true);
+  useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return; // initial PageView fired by inline pixel script
+    }
+    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
+      (window as any).fbq("track", "PageView");
+    }
+  }, [pathname]);
   return <Outlet />;
 }
