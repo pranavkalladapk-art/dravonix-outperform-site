@@ -29,6 +29,10 @@ export function CTA() {
         <Reveal delay={180}>
           <a
             href="mailto:admin@dravonixmedia.com"
+            onClick={() => {
+              trackContact("email", { content_name: "Book a Free Strategy Call" });
+              trackSchedule({ content_name: "Free Strategy Call", content_category: "Consultation" });
+            }}
             className="group mt-10 inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
           >
             Book a Free Strategy Call
