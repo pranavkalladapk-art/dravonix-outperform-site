@@ -95,6 +95,7 @@ export function Footer() {
             </div>
             <a
               href="mailto:admin@dravonixmedia.com"
+              onClick={() => trackContact("email", { content_name: "Footer Email" })}
               className="mt-6 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-white"
             >
               admin@dravonixmedia.com
