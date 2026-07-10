@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import { trackEvent, trackViewContent } from "@/lib/metaPixel";
 
 import appCss from "../styles.css?url";
 
