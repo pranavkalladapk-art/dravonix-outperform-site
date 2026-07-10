@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { CheckCircle2 } from "lucide-react";
 import { sendContactEmail } from "@/lib/sendContactEmail";
+import { trackLead } from "@/lib/metaPixel";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
