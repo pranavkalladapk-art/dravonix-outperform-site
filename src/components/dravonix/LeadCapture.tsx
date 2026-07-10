@@ -57,6 +57,7 @@ export function LeadCapture() {
     setSubmitting(true);
     try {
       await sendContactEmail({ data: parsed.data });
+      trackLead({ content_name: "Contact Form", content_category: parsed.data.need });
       setSubmitted(true);
       form.reset();
     } catch (err) {
