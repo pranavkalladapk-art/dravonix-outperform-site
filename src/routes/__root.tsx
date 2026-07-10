@@ -30,6 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "facebook-domain-verification", content: "cumszn7kks9cv56an0bjenlihgcbo4" },
       { title: "Dravonix Media — Engineered to Outperform" },
       { name: "description", content: "Dravonix Media builds content strategies and social media systems that help brands grow, compete, and lead." },
       { name: "author", content: "Dravonix" },
