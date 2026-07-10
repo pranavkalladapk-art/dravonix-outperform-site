@@ -131,22 +131,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isFirst = useIsFirstRender();
+  const isFirst = useRef(true);
   useEffect(() => {
-    if (isFirst) return; // initial PageView fired by inline pixel script
+    if (isFirst.current) {
+      isFirst.current = false;
+      return; // initial PageView fired by inline pixel script
+    }
     if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
       (window as any).fbq("track", "PageView");
     }
-  }, [pathname, isFirst]);
+  }, [pathname]);
   return <Outlet />;
-}
-
-function useIsFirstRender() {
-  // returns true on first render only
-  const ref = (useIsFirstRender as any)._ref ?? { current: true };
-  (useIsFirstRender as any)._ref = ref;
-  useEffect(() => {
-    ref.current = false;
-  }, []);
-  return ref.current;
 }
