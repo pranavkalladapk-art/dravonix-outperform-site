@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { trackContact, trackSchedule } from "@/lib/metaPixel";
 
 export function CTA() {
   return (
