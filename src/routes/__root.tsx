@@ -138,8 +138,20 @@ function RootComponent() {
       isFirst.current = false;
       return; // initial PageView fired by inline pixel script
     }
-    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-      (window as any).fbq("track", "PageView");
+    trackEvent("PageView");
+    const servicePages: Record<string, string> = {
+      "/services": "All Services",
+      "/brand-identity": "Brand Identity",
+      "/social-media-management": "Social Media Management",
+      "/ai-studio": "AI-Integrated Video & Design",
+      "/performance-marketing": "Performance Marketing",
+    };
+    if (servicePages[pathname]) {
+      trackViewContent({
+        content_name: servicePages[pathname],
+        content_category: "Service",
+        content_ids: [pathname],
+      });
     }
   }, [pathname]);
   return <Outlet />;
