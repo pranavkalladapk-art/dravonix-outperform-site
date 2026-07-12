@@ -17,6 +17,7 @@ const companyLinks = [
 ];
 
 const socials = [
+  { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61588836449902", label: "Facebook" },
   { Icon: Instagram, href: "https://www.instagram.com/dravonixmedia/", label: "Instagram" },
   { Icon: Linkedin, href: "https://www.linkedin.com/in/dravonix/", label: "LinkedIn" },
   { Icon: Twitter, href: "https://x.com/dravonixmedia", label: "X" },
