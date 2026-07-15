@@ -74,8 +74,8 @@ const members: Member[] = [
     photo: akhilPhoto,
   },
   {
-    initials: "DH",
-    name: "Dhanya",
+    initials: "DU",
+    name: "Dhanya U",
     role: "Digital Marketing Expert • Performance Marketer",
     email: "dhanya@dravonixmedia.com",
     tagline: "Performance that outperforms.",
