@@ -5,6 +5,7 @@ import pranavPhoto from "@/assets/team-pranav.webp";
 import sreeragPhoto from "@/assets/team-sreerag.webp";
 import arunrajPhoto from "@/assets/team-arunraj.webp";
 import akhilPhoto from "@/assets/team-akhil.webp";
+import dhanyaAsset from "@/assets/team-dhanya.jpg.asset.json";
 
 type Member = {
   initials: string;
