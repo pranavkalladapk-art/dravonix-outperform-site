@@ -73,6 +73,19 @@ const members: Member[] = [
     gradient: "from-[var(--blue-brand)]/45 via-[var(--cyan-accent)]/25 to-transparent",
     photo: akhilPhoto,
   },
+  {
+    initials: "DH",
+    name: "Dhanya",
+    role: "Digital Marketing Expert • Performance Marketer",
+    email: "dhanya@dravonixmedia.com",
+    tagline: "Performance that outperforms.",
+    bio: "Dhanya specializes in digital marketing, paid advertising, and performance campaigns. She helps businesses reach the right audience through strategic Meta and Google Ads, data-driven optimization, and conversion-focused marketing. At Dravonix, she manages advertising campaigns that drive measurable growth, quality leads, and stronger brand visibility.",
+    skillTag: "Performance Marketing & Paid Ads",
+    vision:
+      "Our mission is to transform every advertising campaign into measurable business growth. Through strategic digital marketing, data-driven insights, creative storytelling, and continuous optimization, we help brands reach the right audience, maximize ROI, and build lasting customer relationships. Every campaign is engineered to deliver performance that truly outperforms.",
+    gradient: "from-[var(--cyan-accent)]/45 via-[var(--blue-brand)]/20 to-transparent",
+    photo: dhanyaAsset.url,
+  },
 ];
 
 export function TeamGrid() {
