@@ -5,7 +5,7 @@ import pranavPhoto from "@/assets/team-pranav.webp";
 import sreeragPhoto from "@/assets/team-sreerag.webp";
 import arunrajPhoto from "@/assets/team-arunraj.webp";
 import akhilPhoto from "@/assets/team-akhil.webp";
-import dhanyaAsset from "@/assets/team-dhanya.jpg.asset.json";
+import dhanyaPhoto from "@/assets/team-dhanya.jpg";
 
 type Member = {
   initials: string;
@@ -84,7 +84,7 @@ const members: Member[] = [
     vision:
       "Our mission is to transform every advertising campaign into measurable business growth. Through strategic digital marketing, data-driven insights, creative storytelling, and continuous optimization, we help brands reach the right audience, maximize ROI, and build lasting customer relationships. Every campaign is engineered to deliver performance that truly outperforms.",
     gradient: "from-[var(--cyan-accent)]/45 via-[var(--blue-brand)]/20 to-transparent",
-    photo: dhanyaAsset.url,
+    photo: dhanyaPhoto,
   },
 ];
 
