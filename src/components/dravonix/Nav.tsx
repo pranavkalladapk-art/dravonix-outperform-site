@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
+import { trackLead } from "@/lib/metaPixel";
 
 const navLinks: Array<{ to: string; label: string }> = [
   { to: "/", label: "Home" },
@@ -61,12 +62,15 @@ export function Nav() {
               </Link>
             ))}
           </nav>
-          <Link
-            to="/contact"
+          <a
+            href="https://estimate.dravonix.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackLead({ content_name: "Get a Free Estimate" })}
             className="hidden shrink-0 rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 lg:inline-flex"
           >
-            Get a Free Audit
-          </Link>
+            Get a Free Estimate
+          </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
@@ -97,13 +101,18 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
+          <a
+            href="https://estimate.dravonix.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              setOpen(false);
+              trackLead({ content_name: "Get a Free Estimate" });
+            }}
             className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
           >
-            Get a Free Audit
-          </Link>
+            Get a Free Estimate
+          </a>
         </div>
       </div>
     </>
