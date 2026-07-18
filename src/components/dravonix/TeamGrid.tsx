@@ -6,6 +6,7 @@ import sreeragPhoto from "@/assets/team-sreerag.webp";
 import arunrajPhoto from "@/assets/team-arunraj.webp";
 import akhilPhoto from "@/assets/team-akhil.webp";
 import dhanyaPhoto from "@/assets/team-dhanya.jpg";
+import roshniPhoto from "@/assets/team-roshni.jpg";
 
 type Member = {
   initials: string;
@@ -16,6 +17,7 @@ type Member = {
   bio: string;
   skillTag: string;
   vision: string;
+  visionTitle?: string;
   gradient: string;
   photo?: string;
 };
@@ -85,6 +87,20 @@ const members: Member[] = [
       "Our mission is to transform every advertising campaign into measurable business growth. Through strategic digital marketing, data-driven insights, creative storytelling, and continuous optimization, we help brands reach the right audience, maximize ROI, and build lasting customer relationships. Every campaign is engineered to deliver performance that truly outperforms.",
     gradient: "from-[var(--cyan-accent)]/45 via-[var(--blue-brand)]/20 to-transparent",
     photo: dhanyaPhoto,
+  },
+  {
+    initials: "RX",
+    name: "Roshni Xavier",
+    role: "HR • Accountant",
+    email: "roshni@dravonixmedia.com",
+    tagline: "The operational backbone behind every creative win.",
+    bio: "Roshni ensures the operational backbone of Dravonix stays strong. From finance and accounting to HR management and internal coordination, she keeps our team organized, efficient, and focused on delivering exceptional work.",
+    skillTag: "Finance & HR Operations",
+    vision:
+      "Great creativity is built on strong organization. My vision is to create an efficient, transparent, and people-first workplace where every project is supported by accurate financial management, seamless operations, and a team culture that enables creativity to thrive.",
+    visionTitle: "Team Vision",
+    gradient: "from-[var(--blue-brand)]/40 via-[var(--cyan-accent)]/20 to-transparent",
+    photo: roshniPhoto,
   },
 ];
 
@@ -168,7 +184,7 @@ export function TeamGrid() {
                     <div className="min-h-0">
                       <div className="border-t border-white/10 pt-5">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-                          Founder Vision
+                          {m.visionTitle || "Founder Vision"}
                         </span>
                         <p className="mt-3 text-base italic leading-relaxed text-white/85">
                           &ldquo;{m.vision}&rdquo;
