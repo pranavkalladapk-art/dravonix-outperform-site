@@ -100,7 +100,7 @@ const members: Member[] = [
       "Great creativity is built on strong organization. My vision is to create an efficient, transparent, and people-first workplace where every project is supported by accurate financial management, seamless operations, and a team culture that enables creativity to thrive.",
     visionTitle: "Team Vision",
     gradient: "from-[var(--blue-brand)]/40 via-[var(--cyan-accent)]/20 to-transparent",
-    photo: roshniPhoto,
+    photo: roshniPhoto.url,
   },
 ];
 
