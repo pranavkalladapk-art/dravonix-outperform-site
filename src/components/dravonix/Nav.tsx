@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
+import { trackLead } from "@/lib/metaPixel";
 
 const navLinks: Array<{ to: string; label: string }> = [
   { to: "/", label: "Home" },
