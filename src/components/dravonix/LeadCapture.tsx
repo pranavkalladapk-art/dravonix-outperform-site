@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { sendContactEmail } from "@/lib/sendContactEmail";
 import { trackLead } from "@/lib/metaPixel";
 
@@ -99,6 +99,16 @@ export function LeadCapture() {
             <li>• A clear plan for your next 90 days</li>
             <li>• Honest answers — not a sales pitch</li>
           </ul>
+          <a
+            href="https://estimate.dravonix.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackLead({ content_name: "Get a Free Estimate" })}
+            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
+          >
+            Get a Free Estimate
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
         </Reveal>
 
         <Reveal delay={120}>
