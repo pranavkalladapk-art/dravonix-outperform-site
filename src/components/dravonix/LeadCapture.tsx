@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { sendContactEmail } from "@/lib/sendContactEmail";
 import { trackLead } from "@/lib/metaPixel";
 
