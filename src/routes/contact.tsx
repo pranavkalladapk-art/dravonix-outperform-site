@@ -5,7 +5,7 @@ import { buildHead } from "@/lib/seo";
 export const Route = createFileRoute("/contact")({
   head: () =>
     buildHead("/contact", {
-      title: "Contact Dravonix — Get a Free Audit",
+      title: "Contact Dravonix — Get a Free Estimate",
       description:
         "Book a free 30-minute strategy call. No commitment. Just clarity on your next 90 days.",
     }),
