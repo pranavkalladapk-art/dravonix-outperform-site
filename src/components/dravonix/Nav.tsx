@@ -62,12 +62,15 @@ export function Nav() {
               </Link>
             ))}
           </nav>
-          <Link
-            to="/contact"
+          <a
+            href="https://estimate.dravonix.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackLead({ content_name: "Get a Free Estimate" })}
             className="hidden shrink-0 rounded-full bg-[var(--blue-brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5 lg:inline-flex"
           >
-            Get a Free Audit
-          </Link>
+            Get a Free Estimate
+          </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             className="relative z-[60] grid h-10 w-10 place-items-center rounded-md text-white lg:hidden"
