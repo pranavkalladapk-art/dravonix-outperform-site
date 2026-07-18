@@ -101,13 +101,18 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
+          <a
+            href="https://estimate.dravonix.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              setOpen(false);
+              trackLead({ content_name: "Get a Free Estimate" });
+            }}
             className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-base font-semibold text-white shadow-glow-brand"
           >
-            Get a Free Audit
-          </Link>
+            Get a Free Estimate
+          </a>
         </div>
       </div>
     </>
