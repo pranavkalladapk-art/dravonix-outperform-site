@@ -79,11 +79,13 @@ export function ProjectEstimator() {
               <div className="flex justify-center">
                 <Link
                   to="/"
+                  hash="project-estimator"
                   className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur-sm transition-all hover:-translate-x-0.5 hover:border-[var(--cyan-accent)]/40 hover:text-white"
                 >
                   <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
                   Back to Home
                 </Link>
+
               </div>
             </Reveal>
             <Reveal delay={40}>
