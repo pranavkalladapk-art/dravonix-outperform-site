@@ -2,19 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const SITE = "https://dravonixmedia.com";
 
-const routes: Array<{ path: string; changefreq: string; priority: string }> = [
-  { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/home", changefreq: "weekly", priority: "0.9" },
-  { path: "/services", changefreq: "monthly", priority: "0.9" },
-  { path: "/ai-studio", changefreq: "monthly", priority: "0.8" },
-  { path: "/process", changefreq: "monthly", priority: "0.8" },
-  { path: "/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/contact", changefreq: "monthly", priority: "0.8" },
-  { path: "/brand-identity", changefreq: "monthly", priority: "0.8" },
-  { path: "/performance-marketing", changefreq: "monthly", priority: "0.8" },
-  { path: "/social-media-management", changefreq: "monthly", priority: "0.8" },
-  { path: "/work", changefreq: "weekly", priority: "0.8" },
-  { path: "/team", changefreq: "monthly", priority: "0.7" },
+const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
+  { loc: `${SITE}/`, changefreq: "weekly", priority: "1.0" },
+  { loc: `${SITE}/project-estimator`, changefreq: "weekly", priority: "0.95" },
+  { loc: `${SITE}/services`, changefreq: "monthly", priority: "0.9" },
+  { loc: `${SITE}/work`, changefreq: "weekly", priority: "0.9" },
+  { loc: `${SITE}/process`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/about`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/contact`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/ai-studio`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/brand-identity`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/performance-marketing`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/social-media-management`, changefreq: "monthly", priority: "0.8" },
+  { loc: `${SITE}/team`, changefreq: "monthly", priority: "0.7" },
+  { loc: "https://estimate.dravonix.dev/", changefreq: "weekly", priority: "0.9" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = routes
           .map(
             (r) =>
-              `  <url>\n    <loc>${SITE}${r.path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority}</priority>\n  </url>`
+              `  <url>\n    <loc>${r.loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority}</priority>\n  </url>`
           )
           .join("\n");
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
