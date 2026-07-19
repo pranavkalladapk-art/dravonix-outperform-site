@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { trackLead } from "@/lib/metaPixel";
+
+
 
 const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 const PRICE_MIN = 25000;
