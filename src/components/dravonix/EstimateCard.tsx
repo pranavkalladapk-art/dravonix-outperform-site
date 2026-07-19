@@ -53,7 +53,7 @@ export function EstimateCard() {
   return (
     <div
       ref={ref}
-      className="group relative mx-auto max-w-lg animate-[floaty_6s_ease-in-out_infinite]"
+      className="group relative mx-auto max-w-lg xl:max-w-xl animate-[floaty_6s_ease-in-out_infinite]"
     >
       {/* Outer glow */}
       <div
