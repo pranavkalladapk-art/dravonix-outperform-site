@@ -1,25 +1,38 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 
-const navLinks: Array<{ to: string; label: string }> = [
+type NavLink = { to: string; label: string; hash?: string };
+
+const navLinks: Array<NavLink> = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/work", label: "Work" },
   { to: "/process", label: "Our Process" },
-  { to: "/project-estimator", label: "Project Estimator" },
+  { to: "/", hash: "project-estimator", label: "Project Estimator" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const menuBg = "#0B1220";
+  const { pathname } = useRouterState({ select: (s) => s.location });
+  const [estimatorInView, setEstimatorInView] = useState(false);
+
+  const isLinkActive = (l: NavLink) => {
+    if (l.hash === "project-estimator") return pathname === "/" && estimatorInView;
+    if (l.to === "/") return pathname === "/" && !estimatorInView;
+    return pathname === l.to || pathname.startsWith(`${l.to}/`);
+  };
+
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -34,6 +47,28 @@ export function Nav() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Track whether the estimator section is currently visible so the nav
+  // item highlights while the user is reading that section on /.
+  useEffect(() => {
+    if (pathname !== "/") {
+      setEstimatorInView(false);
+      return;
+    }
+    const el = document.getElementById("project-estimator");
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          setEstimatorInView(entry.isIntersecting && entry.intersectionRatio > 0.3);
+        }
+      },
+      { threshold: [0, 0.3, 0.6], rootMargin: "-80px 0px -40% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [pathname]);
+
 
   return (
     <>
@@ -51,18 +86,24 @@ export function Nav() {
           <Logo className="shrink-0" />
 
           <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
-            {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeProps={{ className: "text-white font-semibold" }}
-                activeOptions={{ exact: l.to === "/" }}
-                className="text-sm font-normal text-white/70 transition-colors hover:text-white"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {navLinks.map((l) => {
+              const active = isLinkActive(l);
+              return (
+                <Link
+                  key={`${l.to}${l.hash ?? ""}`}
+                  to={l.to}
+                  hash={l.hash}
+                  className={cn(
+                    "text-sm transition-colors hover:text-white",
+                    active ? "font-semibold text-white" : "font-normal text-white/70",
+                  )}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
@@ -93,8 +134,9 @@ export function Nav() {
         <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
           {navLinks.map((l, i) => (
             <Link
-              key={l.to}
+              key={`${l.to}${l.hash ?? ""}`}
               to={l.to}
+              hash={l.hash}
               onClick={() => setOpen(false)}
               className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
               style={{ transitionDelay: `${i * 40}ms` }}
@@ -102,6 +144,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"

@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import { trackLead } from "@/lib/metaPixel";
 import { EstimateCard } from "./EstimateCard";
+
 
 
 
@@ -65,12 +67,13 @@ export function EstimatorSection() {
                     Start Free Estimation
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
-                  <a
-                    href="/project-estimator"
+                  <Link
+                    to="/project-estimator"
                     className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white/90 transition-colors hover:border-[var(--cyan-accent)]/40 hover:text-white"
                   >
                     Learn more
-                  </a>
+                  </Link>
+
                 </div>
               </div>
 
