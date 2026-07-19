@@ -110,8 +110,9 @@ export function Nav() {
         <div className="flex h-full flex-col items-center justify-center gap-6 px-8">
           {navLinks.map((l, i) => (
             <Link
-              key={l.to}
+              key={`${l.to}${l.hash ?? ""}`}
               to={l.to}
+              hash={l.hash}
               onClick={() => setOpen(false)}
               className="font-display text-3xl font-bold text-white transition-colors hover:text-[var(--cyan-accent)]"
               style={{ transitionDelay: `${i * 40}ms` }}
@@ -119,6 +120,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
