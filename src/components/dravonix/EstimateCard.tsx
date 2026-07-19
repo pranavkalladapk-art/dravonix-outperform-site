@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-
-
 const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 const PRICE_MIN = 25000;
 const PRICE_MAX = 50000;
@@ -63,7 +61,7 @@ export function EstimateCard() {
         className="pointer-events-none absolute -inset-1 rounded-[26px] bg-gradient-to-br from-[var(--blue-brand)]/40 via-transparent to-[var(--cyan-accent)]/40 opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
       />
 
-      <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[var(--navy)]/80 p-6 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-0.5 sm:p-7">
+      <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[var(--navy)]/80 p-5 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-0.5 sm:p-6">
         {/* Radial glow behind price */}
         <div
           aria-hidden
@@ -104,35 +102,38 @@ export function EstimateCard() {
           </div>
 
           {/* Heading */}
-          <p className="mt-7 text-sm font-medium text-white/60">Your Project Could Cost</p>
+          <p className="mt-4 text-sm font-medium text-white/60">Your Project Could Cost</p>
 
-          {/* Price - hero element */}
-          <div className="relative mt-3">
+          {/* Price - hero element, single line */}
+          <div className="relative mt-2">
             <div
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
             />
             <div
-              className={`relative font-display font-bold leading-none tracking-tight text-white text-5xl sm:text-6xl transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
+              className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[56px] sm:text-[64px] transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
             >
-              <span className="bg-gradient-to-r from-white via-white to-[var(--cyan-accent)] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
-                {minVal.toLocaleString()} – {maxVal.toLocaleString()}
+              <span className="drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
+                {minVal.toLocaleString()} –{" "}
+              </span>
+              <span className="bg-gradient-to-r from-white to-[var(--cyan-accent)] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
+                {maxVal.toLocaleString()}
               </span>
             </div>
-            <p className="mt-3 text-xs text-white/50">
+            <p className="mt-1 text-xs text-white/50">
               Based on similar projects completed by Dravonix.
             </p>
           </div>
 
           {/* Insight grid */}
-          <div className="mt-8 grid grid-cols-2 gap-2.5">
+          <div className="mt-5 grid grid-cols-2 gap-2">
             {[
               { k: "Estimated Timeline", v: "3–5 Weeks" },
               { k: "Project Complexity", v: "Medium" },
             ].map((row) => (
               <div
                 key={row.k}
-                className="rounded-xl border border-white/8 bg-white/[0.03] p-3"
+                className="rounded-xl border border-white/8 bg-white/[0.03] p-2"
               >
                 <div className="text-[10px] font-semibold uppercase tracking-wider text-white/45">
                   {row.k}
@@ -140,7 +141,7 @@ export function EstimateCard() {
                 <div className="mt-1 text-sm font-semibold text-white">{row.v}</div>
               </div>
             ))}
-            <div className="col-span-2 rounded-xl border border-white/8 bg-white/[0.03] p-3">
+            <div className="col-span-2 rounded-xl border border-white/8 bg-white/[0.03] p-2">
               <div className="text-[10px] font-semibold uppercase tracking-wider text-white/45">
                 Recommended Team
               </div>
@@ -152,14 +153,14 @@ export function EstimateCard() {
           </div>
 
           {/* Confidence bar */}
-          <div className="mt-7">
+          <div className="mt-5">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold uppercase tracking-wider text-white/50">
                 Confidence Score
               </span>
               <span className="font-bold text-white">{CONFIDENCE}%</span>
             </div>
-            <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/10">
+            <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-white/10">
               <div
                 className="relative h-full rounded-full bg-gradient-to-r from-[var(--blue-brand)] via-[var(--cyan-accent)] to-[var(--blue-brand)] bg-[length:200%_100%] shadow-[0_0_14px_rgba(6,182,212,0.7)] transition-[width] duration-[1600ms] ease-out animate-[shimmer_3s_linear_infinite]"
                 style={{ width: barActive ? `${CONFIDENCE}%` : "0%" }}
@@ -168,15 +169,15 @@ export function EstimateCard() {
           </div>
 
           {/* Trust section */}
-          <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
-            <ul className="space-y-2.5 text-sm text-white/80">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.02] p-3">
+            <ul className="space-y-1 text-[14px] text-white/80">
               {[
                 "100+ Projects Delivered",
                 "Trusted by Businesses in UAE • UK • India",
                 "Transparent Pricing",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2.5">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--cyan-accent)]/15 text-[var(--cyan-accent)] text-xs font-bold">
+                <li key={item} className="flex items-center gap-2">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--cyan-accent)]/15 text-[var(--cyan-accent)] text-[10px] font-bold">
                     ✓
                   </span>
                   <span>{item}</span>
@@ -186,7 +187,7 @@ export function EstimateCard() {
           </div>
 
           {/* Footer disclaimer */}
-          <p className="mt-6 text-center text-[11px] leading-relaxed text-white/60">
+          <p className="mt-3 text-center text-[11px] leading-relaxed text-white/60">
             Your estimate is generated based on real project data and industry
             averages. Final pricing may vary depending on scope.
           </p>
