@@ -75,40 +75,8 @@ export function EstimatorSection() {
               </div>
 
               <div className="relative">
-                <div className="relative mx-auto max-w-md rounded-2xl border border-white/10 bg-[var(--navy)]/70 p-6 backdrop-blur-md shadow-2xl">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
-                      Estimated Range
-                    </span>
-                    <span className="rounded-full bg-[var(--cyan-accent)]/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--cyan-accent)]">
-                      Live
-                    </span>
-                  </div>
-                  <div className="mt-3 font-display text-3xl font-bold text-white md:text-4xl">
-                    {formatEstimateRange(2400, 6800)}
-                  </div>
-                  <div className="mt-6 space-y-3">
-                    {[
-                      { k: "Service", v: "Website Development" },
-                      { k: "Scope", v: "8–12 pages" },
-                      { k: "Timeline", v: "3–5 weeks" },
-                    ].map((row) => (
-                      <div
-                        key={row.k}
-                        className="flex items-center justify-between border-b border-white/5 pb-2 text-sm last:border-0"
-                      >
-                        <span className="text-white/50">{row.k}</span>
-                        <span className="font-medium text-white">{row.v}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)]" />
-                  </div>
-                  <p className="mt-3 text-xs text-white/50">
-                    Sample preview — your estimate is tailored to your inputs.
-                  </p>
-                </div>
+                <EstimateCard />
+
               </div>
             </div>
           </div>
