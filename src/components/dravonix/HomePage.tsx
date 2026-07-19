@@ -11,6 +11,7 @@ import { Process } from "@/components/dravonix/Process";
 import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
 import { Pricing } from "@/components/dravonix/Pricing";
+import { EstimatorSection } from "@/components/dravonix/EstimatorSection";
 import { Reviews } from "@/components/dravonix/Reviews";
 import { FAQ } from "@/components/dravonix/FAQ";
 import { LeadCapture } from "@/components/dravonix/LeadCapture";
