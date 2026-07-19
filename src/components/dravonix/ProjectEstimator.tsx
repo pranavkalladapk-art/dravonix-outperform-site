@@ -88,7 +88,6 @@ export function ProjectEstimator() {
             </Reveal>
             <Reveal delay={40}>
               <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                <Calculator className="h-3.5 w-3.5" />
                 Project Estimator
               </span>
             </Reveal>
