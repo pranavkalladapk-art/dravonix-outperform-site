@@ -23,6 +23,14 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const menuBg = "#0B1220";
+  const { pathname, hash } = useRouterState({ select: (s) => s.location });
+
+  const isLinkActive = (l: NavLink) => {
+    if (l.hash) return pathname === "/" && hash === l.hash;
+    if (l.to === "/") return pathname === "/" && !hash;
+    return pathname === l.to || pathname.startsWith(`${l.to}/`);
+  };
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
