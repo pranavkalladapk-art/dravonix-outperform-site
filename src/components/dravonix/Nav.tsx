@@ -62,18 +62,24 @@ export function Nav() {
           <Logo className="shrink-0" />
 
           <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
-            {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeProps={{ className: "text-white font-semibold" }}
-                activeOptions={{ exact: l.to === "/" }}
-                className="text-sm font-normal text-white/70 transition-colors hover:text-white"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {navLinks.map((l) => {
+              const active = isLinkActive(l);
+              return (
+                <Link
+                  key={`${l.to}${l.hash ?? ""}`}
+                  to={l.to}
+                  hash={l.hash}
+                  className={cn(
+                    "text-sm transition-colors hover:text-white",
+                    active ? "font-semibold text-white" : "font-normal text-white/70",
+                  )}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
