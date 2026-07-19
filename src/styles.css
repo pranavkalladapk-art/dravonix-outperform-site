@@ -191,4 +191,20 @@
     50% { opacity: 0.7; transform: scale(1.06); }
   }
   .animate-ambient { animation: ambient-glow 6s ease-in-out infinite; }
+
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  @keyframes particle {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0.5; }
+    50% { transform: translateY(-14px) translateX(6px); opacity: 0.9; }
+  }
 }
+
