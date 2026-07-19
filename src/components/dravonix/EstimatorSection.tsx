@@ -13,10 +13,13 @@ const highlights = ["Instant estimate", "No hidden charges", "Expert reviewed"];
 
 export function EstimatorSection() {
   return (
-    <section id="project-estimator" className="py-20 md:py-24">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+    <section
+      id="project-estimator"
+      className="py-12 md:flex md:min-h-[calc(100vh-80px)] md:items-center md:py-0"
+    >
+      <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--slate-mid)] via-[var(--navy)] to-[var(--slate-mid)] p-8 md:p-14">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--slate-mid)] via-[var(--navy)] to-[var(--slate-mid)] p-5 md:p-5">
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-30">
               <div className="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-[var(--blue-brand)] blur-[120px]" />
               <div className="absolute -bottom-32 -right-16 h-72 w-72 rounded-full bg-[var(--cyan-accent)] blur-[120px] opacity-60" />
@@ -32,19 +35,19 @@ export function EstimatorSection() {
               </svg>
             </div>
 
-            <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="relative grid gap-8 md:grid-cols-[1fr_1.25fr] md:items-center">
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
                   Project Estimator
                 </span>
-                <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+                <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
                   Know your project budget in minutes.
                 </h2>
-                <p className="mt-4 max-w-xl text-white/70">
+                <p className="mt-3 max-w-xl text-white/70">
                   Answer a few quick questions and get a tailored, transparent estimate for
                   branding, web, marketing, or creative work — no calls required.
                 </p>
-                <ul className="mt-6 flex flex-wrap gap-3">
+                <ul className="mt-4 flex flex-wrap gap-3">
                   {highlights.map((label) => (
                     <li
                       key={label}
@@ -54,7 +57,7 @@ export function EstimatorSection() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-5 flex flex-wrap gap-3">
                   <a
                     href={ESTIMATOR_URL}
                     target="_blank"
@@ -73,13 +76,11 @@ export function EstimatorSection() {
                   >
                     Learn more
                   </Link>
-
                 </div>
               </div>
 
               <div className="relative">
                 <EstimateCard />
-
               </div>
             </div>
           </div>
