@@ -23,7 +23,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const menuBg = "#0B1220";
-  const { pathname, hash } = useRouterState({ select: (s) => s.location });
+  const { pathname } = useRouterState({ select: (s) => s.location });
   const [estimatorInView, setEstimatorInView] = useState(false);
 
   const isLinkActive = (l: NavLink) => {
