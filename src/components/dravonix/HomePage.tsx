@@ -53,6 +53,7 @@ export function HomePage() {
         <WhyDravonix />
         <About />
         <Pricing />
+        <EstimatorSection />
         <Reviews />
         <FAQ />
         <LeadCapture />
