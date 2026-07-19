@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 
-const navLinks: Array<{ to: string; label: string }> = [
+type NavLink = { to: string; label: string; hash?: string };
+
+const navLinks: Array<NavLink> = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/work", label: "Work" },
   { to: "/process", label: "Our Process" },
-  { to: "/project-estimator", label: "Project Estimator" },
+  { to: "/", hash: "project-estimator", label: "Project Estimator" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
