@@ -12,7 +12,6 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/about`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/contact`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/team`, changefreq: "monthly", priority: "0.7" },
-  { loc: "https://estimate.dravonix.dev/", changefreq: "weekly", priority: "0.9" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
