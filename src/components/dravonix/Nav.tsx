@@ -48,6 +48,28 @@ export function Nav() {
     };
   }, [open]);
 
+  // Track whether the estimator section is currently visible so the nav
+  // item highlights while the user is reading that section on /.
+  useEffect(() => {
+    if (pathname !== "/") {
+      setEstimatorInView(false);
+      return;
+    }
+    const el = document.getElementById("project-estimator");
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          setEstimatorInView(entry.isIntersecting && entry.intersectionRatio > 0.3);
+        }
+      },
+      { threshold: [0, 0.3, 0.6], rootMargin: "-80px 0px -40% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [pathname]);
+
+
   return (
     <>
       <header
