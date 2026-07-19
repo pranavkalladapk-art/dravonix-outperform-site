@@ -10,6 +10,7 @@ const navLinks: Array<{ to: string; label: string }> = [
   { to: "/services", label: "Services" },
   { to: "/work", label: "Work" },
   { to: "/process", label: "Our Process" },
+  { to: "/project-estimator", label: "Project Estimator" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];

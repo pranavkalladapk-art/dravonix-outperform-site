@@ -1,4 +1,5 @@
-import { ArrowRight, Zap, Target, ShieldCheck, UserCheck, Rocket, MousePointerClick, HelpCircle, Calculator, CalendarCheck, Palette, Globe, Layout, TrendingUp, Search, Share2, Bot, PenTool } from "lucide-react";
+import { ArrowLeft, ArrowRight, Zap, Target, ShieldCheck, UserCheck, Rocket, MousePointerClick, HelpCircle, Calculator, CalendarCheck, Palette, Globe, Layout, TrendingUp, Search, Share2, Bot, PenTool } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
@@ -75,7 +76,18 @@ export function ProjectEstimator() {
           </div>
           <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
+              <div className="flex justify-center">
+                <Link
+                  to="/"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur-sm transition-all hover:-translate-x-0.5 hover:border-[var(--cyan-accent)]/40 hover:text-white"
+                >
+                  <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
+                  Back to Home
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={40}>
+              <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
                 <Calculator className="h-3.5 w-3.5" />
                 Project Estimator
               </span>
