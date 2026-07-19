@@ -1,14 +1,10 @@
-import { ArrowRight, Zap, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { trackLead } from "@/lib/metaPixel";
 
 const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
-const highlights = [
-  { icon: Zap, label: "Instant estimate" },
-  { icon: ShieldCheck, label: "No hidden charges" },
-  { icon: Sparkles, label: "Expert reviewed" },
-];
+const highlights = ["Instant estimate", "No hidden charges", "Expert reviewed"];
 
 export function EstimatorSection() {
   return (
