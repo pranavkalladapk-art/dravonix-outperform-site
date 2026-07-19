@@ -24,12 +24,14 @@ export function Nav() {
   const navigate = useNavigate();
   const menuBg = "#0B1220";
   const { pathname, hash } = useRouterState({ select: (s) => s.location });
+  const [estimatorInView, setEstimatorInView] = useState(false);
 
   const isLinkActive = (l: NavLink) => {
-    if (l.hash) return pathname === "/" && hash === l.hash;
-    if (l.to === "/") return pathname === "/" && !hash;
+    if (l.hash === "project-estimator") return pathname === "/" && estimatorInView;
+    if (l.to === "/") return pathname === "/" && !estimatorInView;
     return pathname === l.to || pathname.startsWith(`${l.to}/`);
   };
+
 
 
   useEffect(() => {
