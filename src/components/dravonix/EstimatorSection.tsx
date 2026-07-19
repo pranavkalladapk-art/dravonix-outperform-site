@@ -83,7 +83,7 @@ export function EstimatorSection() {
                     </span>
                   </div>
                   <div className="mt-3 font-display text-3xl font-bold text-white md:text-4xl">
-                    $2,400 – $6,800
+                    {formatEstimateRange(2400, 6800)}
                   </div>
                   <div className="mt-6 space-y-3">
                     {[
