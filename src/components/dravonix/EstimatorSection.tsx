@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { trackLead } from "@/lib/metaPixel";
+import { formatEstimateRange } from "@/lib/estimate";
 
 const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
