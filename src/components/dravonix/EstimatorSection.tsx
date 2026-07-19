@@ -1,14 +1,10 @@
-import { ArrowRight, Zap, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { trackLead } from "@/lib/metaPixel";
 
 const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
-const highlights = [
-  { icon: Zap, label: "Instant estimate" },
-  { icon: ShieldCheck, label: "No hidden charges" },
-  { icon: Sparkles, label: "Expert reviewed" },
-];
+const highlights = ["Instant estimate", "No hidden charges", "Expert reviewed"];
 
 export function EstimatorSection() {
   return (
@@ -44,13 +40,12 @@ export function EstimatorSection() {
                   branding, web, marketing, or creative work — no calls required.
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-3">
-                  {highlights.map((h) => (
+                  {highlights.map((label) => (
                     <li
-                      key={h.label}
+                      key={label}
                       className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-white/80"
                     >
-                      <h.icon className="h-3.5 w-3.5 text-[var(--cyan-accent)]" />
-                      {h.label}
+                      {label}
                     </li>
                   ))}
                 </ul>
