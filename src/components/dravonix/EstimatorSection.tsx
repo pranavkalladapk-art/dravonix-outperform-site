@@ -40,13 +40,12 @@ export function EstimatorSection() {
                   branding, web, marketing, or creative work — no calls required.
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-3">
-                  {highlights.map((h) => (
+                  {highlights.map((label) => (
                     <li
-                      key={h.label}
+                      key={label}
                       className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-white/80"
                     >
-                      <h.icon className="h-3.5 w-3.5 text-[var(--cyan-accent)]" />
-                      {h.label}
+                      {label}
                     </li>
                   ))}
                 </ul>
