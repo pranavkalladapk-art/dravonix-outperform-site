@@ -1,4 +1,4 @@
-import { ArrowRight, Calculator, Zap, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Zap, ShieldCheck, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { trackLead } from "@/lib/metaPixel";
 
@@ -34,7 +34,6 @@ export function EstimatorSection() {
             <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                  <Calculator className="h-3.5 w-3.5" />
                   Project Estimator
                 </span>
                 <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
