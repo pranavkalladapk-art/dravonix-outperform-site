@@ -104,22 +104,28 @@ export function EstimateCard() {
           </div>
 
           {/* Heading */}
-          <p className="mt-5 text-sm font-medium text-white/60">Your Project Could Cost</p>
+          <p className="mt-7 text-sm font-medium text-white/60">Your Project Could Cost</p>
 
-          {/* Price */}
-          <div className="relative mt-2">
-            <div className="relative font-display text-4xl font-bold leading-none tracking-tight text-white sm:text-5xl">
-              <span className="bg-gradient-to-r from-white via-white to-[var(--cyan-accent)] bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(37,99,235,0.55)]">
+          {/* Price - hero element */}
+          <div className="relative mt-3">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
+            />
+            <div
+              className={`relative font-display font-bold leading-none tracking-tight text-white text-5xl sm:text-6xl transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
+            >
+              <span className="bg-gradient-to-r from-white via-white to-[var(--cyan-accent)] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
                 {minVal.toLocaleString()} – {maxVal.toLocaleString()}
               </span>
             </div>
-            <p className="mt-2 text-xs text-white/50">
+            <p className="mt-3 text-xs text-white/50">
               Based on similar projects completed by Dravonix.
             </p>
           </div>
 
           {/* Insight grid */}
-          <div className="mt-5 grid grid-cols-2 gap-2.5">
+          <div className="mt-8 grid grid-cols-2 gap-2.5">
             {[
               { k: "Estimated Timeline", v: "3–5 Weeks" },
               { k: "Project Complexity", v: "Medium" },
@@ -146,7 +152,7 @@ export function EstimateCard() {
           </div>
 
           {/* Confidence bar */}
-          <div className="mt-5">
+          <div className="mt-7">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold uppercase tracking-wider text-white/50">
                 Confidence Score
@@ -161,42 +167,30 @@ export function EstimateCard() {
             </div>
           </div>
 
-          {/* Social proof */}
-          <ul className="mt-5 space-y-1.5 text-xs text-white/70">
-            {[
-              "100+ Projects Delivered",
-              "Trusted by Businesses in UAE, UK & India",
-              "Transparent Pricing",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--cyan-accent)]/15 text-[var(--cyan-accent)]">
-                  ✓
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
+          {/* Trust section */}
+          <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+            <ul className="space-y-2.5 text-sm text-white/80">
+              {[
+                "100+ Projects Delivered",
+                "Trusted by Businesses in UAE • UK • India",
+                "Transparent Pricing",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2.5">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--cyan-accent)]/15 text-[var(--cyan-accent)] text-xs font-bold">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* CTA */}
-          <a
-            href={ESTIMATOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackLead({ content_name: "Hero Estimate Card – Start" })}
-            className="group/cta relative mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[var(--blue-brand)] to-[var(--cyan-accent)] px-5 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-[0_0_30px_-6px_var(--cyan-accent)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_45px_-4px_var(--cyan-accent)]"
-          >
-            Start Free Estimation
-            <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
-          </a>
+          {/* Footer disclaimer */}
+          <p className="mt-6 text-center text-[11px] leading-relaxed text-white/60">
+            Your estimate is generated based on real project data and industry
+            averages. Final pricing may vary depending on scope.
+          </p>
 
-          {/* Psych copy */}
-          <p className="mt-4 text-center text-[11px] leading-relaxed text-white/55">
-            Most businesses discover opportunities to optimize their budget before
-            speaking with us.
-          </p>
-          <p className="mt-1 text-center text-[11px] font-semibold text-[var(--cyan-accent)]">
-            Get your personalized estimate in under 60 seconds.
-          </p>
         </div>
       </div>
     </div>
