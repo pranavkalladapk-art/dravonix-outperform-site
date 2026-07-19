@@ -111,7 +111,7 @@ export function EstimateCard() {
               className="pointer-events-none absolute left-1/2 top-1/2 h-36 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
             />
             <div
-              className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[44px] sm:text-[52px] lg:text-[56px] transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
+              className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[44px] md:text-[48px] xl:text-[56px] transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
             >
               <span className="drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
                 {minVal.toLocaleString()} –{" "}
