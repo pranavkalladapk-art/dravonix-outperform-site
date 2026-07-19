@@ -61,11 +61,11 @@ export function EstimateCard() {
         className="pointer-events-none absolute -inset-1 rounded-[26px] bg-gradient-to-br from-[var(--blue-brand)]/40 via-transparent to-[var(--cyan-accent)]/40 opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
       />
 
-      <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[var(--navy)]/80 p-5 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-0.5 sm:p-6">
+      <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[var(--navy)]/80 p-4 shadow-2xl backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-0.5 sm:p-5">
         {/* Radial glow behind price */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-[38%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/25 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-[38%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/25 blur-3xl"
         />
         {/* Grid lines */}
         <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.06]">
@@ -89,7 +89,7 @@ export function EstimateCard() {
         <div className="relative">
           {/* Live badge */}
           <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -102,13 +102,13 @@ export function EstimateCard() {
           </div>
 
           {/* Heading */}
-          <p className="mt-4 text-sm font-medium text-white/60">Your Project Could Cost</p>
+          <p className="mt-3 text-sm font-medium text-white/60">Your Project Could Cost</p>
 
           {/* Price - hero element, single line */}
-          <div className="relative mt-2">
+          <div className="relative mt-1.5">
             <div
               aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-36 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
             />
             <div
               className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[40px] sm:text-[56px] transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
@@ -120,20 +120,20 @@ export function EstimateCard() {
                 {maxVal.toLocaleString()}
               </span>
             </div>
-            <p className="mt-1 text-xs text-white/50">
+            <p className="mt-0.5 text-xs text-white/50">
               Based on similar projects completed by Dravonix.
             </p>
           </div>
 
           {/* Insight grid */}
-          <div className="mt-5 grid grid-cols-2 gap-2">
+          <div className="mt-4 grid grid-cols-2 gap-2">
             {[
               { k: "Estimated Timeline", v: "3–5 Weeks" },
               { k: "Project Complexity", v: "Medium" },
             ].map((row) => (
               <div
                 key={row.k}
-                className="rounded-xl border border-white/8 bg-white/[0.03] p-2"
+                className="rounded-xl border border-white/8 bg-white/[0.03] p-1.5"
               >
                 <div className="text-[10px] font-semibold uppercase tracking-wider text-white/45">
                   {row.k}
@@ -141,7 +141,7 @@ export function EstimateCard() {
                 <div className="mt-1 text-sm font-semibold text-white">{row.v}</div>
               </div>
             ))}
-            <div className="col-span-2 rounded-xl border border-white/8 bg-white/[0.03] p-2">
+            <div className="col-span-2 rounded-xl border border-white/8 bg-white/[0.03] p-1.5">
               <div className="text-[10px] font-semibold uppercase tracking-wider text-white/45">
                 Recommended Team
               </div>
@@ -153,7 +153,7 @@ export function EstimateCard() {
           </div>
 
           {/* Confidence bar */}
-          <div className="mt-5">
+          <div className="mt-4">
             <div className="flex items-center justify-between text-xs">
               <span className="font-semibold uppercase tracking-wider text-white/50">
                 Confidence Score
@@ -169,8 +169,8 @@ export function EstimateCard() {
           </div>
 
           {/* Trust section */}
-          <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.02] p-3">
-            <ul className="space-y-1 text-[14px] text-white/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-2">
+            <ul className="space-y-0.5 text-[14px] text-white/80">
               {[
                 "100+ Projects Delivered",
                 "Trusted by Businesses in UAE • UK • India",
@@ -187,7 +187,7 @@ export function EstimateCard() {
           </div>
 
           {/* Footer disclaimer */}
-          <p className="mt-3 text-center text-[11px] leading-relaxed text-white/60">
+          <p className="mt-2 text-center text-[11px] leading-relaxed text-white/60">
             Your estimate is generated based on real project data and industry
             averages. Final pricing may vary depending on scope.
           </p>
