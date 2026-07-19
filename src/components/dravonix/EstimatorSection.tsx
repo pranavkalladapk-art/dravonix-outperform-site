@@ -15,11 +15,11 @@ export function EstimatorSection() {
   return (
     <section
       id="project-estimator"
-      className="py-12 md:flex md:min-h-screen md:items-center md:py-0"
+      className="py-12 md:flex md:min-h-[calc(100vh-80px)] md:items-center md:py-0"
     >
       <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--slate-mid)] via-[var(--navy)] to-[var(--slate-mid)] p-6 md:p-8">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--slate-mid)] via-[var(--navy)] to-[var(--slate-mid)] p-5 md:p-5">
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-30">
               <div className="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-[var(--blue-brand)] blur-[120px]" />
               <div className="absolute -bottom-32 -right-16 h-72 w-72 rounded-full bg-[var(--cyan-accent)] blur-[120px] opacity-60" />
