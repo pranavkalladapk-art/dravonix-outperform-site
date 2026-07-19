@@ -35,7 +35,7 @@ export function EstimatorSection() {
               </svg>
             </div>
 
-            <div className="relative grid gap-8 md:grid-cols-2 md:items-center">
+            <div className="relative grid gap-8 md:grid-cols-[1fr_1.25fr] md:items-center">
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
                   Project Estimator
