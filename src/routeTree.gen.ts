@@ -14,6 +14,7 @@ import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProjectEstimatorRouteImport } from './routes/project-estimator'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
@@ -48,6 +49,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectEstimatorRoute = ProjectEstimatorRouteImport.update({
+  id: '/project-estimator',
+  path: '/project-estimator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProcessRoute = ProcessRouteImport.update({
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/process': typeof ProcessRoute
+  '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/process': typeof ProcessRoute
+  '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/process': typeof ProcessRoute
+  '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/home'
     | '/performance-marketing'
     | '/process'
+    | '/project-estimator'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/home'
     | '/performance-marketing'
     | '/process'
+    | '/project-estimator'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/home'
     | '/performance-marketing'
     | '/process'
+    | '/project-estimator'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   ProcessRoute: typeof ProcessRoute
+  ProjectEstimatorRoute: typeof ProjectEstimatorRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
@@ -260,6 +273,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/project-estimator': {
+      id: '/project-estimator'
+      path: '/project-estimator'
+      fullPath: '/project-estimator'
+      preLoaderRoute: typeof ProjectEstimatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/process': {
@@ -344,6 +364,7 @@ const rootRouteChildren: RootRouteChildren = {
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   ProcessRoute: ProcessRoute,
+  ProjectEstimatorRoute: ProjectEstimatorRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
