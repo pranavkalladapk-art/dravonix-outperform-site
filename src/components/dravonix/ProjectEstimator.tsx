@@ -1,4 +1,5 @@
-import { ArrowRight, Zap, Target, ShieldCheck, UserCheck, Rocket, MousePointerClick, HelpCircle, Calculator, CalendarCheck, Palette, Globe, Layout, TrendingUp, Search, Share2, Bot, PenTool } from "lucide-react";
+import { ArrowLeft, ArrowRight, Zap, Target, ShieldCheck, UserCheck, Rocket, MousePointerClick, HelpCircle, Calculator, CalendarCheck, Palette, Globe, Layout, TrendingUp, Search, Share2, Bot, PenTool } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
