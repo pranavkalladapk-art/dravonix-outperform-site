@@ -10,6 +10,81 @@ import reelJoineryThumb from "@/assets/reel-joinery.jpg";
 import reelCityWalkThumb from "@/assets/reel-city-walk-502.jpg";
 import abodooThumb from "@/assets/work-abodoo.webp";
 import projectEstimatorThumb from "@/assets/work-project-estimator.webp";
+import graceOffer from "@/assets/grace-offer.jpg";
+import graceStorefront from "@/assets/grace-storefront.jpg";
+import graceEyechart from "@/assets/grace-eyechart.jpg";
+import graceTikitaka from "@/assets/grace-tikitaka.jpg";
+import graceHiring from "@/assets/grace-hiring.jpg";
+
+export interface BrandGroup {
+  id: string;
+  name: string;
+  description: string;
+  services: string[];
+  items: GalleryItem[];
+}
+
+export const brandGroups: BrandGroup[] = [
+  {
+    id: "grace-optical-gallery",
+    name: "Grace Optical Gallery",
+    description:
+      "Grace Optical Gallery is a trusted optical store with 13+ years of presence in Adoor and Kadampanad, Kerala. Dravonix handled their complete social media creative production — from promotional campaigns to brand awareness content.",
+    services: ["Social Media Marketing", "Graphic Design", "Creative Production"],
+    items: [
+      {
+        id: "grace-offer",
+        type: "post",
+        title: "40% Off Selected Frames",
+        client: "Grace Optical Gallery",
+        description: "Seasonal offer campaign creative",
+        niche: "Optical Retail · Kerala",
+        thumb: graceOffer,
+        link: "#",
+      },
+      {
+        id: "grace-storefront",
+        type: "post",
+        title: "See What You've Been Missing",
+        client: "Grace Optical Gallery",
+        description: "Brand awareness storefront creative",
+        niche: "Optical Retail · Kerala",
+        thumb: graceStorefront,
+        link: "#",
+      },
+      {
+        id: "grace-eyechart",
+        type: "post",
+        title: "Your Vision Needs Us",
+        client: "Grace Optical Gallery",
+        description: "Eye-test booking campaign",
+        niche: "Optical Retail · Kerala",
+        thumb: graceEyechart,
+        link: "#",
+      },
+      {
+        id: "grace-tikitaka",
+        type: "post",
+        title: "Óptica Tiki Taka",
+        client: "Grace Optical Gallery",
+        description: "Football-themed brand campaign",
+        niche: "Optical Retail · Kerala",
+        thumb: graceTikitaka,
+        link: "#",
+      },
+      {
+        id: "grace-hiring",
+        type: "post",
+        title: "We Are Hiring",
+        client: "Grace Optical Gallery",
+        description: "Recruitment campaign creative",
+        niche: "Optical Retail · Kerala",
+        thumb: graceHiring,
+        link: "#",
+      },
+    ],
+  },
+];
 
 export type GalleryItemType = "website" | "post" | "reel";
 
