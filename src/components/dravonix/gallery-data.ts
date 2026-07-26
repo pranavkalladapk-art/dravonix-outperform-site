@@ -9,6 +9,7 @@ import postDecolux06 from "@/assets/post-decolux-06.webp";
 import reelJoineryThumb from "@/assets/reel-joinery.jpg";
 import reelCityWalkThumb from "@/assets/reel-city-walk-502.jpg";
 import abodooThumb from "@/assets/work-abodoo.webp";
+import projectEstimatorThumb from "@/assets/work-project-estimator.webp";
 
 export type GalleryItemType = "website" | "post" | "reel";
 
@@ -34,6 +35,19 @@ export interface GalleryItem {
 }
 
 export const galleryItems: GalleryItem[] = [
+  {
+    id: "dravonix-project-estimator",
+    type: "website",
+    title: "Dravonix Project Estimator",
+    client: "Dravonix Project Estimator",
+    description:
+      "AI-powered estimation tool that delivers instant budget ranges across Essential, Recommended, and Advanced tiers.",
+    niche: "Web App · AI · SaaS Tool",
+    thumb: projectEstimatorThumb,
+    link: "https://estimate.dravonix.dev/",
+    domain: "estimate.dravonix.dev",
+    featured: true,
+  },
   {
     id: "wizardfingers",
     type: "website",
