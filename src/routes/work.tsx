@@ -4,7 +4,7 @@ import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { GalleryCard } from "@/components/dravonix/GalleryCard";
-import { galleryItems } from "@/components/dravonix/gallery-data";
+import { galleryItems, brandGroups } from "@/components/dravonix/gallery-data";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/work")({
