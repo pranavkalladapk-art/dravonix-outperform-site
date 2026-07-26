@@ -36,6 +36,19 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
   {
+    id: "dravonix-project-estimator",
+    type: "website",
+    title: "Dravonix Project Estimator",
+    client: "Dravonix Media",
+    description:
+      "AI-powered estimation tool that delivers instant budget ranges across Essential, Recommended, and Advanced tiers.",
+    niche: "Web App · AI · SaaS Tool",
+    thumb: projectEstimatorThumb,
+    link: "https://estimate.dravonix.dev/",
+    domain: "estimate.dravonix.dev",
+    featured: true,
+  },
+  {
     id: "wizardfingers",
     type: "website",
     title: "Wizard Fingers",
