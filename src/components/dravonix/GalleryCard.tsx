@@ -141,7 +141,7 @@ export function GalleryCard({ item }: { item: GalleryItem }) {
           <p className="text-[11px] text-[var(--muted-text)]">{item.niche}</p>
         )}
         <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-xs font-semibold text-[var(--cyan-accent)] transition-all group-hover:gap-2">
-          {isWebsite ? "View Project" : "View Project"}
+          {isWebsite ? "View Live" : "View Project"}
           <ExternalLink className="h-3 w-3" />
         </span>
       </div>
