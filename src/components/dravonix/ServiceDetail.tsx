@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, type LucideIcon } from "lucide-react";
+import { ArrowRight, Check, type LucideIcon } from "lucide-react";
+import { Breadcrumbs, serviceBreadcrumbs } from "./Breadcrumbs";
 import { Reveal } from "./Reveal";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
