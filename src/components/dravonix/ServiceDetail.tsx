@@ -64,14 +64,9 @@ export function ServiceDetail({
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              All Services
-            </Link>
+            <Breadcrumbs items={serviceBreadcrumbs(breadcrumbLabel ?? eyebrow)} />
           </Reveal>
+
           <div className="mt-8 text-center">
             <Reveal>
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
