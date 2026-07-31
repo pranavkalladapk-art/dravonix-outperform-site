@@ -29,6 +29,12 @@ const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
 const services = [
   {
+    icon: Palette,
+    title: "Brand Identity",
+    desc: "Build a brand that commands attention — logo design, visual identity system, tone of voice, brand positioning, and brand guidelines.",
+    to: "/brand-identity",
+  },
+  {
     icon: Globe,
     title: "Website Development",
     desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
@@ -41,40 +47,10 @@ const services = [
     to: "/ecommerce-development",
   },
   {
-    icon: Palette,
-    title: "Brand Identity",
-    desc: "Build a brand that commands attention — logo design, visual identity system, tone of voice, brand positioning, and brand guidelines.",
-    to: "/brand-identity",
-  },
-  {
-    icon: TrendingUp,
-    title: "Performance Marketing",
-    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on measurable ROI.",
-    to: "/performance-marketing",
-  },
-  {
     icon: Share2,
     title: "Social Media Management",
     desc: "Strategic content calendars, daily posting, community management, and platform growth — built for compounding presence.",
     to: "/social-media-management",
-  },
-  {
-    icon: Search,
-    title: "SEO & Online Visibility",
-    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
-    to: "/seo",
-  },
-  {
-    icon: Sparkles,
-    title: "AI-Integrated Video & Design",
-    desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
-    to: "/ai-studio",
-  },
-  {
-    icon: AtSign,
-    title: "Business Email & Cloud Setup",
-    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
-    to: "/business-email-setup",
   },
   {
     icon: AppWindow,
@@ -83,10 +59,34 @@ const services = [
     to: "/custom-web-applications",
   },
   {
+    icon: Search,
+    title: "SEO & Online Visibility",
+    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
+    to: "/seo",
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on measurable ROI.",
+    to: "/performance-marketing",
+  },
+  {
+    icon: AtSign,
+    title: "Business Email & Cloud Setup",
+    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
+    to: "/business-email-setup",
+  },
+  {
     icon: Workflow,
     title: "CRM & Business Automation",
     desc: "Connected CRM, WhatsApp and workflow automation systems that simplify lead management, customer communication and daily operations.",
     to: "/crm-business-automation",
+  },
+  {
+    icon: Sparkles,
+    title: "AI-Integrated Video & Design",
+    desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
+    to: "/ai-studio",
   },
 ] as const;
 
