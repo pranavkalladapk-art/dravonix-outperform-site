@@ -8,14 +8,49 @@ import {
   BarChart3,
 } from "lucide-react";
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
+
+const title = "Social Media Marketing Agency Kerala | Dravonix Media";
+const description =
+  "Social media marketing agency in Kerala — content strategy, reels and post production, daily scheduling, community management and monthly performance reporting.";
+
+const faqs = [
+  {
+    q: "Which platforms do you manage?",
+    a: "Primarily Instagram, Facebook, LinkedIn and YouTube. We recommend the mix based on where your audience actually spends time.",
+  },
+  {
+    q: "Do you create the content or do we supply it?",
+    a: "We create it — reels, posts, carousels and stories are produced in-house. We'll use your assets where they help.",
+  },
+  {
+    q: "How often will you post?",
+    a: "Posting frequency is agreed upfront in your content plan and kept consistent rather than sporadic.",
+  },
+  {
+    q: "Is paid advertising included?",
+    a: "Organic management and paid campaigns are separate services, though they work best together. Paid sits under performance marketing.",
+  },
+];
 
 export const Route = createFileRoute("/social-media-management")({
   head: () =>
     buildHead("/social-media-management", {
-      title: "Social Media Management — Content, Strategy & Growth | Dravonix",
-      description:
-        "End-to-end social media management — strategy, content creation, daily posting, community management and monthly reporting built for compounding growth.",
+      title,
+      description,
+      schemas: [
+        serviceSchema({
+          name: "Social Media Management",
+          description,
+          path: "/social-media-management",
+        }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Social Media Management", path: "/social-media-management" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: SocialMediaManagementPage,
 });
