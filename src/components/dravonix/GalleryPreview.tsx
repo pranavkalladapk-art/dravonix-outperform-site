@@ -86,7 +86,7 @@ export function GalleryPreview() {
   const animate = useAnimationEnabled();
   const { ref, progress } = useScrollProgress<HTMLDivElement>(animate);
 
-  const headingP = animate ? stage(progress, 0, 0.2) : 1;
+  const headingP = animate ? stage(progress, 0, 0.08) : 1;
 
   const cardStyle = (i: number): CSSProperties => {
     if (!animate) return {};
@@ -95,7 +95,7 @@ export function GalleryPreview() {
     const drift = (1 - t) * s.speed;
     return {
       transform: `translate3d(${s.x * drift}px, ${s.y * drift}px, 0) rotate(${s.rotate * drift}deg) scale(${s.scale + (1 - s.scale) * t})`,
-      opacity: 0.15 + 0.85 * clamp01(t * 1.4),
+      opacity: 0.35 + 0.65 * clamp01(t * 1.6),
       willChange: "transform, opacity",
     };
   };
