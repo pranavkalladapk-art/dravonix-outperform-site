@@ -113,7 +113,7 @@ export function Footer() {
               to="/privacy-policy"
               className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
             >
-              Privacy Policy
+              Privacy & Policy
             </Link>
             <span className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</span>
           </div>
