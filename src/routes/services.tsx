@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check, AtSign } from "lucide-react";
+import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check, AtSign, AppWindow, Workflow } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -75,6 +75,18 @@ const services = [
     title: "Business Email & Cloud Setup",
     desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
     to: "/business-email-setup",
+  },
+  {
+    icon: AppWindow,
+    title: "Custom Web Applications & SaaS",
+    desc: "Tailored web applications, client portals, dashboards and SaaS platforms designed around real business workflows.",
+    to: "/custom-web-applications",
+  },
+  {
+    icon: Workflow,
+    title: "CRM & Business Automation",
+    desc: "Connected CRM, WhatsApp and workflow automation systems that simplify lead management, customer communication and daily operations.",
+    to: "/crm-business-automation",
   },
 ] as const;
 
