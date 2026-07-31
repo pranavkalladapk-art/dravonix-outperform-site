@@ -4,6 +4,12 @@ import { Reveal } from "./Reveal";
 
 const services = [
   {
+    icon: Sparkles,
+    title: "Brand Identity",
+    desc: "Build a brand that commands attention — logo, visual system, tone of voice, brand guidelines.",
+    href: "/brand-identity",
+  },
+  {
     icon: Globe,
     title: "Website Development",
     desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
@@ -16,41 +22,10 @@ const services = [
     href: "/ecommerce-development",
   },
   {
-    icon: Sparkles,
-    title: "Brand Identity",
-    desc: "Build a brand that commands attention — logo, visual system, tone of voice, brand guidelines.",
-    href: "/brand-identity",
-  },
-  {
-    icon: TrendingUp,
-    title: "Performance Marketing",
-    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
-    href: "/performance-marketing",
-  },
-  {
     icon: CalendarRange,
     title: "Social Media Management",
     desc: "Strategic content calendars, daily posting, community management and platform growth.",
     href: "/social-media-management",
-  },
-  {
-    icon: Search,
-    title: "SEO & Online Visibility",
-    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
-    href: "/seo",
-  },
-  {
-    icon: Wand2,
-    title: "AI-Integrated Video & Design",
-    desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
-    href: "/ai-studio",
-  },
-  {
-    icon: AtSign,
-    title: "Business Email & Cloud Setup",
-    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
-    href: "/business-email-setup",
-    cta: "Explore Business Email Services",
   },
   {
     icon: AppWindow,
@@ -60,11 +35,36 @@ const services = [
     cta: "Explore Custom Web Applications",
   },
   {
+    icon: Search,
+    title: "SEO & Online Visibility",
+    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
+    href: "/seo",
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
+    href: "/performance-marketing",
+  },
+  {
+    icon: AtSign,
+    title: "Business Email & Cloud Setup",
+    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
+    href: "/business-email-setup",
+    cta: "Explore Business Email Services",
+  },
+  {
     icon: Workflow,
     title: "CRM & Business Automation",
     desc: "Connected CRM, WhatsApp and workflow automation systems that simplify lead management, customer communication and daily operations.",
     href: "/crm-business-automation",
     cta: "Explore Business Automation",
+  },
+  {
+    icon: Wand2,
+    title: "AI-Integrated Video & Design",
+    desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
+    href: "/ai-studio",
   },
 ];
 
