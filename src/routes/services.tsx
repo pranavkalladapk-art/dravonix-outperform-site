@@ -19,10 +19,22 @@ const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
 const services = [
   {
+    icon: Globe,
+    title: "Website Development",
+    desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
+    to: "/website-development",
+  },
+  {
     icon: Palette,
     title: "Brand Identity",
     desc: "Build a brand that commands attention — logo design, visual identity system, tone of voice, brand positioning, and brand guidelines.",
     to: "/brand-identity",
+  },
+  {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on measurable ROI.",
+    to: "/performance-marketing",
   },
   {
     icon: Share2,
@@ -35,18 +47,6 @@ const services = [
     title: "AI-Integrated Video & Design",
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
     to: "/ai-studio",
-  },
-  {
-    icon: TrendingUp,
-    title: "Performance Marketing",
-    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on measurable ROI.",
-    to: "/performance-marketing",
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
-    to: "/website-development",
   },
 ] as const;
 
