@@ -24,6 +24,7 @@ import { Route as PerformanceMarketingRouteImport } from './routes/performance-m
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BusinessEmailSetupRouteImport } from './routes/business-email-setup'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AboutRouteImport } from './routes/about'
@@ -112,6 +113,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessEmailSetupRoute = BusinessEmailSetupRouteImport.update({
+  id: '/business-email-setup',
+  path: '/business-email-setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrandIdentityRoute = BrandIdentityRouteImport.update({
   id: '/brand-identity',
   path: '/brand-identity',
@@ -178,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
+  '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-studio'
     | '/brand-identity'
+    | '/business-email-setup'
     | '/contact'
     | '/ecommerce-development'
     | '/home'
@@ -297,6 +307,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-studio'
     | '/brand-identity'
+    | '/business-email-setup'
     | '/contact'
     | '/ecommerce-development'
     | '/home'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-studio'
     | '/brand-identity'
+    | '/business-email-setup'
     | '/contact'
     | '/ecommerce-development'
     | '/home'
@@ -356,6 +368,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiStudioRoute: typeof AiStudioRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
+  BusinessEmailSetupRoute: typeof BusinessEmailSetupRoute
   ContactRoute: typeof ContactRoute
   EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
@@ -488,6 +501,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business-email-setup': {
+      id: '/business-email-setup'
+      path: '/business-email-setup'
+      fullPath: '/business-email-setup'
+      preLoaderRoute: typeof BusinessEmailSetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brand-identity': {
       id: '/brand-identity'
       path: '/brand-identity'
@@ -580,6 +600,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AiStudioRoute: AiStudioRoute,
   BrandIdentityRoute: BrandIdentityRoute,
+  BusinessEmailSetupRoute: BusinessEmailSetupRoute,
   ContactRoute: ContactRoute,
   EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
@@ -607,3 +628,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

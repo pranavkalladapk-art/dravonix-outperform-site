@@ -4,7 +4,7 @@ import {
   AtSign,
   Check,
   Cloud,
-  MailCheck,
+  
   Server,
   ShieldCheck,
   Smartphone,
