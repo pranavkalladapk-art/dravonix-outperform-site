@@ -1,14 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, Code2, ShoppingCart, Rocket, LifeBuoy, FileEdit } from "lucide-react";
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
+
+const title = "Website Development Company Kerala | Dravonix Media";
+const description =
+  "Website development company in Kerala building fast, mobile-first, conversion-focused business websites — UI/UX design, landing pages, CMS and ongoing support.";
+
+const faqs = [
+  {
+    q: "How long does a website project take?",
+    a: "Most business websites move from discovery to launch in a matter of weeks. The exact timeline depends on page count, content readiness and review speed, and is confirmed in your proposal.",
+  },
+  {
+    q: "Will my website work well on mobile?",
+    a: "Yes. Every site we build is designed mobile-first and tested across common phone, tablet and desktop sizes before launch.",
+  },
+  {
+    q: "Do you provide support after launch?",
+    a: "Yes. We offer ongoing maintenance, updates and technical support, and we hand over documentation so your team can manage day-to-day content.",
+  },
+  {
+    q: "Is the website built for SEO?",
+    a: "We build SEO-ready foundations — clean structure, fast loading, proper headings and metadata. Ongoing ranking work is covered by our SEO service.",
+  },
+];
 
 export const Route = createFileRoute("/website-development")({
   head: () =>
     buildHead("/website-development", {
-      title: "Website Development — Premium, Fast & Conversion-Focused | Dravonix",
-      description:
-        "Premium websites combining stunning design, technical excellence, and conversion-focused strategy — UI/UX, e-commerce, landing pages and CMS.",
+      title,
+      description,
+      schemas: [
+        serviceSchema({ name: "Website Development", description, path: "/website-development" }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Website Development", path: "/website-development" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: WebsiteDevelopmentPage,
 });
