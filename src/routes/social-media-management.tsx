@@ -1,130 +1,85 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CalendarRange, Send, Users, TrendingUp } from "lucide-react";
-import { Reveal } from "@/components/dravonix/Reveal";
-import { Nav } from "@/components/dravonix/Nav";
-import { Footer } from "@/components/dravonix/Footer";
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  CalendarRange,
+  Send,
+  Users,
+  TrendingUp,
+  Sparkles,
+  BarChart3,
+} from "lucide-react";
+import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
+import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/social-media-management")({
-  head: () => ({
-    meta: [
-      { title: "Social Media Management — Dravonix" },
-      {
-        name: "description",
-        content:
-          "Dravonix manages social media with strategy — content planning, daily execution, and audience engagement for consistent growth.",
-      },
-      { property: "og:title", content: "Social Media Management — Dravonix" },
-      {
-        property: "og:description",
-        content:
-          "Strategic content calendars, daily posting, community management and platform growth.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://dravonixmedia.com/social-media-management" }],
-  }),
+  head: () =>
+    buildHead("/social-media-management", {
+      title: "Social Media Management — Content, Strategy & Growth | Dravonix",
+      description:
+        "End-to-end social media management — strategy, content creation, daily posting, community management and monthly reporting built for compounding growth.",
+    }),
   component: SocialMediaManagementPage,
 });
 
 const services = [
   {
     icon: CalendarRange,
-    title: "Strategic Content Calendars",
-    desc: "Planned, themed and platform-tuned calendars that turn posting into a system, not a scramble.",
+    title: "Content Strategy",
+    desc: "Monthly content plans aligned with your brand voice, audience, and business goals.",
+  },
+  {
+    icon: Sparkles,
+    title: "Content Creation",
+    desc: "Reels, posts, carousels, and stories produced in-house by our creative team.",
   },
   {
     icon: Send,
     title: "Daily Posting & Scheduling",
-    desc: "Consistent daily execution across channels — on-brand, on-time, every day.",
+    desc: "Consistent publishing across all your platforms at optimal times.",
   },
   {
     icon: Users,
     title: "Community Management",
-    desc: "Real conversations with your audience — replies, DMs and engagement that build loyalty.",
+    desc: "Responding to comments, DMs, and building genuine audience relationships.",
   },
   {
     icon: TrendingUp,
-    title: "Platform Growth Strategy",
-    desc: "Data-driven growth playbooks tailored to each platform to expand reach and followers.",
+    title: "Platform Growth",
+    desc: "Follower growth strategies tailored to each platform's algorithm and audience.",
   },
+  {
+    icon: BarChart3,
+    title: "Monthly Performance Reports",
+    desc: "Clear reporting on reach, engagement, growth, and content performance.",
+  },
+];
+
+const steps = [
+  { title: "Audit", desc: "Reviewing your current social presence, competitors, and audience." },
+  { title: "Strategy", desc: "Building your content system, brand voice, and platform plan." },
+  { title: "Create & Publish", desc: "Producing and posting content consistently every week." },
+  { title: "Review & Optimise", desc: "Monthly performance reviews and strategy refinement." },
+];
+
+const audience = [
+  "Brands with no time to manage their own social media.",
+  "Businesses with inconsistent or inactive social presence.",
+  "Companies launching new products or entering new markets.",
+  "Brands that want social media to actually drive business results.",
 ];
 
 function SocialMediaManagementPage() {
   return (
-    <div className="min-h-screen bg-[var(--navy)]">
-      <Nav />
-
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="mx-auto max-w-4xl px-5 md:px-8">
-          <Reveal>
-            <Link
-              to="/home"
-              hash="services"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Link>
-          </Reveal>
-          <div className="mt-8 text-center">
-            <Reveal>
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-                Social Media Management
-              </span>
-              <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
-                Build a presence that performs daily.
-              </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-                Dravonix manages social media with a strategic approach — including content planning,
-                daily execution, and audience engagement — to ensure consistent growth and a strong
-                digital presence.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 md:pb-28">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid gap-6 md:grid-cols-2">
-            {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
-                <article className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-[var(--card-dark)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue-brand)] hover:shadow-glow-brand">
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-0.5 bg-[var(--blue-brand)]"
-                  />
-                  <div className="grid h-12 w-12 place-items-center rounded-lg bg-[var(--blue-brand)]/15 text-[var(--blue-brand)]">
-                    <s.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-6 font-display text-xl font-bold text-white">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">{s.desc}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-24 md:pb-32">
-        <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
-          <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Ready to grow your presence?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-[var(--muted-text)]">
-              Let's turn your social channels into a daily growth engine.
-            </p>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-all hover:-translate-y-0.5 hover:bg-[var(--blue-brand)]/90"
-            >
-              Contact <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+    <ServiceDetail
+      eyebrow="Social Media Management"
+      title="Content That Builds Presence. Strategy That Drives Growth."
+      subtitle="Dravonix manages your social media end-to-end — strategy, content creation, daily posting, and community management — built for compounding brand presence."
+      primaryCta="Start Your Social Media Project"
+      estimateCta="Get a Social Media Estimate"
+      services={services}
+      steps={steps}
+      audience={audience}
+      ctaTitle="Ready to Build a Social Presence That Works?"
+      ctaSubtitle="Let's create content that grows your brand and drives real results."
+    />
   );
 }
