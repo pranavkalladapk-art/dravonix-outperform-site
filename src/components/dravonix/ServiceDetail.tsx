@@ -17,6 +17,9 @@ export type ServiceDetailProps = {
   audience: string[];
   ctaTitle: string;
   ctaSubtitle: string;
+  benefits?: string[];
+  faqs?: Array<{ q: string; a: string }>;
+  related?: Array<{ label: string; to: string }>;
 };
 
 export function ServiceDetail({
@@ -30,6 +33,9 @@ export function ServiceDetail({
   audience,
   ctaTitle,
   ctaSubtitle,
+  benefits,
+  faqs,
+  related,
 }: ServiceDetailProps) {
   const buttons = (
     <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
