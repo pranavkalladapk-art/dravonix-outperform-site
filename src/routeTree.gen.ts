@@ -16,6 +16,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectEstimatorRouteImport } from './routes/project-estimator'
 import { Route as ProcessRouteImport } from './routes/process'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -59,6 +60,11 @@ const ProjectEstimatorRoute = ProjectEstimatorRouteImport.update({
 const ProcessRoute = ProcessRouteImport.update({
   id: '/process',
   path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
@@ -133,6 +140,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
   '/services': typeof ServicesRoute
@@ -172,6 +181,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/home'
     | '/performance-marketing'
+    | '/privacy-policy'
     | '/process'
     | '/project-estimator'
     | '/services'
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/home'
     | '/performance-marketing'
+    | '/privacy-policy'
     | '/process'
     | '/project-estimator'
     | '/services'
@@ -208,6 +219,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/home'
     | '/performance-marketing'
+    | '/privacy-policy'
     | '/process'
     | '/project-estimator'
     | '/services'
@@ -227,6 +239,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ProcessRoute: typeof ProcessRoute
   ProjectEstimatorRoute: typeof ProjectEstimatorRoute
   ServicesRoute: typeof ServicesRoute
@@ -287,6 +300,13 @@ declare module '@tanstack/react-router' {
       path: '/process'
       fullPath: '/process'
       preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/performance-marketing': {
@@ -363,6 +383,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ProcessRoute: ProcessRoute,
   ProjectEstimatorRoute: ProjectEstimatorRoute,
   ServicesRoute: ServicesRoute,
