@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe, Search, ShoppingCart } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe, Search, ShoppingCart, AtSign } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
