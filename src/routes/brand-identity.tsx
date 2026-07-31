@@ -1,14 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PenTool, Palette, MessageSquare, BookOpen, Target, Lightbulb } from "lucide-react";
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
+
+const title = "Branding Agency in Kerala | Brand Identity | Dravonix";
+const description =
+  "Branding agency in Kerala building complete brand identity systems — logo design, visual identity, positioning, tone of voice and brand guidelines built to endure.";
+
+const faqs = [
+  {
+    q: "What's included in a brand identity project?",
+    a: "Positioning, logo and brand mark, a full visual identity system, tone of voice and a brand guidelines document with all source files.",
+  },
+  {
+    q: "How long does branding take?",
+    a: "A full identity project runs through discovery, strategy, design and delivery — typically several weeks, confirmed in your proposal.",
+  },
+  {
+    q: "Can you rebrand an existing business?",
+    a: "Yes. We handle rebrands carefully, keeping the equity worth keeping and replacing what's holding you back.",
+  },
+  {
+    q: "Do I own the final files?",
+    a: "Yes. On completion you receive full ownership and all working and export files.",
+  },
+];
 
 export const Route = createFileRoute("/brand-identity")({
   head: () =>
     buildHead("/brand-identity", {
-      title: "Brand Identity — Logo, Visual System & Positioning | Dravonix",
-      description:
-        "Complete brand identity systems — logo design, visual identity, positioning, tone of voice and brand guidelines built to endure.",
+      title,
+      description,
+      schemas: [
+        serviceSchema({ name: "Brand Identity Design", description, path: "/brand-identity" }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Brand Identity", path: "/brand-identity" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: BrandIdentityPage,
 });
