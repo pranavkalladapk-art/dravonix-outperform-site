@@ -1,13 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { HomePage } from "@/components/dravonix/HomePage";
-import { buildHead } from "@/lib/seo";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// /home duplicated the homepage — permanently consolidate on "/" for SEO.
 export const Route = createFileRoute("/home")({
-  head: () =>
-    buildHead("/home", {
-      title: "Dravonix — Engineered to Outperform",
-      description:
-        "Data-driven strategy, creative excellence, and AI-integrated production for brands that refuse to be average.",
-    }),
-  component: HomePage,
+  beforeLoad: ({ location }) => {
+    throw redirect({ to: "/", hash: location.hash, replace: true, statusCode: 301 });
+  },
+  component: () => null,
 });
