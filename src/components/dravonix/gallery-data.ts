@@ -102,7 +102,7 @@ export const brandGroups: BrandGroup[] = [
         client: "Grace Optical Gallery",
         description: "Short-form social reel",
         niche: "Optical Retail · Kerala",
-        thumb: graceReel02ThumbAsset.url,
+        thumb: graceReel02Thumb,
         videoSrc: graceReel02Asset.url,
         link: "#",
       },
