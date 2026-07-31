@@ -25,12 +25,6 @@ const services = [
     to: "/website-development",
   },
   {
-    icon: Search,
-    title: "SEO & Online Visibility",
-    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
-    to: "/seo",
-  },
-  {
     icon: Palette,
     title: "Brand Identity",
     desc: "Build a brand that commands attention — logo design, visual identity system, tone of voice, brand positioning, and brand guidelines.",
@@ -47,6 +41,12 @@ const services = [
     title: "Social Media Management",
     desc: "Strategic content calendars, daily posting, community management, and platform growth — built for compounding presence.",
     to: "/social-media-management",
+  },
+  {
+    icon: Search,
+    title: "SEO & Online Visibility",
+    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
+    to: "/seo",
   },
   {
     icon: Sparkles,
