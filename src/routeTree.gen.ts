@@ -16,6 +16,7 @@ import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SeoRouteImport } from './routes/seo'
 import { Route as ProjectEstimatorRouteImport } from './routes/project-estimator'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -62,6 +63,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoRoute = SeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectEstimatorRoute = ProjectEstimatorRouteImport.update({
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/project-estimator': typeof ProjectEstimatorRoute
+  '/seo': typeof SeoRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/project-estimator'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/project-estimator'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/project-estimator'
+    | '/seo'
     | '/services'
     | '/sitemap.xml'
     | '/social-media-management'
@@ -266,6 +278,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ProcessRoute: typeof ProcessRoute
   ProjectEstimatorRoute: typeof ProjectEstimatorRoute
+  SeoRoute: typeof SeoRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
@@ -326,6 +339,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo': {
+      id: '/seo'
+      path: '/seo'
+      fullPath: '/seo'
+      preLoaderRoute: typeof SeoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/project-estimator': {
@@ -426,6 +446,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ProcessRoute: ProcessRoute,
   ProjectEstimatorRoute: ProjectEstimatorRoute,
+  SeoRoute: SeoRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
