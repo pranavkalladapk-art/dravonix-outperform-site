@@ -105,7 +105,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-[var(--muted-text)]">© 2026 Dravonix. All rights reserved.</p>
+          <p className="text-xs text-[var(--muted-text)]">© 2026 Dravonix Media Private Limited. All rights reserved.</p>
           <p className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</p>
         </div>
       </div>
