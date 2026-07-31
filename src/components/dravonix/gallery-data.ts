@@ -15,6 +15,9 @@ import graceStorefront from "@/assets/grace-storefront.jpg";
 import graceEyechart from "@/assets/grace-eyechart.jpg";
 import graceTikitaka from "@/assets/grace-tikitaka.jpg";
 import graceHiring from "@/assets/grace-hiring.jpg";
+import graceFlowerEyeAsset from "@/assets/grace-flower-eye.jpg.asset.json";
+import graceReel02Asset from "@/assets/grace-reel-02.mp4.asset.json";
+import graceReel02ThumbAsset from "@/assets/grace-reel-02-thumb.jpg.asset.json";
 
 export interface BrandGroup {
   id: string;
