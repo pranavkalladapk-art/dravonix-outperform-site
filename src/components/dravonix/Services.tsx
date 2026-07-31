@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
@@ -26,6 +26,12 @@ const services = [
     title: "Performance Marketing",
     desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
     href: "/performance-marketing",
+  },
+  {
+    icon: Globe,
+    title: "Website Development",
+    desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
+    href: "/website-development",
   },
 ];
 
