@@ -16,6 +16,7 @@ import {
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
+import { Breadcrumbs, serviceBreadcrumbs } from "@/components/dravonix/Breadcrumbs";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
 const title = "Business Email Setup Services in Kerala | Dravonix Media";
@@ -364,25 +365,7 @@ function BusinessEmailSetupPage() {
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
-            <nav aria-label="Breadcrumb">
-              <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted-text)]">
-                <li>
-                  <Link to="/" className="transition-colors hover:text-[var(--cyan-accent)]">
-                    Home
-                  </Link>
-                </li>
-                <li aria-hidden>/</li>
-                <li>
-                  <Link to="/services" className="transition-colors hover:text-[var(--cyan-accent)]">
-                    Services
-                  </Link>
-                </li>
-                <li aria-hidden>/</li>
-                <li className="text-[var(--cyan-accent)]" aria-current="page">
-                  Business Email &amp; Cloud Setup
-                </li>
-              </ol>
-            </nav>
+            <Breadcrumbs items={serviceBreadcrumbs("Business Email & Cloud Setup")} />
           </Reveal>
 
           <div className="mt-8 text-center">
