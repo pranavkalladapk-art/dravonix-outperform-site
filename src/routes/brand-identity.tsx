@@ -95,13 +95,26 @@ function BrandIdentityPage() {
   return (
     <ServiceDetail
       eyebrow="Brand Identity"
-      title="Build a Brand That Commands Attention."
-      subtitle="Dravonix creates complete brand identity systems — combining strategy and creativity to build powerful, memorable brands that stand out and endure."
+      title="Branding Agency in Kerala"
+      subtitle="Dravonix Media creates complete brand identity systems — combining strategy and creativity to build powerful, memorable brands that stand out and endure."
       primaryCta="Start Your Brand Project"
       estimateCta="Get a Brand Estimate"
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "A brand that looks credible from the first impression.",
+        "Consistency across every channel and partner.",
+        "Clear positioning that makes selling easier.",
+        "Guidelines your team can apply without guesswork.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "Website Development", to: "/website-development" },
+        { label: "Social Media Management", to: "/social-media-management" },
+        { label: "AI Video and Design", to: "/ai-studio" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready to Build a Brand Worth Remembering?"
       ctaSubtitle="Let's craft an identity that earns attention and holds it."
     />
