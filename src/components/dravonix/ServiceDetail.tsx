@@ -155,6 +155,76 @@ export function ServiceDetail({
         </div>
       </section>
 
+      {benefits && benefits.length > 0 && (
+        <section className="pb-20 md:pb-28">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <h2 className="text-center font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+                Business Benefits
+              </h2>
+            </Reveal>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+              {benefits.map((b, i) => (
+                <Reveal key={b} delay={i * 60}>
+                  <li className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-[var(--card-dark)] p-5">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--blue-brand)]" />
+                    <span className="text-sm leading-relaxed text-[var(--muted-text)]">{b}</span>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {faqs && faqs.length > 0 && (
+        <section className="pb-20 md:pb-28">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <h2 className="text-center font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+                Frequently Asked Questions
+              </h2>
+            </Reveal>
+            <div className="mt-10 space-y-4">
+              {faqs.map((f, i) => (
+                <Reveal key={f.q} delay={i * 50}>
+                  <details className="group rounded-xl border border-white/10 bg-[var(--card-dark)] p-5 open:border-[var(--blue-brand)]/50">
+                    <summary className="cursor-pointer list-none font-display text-base font-bold text-white marker:hidden">
+                      <h3 className="inline text-base font-bold">{f.q}</h3>
+                    </summary>
+                    <p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">{f.a}</p>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {related && related.length > 0 && (
+        <section className="pb-20 md:pb-28">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <h2 className="text-center font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                Related Services &amp; Locations
+              </h2>
+            </Reveal>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {related.map((r) => (
+                <Link
+                  key={r.to}
+                  to={r.to}
+                  className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-[var(--muted-text)] transition-all hover:border-[var(--cyan-accent)] hover:text-white"
+                >
+                  {r.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
       <section className="pb-24 md:pb-32">
         <div className="mx-auto max-w-3xl px-5 text-center md:px-8">
           <Reveal>
