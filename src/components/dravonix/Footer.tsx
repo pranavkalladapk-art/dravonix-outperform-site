@@ -40,7 +40,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--blue-brand)] bg-[var(--navy)] pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-1">
             <Logo />
             <p className="mt-4 text-sm text-[var(--muted-text)]">
@@ -58,6 +58,24 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               {serviceLinks.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.href}
+                    className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
+              Locations
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {locationLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.href}
