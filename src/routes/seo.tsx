@@ -95,13 +95,26 @@ function SeoPage() {
   return (
     <ServiceDetail
       eyebrow="SEO & Online Visibility"
-      title="Rank Higher. Get Found. Grow Faster."
-      subtitle="Dravonix builds data-driven SEO strategies that improve your search rankings, drive qualified organic traffic, and deliver long-term sustainable growth for your brand."
+      title="SEO Services in Kerala"
+      subtitle="Dravonix Media builds data-driven SEO strategies that improve your search rankings, drive qualified organic traffic, and deliver long-term sustainable growth for your brand."
       primaryCta="Start Your SEO Project"
       estimateCta="Get an SEO Estimate"
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "Visibility for the searches your buyers actually make.",
+        "Traffic that keeps arriving after ad spend stops.",
+        "A faster, cleaner, better-structured website.",
+        "Reporting tied to enquiries, not vanity metrics.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "Website Development", to: "/website-development" },
+        { label: "E-commerce Development", to: "/ecommerce-development" },
+        { label: "Performance Marketing", to: "/performance-marketing" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready to Rank Higher and Grow Organically?"
       ctaSubtitle="Let's build an SEO strategy that drives real, measurable results for your business."
     />
