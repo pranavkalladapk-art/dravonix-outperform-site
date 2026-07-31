@@ -28,6 +28,7 @@ import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
 import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
 import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
@@ -128,6 +129,11 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
   path: '/locations/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsUaeRoute = LocationsUaeRouteImport.update({
+  id: '/locations/uae',
+  path: '/locations/uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsKeralaRoute = LocationsKeralaRouteImport.update({
   id: '/locations/kerala',
   path: '/locations/kerala',
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -197,6 +204,7 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
   '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
@@ -223,6 +231,7 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/locations/india'
     | '/locations/kerala'
+    | '/locations/uae'
     | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/locations/india'
     | '/locations/kerala'
+    | '/locations/uae'
     | '/locations'
   id:
     | '__root__'
@@ -300,6 +311,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/locations/india'
     | '/locations/kerala'
+    | '/locations/uae'
     | '/locations/'
   fileRoutesById: FileRoutesById
 }
@@ -326,6 +338,7 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   LocationsIndiaRoute: typeof LocationsIndiaRoute
   LocationsKeralaRoute: typeof LocationsKeralaRoute
+  LocationsUaeRoute: typeof LocationsUaeRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
@@ -464,6 +477,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/uae': {
+      id: '/locations/uae'
+      path: '/locations/uae'
+      fullPath: '/locations/uae'
+      preLoaderRoute: typeof LocationsUaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/kerala': {
       id: '/locations/kerala'
       path: '/locations/kerala'
@@ -518,6 +538,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   LocationsIndiaRoute: LocationsIndiaRoute,
   LocationsKeralaRoute: LocationsKeralaRoute,
+  LocationsUaeRoute: LocationsUaeRoute,
   LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
