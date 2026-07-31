@@ -6,9 +6,31 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="flex min-h-[100svh] items-center bg-[var(--navy)] pt-28 pb-20 md:pt-40 md:pb-36"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[var(--navy)] pt-28 pb-20 md:pt-40 md:pb-36"
     >
-      <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Light streaks — desktop only */}
+        <div className="absolute inset-0 hidden md:block">
+          <div className="absolute top-[28%] h-[2px] w-1/3 animate-streak bg-gradient-to-r from-transparent via-[var(--cyan-accent)] to-transparent" />
+          <div className="absolute top-[58%] h-[1px] w-1/4 animate-streak bg-gradient-to-r from-transparent via-[var(--blue-brand)] to-transparent [animation-delay:-3.5s]" />
+          <div className="absolute top-[72%] h-[2px] w-1/3 animate-streak bg-gradient-to-r from-transparent via-white/60 to-transparent [animation-delay:-5s]" />
+        </div>
+
+        {/* Subtle grid pattern */}
+        <svg
+          className="absolute inset-0 h-full w-full opacity-[0.05]"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern id="hero-grid" width="56" height="56" patternUnits="userSpaceOnUse">
+              <path d="M 56 0 L 0 0 0 56" fill="none" stroke="white" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-7xl px-5 md:px-8">
         <Reveal delay={80}>
           <h1 className="max-w-5xl font-display text-[2.5rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-7xl lg:text-[5.5rem]">
             WE DON&rsquo;T MARKET.
