@@ -22,11 +22,18 @@ import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as LocationsUnitedKingdomRouteImport } from './routes/locations.united-kingdom'
+import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
+import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
+import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
+import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
@@ -95,6 +102,11 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
+  id: '/ecommerce-development',
+  path: '/ecommerce-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -120,6 +132,36 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsUnitedKingdomRoute = LocationsUnitedKingdomRouteImport.update({
+  id: '/locations/united-kingdom',
+  path: '/locations/united-kingdom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsUaeRoute = LocationsUaeRouteImport.update({
+  id: '/locations/uae',
+  path: '/locations/uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsKeralaRoute = LocationsKeralaRouteImport.update({
+  id: '/locations/kerala',
+  path: '/locations/kerala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndiaRoute = LocationsIndiaRouteImport.update({
+  id: '/locations/india',
+  path: '/locations/india',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
+  id: '/locations/global',
+  path: '/locations/global',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -137,6 +179,7 @@ export interface FileRoutesByFullPath {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -152,6 +195,12 @@ export interface FileRoutesByFullPath {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/locations/global': typeof LocationsGlobalRoute
+  '/locations/india': typeof LocationsIndiaRoute
+  '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
+  '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -159,6 +208,7 @@ export interface FileRoutesByTo {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -174,6 +224,12 @@ export interface FileRoutesByTo {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/locations/global': typeof LocationsGlobalRoute
+  '/locations/india': typeof LocationsIndiaRoute
+  '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
+  '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -182,6 +238,7 @@ export interface FileRoutesById {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -197,6 +254,12 @@ export interface FileRoutesById {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/locations/global': typeof LocationsGlobalRoute
+  '/locations/india': typeof LocationsIndiaRoute
+  '/locations/kerala': typeof LocationsKeralaRoute
+  '/locations/uae': typeof LocationsUaeRoute
+  '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -206,6 +269,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -221,6 +285,12 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/locations/global'
+    | '/locations/india'
+    | '/locations/kerala'
+    | '/locations/uae'
+    | '/locations/united-kingdom'
+    | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -228,6 +298,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -243,6 +314,12 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/locations/global'
+    | '/locations/india'
+    | '/locations/kerala'
+    | '/locations/uae'
+    | '/locations/united-kingdom'
+    | '/locations'
   id:
     | '__root__'
     | '/'
@@ -250,6 +327,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -265,6 +343,12 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/locations/global'
+    | '/locations/india'
+    | '/locations/kerala'
+    | '/locations/uae'
+    | '/locations/united-kingdom'
+    | '/locations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -273,6 +357,7 @@ export interface RootRouteChildren {
   AiStudioRoute: typeof AiStudioRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
   ContactRoute: typeof ContactRoute
+  EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -288,6 +373,12 @@ export interface RootRouteChildren {
   WorkRoute: typeof WorkRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  LocationsGlobalRoute: typeof LocationsGlobalRoute
+  LocationsIndiaRoute: typeof LocationsIndiaRoute
+  LocationsKeralaRoute: typeof LocationsKeralaRoute
+  LocationsUaeRoute: typeof LocationsUaeRoute
+  LocationsUnitedKingdomRoute: typeof LocationsUnitedKingdomRoute
+  LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -383,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ecommerce-development': {
+      id: '/ecommerce-development'
+      path: '/ecommerce-development'
+      fullPath: '/ecommerce-development'
+      preLoaderRoute: typeof EcommerceDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -418,6 +516,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/united-kingdom': {
+      id: '/locations/united-kingdom'
+      path: '/locations/united-kingdom'
+      fullPath: '/locations/united-kingdom'
+      preLoaderRoute: typeof LocationsUnitedKingdomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/uae': {
+      id: '/locations/uae'
+      path: '/locations/uae'
+      fullPath: '/locations/uae'
+      preLoaderRoute: typeof LocationsUaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/kerala': {
+      id: '/locations/kerala'
+      path: '/locations/kerala'
+      fullPath: '/locations/kerala'
+      preLoaderRoute: typeof LocationsKeralaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/india': {
+      id: '/locations/india'
+      path: '/locations/india'
+      fullPath: '/locations/india'
+      preLoaderRoute: typeof LocationsIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/global': {
+      id: '/locations/global'
+      path: '/locations/global'
+      fullPath: '/locations/global'
+      preLoaderRoute: typeof LocationsGlobalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -441,6 +581,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiStudioRoute: AiStudioRoute,
   BrandIdentityRoute: BrandIdentityRoute,
   ContactRoute: ContactRoute,
+  EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
@@ -456,16 +597,13 @@ const rootRouteChildren: RootRouteChildren = {
   WorkRoute: WorkRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  LocationsGlobalRoute: LocationsGlobalRoute,
+  LocationsIndiaRoute: LocationsIndiaRoute,
+  LocationsKeralaRoute: LocationsKeralaRoute,
+  LocationsUaeRoute: LocationsUaeRoute,
+  LocationsUnitedKingdomRoute: LocationsUnitedKingdomRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

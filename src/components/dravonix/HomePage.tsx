@@ -15,6 +15,7 @@ import { EstimatorSection } from "@/components/dravonix/EstimatorSection";
 import { Reviews } from "@/components/dravonix/Reviews";
 import { FAQ } from "@/components/dravonix/FAQ";
 import { LeadCapture } from "@/components/dravonix/LeadCapture";
+import { LocationStrip } from "@/components/dravonix/LocationStrip";
 import { Footer } from "@/components/dravonix/Footer";
 import { useSectionUrlSync, scrollToSection } from "@/hooks/use-section-url-sync";
 
@@ -54,6 +55,7 @@ export function HomePage() {
         <About />
         <Pricing />
         <EstimatorSection />
+        <LocationStrip />
         <Reviews />
         <FAQ />
         <LeadCapture />

@@ -4,15 +4,28 @@ import { Logo } from "./Logo";
 import { trackContact } from "@/lib/metaPixel";
 
 const serviceLinks = [
+  { label: "Website Development", href: "/website-development" },
+  { label: "E-commerce Development", href: "/ecommerce-development" },
   { label: "Brand Identity", href: "/brand-identity" },
+  { label: "SEO Services", href: "/seo" },
   { label: "Social Media Management", href: "/social-media-management" },
-  { label: "AI-Integrated Video & Design", href: "/ai-studio" },
   { label: "Performance Marketing", href: "/performance-marketing" },
+  { label: "AI Video & Design", href: "/ai-studio" },
+];
+
+const locationLinks = [
+  { label: "Kerala", href: "/locations/kerala" },
+  { label: "India", href: "/locations/india" },
+  { label: "UAE", href: "/locations/uae" },
+  { label: "United Kingdom", href: "/locations/united-kingdom" },
+  { label: "Global", href: "/locations/global" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
   { label: "Team", href: "/team" },
+  { label: "Project Estimator", href: "/project-estimator" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -27,7 +40,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--blue-brand)] bg-[var(--navy)] pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-1">
             <Logo />
             <p className="mt-4 text-sm text-[var(--muted-text)]">
@@ -45,6 +58,24 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3">
               {serviceLinks.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.href}
+                    className="text-sm text-[var(--muted-text)] transition-colors hover:text-white"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white">
+              Locations
+            </h4>
+            <ul className="mt-4 space-y-3">
+              {locationLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.href}

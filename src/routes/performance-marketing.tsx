@@ -8,14 +8,45 @@ import {
   LineChart,
 } from "lucide-react";
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
+
+const title = "Performance Marketing Agency Kerala | Dravonix Media";
+const description =
+  "Performance marketing agency in Kerala running Meta and Google Ads campaigns built for ROI — audience targeting, funnel strategy, ad creative and transparent reporting.";
+
+const faqs = [
+  {
+    q: "What ad budget do I need to start?",
+    a: "It depends on your market and objective. We recommend a budget during the strategy call based on your goals rather than quoting a fixed number upfront.",
+  },
+  {
+    q: "How soon will I see results?",
+    a: "Early signal usually appears within the first few weeks of testing, with performance improving as data accumulates and creative is refined.",
+  },
+  {
+    q: "Do you create the ad creative too?",
+    a: "Yes. Ad copy, visuals and video creative are produced in-house so testing never stalls waiting on assets.",
+  },
+  {
+    q: "How do you report on performance?",
+    a: "Regular reporting on spend, cost per result and conversions — tied to business outcomes, not vanity metrics.",
+  },
+];
 
 export const Route = createFileRoute("/performance-marketing")({
   head: () =>
     buildHead("/performance-marketing", {
-      title: "Performance Marketing — Meta & Google Ads Built for ROI | Dravonix",
-      description:
-        "Data-driven paid social and search campaigns — Meta ads, Google Ads, audience targeting, funnel strategy and reporting focused on measurable results.",
+      title,
+      description,
+      schemas: [
+        serviceSchema({ name: "Performance Marketing", description, path: "/performance-marketing" }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Performance Marketing", path: "/performance-marketing" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: PerformanceMarketingPage,
 });
@@ -78,6 +109,19 @@ function PerformanceMarketingPage() {
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "Spend tied to measurable cost per lead, not impressions.",
+        "Creative and targeting tested continuously.",
+        "A funnel that keeps working after the click.",
+        "Clear reporting you can act on.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "Social Media Management", to: "/social-media-management" },
+        { label: "SEO Services", to: "/seo" },
+        { label: "Website Development", to: "/website-development" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready to Turn Ad Spend Into Real Revenue?"
       ctaSubtitle="Let's build campaigns that drive leads, sales, and measurable growth."
     />

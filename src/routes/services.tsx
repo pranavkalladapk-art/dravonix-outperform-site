@@ -1,16 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, Check } from "lucide-react";
+import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, webPageSchema } from "@/lib/seo";
+
+const title = "Digital Marketing Services in Kerala | Dravonix Media";
+const description =
+  "Digital marketing services in Kerala — website and e-commerce development, brand identity, SEO, social media management, performance marketing and AI-powered creative.";
 
 export const Route = createFileRoute("/services")({
   head: () =>
     buildHead("/services", {
-      title: "Services — Brand, Social, AI Studio, Ads & Web | Dravonix",
-      description:
-        "Five core services engineered to build, grow, and scale ambitious brands — brand identity, social media, AI video & design, performance marketing, and websites.",
+      title,
+      description,
+      schemas: [
+        webPageSchema({ name: title, description, path: "/services" }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]),
+      ],
     }),
   component: ServicesPage,
 });
@@ -23,6 +33,12 @@ const services = [
     title: "Website Development",
     desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
     to: "/website-development",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce Development",
+    desc: "Online stores built to sell — product catalogues, secure checkout, payment integration, mobile-first UX and product-page SEO.",
+    to: "/ecommerce-development",
   },
   {
     icon: Palette,
