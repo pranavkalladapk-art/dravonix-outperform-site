@@ -45,6 +45,12 @@ const services = [
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
     href: "/ai-studio",
   },
+  {
+    icon: AtSign,
+    title: "Business Email & Cloud Setup",
+    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
+    href: "/business-email-setup",
+  },
 ];
 
 export function Services() {
