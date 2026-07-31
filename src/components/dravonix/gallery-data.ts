@@ -92,7 +92,7 @@ export const brandGroups: BrandGroup[] = [
         client: "Grace Optical Gallery",
         description: "Malayalam eye-test campaign creative",
         niche: "Optical Retail · Kerala",
-        thumb: graceFlowerEyeAsset.url,
+        thumb: graceFlowerEye,
         link: "#",
       },
       {
