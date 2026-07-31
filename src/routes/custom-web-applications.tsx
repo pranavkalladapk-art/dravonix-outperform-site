@@ -336,7 +336,7 @@ function CustomWebApplicationsPage() {
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
-            <Breadcrumbs items={serviceBreadcrumbs("Custom Web Applications &amp; SaaS")} />
+            <Breadcrumbs items={serviceBreadcrumbs("Custom Web Applications & SaaS")} />
           </Reveal>
 
           <div className="mt-8 text-center">

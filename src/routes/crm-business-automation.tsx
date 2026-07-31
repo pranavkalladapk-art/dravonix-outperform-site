@@ -356,7 +356,7 @@ function CrmBusinessAutomationPage() {
       <section className="pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <Reveal>
-            <Breadcrumbs items={serviceBreadcrumbs("CRM &amp; Business Automation")} />
+            <Breadcrumbs items={serviceBreadcrumbs("CRM & Business Automation")} />
           </Reveal>
 
           <div className="mt-8 text-center">
