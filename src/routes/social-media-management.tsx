@@ -106,13 +106,26 @@ function SocialMediaManagementPage() {
   return (
     <ServiceDetail
       eyebrow="Social Media Management"
-      title="Content That Builds Presence. Strategy That Drives Growth."
-      subtitle="Dravonix manages your social media end-to-end — strategy, content creation, daily posting, and community management — built for compounding brand presence."
+      title="Social Media Marketing Agency in Kerala"
+      subtitle="Dravonix Media manages your social media end-to-end — strategy, content creation, daily posting, and community management — built for compounding brand presence."
       primaryCta="Start Your Social Media Project"
       estimateCta="Get a Social Media Estimate"
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "A consistent presence instead of sporadic posting.",
+        "Content produced for you, on brand, every month.",
+        "Faster replies and a warmer community.",
+        "Reporting that shows what content actually works.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "AI Video and Design", to: "/ai-studio" },
+        { label: "Performance Marketing", to: "/performance-marketing" },
+        { label: "Brand Identity", to: "/brand-identity" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready to Build a Social Presence That Works?"
       ctaSubtitle="Let's create content that grows your brand and drives real results."
     />
