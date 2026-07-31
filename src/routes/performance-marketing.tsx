@@ -109,6 +109,19 @@ function PerformanceMarketingPage() {
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "Spend tied to measurable cost per lead, not impressions.",
+        "Creative and targeting tested continuously.",
+        "A funnel that keeps working after the click.",
+        "Clear reporting you can act on.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "Social Media Management", to: "/social-media-management" },
+        { label: "SEO Services", to: "/seo" },
+        { label: "Website Development", to: "/website-development" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready to Turn Ad Spend Into Real Revenue?"
       ctaSubtitle="Let's build campaigns that drive leads, sales, and measurable growth."
     />
