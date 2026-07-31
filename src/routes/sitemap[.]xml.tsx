@@ -13,6 +13,7 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/brand-identity`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/social-media-management`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/performance-marketing`, changefreq: "monthly", priority: "0.85" },
+  { loc: `${SITE}/business-email-setup`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/ai-studio`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/locations`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/locations/kerala`, changefreq: "monthly", priority: "0.85" },

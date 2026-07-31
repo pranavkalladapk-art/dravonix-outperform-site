@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check } from "lucide-react";
+import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check, AtSign } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -69,6 +69,12 @@ const services = [
     title: "AI-Integrated Video & Design",
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
     to: "/ai-studio",
+  },
+  {
+    icon: AtSign,
+    title: "Business Email & Cloud Setup",
+    desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
+    to: "/business-email-setup",
   },
 ] as const;
 
