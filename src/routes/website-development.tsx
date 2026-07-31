@@ -95,13 +95,26 @@ function WebsiteDevelopmentPage() {
   return (
     <ServiceDetail
       eyebrow="Website Development"
-      title="Websites Built to Perform, Not Just Impress."
-      subtitle="Dravonix builds premium websites that combine stunning design, technical excellence, and conversion-focused strategy — delivering real business results from day one."
+      title="Website Development Company in Kerala"
+      subtitle="Dravonix Media builds premium websites that combine considered design, technical excellence and conversion-focused strategy — delivering real business results from day one."
       primaryCta="Start Your Website Project"
       estimateCta="Get a Website Estimate"
       services={services}
       steps={steps}
       audience={audience}
+      benefits={[
+        "A site that loads fast and holds attention on mobile.",
+        "More enquiries from the traffic you already have.",
+        "A professional presentation that supports higher pricing.",
+        "Content you can update without a developer.",
+      ]}
+      faqs={faqs}
+      related={[
+        { label: "E-commerce Development", to: "/ecommerce-development" },
+        { label: "SEO Services", to: "/seo" },
+        { label: "Brand Identity", to: "/brand-identity" },
+        { label: "Kerala", to: "/locations/kerala" },
+      ]}
       ctaTitle="Ready for a Website That Works as Hard as You Do?"
       ctaSubtitle="Let's build something fast, beautiful, and built to convert."
     />
