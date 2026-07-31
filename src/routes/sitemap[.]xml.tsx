@@ -8,6 +8,7 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/services`, changefreq: "monthly", priority: "0.9" },
   { loc: `${SITE}/work`, changefreq: "weekly", priority: "0.9" },
   { loc: `${SITE}/website-development`, changefreq: "monthly", priority: "0.9" },
+  { loc: `${SITE}/seo`, changefreq: "monthly", priority: "0.9" },
   { loc: `${SITE}/brand-identity`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/social-media-management`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/performance-marketing`, changefreq: "monthly", priority: "0.85" },

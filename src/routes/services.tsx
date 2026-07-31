@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Check } from "lucide-react";
+import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, Check } from "lucide-react";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -23,6 +23,12 @@ const services = [
     title: "Website Development",
     desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
     to: "/website-development",
+  },
+  {
+    icon: Search,
+    title: "SEO & Online Visibility",
+    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
+    to: "/seo",
   },
   {
     icon: Palette,

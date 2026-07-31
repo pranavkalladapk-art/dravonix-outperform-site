@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe, Search } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
@@ -8,6 +8,12 @@ const services = [
     title: "Website Development",
     desc: "Premium websites designed and built to reflect your brand, convert visitors, and perform — fast, modern, and built to scale.",
     href: "/website-development",
+  },
+  {
+    icon: Search,
+    title: "SEO & Online Visibility",
+    desc: "Data-driven SEO strategies that improve your search rankings, drive organic traffic, and put your brand in front of the right audience at the right time.",
+    href: "/seo",
   },
   {
     icon: Sparkles,
