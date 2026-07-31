@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -30,6 +31,11 @@ import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamRoute = TeamRouteImport.update({
@@ -128,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-media-management': typeof SocialMediaManagementRoute
   '/team': typeof TeamRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/terms-and-conditions'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/terms-and-conditions'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/social-media-management'
     | '/team'
+    | '/terms-and-conditions'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -246,6 +258,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialMediaManagementRoute: typeof SocialMediaManagementRoute
   TeamRoute: typeof TeamRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   WorkRoute: typeof WorkRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/team': {
@@ -390,6 +410,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialMediaManagementRoute: SocialMediaManagementRoute,
   TeamRoute: TeamRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   WorkRoute: WorkRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
@@ -397,12 +418,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

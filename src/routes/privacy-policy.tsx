@@ -6,12 +6,21 @@ import { buildHead } from "@/lib/seo";
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>
     buildHead("/privacy-policy", {
-      title: "Privacy & Policy — Dravonix Media Private Limited",
+      title: "Privacy Policy — Dravonix Media Private Limited",
       description:
         "Learn how Dravonix Media Private Limited collects, uses, stores, and protects your personal information.",
     }),
   component: PrivacyPolicy,
 });
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mt-8">
+      <h2 className="font-display text-xl font-semibold text-white">{title}</h2>
+      <div className="mt-3 space-y-3 text-[var(--muted-text)]">{children}</div>
+    </section>
+  );
+}
 
 function PrivacyPolicy() {
   return (
@@ -19,145 +28,115 @@ function PrivacyPolicy() {
       <Nav />
       <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 md:px-8">
         <div className="rounded-2xl border border-white/10 bg-[var(--card-dark)] p-8 md:p-12">
-          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
-            Privacy & Policy
-          </h1>
-          <p className="mt-2 text-sm text-[var(--muted-text)]">
-            Effective date: 1st January 2026
-          </p>
+          <h1 className="font-display text-3xl font-bold text-white md:text-4xl">Privacy Policy</h1>
+          <div className="mt-2 space-y-1 text-sm text-[var(--muted-text)]">
+            <p>Dravonix Media Private Limited · dravonixmedia.com</p>
+            <p>Effective date: 1st January 2026</p>
+          </div>
 
-          <section className="mt-10">
-            <h2 className="font-display text-xl font-semibold text-white">
-              1. Information We Collect
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              We collect information you voluntarily provide when you interact with our website,
-              including:
+          <Section title="1. Introduction">
+            <p>
+              Dravonix Media Private Limited ("Dravonix Media", "We", "Our", "Us") is a creative
+              technology and media company specializing in branding, digital transformation, website
+              development, software solutions, digital marketing, and media production. We are
+              committed to protecting your privacy and handling your personal information
+              responsibly.
             </p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[var(--muted-text)]">
-              <li>Name and email address</li>
-              <li>Business or company details</li>
-              <li>Project requirements and enquiry messages</li>
-              <li>Review submissions, including any personal details you choose to include</li>
-            </ul>
-          </section>
+          </Section>
 
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              2. How We Use Your Information
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              We use the information we collect to:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[var(--muted-text)]">
-              <li>Respond to your enquiries and project requests</li>
-              <li>Improve our services, website experience, and communications</li>
-              <li>Display approved client reviews on our website</li>
-              <li>Send relevant updates about Dravonix services, only when you have opted in</li>
-            </ul>
-          </section>
-
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              3. Data Storage and Security
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              Your data is stored securely in our Supabase database. We apply industry-standard
-              security measures, including Row-Level Security (RLS) policies, encrypted
-              connections, and access controls, to protect your personal information from
-              unauthorised access or disclosure.
-            </p>
-          </section>
-
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              4. Cookies and Analytics
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              We use cookies and similar technologies to understand how visitors interact with our
-              website. Google Analytics helps us analyse traffic, page performance, and user
-              behaviour. These tools may collect anonymous data such as device type, browser,
-              pages visited, and approximate location. You can manage cookie preferences through
-              your browser settings.
-            </p>
-          </section>
-
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              5. Third-Party Services
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              We rely on trusted third-party services to operate our website and business:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[var(--muted-text)]">
+          <Section title="2. Information We Collect">
+            <ul className="list-disc space-y-2 pl-5">
               <li>
-                <strong className="text-white/90">Supabase</strong> — database hosting and secure
-                data storage
+                Name, email address, phone number, and business details submitted through our
+                contact and enquiry forms
               </li>
-              <li>
-                <strong className="text-white/90">Google Analytics</strong> — website analytics and
-                performance insights
-              </li>
-              <li>
-                <strong className="text-white/90">Meta Pixel</strong> — marketing analytics and ad
-                performance measurement
-              </li>
+              <li>Reviews and testimonials submitted through our website</li>
+              <li>Usage data and analytics collected through cookies and third-party tools</li>
             </ul>
-            <p className="mt-3 text-[var(--muted-text)]">
-              These services have their own privacy policies and may process data in accordance with
-              their terms.
-            </p>
-          </section>
+          </Section>
 
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              6. Your Rights
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
+          <Section title="3. How We Use Your Information">
+            <ul className="list-disc space-y-2 pl-5">
+              <li>To respond to your enquiries and service requests</li>
+              <li>To process project engagements and communications</li>
+              <li>To display approved client reviews on our website</li>
+              <li>To improve our website and services</li>
+              <li>To send relevant updates (only where you have consented)</li>
+            </ul>
+          </Section>
+
+          <Section title="4. Data Storage & Security">
+            <p>
+              Your data is stored securely using Supabase (a secure cloud database platform). We
+              implement appropriate technical and organizational measures to protect your personal
+              data against unauthorized access, loss, or disclosure.
+            </p>
+          </Section>
+
+          <Section title="5. Cookies & Analytics">
+            <p>
+              Our website may use cookies and analytics tools including Google Analytics to
+              understand how visitors interact with our site. You may disable cookies through your
+              browser settings.
+            </p>
+          </Section>
+
+          <Section title="6. Third-Party Services">
+            <p>
+              We use the following third-party services: Google Analytics (website analytics),
+              Supabase (data storage). These services have their own privacy policies and we
+              recommend reviewing them.
+            </p>
+          </Section>
+
+          <Section title="7. Data Retention">
+            <p>
+              We retain your personal data only as long as necessary to fulfil the purposes outlined
+              in this policy or as required by law.
+            </p>
+          </Section>
+
+          <Section title="8. Your Rights">
+            <p>
               You have the right to request access to, correction of, or deletion of your personal
-              data. If you would like your information removed from our systems, including an
-              approved review, please contact us using the details below. We will respond to your
-              request within a reasonable timeframe.
+              data held by us. To exercise these rights, contact us at{" "}
+              <a
+                href="mailto:admin@dravonixmedia.com"
+                className="text-[var(--cyan-accent)] transition-colors hover:text-white"
+              >
+                admin@dravonixmedia.com
+              </a>
+              .
             </p>
-          </section>
+          </Section>
 
-          <section className="mt-8">
-            <h2 className="font-display text-xl font-semibold text-white">
-              7. Contact Information
-            </h2>
-            <p className="mt-3 text-[var(--muted-text)]">
-              For any privacy-related questions, requests, or concerns, please contact:
+          <Section title="9. Portfolio & Case Studies">
+            <p>
+              Unless a separate confidentiality agreement exists, Dravonix Media Private Limited may
+              reference completed work in our portfolio, website, social media, and marketing
+              materials. No confidential client information will be disclosed.
             </p>
-            <div className="mt-3 space-y-1 text-[var(--muted-text)]">
-              <p>
-                <strong className="text-white/90">Dravonix Media Private Limited</strong>
-              </p>
-              <p>
-                Website:{" "}
-                <a
-                  href="https://dravonixmedia.com"
-                  className="text-[var(--cyan-accent)] transition-colors hover:text-white"
-                >
-                  dravonixmedia.com
-                </a>
-              </p>
-              <p>
-                Email:{" "}
-                <a
-                  href="mailto:admin@dravonixmedia.com"
-                  className="text-[var(--cyan-accent)] transition-colors hover:text-white"
-                >
-                  admin@dravonixmedia.com
-                </a>
-              </p>
-            </div>
-          </section>
+          </Section>
 
-          <p className="mt-10 text-sm text-[var(--muted-text)]">
-            By using our website, you consent to the practices described in this Privacy & Policy. We
-            may update this policy from time to time, and any changes will be posted on this page
-            with an updated effective date.
-          </p>
+          <Section title="10. Changes to This Policy">
+            <p>
+              We may update this Privacy Policy from time to time. The effective date will be
+              updated accordingly. Continued use of the website constitutes acceptance of the
+              updated policy.
+            </p>
+          </Section>
+
+          <Section title="11. Contact">
+            <p>
+              For any privacy-related concerns:{" "}
+              <a
+                href="mailto:admin@dravonixmedia.com"
+                className="text-[var(--cyan-accent)] transition-colors hover:text-white"
+              >
+                admin@dravonixmedia.com
+              </a>
+            </p>
+          </Section>
         </div>
       </main>
       <Footer />
