@@ -6,7 +6,7 @@ import { buildHead } from "@/lib/seo";
 export const Route = createFileRoute("/privacy-policy")({
   head: () =>
     buildHead("/privacy-policy", {
-      title: "Privacy Policy — Dravonix Media Private Limited",
+      title: "Privacy & Policy — Dravonix Media Private Limited",
       description:
         "Learn how Dravonix Media Private Limited collects, uses, stores, and protects your personal information.",
     }),
@@ -20,7 +20,7 @@ function PrivacyPolicy() {
       <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 md:px-8">
         <div className="rounded-2xl border border-white/10 bg-[var(--card-dark)] p-8 md:p-12">
           <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
-            Privacy Policy
+            Privacy & Policy
           </h1>
           <p className="mt-2 text-sm text-[var(--muted-text)]">
             Effective date: 1st January 2026
@@ -154,7 +154,7 @@ function PrivacyPolicy() {
           </section>
 
           <p className="mt-10 text-sm text-[var(--muted-text)]">
-            By using our website, you consent to the practices described in this Privacy Policy. We
+            By using our website, you consent to the practices described in this Privacy & Policy. We
             may update this policy from time to time, and any changes will be posted on this page
             with an updated effective date.
           </p>
