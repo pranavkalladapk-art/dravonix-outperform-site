@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Palette, Share2, Sparkles, TrendingUp, Globe, Search, ShoppingCart, Check, AtSign, AppWindow, Workflow } from "lucide-react";
+import { Breadcrumbs } from "@/components/dravonix/Breadcrumbs";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
@@ -103,7 +104,16 @@ function ServicesPage() {
       <Nav />
 
       <section className="pt-32 pb-14 md:pt-40 md:pb-20">
-        <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
+          <Reveal>
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Services", current: true },
+              ]}
+            />
+          </Reveal>
+          <div className="mt-8 text-center">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
               Services
@@ -115,6 +125,7 @@ function ServicesPage() {
               Five core services engineered to build, grow, and scale ambitious brands.
             </p>
           </Reveal>
+          </div>
         </div>
       </section>
 

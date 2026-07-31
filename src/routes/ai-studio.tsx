@@ -40,7 +40,7 @@ export const Route = createFileRoute("/ai-studio")({
         breadcrumbSchema([
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
-          { name: "AI Video and Design", path: "/ai-studio" },
+          { name: "AI-Integrated Video & Design", path: "/ai-studio" },
         ]),
         faqSchema(faqs),
       ],
@@ -106,6 +106,7 @@ function AiStudioPage() {
   return (
     <ServiceDetail
       eyebrow="AI Video & Design"
+      breadcrumbLabel="AI-Integrated Video & Design"
       title="AI-Powered Video and Creative Production"
       subtitle="Dravonix Media combines AI-assisted production with human creative direction — delivering promotional videos, social reels, motion graphics and product visuals at speed, on brand."
       primaryCta="Start Your Creative Project"
