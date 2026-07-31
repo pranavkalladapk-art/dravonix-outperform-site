@@ -23,6 +23,8 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
+import { Route as CustomWebApplicationsRouteImport } from './routes/custom-web-applications'
+import { Route as CrmBusinessAutomationRouteImport } from './routes/crm-business-automation'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BusinessEmailSetupRouteImport } from './routes/business-email-setup'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
@@ -108,6 +110,16 @@ const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
   path: '/ecommerce-development',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomWebApplicationsRoute = CustomWebApplicationsRouteImport.update({
+  id: '/custom-web-applications',
+  path: '/custom-web-applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrmBusinessAutomationRoute = CrmBusinessAutomationRouteImport.update({
+  id: '/crm-business-automation',
+  path: '/crm-business-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -186,6 +198,8 @@ export interface FileRoutesByFullPath {
   '/brand-identity': typeof BrandIdentityRoute
   '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
+  '/crm-business-automation': typeof CrmBusinessAutomationRoute
+  '/custom-web-applications': typeof CustomWebApplicationsRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -216,6 +230,8 @@ export interface FileRoutesByTo {
   '/brand-identity': typeof BrandIdentityRoute
   '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
+  '/crm-business-automation': typeof CrmBusinessAutomationRoute
+  '/custom-web-applications': typeof CustomWebApplicationsRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -247,6 +263,8 @@ export interface FileRoutesById {
   '/brand-identity': typeof BrandIdentityRoute
   '/business-email-setup': typeof BusinessEmailSetupRoute
   '/contact': typeof ContactRoute
+  '/crm-business-automation': typeof CrmBusinessAutomationRoute
+  '/custom-web-applications': typeof CustomWebApplicationsRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -279,6 +297,8 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/business-email-setup'
     | '/contact'
+    | '/crm-business-automation'
+    | '/custom-web-applications'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -309,6 +329,8 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/business-email-setup'
     | '/contact'
+    | '/crm-business-automation'
+    | '/custom-web-applications'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -339,6 +361,8 @@ export interface FileRouteTypes {
     | '/brand-identity'
     | '/business-email-setup'
     | '/contact'
+    | '/crm-business-automation'
+    | '/custom-web-applications'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -370,6 +394,8 @@ export interface RootRouteChildren {
   BrandIdentityRoute: typeof BrandIdentityRoute
   BusinessEmailSetupRoute: typeof BusinessEmailSetupRoute
   ContactRoute: typeof ContactRoute
+  CrmBusinessAutomationRoute: typeof CrmBusinessAutomationRoute
+  CustomWebApplicationsRoute: typeof CustomWebApplicationsRoute
   EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
@@ -494,6 +520,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EcommerceDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom-web-applications': {
+      id: '/custom-web-applications'
+      path: '/custom-web-applications'
+      fullPath: '/custom-web-applications'
+      preLoaderRoute: typeof CustomWebApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm-business-automation': {
+      id: '/crm-business-automation'
+      path: '/crm-business-automation'
+      fullPath: '/crm-business-automation'
+      preLoaderRoute: typeof CrmBusinessAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -602,6 +642,8 @@ const rootRouteChildren: RootRouteChildren = {
   BrandIdentityRoute: BrandIdentityRoute,
   BusinessEmailSetupRoute: BusinessEmailSetupRoute,
   ContactRoute: ContactRoute,
+  CrmBusinessAutomationRoute: CrmBusinessAutomationRoute,
+  CustomWebApplicationsRoute: CustomWebApplicationsRoute,
   EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,

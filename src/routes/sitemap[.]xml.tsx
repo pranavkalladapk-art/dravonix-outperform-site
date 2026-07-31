@@ -14,6 +14,8 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/social-media-management`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/performance-marketing`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/business-email-setup`, changefreq: "monthly", priority: "0.85" },
+  { loc: `${SITE}/custom-web-applications`, changefreq: "monthly", priority: "0.9" },
+  { loc: `${SITE}/crm-business-automation`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/ai-studio`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/locations`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/locations/kerala`, changefreq: "monthly", priority: "0.85" },
@@ -33,11 +35,10 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const lastmod = new Date().toISOString().split("T")[0];
         const urls = routes
           .map(
             (r) =>
-              `  <url>\n    <loc>${r.loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority}</priority>\n  </url>`
+              `  <url>\n    <loc>${r.loc}</loc>\n    <changefreq>${r.changefreq}</changefreq>\n    <priority>${r.priority}</priority>\n  </url>`
           )
           .join("\n");
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;

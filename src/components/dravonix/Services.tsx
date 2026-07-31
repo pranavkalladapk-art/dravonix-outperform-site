@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe, Search, ShoppingCart, AtSign } from "lucide-react";
+import { ArrowRight, Sparkles, CalendarRange, Wand2, TrendingUp, Globe, Search, ShoppingCart, AtSign, AppWindow, Workflow } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
@@ -51,6 +51,20 @@ const services = [
     desc: "Independent setup and configuration support for branded business email, domain authentication, email migration and secure cloud communication systems.",
     href: "/business-email-setup",
     cta: "Explore Business Email Services",
+  },
+  {
+    icon: AppWindow,
+    title: "Custom Web Applications & SaaS",
+    desc: "Tailored web applications, client portals, dashboards and SaaS platforms designed around real business workflows.",
+    href: "/custom-web-applications",
+    cta: "Explore Custom Web Applications",
+  },
+  {
+    icon: Workflow,
+    title: "CRM & Business Automation",
+    desc: "Connected CRM, WhatsApp and workflow automation systems that simplify lead management, customer communication and daily operations.",
+    href: "/crm-business-automation",
+    cta: "Explore Business Automation",
   },
 ];
 
