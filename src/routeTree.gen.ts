@@ -22,6 +22,7 @@ import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
 import { Route as AiStudioRouteImport } from './routes/ai-studio'
@@ -101,6 +102,11 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
+  id: '/ecommerce-development',
+  path: '/ecommerce-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -173,6 +179,7 @@ export interface FileRoutesByFullPath {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -201,6 +208,7 @@ export interface FileRoutesByTo {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -230,6 +238,7 @@ export interface FileRoutesById {
   '/ai-studio': typeof AiStudioRoute
   '/brand-identity': typeof BrandIdentityRoute
   '/contact': typeof ContactRoute
+  '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -288,6 +298,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -316,6 +327,7 @@ export interface FileRouteTypes {
     | '/ai-studio'
     | '/brand-identity'
     | '/contact'
+    | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
     | '/privacy-policy'
@@ -345,6 +357,7 @@ export interface RootRouteChildren {
   AiStudioRoute: typeof AiStudioRoute
   BrandIdentityRoute: typeof BrandIdentityRoute
   ContactRoute: typeof ContactRoute
+  EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -461,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ecommerce-development': {
+      id: '/ecommerce-development'
+      path: '/ecommerce-development'
+      fullPath: '/ecommerce-development'
+      preLoaderRoute: typeof EcommerceDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -561,6 +581,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiStudioRoute: AiStudioRoute,
   BrandIdentityRoute: BrandIdentityRoute,
   ContactRoute: ContactRoute,
+  EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
