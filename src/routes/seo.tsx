@@ -1,14 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, FileSearch, PenLine, MapPin, Link2, BarChart3 } from "lucide-react";
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
-import { buildHead } from "@/lib/seo";
+import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
+
+const title = "SEO Services Kerala | Rank Higher on Google | Dravonix";
+const description =
+  "SEO services in Kerala — technical audits, on-page optimisation, local SEO, content strategy and link building that improve rankings and drive qualified organic traffic.";
+
+const faqs = [
+  {
+    q: "How long does SEO take to show results?",
+    a: "Meaningful movement typically takes a few months. Technical fixes can help sooner, while content and authority building compound over time.",
+  },
+  {
+    q: "Do you guarantee first-page rankings?",
+    a: "No credible agency can guarantee positions. We commit to the work that drives rankings and report honestly on progress.",
+  },
+  {
+    q: "Do you handle local SEO for Kerala businesses?",
+    a: "Yes. Google Business Profile optimisation, local landing pages, citations and location-relevant content are all part of our local SEO work.",
+  },
+  {
+    q: "What's included in your reporting?",
+    a: "Monthly reporting on rankings, organic traffic, visibility and the actions taken — tied back to enquiries and business outcomes.",
+  },
+];
 
 export const Route = createFileRoute("/seo")({
   head: () =>
     buildHead("/seo", {
-      title: "SEO & Online Visibility — Rank Higher, Get Found | Dravonix",
-      description:
-        "Data-driven SEO strategies that improve search rankings, drive qualified organic traffic, and deliver long-term sustainable growth for your brand.",
+      title,
+      description,
+      schemas: [
+        serviceSchema({ name: "SEO Services", description, path: "/seo" }),
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "SEO Services", path: "/seo" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: SeoPage,
 });
