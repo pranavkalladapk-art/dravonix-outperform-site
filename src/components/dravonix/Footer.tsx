@@ -105,8 +105,18 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-[var(--muted-text)]">© 2026 Dravonix Media Private Limited. All rights reserved.</p>
-          <p className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</p>
+          <p className="text-xs text-[var(--muted-text)]">
+            © 2026 Dravonix Media Private Limited. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/privacy-policy"
+              className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</span>
+          </div>
         </div>
       </div>
     </footer>
