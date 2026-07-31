@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LocationPage } from "@/components/dravonix/LocationPage";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Digital Marketing Agency in Kerala | Dravonix";
+const title = "Marketing & Web Design Agency in Kochi, Kerala | Dravonix";
 const description =
   "Dravonix Media is a digital marketing agency in Kerala offering branding, website development, SEO, social media management and performance marketing for local businesses.";
 
