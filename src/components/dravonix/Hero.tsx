@@ -42,9 +42,9 @@ export function Hero() {
 
         <Reveal delay={160}>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70 md:mt-6 md:text-lg">
-            Data-driven strategies. Creative excellence.
+            Digital marketing agency in Kerala, serving ambitious brands worldwide.
             <br />
-            Results that speak.
+            Data-driven strategy. Creative excellence. Results that speak.
           </p>
         </Reveal>
 
