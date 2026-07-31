@@ -16,6 +16,12 @@ const services = [
     href: "/brand-identity",
   },
   {
+    icon: TrendingUp,
+    title: "Performance Marketing",
+    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
+    href: "/performance-marketing",
+  },
+  {
     icon: CalendarRange,
     title: "Social Media Management",
     desc: "Strategic content calendars, daily posting, community management and platform growth.",
@@ -26,12 +32,6 @@ const services = [
     title: "AI-Integrated Video & Design",
     desc: "AI-assisted video edits, motion graphics, and on-brand design — produced faster, iterated smarter, scaled without losing craft.",
     href: "/ai-studio",
-  },
-  {
-    icon: TrendingUp,
-    title: "Performance Marketing",
-    desc: "Paid social campaigns, audience targeting, and funnel strategy focused on ROI.",
-    href: "/performance-marketing",
   },
 ];
 
