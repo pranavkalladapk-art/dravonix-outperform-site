@@ -9,6 +9,7 @@ const ESTIMATOR_URL = "https://estimate.dravonix.dev/";
 
 export type ServiceDetailProps = {
   eyebrow: string;
+  breadcrumbLabel?: string;
   title: string;
   subtitle: string;
   primaryCta: string;
@@ -25,6 +26,7 @@ export type ServiceDetailProps = {
 
 export function ServiceDetail({
   eyebrow,
+  breadcrumbLabel,
   title,
   subtitle,
   primaryCta,
