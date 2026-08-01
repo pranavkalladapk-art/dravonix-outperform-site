@@ -4,6 +4,7 @@ import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { GalleryCard } from "@/components/dravonix/GalleryCard";
+import { LogoWorks } from "@/components/dravonix/LogoWorks";
 import { galleryItems, brandGroups } from "@/components/dravonix/gallery-data";
 import { buildHead } from "@/lib/seo";
 
@@ -102,6 +103,8 @@ function WorkPage() {
             ))}
           </div>
         </section>
+
+        <LogoWorks />
 
         <section className="border-t border-white/10 bg-white/[0.02] py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
