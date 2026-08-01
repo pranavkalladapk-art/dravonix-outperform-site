@@ -1,47 +1,52 @@
 import { Reveal } from "./Reveal";
+import logoAMark from "@/assets/logo-a-mark.png.asset.json";
+import logoDecolux from "@/assets/logo-decolux.png.asset.json";
+import logoThreadStory from "@/assets/logo-thread-story.png.asset.json";
+import logoThreefold from "@/assets/logo-threefold.png.asset.json";
 
 interface LogoItem {
   id: string;
   name: string;
+  src: string;
+  dark?: boolean;
 }
 
 const logoWorks: LogoItem[] = [
-  { id: "logo-1", name: "Brand One" },
-  { id: "logo-2", name: "Brand Two" },
-  { id: "logo-3", name: "Brand Three" },
-  { id: "logo-4", name: "Brand Four" },
-  { id: "logo-5", name: "Brand Five" },
-  { id: "logo-6", name: "Brand Six" },
-  { id: "logo-7", name: "Brand Seven" },
-  { id: "logo-8", name: "Brand Eight" },
+  { id: "logo-a-mark", name: "Apex Mark", src: logoAMark.url },
+  { id: "logo-decolux", name: "Decolux Group", src: logoDecolux.url },
+  { id: "logo-threefold", name: "Threefold", src: logoThreefold.url },
+  { id: "logo-thread-story", name: "A Story Woven in Every Thread", src: logoThreadStory.url, dark: true },
 ];
 
-function placeholderSvg(name: string) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-    <rect width="400" height="300" fill="#f8fafc" rx="16" />
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="600" fill="#0f172a">${name}</text>
-  </svg>`;
-  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
-function LogoCard({ name, src }: { name: string; src: string }) {
+function LogoCard({ name, src, dark }: LogoItem) {
   return (
-    <div className="group flex h-full flex-col items-center rounded-xl border border-white/10 bg-white/95 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--cyan-accent)] hover:shadow-glow-brand sm:p-8 md:p-10">
+    <div
+      className={`group flex h-full flex-col items-center rounded-xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--cyan-accent)] hover:shadow-glow-brand sm:p-8 md:p-10 ${
+        dark ? "border-white/10 bg-[var(--card-dark)]" : "border-white/10 bg-white/95"
+      }`}
+    >
       <div className="relative flex w-full flex-1 items-center justify-center">
         <img
           src={src}
-          alt={name}
+          alt={`${name} logo`}
           loading="lazy"
           decoding="async"
           className="h-28 w-full object-contain transition-transform duration-500 group-hover:scale-105 sm:h-32 md:h-36"
         />
       </div>
-      <span className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-[var(--navy)]/60 transition-colors group-hover:text-[var(--navy)]">
+      <span
+        className={`mt-5 text-center text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
+          dark
+            ? "text-[var(--muted-text)] group-hover:text-white"
+            : "text-[var(--navy)]/60 group-hover:text-[var(--navy)]"
+        }`}
+      >
         {name}
       </span>
     </div>
   );
 }
+
 
 export function LogoWorks() {
   return (
@@ -62,7 +67,7 @@ export function LogoWorks() {
         <div className="mt-10 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
           {logoWorks.map((logo, i) => (
             <Reveal key={logo.id} delay={(i % 4) * 80} className="h-full">
-              <LogoCard name={logo.name} src={placeholderSvg(logo.name)} />
+              <LogoCard {...logo} />
             </Reveal>
           ))}
         </div>
