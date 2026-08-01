@@ -1,8 +1,4 @@
 import { Reveal } from "./Reveal";
-import logoAMark from "@/assets/logo-a-mark.png.asset.json";
-import logoDecolux from "@/assets/logo-decolux.png.asset.json";
-import logoThreadStory from "@/assets/logo-thread-story.png.asset.json";
-import logoThreefold from "@/assets/logo-threefold.png.asset.json";
 
 interface LogoItem {
   id: string;
@@ -12,10 +8,10 @@ interface LogoItem {
 }
 
 const logoWorks: LogoItem[] = [
-  { id: "logo-a-mark", name: "Abodoo Properties", src: logoAMark.url },
-  { id: "logo-decolux", name: "Decolux Group", src: logoDecolux.url },
-  { id: "logo-threefold", name: "Threefold", src: logoThreefold.url },
-  { id: "logo-thread-story", name: "IZHAKADHA", src: logoThreadStory.url, dark: true },
+  { id: "logo-abodoo", name: "Abodoo Properties", src: "/logos/abodoo.png" },
+  { id: "logo-decolux", name: "Decolux Group", src: "/logos/decolux.png" },
+  { id: "logo-threefold", name: "Threefold", src: "/logos/threefold.png" },
+  { id: "logo-izhakadha", name: "IZHAKADHA", src: "/logos/izhakadha.png", dark: true },
 ];
 
 function LogoCard({ name, src, dark }: LogoItem) {
