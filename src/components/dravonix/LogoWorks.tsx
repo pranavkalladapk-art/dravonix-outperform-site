@@ -12,10 +12,10 @@ interface LogoItem {
 }
 
 const logoWorks: LogoItem[] = [
-  { id: "logo-a-mark", name: "Apex Mark", src: logoAMark.url },
+  { id: "logo-a-mark", name: "Abodoo Properties", src: logoAMark.url },
   { id: "logo-decolux", name: "Decolux Group", src: logoDecolux.url },
   { id: "logo-threefold", name: "Threefold", src: logoThreefold.url },
-  { id: "logo-thread-story", name: "A Story Woven in Every Thread", src: logoThreadStory.url, dark: true },
+  { id: "logo-thread-story", name: "IZHAKADHA", src: logoThreadStory.url, dark: true },
 ];
 
 function LogoCard({ name, src, dark }: LogoItem) {
