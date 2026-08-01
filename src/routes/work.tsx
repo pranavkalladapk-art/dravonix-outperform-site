@@ -4,6 +4,7 @@ import { Nav } from "@/components/dravonix/Nav";
 import { Footer } from "@/components/dravonix/Footer";
 import { Reveal } from "@/components/dravonix/Reveal";
 import { GalleryCard } from "@/components/dravonix/GalleryCard";
+import { LogoWorks } from "@/components/dravonix/LogoWorks";
 import { galleryItems, brandGroups } from "@/components/dravonix/gallery-data";
 import { buildHead } from "@/lib/seo";
 
