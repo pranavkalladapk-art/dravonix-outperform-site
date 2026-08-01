@@ -104,6 +104,8 @@ function WorkPage() {
           </div>
         </section>
 
+        <LogoWorks />
+
         <section className="border-t border-white/10 bg-white/[0.02] py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
             <Reveal>
