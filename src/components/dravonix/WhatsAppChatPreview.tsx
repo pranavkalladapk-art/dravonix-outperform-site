@@ -27,7 +27,7 @@ export function WhatsAppChatPreview({
           D
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-white">Dravonix WhatsApp AI</p>
+          <p className="truncate text-sm font-semibold text-white">AI Assistant</p>
           <p className="flex items-center gap-1.5 text-[11px] text-[var(--muted-text)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
             Assistant active
