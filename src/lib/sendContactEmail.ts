@@ -20,7 +20,7 @@ function escapeHtml(s: string) {
 export const sendContactEmail = createServerFn({ method: 'POST' })
   .validator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
-    const { name, business, email, phone, need } = data;
+    const { name, business, email, phone, need, details, source, pageUrl } = data;
 
     // @ts-ignore - access Cloudflare env via process.env (mapped at runtime)
     const SMTP_USER: string = process.env.ZOHO_SMTP_USER ?? process.env.ZOHO_EMAIL ?? '';
