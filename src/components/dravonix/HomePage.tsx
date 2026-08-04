@@ -50,6 +50,7 @@ export function HomePage() {
         <ValuePillars />
         <Services />
         <AIStudio />
+        <WhatsAppAIHighlight />
         <GalleryPreview />
         <Process />
         <WhyDravonix />
