@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema, SITE_URL } from 
 
 const title = "WhatsApp AI for Business | Dravonix Media";
 const description =
-  "Dravonix WhatsApp AI helps businesses answer customer enquiries, understand voice notes, capture leads and hand important conversations to their team. Private beta onboarding.";
+  "Dravonix WhatsApp AI is coming soon. Request a private demo and join early access for AI-powered WhatsApp customer replies, voice-note understanding and human handover.";
 
 export const Route = createFileRoute("/whatsapp-ai")({
   head: () =>
