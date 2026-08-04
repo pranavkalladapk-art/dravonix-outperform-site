@@ -695,7 +695,7 @@ export function WhatsAppAIPage() {
               </a>
             </div>
             <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-white/80">
-              Private Beta · Early Access
+              Dravonix WhatsApp AI · Coming Soon · Private Beta
             </p>
           </div>
         </section>
