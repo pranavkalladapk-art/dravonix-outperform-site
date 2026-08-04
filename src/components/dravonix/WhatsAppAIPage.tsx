@@ -299,7 +299,7 @@ export function WhatsAppAIPage() {
                 </a>
 
                 <ul className="mt-8 grid gap-2.5 text-sm text-white/85 sm:grid-cols-3">
-                  {["Text and voice-note understanding", "Malayalam and multilingual conversations", "Human handover support"].map((p) => (
+                  {["Text and voice-note understanding", "Multilingual Conversations", "Human handover support"].map((p) => (
                     <li key={p} className="flex items-start gap-2">
                       <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
                       {p}

@@ -8,7 +8,7 @@ import { trackLead } from "@/lib/metaPixel";
 const points = [
   { icon: MessageSquare, label: "AI-powered customer replies" },
   { icon: Mic, label: "Voice-note understanding" },
-  { icon: Languages, label: "Malayalam and multilingual support" },
+  { icon: Languages, label: "Multilingual Conversations" },
   { icon: Users, label: "Human handover dashboard" },
 ];
 
