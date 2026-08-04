@@ -7,7 +7,10 @@ const schema = z.object({
   business: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(255),
   phone: z.string().trim().min(7).max(20).regex(/^[+\d\s()-]+$/),
-  need: z.enum(['Branding', 'Social Media', 'Content', 'Strategy', 'All of the above']),
+  need: z.enum(['Branding', 'Social Media', 'Content', 'Strategy', 'All of the above', 'WhatsApp AI']),
+  details: z.string().trim().max(4000).optional(),
+  source: z.string().trim().max(120).optional(),
+  pageUrl: z.string().trim().max(300).optional(),
 });
 
 function escapeHtml(s: string) {
