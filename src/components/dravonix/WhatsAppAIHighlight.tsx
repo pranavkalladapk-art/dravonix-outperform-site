@@ -14,9 +14,9 @@ const points = [
 
 export function WhatsAppAIHighlight() {
   return (
-    <section id="whatsapp-ai" className="bg-[var(--navy)] pb-20 md:pb-32">
+    <section id="whatsapp-ai" className="bg-[var(--navy)] py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid items-center gap-10 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-12">
+        <div className="mx-auto max-w-[1200px] grid items-center gap-10 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-12">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
