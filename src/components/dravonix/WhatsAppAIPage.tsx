@@ -22,6 +22,7 @@ import {
   UtensilsCrossed,
   Plane,
   Briefcase,
+  Ruler,
 } from "lucide-react";
 import { useState } from "react";
 import { Nav } from "./Nav";
@@ -120,7 +121,32 @@ const capabilities = [
 ];
 
 const industries = [
-  { icon: Glasses, title: "Optical stores", use: "Handle eye-test enquiries, store locations, frame questions and appointment requests." },
+  {
+    icon: Ruler,
+    title: "Architecture, Interior Design & Construction",
+    use: "Architecture studios, interior-design firms and construction companies receive enquiries with incomplete information about property type, location, project scope, budget, timeline and design preferences.",
+    case: {
+      customerMessage:
+        "We’re planning the interior design of a 2,500 sq. ft. villa in Kochi. We need a modern luxury style and would like to complete it within six months.",
+      aiAssistance:
+        "The assistant collects the property type, location, approximate area, required services, design preferences, expected timeline and budget range. It explains the company’s approved process, portfolio categories and consultation steps before transferring the structured project enquiry to the appropriate architect, designer or project consultant.",
+      outcome: "Project requirement qualified",
+      limitations: [
+        "Does not provide a final construction estimate automatically.",
+        "Does not promise project timelines, material availability or regulatory approvals.",
+        "Does not present preliminary information as architectural, engineering or legal approval.",
+        "Final quotations and feasibility decisions remain with the authorised business team.",
+      ],
+      fields: [
+        { label: "Property type", value: "Villa" },
+        { label: "Project location", value: "Kochi" },
+        { label: "Approximate area", value: "2,500 sq. ft." },
+        { label: "Service required", value: "Interior Design" },
+        { label: "Preferred style", value: "Modern Luxury" },
+        { label: "Status", value: "Consultant handover ready" },
+      ],
+    },
+  },
   { icon: Stethoscope, title: "Clinics and healthcare enquiries", use: "Share timings, services and appointment information. Not for diagnosis, emergency advice or treatment decisions." },
   { icon: GraduationCap, title: "Educational institutions", use: "Answer course enquiries, booking questions, seat availability and admission FAQs." },
   { icon: Building2, title: "Real estate companies", use: "Capture property requirements, schedule viewing enquiries and transfer qualified leads to agents." },
@@ -528,11 +554,50 @@ export function WhatsAppAIPage() {
             </Reveal>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {industries.map((ind, i) => (
-                <Reveal key={ind.title} delay={i * 40}>
-                  <div className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40">
-                    <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
-                    <h3 className="mt-4 font-display text-base font-semibold text-white">{ind.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{ind.use}</p>
+                <Reveal
+                  key={ind.title}
+                  delay={i * 40}
+                  className={i === 0 ? "sm:col-span-2 lg:col-span-4" : undefined}
+                >
+                  <div className={cn(
+                    "rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40",
+                    i === 0 ? "h-full lg:grid lg:grid-cols-3 lg:gap-8" : "h-full",
+                  )}>
+                    <div className={cn(i === 0 && "lg:pr-2")}>
+                      <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
+                      <h3 className="mt-4 font-display text-base font-semibold text-white">{ind.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{ind.use}</p>
+                    </div>
+                    {ind.case && (
+                      <div className="mt-4 space-y-2.5 border-t border-white/10 pt-3 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
+                        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5">
+                          <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">Customer message</p>
+                          <p className="mt-1 text-[11px] italic leading-relaxed text-white/85">“{ind.case.customerMessage}”</p>
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">AI assistance</p>
+                          <p className="mt-1 text-[11px] leading-relaxed text-white/75">{ind.case.aiAssistance}</p>
+                        </div>
+                      </div>
+                    )}
+                    {ind.case && (
+                      <div className="mt-2.5 space-y-2.5 border-t border-white/10 pt-3 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {ind.case.fields.map((field) => (
+                            <div key={field.label} className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1">
+                              <p className="text-[9px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">{field.label}</p>
+                              <p className="mt-0.5 text-[10px] font-medium text-white/90">{field.value}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-[11px] font-semibold text-[var(--cyan-accent)]">{ind.case.outcome}</p>
+                        <ul className="space-y-0.5">
+                          {ind.case.limitations.map((limitation) => (
+                            <li key={limitation} className="text-[9px] leading-relaxed text-white/50">• {limitation}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </Reveal>
               ))}
