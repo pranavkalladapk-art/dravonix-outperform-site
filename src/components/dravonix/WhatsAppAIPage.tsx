@@ -312,13 +312,13 @@ export function WhatsAppAIPage() {
                 <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4 sm:p-6">
                   <WhatsAppChatPreview
                     messages={[
-                      { from: "customer", voice: true, text: "Do you provide website development and branding packages?" },
+                      { from: "customer", voice: true, text: "Do you offer website development and branding packages?" },
                       {
                         from: "ai",
-                        text: "Yes. Dravonix Media offers brand identity, website development, e-commerce and digital growth services. Tell me more about your business and I'll guide you to the right option.",
+                        text: "Yes — we provide brand identity, website development, e-commerce, and digital growth services. Could you share a little about your business so I can recommend the right option?",
                       },
                     ]}
-                    status="Voice note understood · Text response generated"
+                    status="Voice note understood · Response generated"
                     handover
                   />
                 </div>
@@ -624,8 +624,17 @@ export function WhatsAppAIPage() {
               </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               <Reveal>
+                <WhatsAppChatPreview
+                  messages={[
+                    { from: "customer", text: "Do you offer website development and e-commerce solutions?" },
+                    { from: "ai", text: "Yes, we build websites and e-commerce stores tailored to your business. What industry are you in?" },
+                  ]}
+                  status="English"
+                />
+              </Reveal>
+              <Reveal delay={80}>
                 <WhatsAppChatPreview
                   messages={[
                     { from: "customer", text: "Eye test-inu appointment kittumo?" },
@@ -634,7 +643,7 @@ export function WhatsAppAIPage() {
                   status="Malayalam-English mixed"
                 />
               </Reveal>
-              <Reveal delay={80}>
+              <Reveal delay={160}>
                 <WhatsAppChatPreview
                   messages={[
                     { from: "customer", text: "क्या आप वेबसाइट भी बनाते हैं?" },
@@ -643,7 +652,7 @@ export function WhatsAppAIPage() {
                   status="Hindi"
                 />
               </Reveal>
-              <Reveal delay={160}>
+              <Reveal delay={240}>
                 <WhatsAppChatPreview
                   messages={[
                     { from: "customer", text: "هل تقدمون خدمات التجارة الإلكترونية؟" },
