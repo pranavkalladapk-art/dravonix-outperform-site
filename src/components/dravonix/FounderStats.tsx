@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 
 const stats = [
-  { v: "4", l: "Core Services" },
+  { v: "10", l: "Core Services" },
   { v: "3", l: "Countries Served" },
   { v: "10+", l: "Brands Launched" },
   { v: "100%", l: "Trusted Digital Management" },
