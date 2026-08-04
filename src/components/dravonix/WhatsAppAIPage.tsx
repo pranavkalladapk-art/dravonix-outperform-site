@@ -554,13 +554,22 @@ export function WhatsAppAIPage() {
             </Reveal>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {industries.map((ind, i) => (
-                <Reveal key={ind.title} delay={i * 40}>
-                  <div className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40">
-                    <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
-                    <h3 className="mt-4 font-display text-base font-semibold text-white">{ind.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{ind.use}</p>
+                <Reveal
+                  key={ind.title}
+                  delay={i * 40}
+                  className={i === 0 ? "sm:col-span-2 lg:col-span-4" : undefined}
+                >
+                  <div className={cn(
+                    "rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40",
+                    i === 0 ? "h-full lg:grid lg:grid-cols-[1fr_1.25fr_1.25fr] lg:gap-8" : "h-full",
+                  )}>
+                    <div className={cn(i === 0 && "lg:pr-2")}>
+                      <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
+                      <h3 className="mt-4 font-display text-base font-semibold text-white">{ind.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{ind.use}</p>
+                    </div>
                     {ind.case && (
-                      <div className="mt-3 space-y-2.5 border-t border-white/10 pt-3">
+                      <div className="mt-4 space-y-2.5 border-t border-white/10 pt-3 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
                         <div className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5">
                           <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">Customer message</p>
                           <p className="mt-1 text-[11px] italic leading-relaxed text-white/85">“{ind.case.customerMessage}”</p>
@@ -569,6 +578,10 @@ export function WhatsAppAIPage() {
                           <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">AI assistance</p>
                           <p className="mt-1 text-[11px] leading-relaxed text-white/75">{ind.case.aiAssistance}</p>
                         </div>
+                      </div>
+                    )}
+                    {ind.case && (
+                      <div className="mt-2.5 space-y-2.5 border-t border-white/10 pt-3 lg:mt-0 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
                         <div className="grid grid-cols-2 gap-1.5">
                           {ind.case.fields.map((field) => (
                             <div key={field.label} className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1">
