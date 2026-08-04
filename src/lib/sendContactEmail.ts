@@ -40,11 +40,18 @@ export const sendContactEmail = createServerFn({ method: 'POST' })
 
     const submittedAt = new Date().toUTCString();
 
+    // Strip CR/LF from header-bound values to prevent header injection.
+    const clean = (s: string) => s.replace(/[\r\n]+/g, ' ').trim();
+    const subject =
+      source === 'whatsapp-ai-landing-page'
+        ? `New WhatsApp AI Demo Request — ${clean(business)}`
+        : `New enquiry from ${clean(name)} — ${clean(business)}${source ? ` [${clean(source)}]` : ''}`;
+
     await transporter.sendMail({
       from: `"Dravonix Website" <${SMTP_USER}>`,
       to: 'admin@dravonixmedia.com',
       replyTo: `${name} <${email}>`,
-      subject: `New enquiry from ${name} — ${business}${source ? ` [${source}]` : ''}`,
+      subject,
       text: `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nPhone: ${phone}\nNeed: ${need}\nSubmitted: ${submittedAt}${source ? `\nSource: ${source}` : ''}${pageUrl ? `\nPage: ${pageUrl}` : ''}${details ? `\n\nDetails:\n${details}` : ''}`,
       html: `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;">
         <h2 style="color:#1d4ed8;">New enquiry — Dravonix</h2>
