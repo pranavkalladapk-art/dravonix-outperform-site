@@ -7,7 +7,10 @@ const schema = z.object({
   business: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(255),
   phone: z.string().trim().min(7).max(20).regex(/^[+\d\s()-]+$/),
-  need: z.enum(['Branding', 'Social Media', 'Content', 'Strategy', 'All of the above']),
+  need: z.enum(['Branding', 'Social Media', 'Content', 'Strategy', 'All of the above', 'WhatsApp AI']),
+  details: z.string().trim().max(4000).optional(),
+  source: z.string().trim().max(120).optional(),
+  pageUrl: z.string().trim().max(300).optional(),
 });
 
 function escapeHtml(s: string) {
@@ -17,7 +20,7 @@ function escapeHtml(s: string) {
 export const sendContactEmail = createServerFn({ method: 'POST' })
   .validator((data: unknown) => schema.parse(data))
   .handler(async ({ data }) => {
-    const { name, business, email, phone, need } = data;
+    const { name, business, email, phone, need, details, source, pageUrl } = data;
 
     // @ts-ignore - access Cloudflare env via process.env (mapped at runtime)
     const SMTP_USER: string = process.env.ZOHO_SMTP_USER ?? process.env.ZOHO_EMAIL ?? '';
@@ -41,8 +44,8 @@ export const sendContactEmail = createServerFn({ method: 'POST' })
       from: `"Dravonix Website" <${SMTP_USER}>`,
       to: 'admin@dravonixmedia.com',
       replyTo: `${name} <${email}>`,
-      subject: `New enquiry from ${name} — ${business}`,
-      text: `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nPhone: ${phone}\nNeed: ${need}\nSubmitted: ${submittedAt}`,
+      subject: `New enquiry from ${name} — ${business}${source ? ` [${source}]` : ''}`,
+      text: `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nPhone: ${phone}\nNeed: ${need}\nSubmitted: ${submittedAt}${source ? `\nSource: ${source}` : ''}${pageUrl ? `\nPage: ${pageUrl}` : ''}${details ? `\n\nDetails:\n${details}` : ''}`,
       html: `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;">
         <h2 style="color:#1d4ed8;">New enquiry — Dravonix</h2>
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
@@ -51,7 +54,10 @@ export const sendContactEmail = createServerFn({ method: 'POST' })
           <tr><td style="padding:6px 0;color:#6b7280;">Email</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
           <tr><td style="padding:6px 0;color:#6b7280;">Phone</td><td>${escapeHtml(phone)}</td></tr>
           <tr><td style="padding:6px 0;color:#6b7280;">Need</td><td>${escapeHtml(need)}</td></tr>
+          ${source ? `<tr><td style="padding:6px 0;color:#6b7280;">Source</td><td>${escapeHtml(source)}</td></tr>` : ''}
+          ${pageUrl ? `<tr><td style="padding:6px 0;color:#6b7280;">Page</td><td>${escapeHtml(pageUrl)}</td></tr>` : ''}
         </table>
+        ${details ? `<pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:14px;background:#f9fafb;padding:12px;border-radius:8px;margin-top:16px;">${escapeHtml(details)}</pre>` : ''}
         <p style="font-size:12px;color:#9ca3af;margin-top:20px;">Submitted ${escapeHtml(submittedAt)}</p>
       </div>`,
     });
