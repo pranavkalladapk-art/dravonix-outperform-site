@@ -7,6 +7,7 @@ import { ValuePillars } from "@/components/dravonix/ValuePillars";
 import { Services } from "@/components/dravonix/Services";
 import { AIStudio } from "@/components/dravonix/AIStudio";
 import { GalleryPreview } from "@/components/dravonix/GalleryPreview";
+import { WhatsAppAIHighlight } from "@/components/dravonix/WhatsAppAIHighlight";
 import { Process } from "@/components/dravonix/Process";
 import { WhyDravonix } from "@/components/dravonix/WhyDravonix";
 import { About } from "@/components/dravonix/About";
