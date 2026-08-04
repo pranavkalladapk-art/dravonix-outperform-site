@@ -10,6 +10,7 @@ type NavLink = { to: string; label: string; hash?: string };
 const navLinks: Array<NavLink> = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/whatsapp-ai", label: "WhatsApp AI" },
   { to: "/work", label: "Work" },
   { to: "/process", label: "Our Process" },
   { to: "/", hash: "project-estimator", label: "Project Estimator" },

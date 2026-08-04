@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WhatsappAiRouteImport } from './routes/whatsapp-ai'
 import { Route as WebsiteDevelopmentRouteImport } from './routes/website-development'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as TeamRouteImport } from './routes/team'
@@ -43,6 +44,11 @@ import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatsappAiRoute = WhatsappAiRouteImport.update({
+  id: '/whatsapp-ai',
+  path: '/whatsapp-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WebsiteDevelopmentRoute = WebsiteDevelopmentRouteImport.update({
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/website-development': typeof WebsiteDevelopmentRoute
+  '/whatsapp-ai': typeof WhatsappAiRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -245,6 +252,7 @@ export interface FileRoutesByTo {
   '/team': typeof TeamRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/website-development': typeof WebsiteDevelopmentRoute
+  '/whatsapp-ai': typeof WhatsappAiRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -278,6 +286,7 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/website-development': typeof WebsiteDevelopmentRoute
+  '/whatsapp-ai': typeof WhatsappAiRoute
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
@@ -312,6 +321,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms-and-conditions'
     | '/website-development'
+    | '/whatsapp-ai'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -344,6 +354,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms-and-conditions'
     | '/website-development'
+    | '/whatsapp-ai'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -376,6 +387,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms-and-conditions'
     | '/website-development'
+    | '/whatsapp-ai'
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
@@ -409,6 +421,7 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   WebsiteDevelopmentRoute: typeof WebsiteDevelopmentRoute
+  WhatsappAiRoute: typeof WhatsappAiRoute
   WorkRoute: typeof WorkRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -427,6 +440,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whatsapp-ai': {
+      id: '/whatsapp-ai'
+      path: '/whatsapp-ai'
+      fullPath: '/whatsapp-ai'
+      preLoaderRoute: typeof WhatsappAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/website-development': {
@@ -657,6 +677,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
   WebsiteDevelopmentRoute: WebsiteDevelopmentRoute,
+  WhatsappAiRoute: WhatsappAiRoute,
   WorkRoute: WorkRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
