@@ -97,6 +97,8 @@ export function WhatsAppDemoForm() {
             `Current WhatsApp setup: ${d.setup}`,
             `Required languages: ${d.languages.join(", ")}`,
             `Main requirements: ${d.requirements || "—"}`,
+            `Consent: Accepted`,
+            `Source: whatsapp-ai-landing-page`,
             `Submitted: ${new Date().toISOString()}`,
           ].join("\n"),
         },
@@ -107,7 +109,9 @@ export function WhatsAppDemoForm() {
       form.reset();
     } catch (err) {
       console.error("WhatsApp AI demo submit failed:", err);
-      toast.error("Couldn't send right now. Please try again or email admin@dravonixmedia.com.");
+      toast.error(
+        "We couldn't submit your request right now. Please try again or contact admin@dravonixmedia.com."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -132,8 +136,8 @@ export function WhatsAppDemoForm() {
               <div className="flex flex-col items-center justify-center py-10 text-center">
                 <CheckCircle2 className="h-12 w-12 text-[#25D366]" strokeWidth={2} />
                 <p className="mt-4 text-lg font-semibold text-white">
-                  Thank you. Your request has been received. The Dravonix team will contact you to
-                  discuss the next steps.
+                  Thank you. Your demo request has been received. The Dravonix team will contact you
+                  shortly.
                 </p>
                 <p className="mt-3 text-sm text-[var(--muted-text)]">
                   admin@dravonixmedia.com · www.dravonixmedia.com
