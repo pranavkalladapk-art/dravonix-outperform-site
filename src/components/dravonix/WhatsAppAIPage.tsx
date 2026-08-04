@@ -557,11 +557,11 @@ export function WhatsAppAIPage() {
                 <Reveal
                   key={ind.title}
                   delay={i * 40}
-                  className={i === 0 ? "sm:col-span-2 lg:col-span-4" : undefined}
+                  className={i === 0 ? "sm:col-span-2 lg:col-span-3" : undefined}
                 >
                   <div className={cn(
                     "rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40",
-                    i === 0 ? "h-full lg:grid lg:grid-cols-[1fr_1.25fr_1.25fr] lg:gap-8" : "h-full",
+                    i === 0 ? "h-full lg:grid lg:grid-cols-3 lg:gap-8" : "h-full",
                   )}>
                     <div className={cn(i === 0 && "lg:pr-2")}>
                       <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
