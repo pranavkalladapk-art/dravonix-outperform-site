@@ -312,13 +312,13 @@ export function WhatsAppAIPage() {
                 <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-4 sm:p-6">
                   <WhatsAppChatPreview
                     messages={[
-                      { from: "customer", voice: true, text: "Do you provide website development and branding packages?" },
+                      { from: "customer", voice: true, text: "Do you offer website development and branding packages?" },
                       {
                         from: "ai",
-                        text: "Yes. Dravonix Media offers brand identity, website development, e-commerce and digital growth services. Tell me more about your business and I'll guide you to the right option.",
+                        text: "Yes — we provide brand identity, website development, e-commerce, and digital growth services. Could you share a little about your business so I can recommend the right option?",
                       },
                     ]}
-                    status="Voice note understood · Text response generated"
+                    status="Voice note understood · Response generated"
                     handover
                   />
                 </div>
