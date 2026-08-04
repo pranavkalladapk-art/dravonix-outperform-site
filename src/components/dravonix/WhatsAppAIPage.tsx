@@ -22,6 +22,7 @@ import {
   UtensilsCrossed,
   Plane,
   Briefcase,
+  Ruler,
 } from "lucide-react";
 import { useState } from "react";
 import { Nav } from "./Nav";
