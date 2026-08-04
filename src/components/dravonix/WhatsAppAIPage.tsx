@@ -557,7 +557,7 @@ export function WhatsAppAIPage() {
                 <Reveal
                   key={ind.title}
                   delay={i * 40}
-                  className={i === 0 ? "sm:col-span-2 lg:col-span-3" : undefined}
+                  className={i === 0 ? "sm:col-span-2 lg:col-span-4" : undefined}
                 >
                   <div className={cn(
                     "rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:-translate-y-1 hover:border-[var(--cyan-accent)]/40",
