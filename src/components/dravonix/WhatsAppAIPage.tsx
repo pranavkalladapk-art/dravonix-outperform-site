@@ -121,7 +121,32 @@ const capabilities = [
 ];
 
 const industries = [
-  { icon: Glasses, title: "Optical stores", use: "Handle eye-test enquiries, store locations, frame questions and appointment requests." },
+  {
+    icon: Ruler,
+    title: "Architecture, Interior Design & Construction",
+    use: "Architecture studios, interior-design firms and construction companies receive enquiries with incomplete information about property type, location, project scope, budget, timeline and design preferences.",
+    case: {
+      customerMessage:
+        "We’re planning the interior design of a 2,500 sq. ft. villa in Kochi. We need a modern luxury style and would like to complete it within six months.",
+      aiAssistance:
+        "The assistant collects the property type, location, approximate area, required services, design preferences, expected timeline and budget range. It explains the company’s approved process, portfolio categories and consultation steps before transferring the structured project enquiry to the appropriate architect, designer or project consultant.",
+      outcome: "Project requirement qualified",
+      limitations: [
+        "Does not provide a final construction estimate automatically.",
+        "Does not promise project timelines, material availability or regulatory approvals.",
+        "Does not present preliminary information as architectural, engineering or legal approval.",
+        "Final quotations and feasibility decisions remain with the authorised business team.",
+      ],
+      fields: [
+        { label: "Property type", value: "Villa" },
+        { label: "Project location", value: "Kochi" },
+        { label: "Approximate area", value: "2,500 sq. ft." },
+        { label: "Service required", value: "Interior Design" },
+        { label: "Preferred style", value: "Modern Luxury" },
+        { label: "Status", value: "Consultant handover ready" },
+      ],
+    },
+  },
   { icon: Stethoscope, title: "Clinics and healthcare enquiries", use: "Share timings, services and appointment information. Not for diagnosis, emergency advice or treatment decisions." },
   { icon: GraduationCap, title: "Educational institutions", use: "Answer course enquiries, booking questions, seat availability and admission FAQs." },
   { icon: Building2, title: "Real estate companies", use: "Capture property requirements, schedule viewing enquiries and transfer qualified leads to agents." },
