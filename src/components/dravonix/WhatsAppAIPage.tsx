@@ -641,6 +641,52 @@ export function WhatsAppAIPage() {
           </div>
         </section>
 
+        {/* COMING SOON */}
+        <section className="bg-[var(--navy)] pb-4 pt-4 md:pb-8 md:pt-8">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+                  Coming Soon
+                </span>
+                <h2 className="mt-5 font-display text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
+                  Intelligent WhatsApp Support Is Almost Here.
+                </h2>
+                <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted-text)]">
+                  We&rsquo;re preparing Dravonix WhatsApp AI for selected business demonstrations and
+                  controlled onboarding. Submit your details to receive launch updates, request a
+                  private demo and discuss early-access availability.
+                </p>
+                <ul className="mx-auto mt-7 grid gap-2.5 text-left text-sm text-white/85 sm:max-w-2xl sm:grid-cols-3">
+                  {[
+                    "Platform testing in progress",
+                    "Selected business demonstrations available",
+                    "Public client access coming later",
+                  ].map((p) => (
+                    <li key={p} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  onClick={scrollToDemo}
+                  className="mt-8 inline-flex items-center justify-center rounded-full bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
+                >
+                  Request Early Access
+                </button>
+              </div>
+              <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-[var(--muted-text)]">
+                The platform is not publicly launched yet. Submitting this form registers your
+                interest and allows the Dravonix team to contact you regarding private
+                demonstrations and early-access onboarding.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <WhatsAppDemoForm />
 
         {/* FAQ */}
