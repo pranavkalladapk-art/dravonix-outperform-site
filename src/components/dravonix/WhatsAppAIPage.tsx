@@ -559,6 +559,32 @@ export function WhatsAppAIPage() {
                     <ind.icon className="h-5 w-5 text-[var(--cyan-accent)]" aria-hidden />
                     <h3 className="mt-4 font-display text-base font-semibold text-white">{ind.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{ind.use}</p>
+                    {ind.case && (
+                      <div className="mt-4 space-y-4 border-t border-white/10 pt-4">
+                        <div className="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+                          <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">Customer message</p>
+                          <p className="mt-1 text-xs italic leading-relaxed text-white/85">“{ind.case.customerMessage}”</p>
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">AI assistance</p>
+                          <p className="mt-1 text-xs leading-relaxed text-white/75">{ind.case.aiAssistance}</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          {ind.case.fields.map((field) => (
+                            <div key={field.label} className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1.5">
+                              <p className="text-[9px] font-semibold uppercase tracking-wider text-[var(--muted-text)]">{field.label}</p>
+                              <p className="mt-0.5 text-[11px] font-medium text-white/90">{field.value}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-xs font-semibold text-[var(--cyan-accent)]">{ind.case.outcome}</p>
+                        <ul className="space-y-1">
+                          {ind.case.limitations.map((limitation) => (
+                            <li key={limitation} className="text-[10px] leading-relaxed text-white/50">• {limitation}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </Reveal>
               ))}
