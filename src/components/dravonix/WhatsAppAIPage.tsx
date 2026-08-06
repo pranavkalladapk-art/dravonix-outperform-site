@@ -69,7 +69,7 @@ export const whatsappFaqs = [
   },
   {
     q: "Does Dravonix Copilot send messages?",
-    a: "No. Copilot creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
+    a: "No. Dravonix Copilot creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
   },
 ];
 
@@ -152,12 +152,12 @@ const features = [
 
 const copilotActions = [
   { icon: FileText, label: "Summarize" },
-  { icon: PenLine, label: "Suggest reply" },
+  { icon: PenLine, label: "Suggest Reply" },
   { icon: Sparkles, label: "Rewrite" },
   { icon: TranslateIcon, label: "Translate" },
-  { icon: ClipboardList, label: "Extract lead" },
+  { icon: ClipboardList, label: "Extract Lead" },
   { icon: CalendarClock, label: "Follow-up" },
-  { icon: Search, label: "Ask AI about this conversation" },
+  { icon: Search, label: "Ask about this conversation" },
 ];
 
 const handoverTriggers = [
@@ -466,13 +466,14 @@ export function WhatsAppAIPage() {
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <SectionLabel>Dravonix Copilot</SectionLabel>
+                <SectionLabel>Meet Dravonix Copilot</SectionLabel>
                 <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                   Give every staff member an AI conversation copilot.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted-text)]">
-                  Dravonix Copilot helps staff understand customer conversations, prepare replies and
-                  identify important information without automatically sending messages.
+                  Dravonix Copilot helps staff understand customer conversations, prepare replies,
+                  translate messages, extract lead details and plan follow-ups without automatically
+                  sending messages.
                 </p>
                 <ul className="mt-7 flex flex-wrap gap-2.5">
                   {copilotActions.map((a) => (
@@ -487,7 +488,7 @@ export function WhatsAppAIPage() {
                 </ul>
                 <p className="mt-7 flex items-start gap-2.5 rounded-xl border border-[var(--cyan-accent)]/30 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/85">
                   <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
-                  Every Copilot result remains a draft. Staff review and manually send the final
+                  Every Dravonix Copilot result remains a draft. Staff review and manually send the final
                   message.
                 </p>
               </Reveal>
@@ -499,11 +500,11 @@ export function WhatsAppAIPage() {
                       { from: "customer", text: "Can you share pricing for a 3-bedroom apartment renovation?" },
                       { from: "ai", text: "I can collect the details so our team can prepare an accurate quotation. Which city is the apartment in?" },
                     ]}
-                    status="Conversation · Copilot open"
+                    status="Conversation · Dravonix Copilot open"
                   />
                   <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4 sm:p-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                      Copilot workspace
+                      Dravonix Copilot workspace
                     </p>
 
                     <div className="mt-4 space-y-3">
