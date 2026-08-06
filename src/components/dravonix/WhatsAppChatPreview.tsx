@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import { Mic, ShieldCheck } from "lucide-react";
+import { DraivaBrand } from "./DraivaBrand";
 
 type Msg = { from: "customer" | "ai"; text: string; voice?: boolean };
 
@@ -10,11 +12,14 @@ type Msg = { from: "customer" | "ai"; text: string; voice?: boolean };
 export function WhatsAppChatPreview({
   messages,
   status,
+  draivaHeader,
   handover,
   className,
 }: {
   messages: Msg[];
-  status?: string;
+  status?: ReactNode;
+  /** Use the DRAIVA product identity in the header instead of the generic label. */
+  draivaHeader?: boolean;
   handover?: boolean;
   className?: string;
 }) {
@@ -27,7 +32,19 @@ export function WhatsAppChatPreview({
           D
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-white">AI Assistant</p>
+          {draivaHeader ? (
+            <p className="text-sm font-semibold leading-tight">
+              <span className="block font-bold tracking-[0.14em] text-[var(--cyan-accent)]">
+                DRAIVA
+              </span>
+              <span className="block text-[11px] font-medium leading-snug text-white/85">
+                AI Conversation Assistant by{" "}
+                <span className="font-bold text-[var(--cyan-accent)]">Dravonix</span>
+              </span>
+            </p>
+          ) : (
+            <p className="truncate text-sm font-semibold text-white">AI Assistant</p>
+          )}
           <p className="flex items-center gap-1.5 text-[11px] text-[var(--muted-text)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
             Assistant active
@@ -61,7 +78,7 @@ export function WhatsAppChatPreview({
       </div>
 
       {status && (
-        <p className="mt-4 border-t border-white/10 pt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--cyan-accent)]">
+        <p className="mt-4 border-t border-white/10 pt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--cyan-accent)] [overflow-wrap:anywhere]">
           {status}
         </p>
       )}
