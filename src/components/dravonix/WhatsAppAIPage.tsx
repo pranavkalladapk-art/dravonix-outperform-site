@@ -466,13 +466,14 @@ export function WhatsAppAIPage() {
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <SectionLabel>Dravonix Copilot</SectionLabel>
+                <SectionLabel>Meet Dravonix Copilot</SectionLabel>
                 <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                   Give every staff member an AI conversation copilot.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted-text)]">
-                  Dravonix Copilot helps staff understand customer conversations, prepare replies and
-                  identify important information without automatically sending messages.
+                  Dravonix Copilot helps staff understand customer conversations, prepare replies,
+                  translate messages, extract lead details and plan follow-ups without automatically
+                  sending messages.
                 </p>
                 <ul className="mt-7 flex flex-wrap gap-2.5">
                   {copilotActions.map((a) => (
