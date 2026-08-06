@@ -349,8 +349,7 @@ export function WhatsAppAIPage() {
 
             <div className="mt-8 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <EarlyAccessBadge />
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
                   Dravonix WhatsApp AI
                 </p>
                 <h1 className="mt-3 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -363,9 +362,6 @@ export function WhatsAppAIPage() {
                 </p>
                 <p className="mt-4 text-sm font-semibold text-white/85">
                   Text · Voice · Human Handover · Lead Capture · Multilingual AI
-                </p>
-                <p className="mt-3 text-sm text-[var(--muted-text)]">
-                  Controlled onboarding is currently available for selected businesses.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -383,16 +379,19 @@ export function WhatsAppAIPage() {
                   </button>
                   <button
                     type="button"
-                    aria-label="Join the Dravonix WhatsApp AI early-access programme"
+                    aria-label="Request onboarding for Dravonix WhatsApp AI"
                     onClick={() => {
-                      trackLead({ content_name: "WhatsApp AI — Join Early Access" });
+                      trackLead({ content_name: "WhatsApp AI — Request Onboarding" });
                       scrollToDemo();
                     }}
                     className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
                   >
-                    Join Early Access
+                    Request Onboarding
                   </button>
                 </div>
+                <p className="mt-4 text-xs leading-relaxed text-[var(--muted-text)]">
+                  Currently onboarding selected businesses through assisted setup.
+                </p>
               </Reveal>
 
               <Reveal delay={120}>
