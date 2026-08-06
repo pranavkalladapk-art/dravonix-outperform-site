@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+
 import {
   ArrowRight,
   MessageSquare,
@@ -90,14 +90,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function EarlyAccessBadge() {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
-      Early Access
-    </span>
-  );
-}
 
 const problemPoints = [
   "Respond to repeated enquiries",
@@ -357,8 +349,7 @@ export function WhatsAppAIPage() {
 
             <div className="mt-8 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <EarlyAccessBadge />
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
                   Dravonix WhatsApp AI
                 </p>
                 <h1 className="mt-3 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -371,9 +362,6 @@ export function WhatsAppAIPage() {
                 </p>
                 <p className="mt-4 text-sm font-semibold text-white/85">
                   Text · Voice · Human Handover · Lead Capture · Multilingual AI
-                </p>
-                <p className="mt-3 text-sm text-[var(--muted-text)]">
-                  Controlled onboarding is currently available for selected businesses.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -391,16 +379,19 @@ export function WhatsAppAIPage() {
                   </button>
                   <button
                     type="button"
-                    aria-label="Join the Dravonix WhatsApp AI early-access programme"
+                    aria-label="Request onboarding for Dravonix WhatsApp AI"
                     onClick={() => {
-                      trackLead({ content_name: "WhatsApp AI — Join Early Access" });
+                      trackLead({ content_name: "WhatsApp AI — Request Onboarding" });
                       scrollToDemo();
                     }}
                     className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
                   >
-                    Join Early Access
+                    Request Onboarding
                   </button>
                 </div>
+                <p className="mt-4 text-xs leading-relaxed text-[var(--muted-text)]">
+                  Currently onboarding selected businesses through assisted setup.
+                </p>
               </Reveal>
 
               <Reveal delay={120}>
@@ -838,67 +829,6 @@ export function WhatsAppAIPage() {
           </div>
         </section>
 
-        {/* EARLY-ACCESS ONBOARDING */}
-        <section className="bg-[var(--navy)] py-20 md:py-24">
-          <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
-            <Reveal>
-              <EarlyAccessBadge />
-              <h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-                Early-access onboarding for selected businesses.
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted-text)]">
-                Every business has different message volumes, languages, workflows, team requirements
-                and integration needs. Dravonix will review your requirements and recommend the
-                appropriate onboarding setup.
-              </p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  aria-label="Request WhatsApp AI onboarding"
-                  onClick={() => {
-                    trackLead({ content_name: "WhatsApp AI — Request Onboarding" });
-                    scrollToDemo();
-                  }}
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
-                >
-                  Request Onboarding
-                </button>
-                <button
-                  type="button"
-                  aria-label="Book a WhatsApp AI demo"
-                  onClick={scrollToDemo}
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
-                >
-                  Book a Demo
-                </button>
-              </div>
-              <p className="mt-6 text-xs leading-relaxed text-[var(--muted-text)]">
-                Self-service subscription management and automated usage billing are currently being
-                finalised.
-              </p>
-              <p className="mt-8 text-sm text-[var(--muted-text)]">
-                Explore related services:{" "}
-                <Link to="/social-media-management" className="text-[var(--cyan-accent)] underline underline-offset-4">
-                  Social Media Management
-                </Link>
-                ,{" "}
-                <Link to="/crm-business-automation" className="text-[var(--cyan-accent)] underline underline-offset-4">
-                  CRM &amp; Business Automation
-                </Link>
-                ,{" "}
-                <Link to="/custom-web-applications" className="text-[var(--cyan-accent)] underline underline-offset-4">
-                  Custom Web Applications &amp; SaaS
-                </Link>{" "}
-                or{" "}
-                <Link to="/contact" className="text-[var(--cyan-accent)] underline underline-offset-4">
-                  book a consultation
-                </Link>
-                .
-              </p>
-            </Reveal>
-          </div>
-        </section>
-
         <WhatsAppDemoForm />
 
         {/* FAQ */}
@@ -948,15 +878,18 @@ export function WhatsAppAIPage() {
               </button>
               <button
                 type="button"
-                aria-label="Join the Dravonix WhatsApp AI early-access programme"
-                onClick={scrollToDemo}
+                aria-label="Request onboarding for Dravonix WhatsApp AI"
+                onClick={() => {
+                  trackLead({ content_name: "WhatsApp AI — Request Onboarding (Footer CTA)" });
+                  scrollToDemo();
+                }}
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Join Early Access
+                Request Onboarding
               </button>
             </div>
             <p className="mt-6 text-sm text-white/85">
-              Controlled onboarding is currently available for selected businesses.
+              Currently onboarding selected businesses through assisted setup.
             </p>
           </div>
         </section>
