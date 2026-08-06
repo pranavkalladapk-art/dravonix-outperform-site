@@ -69,7 +69,7 @@ export const whatsappFaqs = [
   },
   {
     q: "Does Dravonix Copilot send messages?",
-    a: "No. Copilot creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
+    a: "No. Dravonix Copilot creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
   },
 ];
 
@@ -488,7 +488,7 @@ export function WhatsAppAIPage() {
                 </ul>
                 <p className="mt-7 flex items-start gap-2.5 rounded-xl border border-[var(--cyan-accent)]/30 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/85">
                   <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
-                  Every Copilot result remains a draft. Staff review and manually send the final
+                  Every Dravonix Copilot result remains a draft. Staff review and manually send the final
                   message.
                 </p>
               </Reveal>
@@ -500,11 +500,11 @@ export function WhatsAppAIPage() {
                       { from: "customer", text: "Can you share pricing for a 3-bedroom apartment renovation?" },
                       { from: "ai", text: "I can collect the details so our team can prepare an accurate quotation. Which city is the apartment in?" },
                     ]}
-                    status="Conversation · Copilot open"
+                    status="Conversation · Dravonix Copilot open"
                   />
                   <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4 sm:p-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                      Copilot workspace
+                      Dravonix Copilot workspace
                     </p>
 
                     <div className="mt-4 space-y-3">
