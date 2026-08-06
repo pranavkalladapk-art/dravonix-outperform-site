@@ -33,6 +33,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
 import { Breadcrumbs } from "./Breadcrumbs";
+import { DraivaBrand, DraivaMark } from "./DraivaBrand";
 import { WhatsAppChatPreview } from "./WhatsAppChatPreview";
 import { WhatsAppDemoForm } from "./WhatsAppDemoForm";
 import { cn } from "@/lib/utils";
@@ -193,7 +194,7 @@ const dashboardModules = [
   "Human Handover",
   "Leads",
   "Notifications",
-  "DRAIVA AI Conversation Assistant by Dravonix",
+  "__DRAIVA__",
   "Team Settings",
   "Company Settings",
   "WhatsApp Connection",
@@ -290,13 +291,14 @@ function HeroProductVisual() {
           },
         ]}
         status="Voice note transcribed · AI reply sent"
+        draivaHeader
         handover
       />
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-            DRAIVA AI Conversation Assistant by Dravonix
+          <p className="text-[11px] font-semibold leading-relaxed">
+            <DraivaBrand block className="text-[11px]" />
           </p>
           <p className="mt-2 text-xs leading-relaxed text-white/80">
             Customer requested an interior-work quotation and a callback tomorrow. No budget shared
@@ -467,17 +469,26 @@ export function WhatsAppAIPage() {
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
                 <SectionLabel>
-                  <span className="text-[var(--cyan-accent)]">DRAIVA AI</span>{" "}
-                  <span className="text-white">Conversation Assistant by</span>{" "}
-                  <span className="text-[var(--cyan-accent)]">Dravonix</span>
+                  <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 normal-case tracking-normal">
+                    <span className="font-bold uppercase tracking-[0.14em] text-[var(--cyan-accent)]">
+                      DRAIVA AI
+                    </span>
+                    <span aria-hidden className="text-white/40">
+                      ·
+                    </span>
+                    <span className="font-medium text-white">
+                      Conversation Assistant by{" "}
+                      <span className="font-bold text-[var(--cyan-accent)]">Dravonix</span>
+                    </span>
+                  </span>
                 </SectionLabel>
                 <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                   Give every staff member an AI conversation copilot.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted-text)]">
-                  DRAIVA AI Conversation Assistant by Dravonix helps staff understand customer conversations,
-                  prepare replies, translate messages, extract lead details and plan follow-ups without
-                  automatically sending messages.
+                  <DraivaBrand />{" "}
+                  helps staff understand customer conversations, prepare replies, translate messages,
+                  extract lead details and plan follow-ups without automatically sending messages.
                 </p>
                 <ul className="mt-7 flex flex-wrap gap-2.5">
                   {copilotActions.map((a) => (
@@ -490,10 +501,12 @@ export function WhatsAppAIPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-7 flex items-start gap-2.5 rounded-xl border border-[var(--cyan-accent)]/30 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/85">
+                <p className="mt-8 flex items-start gap-2.5 rounded-xl border border-[var(--cyan-accent)]/30 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/85">
                   <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
-                  Every DRAIVA AI Conversation Assistant by Dravonix result remains a draft. Staff review
-                  and manually send the final message.
+                  <span>
+                    Every <DraivaMark /> result remains a draft. Staff review and manually send the
+                    final message.
+                  </span>
                 </p>
               </Reveal>
 
@@ -504,11 +517,13 @@ export function WhatsAppAIPage() {
                       { from: "customer", text: "Can you share pricing for a 3-bedroom apartment renovation?" },
                       { from: "ai", text: "I can collect the details so our team can prepare an accurate quotation. Which city is the apartment in?" },
                     ]}
-                    status="Conversation · DRAIVA AI Conversation Assistant by Dravonix open"
+                    draivaHeader
+                    status={<DraivaMark suffix="Workspace" className="normal-case tracking-normal" />}
                   />
                   <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4 sm:p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                      DRAIVA AI Conversation Assistant by Dravonix workspace
+                    <p className="text-[11px] font-semibold leading-relaxed">
+                      <DraivaBrand block className="text-[11px]" />
+                      <span className="mt-0.5 block font-medium text-white/70">Workspace</span>
                     </p>
 
                     <div className="mt-4 space-y-3">
@@ -644,21 +659,31 @@ export function WhatsAppAIPage() {
 
             <Reveal delay={100}>
               <div className="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-[#0E1626] p-4 shadow-2xl sm:p-6">
-                <div className="grid gap-5 md:grid-cols-[220px_1fr]">
+                <div className="grid gap-5 md:grid-cols-[minmax(200px,240px)_minmax(0,1fr)] md:gap-8">
                   <nav aria-label="Dashboard sections preview" className="flex gap-2 overflow-x-auto pb-2 md:flex-col md:overflow-visible md:pb-0">
-                    {dashboardModules.map((m, i) => (
-                      <span
-                        key={m}
-                        className={cn(
-                          "whitespace-nowrap rounded-xl border px-3.5 py-2 text-xs font-semibold",
-                          i === 1
-                            ? "border-[var(--cyan-accent)]/40 bg-[var(--cyan-accent)]/10 text-[var(--cyan-accent)]"
-                            : "border-white/10 bg-white/[0.03] text-white/75",
-                        )}
-                      >
-                        {m}
-                      </span>
-                    ))}
+                    {dashboardModules.map((m, i) => {
+                      const isDraiva = m === "__DRAIVA__";
+                      return (
+                        <span
+                          key={m}
+                          className={cn(
+                            "flex min-w-0 flex-col justify-center rounded-xl border px-3.5 py-2 text-left text-xs font-semibold",
+                            isDraiva
+                              ? "max-w-[240px] [overflow-wrap:anywhere] [white-space:normal] md:max-w-none"
+                              : "whitespace-nowrap",
+                            i === 1
+                              ? "border-[var(--cyan-accent)]/40 bg-[var(--cyan-accent)]/10 text-[var(--cyan-accent)]"
+                              : "border-white/10 bg-white/[0.03] text-white/75",
+                          )}
+                        >
+                          {isDraiva ? (
+                            <DraivaBrand block className="text-[11px] leading-relaxed lg:text-xs" />
+                          ) : (
+                            m
+                          )}
+                        </span>
+                      );
+                    })}
                   </nav>
 
                   <div className="space-y-3">

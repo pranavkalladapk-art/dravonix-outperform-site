@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Mic, ShieldCheck } from "lucide-react";
-import { DraivaBrand } from "./DraivaBrand";
 
 type Msg = { from: "customer" | "ai"; text: string; voice?: boolean };
 
