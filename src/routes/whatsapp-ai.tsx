@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { WhatsAppAIPage, whatsappFaqs } from "@/components/dravonix/WhatsAppAIPage";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema, SITE_URL } from "@/lib/seo";
 
-const title = "WhatsApp AI for Business | Dravonix Media";
+const title = "WhatsApp AI Chatbot for Business | Dravonix WhatsApp AI";
 const description =
-  "Dravonix WhatsApp AI is coming soon. Request a private demo and join early access for AI-powered WhatsApp customer replies, voice-note understanding and human handover.";
+  "Automate WhatsApp text and voice conversations, capture leads, support human handover and help staff respond faster with Dravonix Copilot.";
 
 export const Route = createFileRoute("/whatsapp-ai")({
   head: () =>
