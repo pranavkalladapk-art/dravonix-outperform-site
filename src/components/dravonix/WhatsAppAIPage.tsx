@@ -90,14 +90,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function EarlyAccessBadge() {
-  return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/30 bg-[var(--cyan-accent)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
-      Early Access
-    </span>
-  );
-}
 
 const problemPoints = [
   "Respond to repeated enquiries",
