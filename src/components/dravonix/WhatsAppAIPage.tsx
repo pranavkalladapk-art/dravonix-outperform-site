@@ -41,7 +41,7 @@ import { trackLead } from "@/lib/metaPixel";
 export const whatsappFaqs = [
   {
     q: "Will the AI automatically send every reply?",
-    a: "The automatic WhatsApp assistant can reply according to the company’s approved rules. Dravonix Copilot is a staff tool that only prepares drafts and never sends them automatically.",
+    a: "The automatic WhatsApp assistant can reply according to the company’s approved rules. DRAIVA AI Conversation Assistant by Dravonix is a staff tool that only prepares drafts and never sends them automatically.",
   },
   {
     q: "Can a staff member take over a conversation?",
@@ -68,8 +68,8 @@ export const whatsappFaqs = [
     a: "The platform is primarily designed for customer conversations, lead handling and support operations. Business-initiated campaigns must comply with Meta’s consent, template and messaging-policy requirements.",
   },
   {
-    q: "Does Dravonix Copilot send messages?",
-    a: "No. Dravonix Copilot creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
+    q: "Does DRAIVA AI Conversation Assistant by Dravonix send messages?",
+    a: "No. DRAIVA AI Conversation Assistant by Dravonix creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
   },
 ];
 
@@ -183,7 +183,7 @@ const steps = [
   { n: "02", title: "Configure the Business", desc: "Add services, supported languages, communication instructions and AI response rules." },
   { n: "03", title: "Receive Conversations", desc: "Customers send text messages, voice notes and supported media through WhatsApp." },
   { n: "04", title: "AI Responds or Escalates", desc: "The AI handles supported enquiries and surfaces conversations that require human attention." },
-  { n: "05", title: "Staff Take Over", desc: "Authorised staff can review the conversation, use Dravonix Copilot and respond manually." },
+  { n: "05", title: "Staff Take Over", desc: "Authorised staff can review the conversation, use DRAIVA AI Conversation Assistant by Dravonix and respond manually." },
   { n: "06", title: "Capture the Opportunity", desc: "Customer requirements and lead information remain organised for follow-up." },
 ];
 
@@ -193,7 +193,7 @@ const dashboardModules = [
   "Human Handover",
   "Leads",
   "Notifications",
-  "Dravonix Copilot",
+  "DRAIVA AI Conversation Assistant by Dravonix",
   "Team Settings",
   "Company Settings",
   "WhatsApp Connection",
@@ -296,7 +296,7 @@ function HeroProductVisual() {
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-            Dravonix Copilot
+            DRAIVA AI Conversation Assistant by Dravonix
           </p>
           <p className="mt-2 text-xs leading-relaxed text-white/80">
             Customer requested an interior-work quotation and a callback tomorrow. No budget shared
@@ -466,14 +466,14 @@ export function WhatsAppAIPage() {
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <SectionLabel>Meet Dravonix Copilot</SectionLabel>
+                <SectionLabel>Meet DRAIVA AI Conversation Assistant by Dravonix</SectionLabel>
                 <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
                   Give every staff member an AI conversation copilot.
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-[var(--muted-text)]">
-                  Dravonix Copilot helps staff understand customer conversations, prepare replies,
-                  translate messages, extract lead details and plan follow-ups without automatically
-                  sending messages.
+                  DRAIVA AI Conversation Assistant by Dravonix helps staff understand customer conversations,
+                  prepare replies, translate messages, extract lead details and plan follow-ups without
+                  automatically sending messages.
                 </p>
                 <ul className="mt-7 flex flex-wrap gap-2.5">
                   {copilotActions.map((a) => (
@@ -488,8 +488,8 @@ export function WhatsAppAIPage() {
                 </ul>
                 <p className="mt-7 flex items-start gap-2.5 rounded-xl border border-[var(--cyan-accent)]/30 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/85">
                   <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
-                  Every Dravonix Copilot result remains a draft. Staff review and manually send the final
-                  message.
+                  Every DRAIVA AI Conversation Assistant by Dravonix result remains a draft. Staff review
+                  and manually send the final message.
                 </p>
               </Reveal>
 
@@ -500,11 +500,11 @@ export function WhatsAppAIPage() {
                       { from: "customer", text: "Can you share pricing for a 3-bedroom apartment renovation?" },
                       { from: "ai", text: "I can collect the details so our team can prepare an accurate quotation. Which city is the apartment in?" },
                     ]}
-                    status="Conversation · Dravonix Copilot open"
+                    status="Conversation · DRAIVA AI Conversation Assistant by Dravonix open"
                   />
                   <div className="rounded-2xl border border-white/10 bg-[#0E1626] p-4 sm:p-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--cyan-accent)]">
-                      Dravonix Copilot workspace
+                      DRAIVA AI Conversation Assistant by Dravonix workspace
                     </p>
 
                     <div className="mt-4 space-y-3">
@@ -902,8 +902,8 @@ export function WhatsAppAIPage() {
               Build a faster WhatsApp customer experience.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 md:text-lg">
-              See how AI replies, voice processing, lead collection, Human Handover and Dravonix
-              Copilot can work together for your business.
+              See how AI replies, voice processing, lead collection, Human Handover and DRAIVA AI Conversation Assistant by
+              Dravonix can work together for your business.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <button

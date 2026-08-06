@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema, SITE_URL } from 
 
 const title = "WhatsApp AI Chatbot for Business | Dravonix WhatsApp AI";
 const description =
-  "Automate WhatsApp text and voice conversations, capture leads, support human handover and help staff respond faster with Dravonix Copilot.";
+  "Automate WhatsApp text and voice conversations, capture leads, support human handover and help staff respond faster with DRAIVA AI Conversation Assistant by Dravonix.";
 
 export const Route = createFileRoute("/whatsapp-ai")({
   head: () =>
