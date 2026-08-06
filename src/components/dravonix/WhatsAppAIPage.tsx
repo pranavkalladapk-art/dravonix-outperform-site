@@ -667,7 +667,7 @@ export function WhatsAppAIPage() {
                         <span
                           key={m}
                           className={cn(
-                            "flex min-w-0 flex-col justify-center rounded-xl border px-3.5 py-2 text-left text-xs font-semibold",
+                            "flex shrink-0 flex-col justify-center rounded-xl border px-3.5 py-2 text-left text-xs font-semibold md:w-full md:min-w-0 md:shrink",
                             isDraiva
                               ? "max-w-[240px] [overflow-wrap:anywhere] [white-space:normal] md:max-w-none"
                               : "whitespace-nowrap",
