@@ -152,12 +152,12 @@ const features = [
 
 const copilotActions = [
   { icon: FileText, label: "Summarize" },
-  { icon: PenLine, label: "Suggest reply" },
+  { icon: PenLine, label: "Suggest Reply" },
   { icon: Sparkles, label: "Rewrite" },
   { icon: TranslateIcon, label: "Translate" },
-  { icon: ClipboardList, label: "Extract lead" },
+  { icon: ClipboardList, label: "Extract Lead" },
   { icon: CalendarClock, label: "Follow-up" },
-  { icon: Search, label: "Ask AI about this conversation" },
+  { icon: Search, label: "Ask about this conversation" },
 ];
 
 const handoverTriggers = [
