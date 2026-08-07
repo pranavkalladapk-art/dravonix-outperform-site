@@ -484,7 +484,9 @@ export function DraivaConnectPage() {
                 Explore WhatsApp AI
               </Link>
               <Link
-                to="/contact"
+                to="/draiva"
+                search={{ product: "whatsapp" as const }}
+                hash="book-demo"
                 onClick={() =>
                   trackLead({ content_name: "DRAIVA Connect — Book a Live Demo (CTA)" })
                 }
