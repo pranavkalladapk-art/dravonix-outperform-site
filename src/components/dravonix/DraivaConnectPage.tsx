@@ -1,11 +1,13 @@
 import { ArrowRight, Sparkles, UserPlus, Languages, ClipboardList, ShieldCheck } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Link, useLocation, useSearch } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { StatusBadge, SectionLabel } from "./DraivaUI";
-import { DRAIVA_PRODUCTS, type DraivaProduct } from "./draiva-products";
+import { DraivaEnquiryForm } from "./DraivaEnquiryForm";
+import { DRAIVA_PRODUCTS, type DraivaProduct, type DraivaProductKey } from "./draiva-products";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 
@@ -35,10 +37,11 @@ const intelligenceLayer = [
 function ProductCard({ p }: { p: DraivaProduct }) {
   const live = p.status === "NOW ONBOARDING";
   const Icon = p.icon;
+  const secondLabel = live ? "Book a Live Demo" : "Register Interest";
   return (
     <div
       className={cn(
-        "flex h-full flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1",
+        "group/card relative flex h-full flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1",
         live
           ? "border-[var(--cyan-accent)]/45 bg-white/[0.05] shadow-[0_0_0_1px_rgba(6,182,212,0.08)]"
           : "border-white/10 bg-white/[0.02] hover:border-[var(--cyan-accent)]/35",
@@ -71,16 +74,38 @@ function ProductCard({ p }: { p: DraivaProduct }) {
         {p.desc}
       </p>
 
+      {/* Card body click target — sits behind the buttons, no nested links. */}
       <Link
         to={p.path}
-        className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan-accent)]"
-      >
-        {p.cta}
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </Link>
+        aria-label={`Explore ${p.name}`}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute inset-0 z-0 rounded-2xl"
+      />
+
+      <div className="relative z-10 mt-6 flex flex-wrap items-center gap-2.5">
+        <Link
+          to={p.path}
+          onClick={() => trackLead({ content_name: `${p.name} — Explore (card)` })}
+          className="group inline-flex items-center gap-2 rounded-full border border-[var(--cyan-accent)]/45 px-4 py-2 text-sm font-semibold text-[var(--cyan-accent)] transition-colors hover:bg-[var(--cyan-accent)]/10"
+        >
+          Explore
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+        <Link
+          to="/draiva"
+          search={{ product: p.key }}
+          hash="book-demo"
+          onClick={() => trackLead({ content_name: `${p.name} — ${secondLabel} (card)` })}
+          className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
+        >
+          {secondLabel}
+        </Link>
+      </div>
     </div>
   );
 }
+
 
 function IntelligenceHub() {
   const spokes = DRAIVA_PRODUCTS;
@@ -152,6 +177,25 @@ function IntelligenceHub() {
 
 export function DraivaConnectPage() {
   const [current, ...upcoming] = DRAIVA_PRODUCTS;
+  const search = useSearch({ strict: false }) as { product?: DraivaProductKey };
+  const product = search.product;
+  const location = useLocation();
+
+  // Anchor scroll with sticky-nav offset, on load and on every hash navigation.
+  useEffect(() => {
+    if (location.hash !== "book-demo") return;
+    const id = window.requestAnimationFrame(() => {
+      const el = document.getElementById("book-demo");
+      if (!el) return;
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - 88,
+        behavior: "smooth",
+      });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [location.hash, location.searchStr]);
+
+
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--navy)]">
@@ -193,7 +237,9 @@ export function DraivaConnectPage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                   <Link
-                    to="/contact"
+                    to="/draiva"
+                    search={{ product: "whatsapp" as const }}
+                    hash="book-demo"
                     onClick={() => trackLead({ content_name: "DRAIVA Connect — Book a Live Demo" })}
                     className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
                   >
@@ -427,6 +473,8 @@ export function DraivaConnectPage() {
           </div>
         </section>
 
+        <DraivaEnquiryForm initialProduct={product} />
+
         {/* FINAL CTA */}
         <section className="relative overflow-hidden bg-[var(--blue-brand)] py-20 md:py-28">
           <div aria-hidden className="absolute inset-0 opacity-20">
@@ -459,7 +507,9 @@ export function DraivaConnectPage() {
                 Explore WhatsApp AI
               </Link>
               <Link
-                to="/contact"
+                to="/draiva"
+                search={{ product: "whatsapp" as const }}
+                hash="book-demo"
                 onClick={() =>
                   trackLead({ content_name: "DRAIVA Connect — Book a Live Demo (CTA)" })
                 }
