@@ -452,6 +452,8 @@ export function DraivaConnectPage() {
           </div>
         </section>
 
+        <DraivaEnquiryForm initialProduct={product} />
+
         {/* FINAL CTA */}
         <section className="relative overflow-hidden bg-[var(--blue-brand)] py-20 md:py-28">
           <div aria-hidden className="absolute inset-0 opacity-20">
