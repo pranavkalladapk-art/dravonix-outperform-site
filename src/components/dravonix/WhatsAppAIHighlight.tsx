@@ -42,7 +42,7 @@ export function WhatsAppAIHighlight() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                to="/whatsapp-ai"
+                to="/draiva/whatsapp-ai"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
               >
                 Explore WhatsApp AI
