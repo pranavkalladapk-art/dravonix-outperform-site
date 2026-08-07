@@ -961,6 +961,20 @@ export function WhatsAppAIPage() {
             <p className="mt-6 text-sm text-white/85">
               Currently onboarding selected businesses through assisted setup.
             </p>
+            <p className="mt-4 text-sm text-white/80">
+              <Link to="/draiva" className="font-semibold underline underline-offset-4">
+                Explore DRAIVA Connect
+              </Link>{" "}
+              ·{" "}
+              <Link to="/crm-business-automation" className="underline underline-offset-4">
+                CRM &amp; business automation
+              </Link>{" "}
+              ·{" "}
+              <Link to="/contact" className="underline underline-offset-4">
+                Contact Dravonix
+              </Link>
+            </p>
+
           </div>
         </section>
       </main>
