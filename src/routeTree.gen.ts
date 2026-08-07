@@ -33,11 +33,13 @@ import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as DraivaIndexRouteImport } from './routes/draiva.index'
 import { Route as LocationsUnitedKingdomRouteImport } from './routes/locations.united-kingdom'
 import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
 import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
 import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
 import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
+import { Route as DraivaWhatsappAiRouteImport } from './routes/draiva.whatsapp-ai'
 import { Route as DraivaWebChatRouteImport } from './routes/draiva.web-chat'
 import { Route as DraivaVoiceRouteImport } from './routes/draiva.voice'
 import { Route as DraivaSocialRouteImport } from './routes/draiva.social'
@@ -165,6 +167,11 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
   path: '/locations/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DraivaIndexRoute = DraivaIndexRouteImport.update({
+  id: '/draiva/',
+  path: '/draiva/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsUnitedKingdomRoute = LocationsUnitedKingdomRouteImport.update({
   id: '/locations/united-kingdom',
   path: '/locations/united-kingdom',
@@ -188,6 +195,11 @@ const LocationsIndiaRoute = LocationsIndiaRouteImport.update({
 const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
   id: '/locations/global',
   path: '/locations/global',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaWhatsappAiRoute = DraivaWhatsappAiRouteImport.update({
+  id: '/draiva/whatsapp-ai',
+  path: '/draiva/whatsapp-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DraivaWebChatRoute = DraivaWebChatRouteImport.update({
@@ -251,11 +263,13 @@ export interface FileRoutesByFullPath {
   '/draiva/social': typeof DraivaSocialRoute
   '/draiva/voice': typeof DraivaVoiceRoute
   '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva/': typeof DraivaIndexRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -288,11 +302,13 @@ export interface FileRoutesByTo {
   '/draiva/social': typeof DraivaSocialRoute
   '/draiva/voice': typeof DraivaVoiceRoute
   '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva': typeof DraivaIndexRoute
   '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
@@ -326,11 +342,13 @@ export interface FileRoutesById {
   '/draiva/social': typeof DraivaSocialRoute
   '/draiva/voice': typeof DraivaVoiceRoute
   '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva/': typeof DraivaIndexRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
@@ -365,11 +383,13 @@ export interface FileRouteTypes {
     | '/draiva/social'
     | '/draiva/voice'
     | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva/'
     | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -402,11 +422,13 @@ export interface FileRouteTypes {
     | '/draiva/social'
     | '/draiva/voice'
     | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva'
     | '/locations'
   id:
     | '__root__'
@@ -439,11 +461,13 @@ export interface FileRouteTypes {
     | '/draiva/social'
     | '/draiva/voice'
     | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva/'
     | '/locations/'
   fileRoutesById: FileRoutesById
 }
@@ -477,11 +501,13 @@ export interface RootRouteChildren {
   DraivaSocialRoute: typeof DraivaSocialRoute
   DraivaVoiceRoute: typeof DraivaVoiceRoute
   DraivaWebChatRoute: typeof DraivaWebChatRoute
+  DraivaWhatsappAiRoute: typeof DraivaWhatsappAiRoute
   LocationsGlobalRoute: typeof LocationsGlobalRoute
   LocationsIndiaRoute: typeof LocationsIndiaRoute
   LocationsKeralaRoute: typeof LocationsKeralaRoute
   LocationsUaeRoute: typeof LocationsUaeRoute
   LocationsUnitedKingdomRoute: typeof LocationsUnitedKingdomRoute
+  DraivaIndexRoute: typeof DraivaIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
@@ -655,6 +681,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/draiva/': {
+      id: '/draiva/'
+      path: '/draiva'
+      fullPath: '/draiva/'
+      preLoaderRoute: typeof DraivaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/united-kingdom': {
       id: '/locations/united-kingdom'
       path: '/locations/united-kingdom'
@@ -688,6 +721,13 @@ declare module '@tanstack/react-router' {
       path: '/locations/global'
       fullPath: '/locations/global'
       preLoaderRoute: typeof LocationsGlobalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/whatsapp-ai': {
+      id: '/draiva/whatsapp-ai'
+      path: '/draiva/whatsapp-ai'
+      fullPath: '/draiva/whatsapp-ai'
+      preLoaderRoute: typeof DraivaWhatsappAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/draiva/web-chat': {
@@ -765,11 +805,13 @@ const rootRouteChildren: RootRouteChildren = {
   DraivaSocialRoute: DraivaSocialRoute,
   DraivaVoiceRoute: DraivaVoiceRoute,
   DraivaWebChatRoute: DraivaWebChatRoute,
+  DraivaWhatsappAiRoute: DraivaWhatsappAiRoute,
   LocationsGlobalRoute: LocationsGlobalRoute,
   LocationsIndiaRoute: LocationsIndiaRoute,
   LocationsKeralaRoute: LocationsKeralaRoute,
   LocationsUaeRoute: LocationsUaeRoute,
   LocationsUnitedKingdomRoute: LocationsUnitedKingdomRoute,
+  DraivaIndexRoute: DraivaIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
