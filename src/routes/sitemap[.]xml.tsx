@@ -17,9 +17,8 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/custom-web-applications`, changefreq: "monthly", priority: "0.9" },
   { loc: `${SITE}/crm-business-automation`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/ai-studio`, changefreq: "monthly", priority: "0.8" },
-  { loc: `${SITE}/draiva/whatsapp-ai`, changefreq: "weekly", priority: "0.9" },
   { loc: `${SITE}/draiva`, changefreq: "monthly", priority: "0.9" },
-
+  { loc: `${SITE}/draiva/whatsapp-ai`, changefreq: "weekly", priority: "0.9" },
   { loc: `${SITE}/locations`, changefreq: "monthly", priority: "0.8" },
   { loc: `${SITE}/locations/kerala`, changefreq: "monthly", priority: "0.85" },
   { loc: `${SITE}/locations/india`, changefreq: "monthly", priority: "0.8" },
