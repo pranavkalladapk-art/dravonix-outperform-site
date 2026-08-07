@@ -340,11 +340,20 @@ export function DraivaComingSoonPage(cfg: ComingSoonConfig) {
               We’re building the next communication layer of DRAIVA. Explore the platform today
               through DRAIVA WhatsApp.
             </p>
-            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                to="/draiva"
+                search={{ product: p.key }}
+                hash="book-demo"
+                onClick={() => trackLead({ content_name: `${p.name} — Register Interest (CTA)` })}
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
+              >
+                Register Interest
+              </Link>
               <Link
                 to="/draiva/whatsapp-ai"
                 onClick={() => trackLead({ content_name: `${p.name} — Explore WhatsApp (CTA)` })}
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[var(--navy)] shadow-xl transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
                 Explore DRAIVA WhatsApp
               </Link>
@@ -352,14 +361,9 @@ export function DraivaComingSoonPage(cfg: ComingSoonConfig) {
                 to="/draiva"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Explore DRAIVA Connect
+                Back to DRAIVA Connect
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                Talk to Dravonix
-              </Link>
+
             </div>
           </div>
         </section>
