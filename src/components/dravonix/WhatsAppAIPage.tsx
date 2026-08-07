@@ -368,7 +368,7 @@ export function WhatsAppAIPage() {
             <Breadcrumbs
               items={[
                 { label: "Home", href: "/" },
-                { label: "DRAIVA", href: "/draiva" },
+                { label: "DRAIVA Connect", href: "/draiva" },
                 { label: "WhatsApp AI", current: true },
               ]}
             />

@@ -24,7 +24,6 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
-import { Route as DraivaRouteImport } from './routes/draiva'
 import { Route as CustomWebApplicationsRouteImport } from './routes/custom-web-applications'
 import { Route as CrmBusinessAutomationRouteImport } from './routes/crm-business-automation'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -34,11 +33,17 @@ import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as DraivaIndexRouteImport } from './routes/draiva.index'
 import { Route as LocationsUnitedKingdomRouteImport } from './routes/locations.united-kingdom'
 import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
 import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
 import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
 import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
+import { Route as DraivaWhatsappAiRouteImport } from './routes/draiva.whatsapp-ai'
+import { Route as DraivaWebChatRouteImport } from './routes/draiva.web-chat'
+import { Route as DraivaVoiceRouteImport } from './routes/draiva.voice'
+import { Route as DraivaSocialRouteImport } from './routes/draiva.social'
+import { Route as DraivaMailRouteImport } from './routes/draiva.mail'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
@@ -117,11 +122,6 @@ const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
   path: '/ecommerce-development',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaRoute = DraivaRouteImport.update({
-  id: '/draiva',
-  path: '/draiva',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CustomWebApplicationsRoute = CustomWebApplicationsRouteImport.update({
   id: '/custom-web-applications',
   path: '/custom-web-applications',
@@ -167,6 +167,11 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
   path: '/locations/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DraivaIndexRoute = DraivaIndexRouteImport.update({
+  id: '/draiva/',
+  path: '/draiva/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocationsUnitedKingdomRoute = LocationsUnitedKingdomRouteImport.update({
   id: '/locations/united-kingdom',
   path: '/locations/united-kingdom',
@@ -192,6 +197,31 @@ const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
   path: '/locations/global',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DraivaWhatsappAiRoute = DraivaWhatsappAiRouteImport.update({
+  id: '/draiva/whatsapp-ai',
+  path: '/draiva/whatsapp-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaWebChatRoute = DraivaWebChatRouteImport.update({
+  id: '/draiva/web-chat',
+  path: '/draiva/web-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaVoiceRoute = DraivaVoiceRouteImport.update({
+  id: '/draiva/voice',
+  path: '/draiva/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaSocialRoute = DraivaSocialRouteImport.update({
+  id: '/draiva/social',
+  path: '/draiva/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaMailRoute = DraivaMailRouteImport.update({
+  id: '/draiva/mail',
+  path: '/draiva/mail',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -212,7 +242,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -230,11 +259,17 @@ export interface FileRoutesByFullPath {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva/': typeof DraivaIndexRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -246,7 +281,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -264,11 +298,17 @@ export interface FileRoutesByTo {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva': typeof DraivaIndexRoute
   '/locations': typeof LocationsIndexRoute
 }
 export interface FileRoutesById {
@@ -281,7 +321,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -299,11 +338,17 @@ export interface FileRoutesById {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
+  '/draiva/whatsapp-ai': typeof DraivaWhatsappAiRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
   '/locations/uae': typeof LocationsUaeRoute
   '/locations/united-kingdom': typeof LocationsUnitedKingdomRoute
+  '/draiva/': typeof DraivaIndexRoute
   '/locations/': typeof LocationsIndexRoute
 }
 export interface FileRouteTypes {
@@ -317,7 +362,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
-    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -335,11 +379,17 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva/'
     | '/locations/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -351,7 +401,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
-    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -369,11 +418,17 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva'
     | '/locations'
   id:
     | '__root__'
@@ -385,7 +440,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
-    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -403,11 +457,17 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
+    | '/draiva/whatsapp-ai'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
     | '/locations/uae'
     | '/locations/united-kingdom'
+    | '/draiva/'
     | '/locations/'
   fileRoutesById: FileRoutesById
 }
@@ -420,7 +480,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CrmBusinessAutomationRoute: typeof CrmBusinessAutomationRoute
   CustomWebApplicationsRoute: typeof CustomWebApplicationsRoute
-  DraivaRoute: typeof DraivaRoute
   EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
@@ -438,11 +497,17 @@ export interface RootRouteChildren {
   WorkRoute: typeof WorkRoute
   AdminEnquiriesRoute: typeof AdminEnquiriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  DraivaMailRoute: typeof DraivaMailRoute
+  DraivaSocialRoute: typeof DraivaSocialRoute
+  DraivaVoiceRoute: typeof DraivaVoiceRoute
+  DraivaWebChatRoute: typeof DraivaWebChatRoute
+  DraivaWhatsappAiRoute: typeof DraivaWhatsappAiRoute
   LocationsGlobalRoute: typeof LocationsGlobalRoute
   LocationsIndiaRoute: typeof LocationsIndiaRoute
   LocationsKeralaRoute: typeof LocationsKeralaRoute
   LocationsUaeRoute: typeof LocationsUaeRoute
   LocationsUnitedKingdomRoute: typeof LocationsUnitedKingdomRoute
+  DraivaIndexRoute: typeof DraivaIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
 }
 
@@ -553,13 +618,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EcommerceDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva': {
-      id: '/draiva'
-      path: '/draiva'
-      fullPath: '/draiva'
-      preLoaderRoute: typeof DraivaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/custom-web-applications': {
       id: '/custom-web-applications'
       path: '/custom-web-applications'
@@ -623,6 +681,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/draiva/': {
+      id: '/draiva/'
+      path: '/draiva'
+      fullPath: '/draiva/'
+      preLoaderRoute: typeof DraivaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/locations/united-kingdom': {
       id: '/locations/united-kingdom'
       path: '/locations/united-kingdom'
@@ -658,6 +723,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsGlobalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/draiva/whatsapp-ai': {
+      id: '/draiva/whatsapp-ai'
+      path: '/draiva/whatsapp-ai'
+      fullPath: '/draiva/whatsapp-ai'
+      preLoaderRoute: typeof DraivaWhatsappAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/web-chat': {
+      id: '/draiva/web-chat'
+      path: '/draiva/web-chat'
+      fullPath: '/draiva/web-chat'
+      preLoaderRoute: typeof DraivaWebChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/voice': {
+      id: '/draiva/voice'
+      path: '/draiva/voice'
+      fullPath: '/draiva/voice'
+      preLoaderRoute: typeof DraivaVoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/social': {
+      id: '/draiva/social'
+      path: '/draiva/social'
+      fullPath: '/draiva/social'
+      preLoaderRoute: typeof DraivaSocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/mail': {
+      id: '/draiva/mail'
+      path: '/draiva/mail'
+      fullPath: '/draiva/mail'
+      preLoaderRoute: typeof DraivaMailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -684,7 +784,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CrmBusinessAutomationRoute: CrmBusinessAutomationRoute,
   CustomWebApplicationsRoute: CustomWebApplicationsRoute,
-  DraivaRoute: DraivaRoute,
   EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
@@ -702,11 +801,17 @@ const rootRouteChildren: RootRouteChildren = {
   WorkRoute: WorkRoute,
   AdminEnquiriesRoute: AdminEnquiriesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  DraivaMailRoute: DraivaMailRoute,
+  DraivaSocialRoute: DraivaSocialRoute,
+  DraivaVoiceRoute: DraivaVoiceRoute,
+  DraivaWebChatRoute: DraivaWebChatRoute,
+  DraivaWhatsappAiRoute: DraivaWhatsappAiRoute,
   LocationsGlobalRoute: LocationsGlobalRoute,
   LocationsIndiaRoute: LocationsIndiaRoute,
   LocationsKeralaRoute: LocationsKeralaRoute,
   LocationsUaeRoute: LocationsUaeRoute,
   LocationsUnitedKingdomRoute: LocationsUnitedKingdomRoute,
+  DraivaIndexRoute: DraivaIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
 }
 export const routeTree = rootRouteImport
