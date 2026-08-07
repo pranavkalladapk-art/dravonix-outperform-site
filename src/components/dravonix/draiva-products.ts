@@ -9,8 +9,10 @@ import {
 
 export type DraivaStatus = "NOW ONBOARDING" | "COMING SOON";
 
+export type DraivaProductKey = "whatsapp" | "web-chat" | "mail" | "social" | "voice";
+
 export type DraivaProduct = {
-  key: "whatsapp" | "web-chat" | "mail" | "social" | "voice";
+  key: DraivaProductKey;
   icon: LucideIcon;
   /** Full product name, e.g. "DRAIVA WhatsApp" */
   name: string;
