@@ -191,6 +191,9 @@ export function EstimateCard() {
             Your estimate is generated based on real project data and industry
             averages. Final pricing may vary depending on scope.
           </p>
+          <p className="mt-1.5 text-center text-[10px] uppercase tracking-[0.16em] text-white/40">
+            Issued by Dravonix Media Private Limited
+          </p>
 
         </div>
       </div>

@@ -135,24 +135,39 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-[var(--muted-text)]">
-            © 2026 Dravonix Media Private Limited. All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              to="/privacy-policy"
-              className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
-            >
-              Privacy & Policy
-            </Link>
-            <Link
-              to="/terms-and-conditions"
-              className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
-            >
-              Terms & Conditions
-            </Link>
-            <span className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</span>
+        <div className="mt-14 border-t border-white/10 pt-6">
+          <div className="max-w-sm">
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/80">
+              Registered Company
+            </h4>
+            <p className="mt-3 text-xs leading-relaxed text-[var(--muted-text)]">
+              Dravonix Media Private Limited
+              <br />
+              CIN: U62011KL2026PTC105404
+              <br />
+              Registered in India
+            </p>
+          </div>
+
+          <div className="mt-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
+            <p className="text-xs text-[var(--muted-text)]">
+              © 2026 Dravonix Media Private Limited. All Rights Reserved.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                to="/privacy-policy"
+                className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
+              >
+                Privacy & Policy
+              </Link>
+              <Link
+                to="/terms-and-conditions"
+                className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
+              >
+                Terms & Conditions
+              </Link>
+              <span className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</span>
+            </div>
           </div>
         </div>
       </div>

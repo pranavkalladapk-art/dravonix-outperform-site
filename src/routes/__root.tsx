@@ -66,12 +66,27 @@ export const Route = createRootRoute({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Dravonix",
+          name: "Dravonix Media Private Limited",
+          alternateName: "Dravonix",
+          legalName: "Dravonix Media Private Limited",
           url: "https://dravonixmedia.com",
           logo: "https://dravonixmedia.com/og-image.jpg",
           description:
             "Data-driven strategy, creative excellence, and AI-integrated production for brands that refuse to be average.",
           email: "admin@dravonixmedia.com",
+          identifier: {
+            "@type": "PropertyValue",
+            name: "CIN",
+            value: "U62011KL2026PTC105404",
+          },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "East Kallada",
+            addressLocality: "Kollam",
+            addressRegion: "Kerala",
+            postalCode: "691502",
+            addressCountry: "IN",
+          },
           sameAs: [
             "https://www.instagram.com/dravonixmedia/",
             "https://www.linkedin.com/in/dravonix/",
