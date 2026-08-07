@@ -216,7 +216,9 @@ export function DraivaConnectPage() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                   <Link
-                    to="/contact"
+                    to="/draiva"
+                    search={{ product: "whatsapp" as const }}
+                    hash="book-demo"
                     onClick={() => trackLead({ content_name: "DRAIVA Connect — Book a Live Demo" })}
                     className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
                   >
