@@ -36,9 +36,9 @@ function PrivacyPolicy() {
 
           <Section title="1. Introduction">
             <p>
-              Dravonix Media Private Limited ("Dravonix Media", "We", "Our", "Us") is a creative
+              Dravonix Media Private Limited ("Dravonix", "we", "our", or "us") is a creative
               technology and media company specializing in branding, digital transformation, website
-              development, software solutions, digital marketing, and media production. We are
+              development, software solutions, digital marketing, and media production. Dravonix is
               committed to protecting your privacy and handling your personal information
               responsibly.
             </p>
