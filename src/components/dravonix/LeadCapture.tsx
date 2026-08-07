@@ -109,6 +109,38 @@ export function LeadCapture() {
             Get a Free Estimate
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
+
+          <div className="mt-8 max-w-md rounded-2xl border border-white/15 bg-white/[0.04] p-5">
+            <h3 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/80">
+              Legal Information
+            </h3>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div>
+                <dt className="text-xs uppercase tracking-widest text-white/50">Legal Name</dt>
+                <dd className="mt-0.5 text-white/90">Dravonix Media Private Limited</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-widest text-white/50">
+                  Corporate Identity Number (CIN)
+                </dt>
+                <dd className="mt-0.5 text-white/90">U62011KL2026PTC105404</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-widest text-white/50">
+                  Registered Office
+                </dt>
+                <dd className="mt-0.5 leading-relaxed text-white/90">
+                  East Kallada
+                  <br />
+                  Kollam
+                  <br />
+                  Kerala – 691502
+                  <br />
+                  India
+                </dd>
+              </div>
+            </dl>
+          </div>
         </Reveal>
 
         <Reveal delay={120}>
