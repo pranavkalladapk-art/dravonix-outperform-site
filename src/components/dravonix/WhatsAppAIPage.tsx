@@ -41,38 +41,55 @@ import { trackLead } from "@/lib/metaPixel";
 
 export const whatsappFaqs = [
   {
-    q: "Will the AI automatically send every reply?",
-    a: "The automatic WhatsApp assistant can reply according to the company’s approved rules. DRAIVA AI Conversation Assistant by Dravonix is a staff tool that only prepares drafts and never sends them automatically.",
+    q: "What is a WhatsApp AI chatbot?",
+    a: "A WhatsApp AI chatbot is an assistant connected to a WhatsApp Business number that reads incoming customer messages, understands the enquiry and replies using the business’s approved information and rules. DRAIVA WhatsApp works this way and also lets staff take over any conversation.",
   },
   {
-    q: "Can a staff member take over a conversation?",
-    a: "Yes. Conversations can be moved into Human Handover so an authorised team member can review the conversation and respond manually.",
+    q: "How can AI automate WhatsApp customer support?",
+    a: "AI can handle repeated enquiries such as services, timings, pricing questions and order or service status, then organise the conversation and lead details for the team. Conversations that need judgement are surfaced to staff instead of being answered automatically.",
   },
   {
-    q: "Does the platform support voice messages?",
-    a: "Yes. The platform supports voice-message processing and transcription through its configured voice infrastructure.",
+    q: "Can DRAIVA hand conversations over to a human?",
+    a: "Yes. Conversations can be moved into Human Handover so an authorised team member can review the conversation and respond manually. Staff can also pause or resume AI on a conversation.",
   },
   {
-    q: "Which languages are currently supported?",
+    q: "Does DRAIVA support multiple languages?",
     a: "English, Malayalam, Hindi and Arabic are currently supported. Malayalam-English mixed conversations are also supported.",
   },
   {
-    q: "Can we connect our existing WhatsApp number?",
-    a: "This depends on the number’s current WhatsApp registration and Meta onboarding eligibility. Dravonix will review the number before activation and recommend the appropriate setup.",
+    q: "Can DRAIVA capture leads from WhatsApp conversations?",
+    a: "Yes. Customer details, service requirements, budget information, timelines and quotation intent can be organised as lead records inside the business workspace for follow-up.",
+  },
+  {
+    q: "Can staff review or change AI-generated replies?",
+    a: "Yes. DRAIVA AI Conversation Assistant by Dravonix only prepares drafts. Suggested replies remain editable and a staff member must press send.",
+  },
+  {
+    q: "Is DRAIVA suitable for small businesses?",
+    a: "Yes. The workspace is designed for small teams that receive more WhatsApp enquiries than they can answer instantly, as well as larger teams that need shared conversation visibility.",
+  },
+  {
+    q: "Can DRAIVA work with an existing WhatsApp Business number?",
+    a: "This depends on the number’s current WhatsApp registration and WhatsApp Business Platform onboarding eligibility. Dravonix reviews the number before activation and recommends the appropriate setup.",
+  },
+  {
+    q: "Does the platform support voice messages?",
+    a: "Yes. Incoming customer voice messages are processed and transcribed so the conversation can continue through supported workflows. The platform does not place autonomous outbound voice calls.",
+  },
+  {
+    q: "How does onboarding work?",
+    a: "Onboarding is assisted. Dravonix reviews the WhatsApp number, configures the business profile, services, supported languages and AI response rules, then activates the workspace with your team.",
+  },
+  {
+    q: "Is DRAIVA WhatsApp available in India and the UAE?",
+    a: "Yes. Dravonix works with businesses in India, the UAE, the UK and other regions. Setup follows WhatsApp Business Platform requirements applicable to the number and business.",
   },
   {
     q: "Can it confirm meetings or callbacks automatically?",
-    a: "The platform can recognise meeting and callback requests and surface them to staff. It should not confirm a specific appointment unless the business has approved and recorded that scheduling action.",
-  },
-  {
-    q: "Is this a bulk WhatsApp marketing platform?",
-    a: "The platform is primarily designed for customer conversations, lead handling and support operations. Business-initiated campaigns must comply with Meta’s consent, template and messaging-policy requirements.",
-  },
-  {
-    q: "Does DRAIVA AI Conversation Assistant by Dravonix send messages?",
-    a: "No. DRAIVA AI Conversation Assistant by Dravonix creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
+    a: "The platform can recognise meeting and callback requests and surface them to staff. It does not confirm a specific appointment unless the business has approved and recorded that scheduling action.",
   },
 ];
+
 
 function scrollToDemo() {
   const el = document.getElementById("demo");
