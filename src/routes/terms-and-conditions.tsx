@@ -39,9 +39,10 @@ function TermsAndConditions() {
 
           <Section title="1. Introduction & Acceptance">
             <p>
-              These Terms and Conditions govern the use of dravonixmedia.com and all services
-              provided by Dravonix Media Private Limited. By accessing this website, submitting an
-              enquiry, approving a proposal, or making a payment, you agree to these terms.
+              These Terms and Conditions govern the use of the website operated by Dravonix Media
+              Private Limited, a company incorporated under the Companies Act, 2013 (CIN:
+              U62011KL2026PTC105404). By accessing this website, submitting an enquiry, approving a
+              proposal, or making a payment, you agree to these terms.
             </p>
           </Section>
 
