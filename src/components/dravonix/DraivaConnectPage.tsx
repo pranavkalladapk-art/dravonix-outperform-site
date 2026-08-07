@@ -1,11 +1,13 @@
 import { ArrowRight, Sparkles, UserPlus, Languages, ClipboardList, ShieldCheck } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Link, useLocation, useSearch } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { StatusBadge, SectionLabel } from "./DraivaUI";
-import { DRAIVA_PRODUCTS, type DraivaProduct } from "./draiva-products";
+import { DraivaEnquiryForm } from "./DraivaEnquiryForm";
+import { DRAIVA_PRODUCTS, type DraivaProduct, type DraivaProductKey } from "./draiva-products";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 
