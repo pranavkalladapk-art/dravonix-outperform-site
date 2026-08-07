@@ -103,20 +103,30 @@ export function DraivaComingSoonPage(cfg: ComingSoonConfig) {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Link
-                    to="/draiva/whatsapp-ai"
-                    onClick={() => trackLead({ content_name: `${p.name} — Explore WhatsApp` })}
+                    to="/draiva"
+                    search={{ product: p.key }}
+                    hash="book-demo"
+                    onClick={() => trackLead({ content_name: `${p.name} — Register Interest` })}
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--blue-brand)] px-7 py-3.5 text-sm font-semibold text-white shadow-glow-brand transition-transform hover:-translate-y-0.5"
                   >
-                    Explore DRAIVA WhatsApp
+                    Register Interest
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  <Link
+                    to="/draiva/whatsapp-ai"
+                    onClick={() => trackLead({ content_name: `${p.name} — Explore WhatsApp` })}
+                    className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
+                  >
+                    Explore DRAIVA WhatsApp
                   </Link>
                   <Link
                     to="/draiva"
                     className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--cyan-accent)]/60 hover:text-[var(--cyan-accent)]"
                   >
-                    Explore DRAIVA Connect
+                    Back to DRAIVA Connect
                   </Link>
                 </div>
+
               </Reveal>
 
               <Reveal delay={120}>
