@@ -39,6 +39,10 @@ import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
 import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
 import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
 import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
+import { Route as DraivaWebChatRouteImport } from './routes/draiva.web-chat'
+import { Route as DraivaVoiceRouteImport } from './routes/draiva.voice'
+import { Route as DraivaSocialRouteImport } from './routes/draiva.social'
+import { Route as DraivaMailRouteImport } from './routes/draiva.mail'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
 
@@ -192,6 +196,26 @@ const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
   path: '/locations/global',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DraivaWebChatRoute = DraivaWebChatRouteImport.update({
+  id: '/web-chat',
+  path: '/web-chat',
+  getParentRoute: () => DraivaRoute,
+} as any)
+const DraivaVoiceRoute = DraivaVoiceRouteImport.update({
+  id: '/voice',
+  path: '/voice',
+  getParentRoute: () => DraivaRoute,
+} as any)
+const DraivaSocialRoute = DraivaSocialRouteImport.update({
+  id: '/social',
+  path: '/social',
+  getParentRoute: () => DraivaRoute,
+} as any)
+const DraivaMailRoute = DraivaMailRouteImport.update({
+  id: '/mail',
+  path: '/mail',
+  getParentRoute: () => DraivaRoute,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -212,7 +236,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
+  '/draiva': typeof DraivaRouteWithChildren
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -230,6 +254,10 @@ export interface FileRoutesByFullPath {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
@@ -246,7 +274,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
+  '/draiva': typeof DraivaRouteWithChildren
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -264,6 +292,10 @@ export interface FileRoutesByTo {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
@@ -281,7 +313,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
-  '/draiva': typeof DraivaRoute
+  '/draiva': typeof DraivaRouteWithChildren
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -299,6 +331,10 @@ export interface FileRoutesById {
   '/work': typeof WorkRoute
   '/admin/enquiries': typeof AdminEnquiriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/draiva/mail': typeof DraivaMailRoute
+  '/draiva/social': typeof DraivaSocialRoute
+  '/draiva/voice': typeof DraivaVoiceRoute
+  '/draiva/web-chat': typeof DraivaWebChatRoute
   '/locations/global': typeof LocationsGlobalRoute
   '/locations/india': typeof LocationsIndiaRoute
   '/locations/kerala': typeof LocationsKeralaRoute
@@ -335,6 +371,10 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
@@ -369,6 +409,10 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
@@ -403,6 +447,10 @@ export interface FileRouteTypes {
     | '/work'
     | '/admin/enquiries'
     | '/admin/login'
+    | '/draiva/mail'
+    | '/draiva/social'
+    | '/draiva/voice'
+    | '/draiva/web-chat'
     | '/locations/global'
     | '/locations/india'
     | '/locations/kerala'
@@ -420,7 +468,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CrmBusinessAutomationRoute: typeof CrmBusinessAutomationRoute
   CustomWebApplicationsRoute: typeof CustomWebApplicationsRoute
-  DraivaRoute: typeof DraivaRoute
+  DraivaRoute: typeof DraivaRouteWithChildren
   EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
@@ -658,6 +706,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocationsGlobalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/draiva/web-chat': {
+      id: '/draiva/web-chat'
+      path: '/web-chat'
+      fullPath: '/draiva/web-chat'
+      preLoaderRoute: typeof DraivaWebChatRouteImport
+      parentRoute: typeof DraivaRoute
+    }
+    '/draiva/voice': {
+      id: '/draiva/voice'
+      path: '/voice'
+      fullPath: '/draiva/voice'
+      preLoaderRoute: typeof DraivaVoiceRouteImport
+      parentRoute: typeof DraivaRoute
+    }
+    '/draiva/social': {
+      id: '/draiva/social'
+      path: '/social'
+      fullPath: '/draiva/social'
+      preLoaderRoute: typeof DraivaSocialRouteImport
+      parentRoute: typeof DraivaRoute
+    }
+    '/draiva/mail': {
+      id: '/draiva/mail'
+      path: '/mail'
+      fullPath: '/draiva/mail'
+      preLoaderRoute: typeof DraivaMailRouteImport
+      parentRoute: typeof DraivaRoute
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -675,6 +751,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DraivaRouteChildren {
+  DraivaMailRoute: typeof DraivaMailRoute
+  DraivaSocialRoute: typeof DraivaSocialRoute
+  DraivaVoiceRoute: typeof DraivaVoiceRoute
+  DraivaWebChatRoute: typeof DraivaWebChatRoute
+}
+
+const DraivaRouteChildren: DraivaRouteChildren = {
+  DraivaMailRoute: DraivaMailRoute,
+  DraivaSocialRoute: DraivaSocialRoute,
+  DraivaVoiceRoute: DraivaVoiceRoute,
+  DraivaWebChatRoute: DraivaWebChatRoute,
+}
+
+const DraivaRouteWithChildren =
+  DraivaRoute._addFileChildren(DraivaRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -684,7 +777,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CrmBusinessAutomationRoute: CrmBusinessAutomationRoute,
   CustomWebApplicationsRoute: CustomWebApplicationsRoute,
-  DraivaRoute: DraivaRoute,
+  DraivaRoute: DraivaRouteWithChildren,
   EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,
