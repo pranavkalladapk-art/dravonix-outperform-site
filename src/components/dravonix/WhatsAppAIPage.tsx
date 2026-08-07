@@ -927,12 +927,13 @@ export function WhatsAppAIPage() {
           </div>
           <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
             <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              Build a faster WhatsApp customer experience.
+              Bring AI into your WhatsApp conversations.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 md:text-lg">
-              See how AI replies, voice processing, lead collection, Human Handover and DRAIVA AI Conversation Assistant by
-              Dravonix can work together for your business.
+              See how DRAIVA can help your business handle customer enquiries, capture leads and
+              move seamlessly between AI and human conversations.
             </p>
+
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <button
                 type="button"
