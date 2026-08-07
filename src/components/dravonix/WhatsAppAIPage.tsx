@@ -438,6 +438,37 @@ export function WhatsAppAIPage() {
           </div>
         </section>
 
+        {/* SEO INTRO */}
+        <section className="bg-[var(--navy)] pb-4 pt-4 md:pb-8 md:pt-6">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+                <h2 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  What is DRAIVA WhatsApp?
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--muted-text)] md:text-base">
+                  DRAIVA WhatsApp is an AI WhatsApp chatbot and customer-conversation workspace for
+                  businesses that receive more enquiries than a team can answer instantly. It
+                  connects to a WhatsApp Business number, reads incoming text and voice messages,
+                  and replies using the services, pricing guidance and communication rules your
+                  business has approved.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--muted-text)] md:text-base">
+                  It is designed for retail and e-commerce, clinics, education, real estate,
+                  hospitality, automotive and professional-services teams that rely on WhatsApp for
+                  customer support, sales enquiries and lead generation. Conversations happen in
+                  English, Malayalam, Hindi or Arabic, customer requirements are captured as
+                  organised leads, and anything needing judgement moves to a staff member through
+                  Human Handover. Every conversation, lead and AI status stays visible in one
+                  business dashboard, so WhatsApp automation improves response times without
+                  removing human control.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+
         {/* PROBLEM */}
         <section className="bg-[var(--navy)] py-20 md:py-24">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
