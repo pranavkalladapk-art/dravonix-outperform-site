@@ -362,24 +362,42 @@ export function WhatsAppAIPage() {
         {/* HERO */}
         <section className="relative pt-28 pb-16 md:pt-36 md:pb-24">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "WhatsApp AI", current: true }]} />
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "DRAIVA", href: "/draiva" },
+                { label: "WhatsApp AI", current: true },
+              ]}
+            />
 
             <div className="mt-8 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
-                  Dravonix WhatsApp AI
+                <p className="text-xs font-semibold uppercase tracking-[0.22em]">
+                  <span className="font-bold text-[var(--cyan-accent)]">DRAIVA</span>{" "}
+                  <span className="text-white/80">WhatsApp</span>
                 </p>
                 <h1 className="mt-3 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
-                  Turn WhatsApp into an AI-powered customer operations desk.
+                  WhatsApp AI built for real business conversations.
                 </h1>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-                  Dravonix WhatsApp AI helps businesses respond faster, understand customer needs,
-                  process text and voice conversations, capture leads and transfer important
-                  conversations to human staff—all from one secure dashboard.
+                  Turn WhatsApp enquiries into intelligent customer conversations with AI-powered
+                  replies, multilingual support, lead capture and seamless human handover — all
+                  through DRAIVA by Dravonix.
                 </p>
                 <p className="mt-4 text-sm font-semibold text-white/85">
-                  Text · Voice · Human Handover · Lead Capture · Multilingual AI
+                  AI-Powered WhatsApp Customer Communication by Dravonix
                 </p>
+                <p className="mt-3 text-sm text-[var(--muted-text)]">
+                  Part of{" "}
+                  <Link
+                    to="/draiva"
+                    className="font-semibold text-[var(--cyan-accent)] underline-offset-4 hover:underline"
+                  >
+                    DRAIVA Connect
+                  </Link>{" "}
+                  — the omnichannel AI communication platform by Dravonix.
+                </p>
+
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <button
