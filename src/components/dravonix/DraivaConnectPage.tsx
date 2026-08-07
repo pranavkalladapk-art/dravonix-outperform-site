@@ -175,6 +175,25 @@ function IntelligenceHub() {
 
 export function DraivaConnectPage() {
   const [current, ...upcoming] = DRAIVA_PRODUCTS;
+  const search = useSearch({ strict: false }) as { product?: DraivaProductKey };
+  const product = search.product;
+  const location = useLocation();
+
+  // Anchor scroll with sticky-nav offset, on load and on every hash navigation.
+  useEffect(() => {
+    if (location.hash !== "book-demo") return;
+    const id = window.requestAnimationFrame(() => {
+      const el = document.getElementById("book-demo");
+      if (!el) return;
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - 88,
+        behavior: "smooth",
+      });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [location.hash, location.searchStr]);
+
+
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--navy)]">
