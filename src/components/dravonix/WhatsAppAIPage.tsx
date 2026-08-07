@@ -29,6 +29,8 @@ import {
   Search,
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
