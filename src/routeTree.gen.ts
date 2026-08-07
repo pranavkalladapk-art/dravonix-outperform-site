@@ -24,6 +24,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
+import { Route as DraivaRouteImport } from './routes/draiva'
 import { Route as CustomWebApplicationsRouteImport } from './routes/custom-web-applications'
 import { Route as CrmBusinessAutomationRouteImport } from './routes/crm-business-automation'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -116,6 +117,11 @@ const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
   path: '/ecommerce-development',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DraivaRoute = DraivaRouteImport.update({
+  id: '/draiva',
+  path: '/draiva',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CustomWebApplicationsRoute = CustomWebApplicationsRouteImport.update({
   id: '/custom-web-applications',
   path: '/custom-web-applications',
@@ -206,6 +212,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
+  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -239,6 +246,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
+  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/crm-business-automation': typeof CrmBusinessAutomationRoute
   '/custom-web-applications': typeof CustomWebApplicationsRoute
+  '/draiva': typeof DraivaRoute
   '/ecommerce-development': typeof EcommerceDevelopmentRoute
   '/home': typeof HomeRoute
   '/performance-marketing': typeof PerformanceMarketingRoute
@@ -308,6 +317,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
+    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -341,6 +351,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
+    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -374,6 +385,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/crm-business-automation'
     | '/custom-web-applications'
+    | '/draiva'
     | '/ecommerce-development'
     | '/home'
     | '/performance-marketing'
@@ -408,6 +420,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CrmBusinessAutomationRoute: typeof CrmBusinessAutomationRoute
   CustomWebApplicationsRoute: typeof CustomWebApplicationsRoute
+  DraivaRoute: typeof DraivaRoute
   EcommerceDevelopmentRoute: typeof EcommerceDevelopmentRoute
   HomeRoute: typeof HomeRoute
   PerformanceMarketingRoute: typeof PerformanceMarketingRoute
@@ -540,6 +553,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EcommerceDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/draiva': {
+      id: '/draiva'
+      path: '/draiva'
+      fullPath: '/draiva'
+      preLoaderRoute: typeof DraivaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/custom-web-applications': {
       id: '/custom-web-applications'
       path: '/custom-web-applications'
@@ -664,6 +684,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CrmBusinessAutomationRoute: CrmBusinessAutomationRoute,
   CustomWebApplicationsRoute: CustomWebApplicationsRoute,
+  DraivaRoute: DraivaRoute,
   EcommerceDevelopmentRoute: EcommerceDevelopmentRoute,
   HomeRoute: HomeRoute,
   PerformanceMarketingRoute: PerformanceMarketingRoute,

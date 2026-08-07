@@ -29,6 +29,8 @@ import {
   Search,
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
@@ -41,38 +43,55 @@ import { trackLead } from "@/lib/metaPixel";
 
 export const whatsappFaqs = [
   {
-    q: "Will the AI automatically send every reply?",
-    a: "The automatic WhatsApp assistant can reply according to the company’s approved rules. DRAIVA AI Conversation Assistant by Dravonix is a staff tool that only prepares drafts and never sends them automatically.",
+    q: "What is a WhatsApp AI chatbot?",
+    a: "A WhatsApp AI chatbot is an assistant connected to a WhatsApp Business number that reads incoming customer messages, understands the enquiry and replies using the business’s approved information and rules. DRAIVA WhatsApp works this way and also lets staff take over any conversation.",
   },
   {
-    q: "Can a staff member take over a conversation?",
-    a: "Yes. Conversations can be moved into Human Handover so an authorised team member can review the conversation and respond manually.",
+    q: "How can AI automate WhatsApp customer support?",
+    a: "AI can handle repeated enquiries such as services, timings, pricing questions and order or service status, then organise the conversation and lead details for the team. Conversations that need judgement are surfaced to staff instead of being answered automatically.",
   },
   {
-    q: "Does the platform support voice messages?",
-    a: "Yes. The platform supports voice-message processing and transcription through its configured voice infrastructure.",
+    q: "Can DRAIVA hand conversations over to a human?",
+    a: "Yes. Conversations can be moved into Human Handover so an authorised team member can review the conversation and respond manually. Staff can also pause or resume AI on a conversation.",
   },
   {
-    q: "Which languages are currently supported?",
+    q: "Does DRAIVA support multiple languages?",
     a: "English, Malayalam, Hindi and Arabic are currently supported. Malayalam-English mixed conversations are also supported.",
   },
   {
-    q: "Can we connect our existing WhatsApp number?",
-    a: "This depends on the number’s current WhatsApp registration and Meta onboarding eligibility. Dravonix will review the number before activation and recommend the appropriate setup.",
+    q: "Can DRAIVA capture leads from WhatsApp conversations?",
+    a: "Yes. Customer details, service requirements, budget information, timelines and quotation intent can be organised as lead records inside the business workspace for follow-up.",
+  },
+  {
+    q: "Can staff review or change AI-generated replies?",
+    a: "Yes. DRAIVA AI Conversation Assistant by Dravonix only prepares drafts. Suggested replies remain editable and a staff member must press send.",
+  },
+  {
+    q: "Is DRAIVA suitable for small businesses?",
+    a: "Yes. The workspace is designed for small teams that receive more WhatsApp enquiries than they can answer instantly, as well as larger teams that need shared conversation visibility.",
+  },
+  {
+    q: "Can DRAIVA work with an existing WhatsApp Business number?",
+    a: "This depends on the number’s current WhatsApp registration and WhatsApp Business Platform onboarding eligibility. Dravonix reviews the number before activation and recommends the appropriate setup.",
+  },
+  {
+    q: "Does the platform support voice messages?",
+    a: "Yes. Incoming customer voice messages are processed and transcribed so the conversation can continue through supported workflows. The platform does not place autonomous outbound voice calls.",
+  },
+  {
+    q: "How does onboarding work?",
+    a: "Onboarding is assisted. Dravonix reviews the WhatsApp number, configures the business profile, services, supported languages and AI response rules, then activates the workspace with your team.",
+  },
+  {
+    q: "Is DRAIVA WhatsApp available in India and the UAE?",
+    a: "Yes. Dravonix works with businesses in India, the UAE, the UK and other regions. Setup follows WhatsApp Business Platform requirements applicable to the number and business.",
   },
   {
     q: "Can it confirm meetings or callbacks automatically?",
-    a: "The platform can recognise meeting and callback requests and surface them to staff. It should not confirm a specific appointment unless the business has approved and recorded that scheduling action.",
-  },
-  {
-    q: "Is this a bulk WhatsApp marketing platform?",
-    a: "The platform is primarily designed for customer conversations, lead handling and support operations. Business-initiated campaigns must comply with Meta’s consent, template and messaging-policy requirements.",
-  },
-  {
-    q: "Does DRAIVA AI Conversation Assistant by Dravonix send messages?",
-    a: "No. DRAIVA AI Conversation Assistant by Dravonix creates drafts and conversation insights. The staff member reviews and manually sends the final reply.",
+    a: "The platform can recognise meeting and callback requests and surface them to staff. It does not confirm a specific appointment unless the business has approved and recorded that scheduling action.",
   },
 ];
+
 
 function scrollToDemo() {
   const el = document.getElementById("demo");
@@ -138,8 +157,9 @@ const features = [
   },
   {
     icon: Plug,
-    title: "Official WhatsApp Integration",
-    desc: "Connect through Meta’s official WhatsApp Cloud API and route conversations securely to the correct company workspace.",
+    title: "WhatsApp Business Integration",
+    desc: "Connect through the WhatsApp Business Platform (Cloud API) and route conversations securely to the correct company workspace.",
+
   },
 ];
 
@@ -345,24 +365,42 @@ export function WhatsAppAIPage() {
         {/* HERO */}
         <section className="relative pt-28 pb-16 md:pt-36 md:pb-24">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "WhatsApp AI", current: true }]} />
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "DRAIVA", href: "/draiva" },
+                { label: "WhatsApp AI", current: true },
+              ]}
+            />
 
             <div className="mt-8 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <Reveal>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted-text)]">
-                  Dravonix WhatsApp AI
+                <p className="text-xs font-semibold uppercase tracking-[0.22em]">
+                  <span className="font-bold text-[var(--cyan-accent)]">DRAIVA</span>{" "}
+                  <span className="text-white/80">WhatsApp</span>
                 </p>
                 <h1 className="mt-3 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
-                  Turn WhatsApp into an AI-powered customer operations desk.
+                  WhatsApp AI built for real business conversations.
                 </h1>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
-                  Dravonix WhatsApp AI helps businesses respond faster, understand customer needs,
-                  process text and voice conversations, capture leads and transfer important
-                  conversations to human staff—all from one secure dashboard.
+                  Turn WhatsApp enquiries into intelligent customer conversations with AI-powered
+                  replies, multilingual support, lead capture and seamless human handover — all
+                  through DRAIVA by Dravonix.
                 </p>
                 <p className="mt-4 text-sm font-semibold text-white/85">
-                  Text · Voice · Human Handover · Lead Capture · Multilingual AI
+                  AI-Powered WhatsApp Customer Communication by Dravonix
                 </p>
+                <p className="mt-3 text-sm text-[var(--muted-text)]">
+                  Part of{" "}
+                  <Link
+                    to="/draiva"
+                    className="font-semibold text-[var(--cyan-accent)] underline-offset-4 hover:underline"
+                  >
+                    DRAIVA Connect
+                  </Link>{" "}
+                  — the omnichannel AI communication platform by Dravonix.
+                </p>
+
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <button
@@ -400,6 +438,37 @@ export function WhatsAppAIPage() {
             </div>
           </div>
         </section>
+
+        {/* SEO INTRO */}
+        <section className="bg-[var(--navy)] pb-4 pt-4 md:pb-8 md:pt-6">
+          <div className="mx-auto max-w-4xl px-5 md:px-8">
+            <Reveal>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+                <h2 className="font-display text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  What is DRAIVA WhatsApp?
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--muted-text)] md:text-base">
+                  DRAIVA WhatsApp is an AI WhatsApp chatbot and customer-conversation workspace for
+                  businesses that receive more enquiries than a team can answer instantly. It
+                  connects to a WhatsApp Business number, reads incoming text and voice messages,
+                  and replies using the services, pricing guidance and communication rules your
+                  business has approved.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--muted-text)] md:text-base">
+                  It is designed for retail and e-commerce, clinics, education, real estate,
+                  hospitality, automotive and professional-services teams that rely on WhatsApp for
+                  customer support, sales enquiries and lead generation. Conversations happen in
+                  English, Malayalam, Hindi or Arabic, customer requirements are captured as
+                  organised leads, and anything needing judgement moves to a staff member through
+                  Human Handover. Every conversation, lead and AI status stays visible in one
+                  business dashboard, so WhatsApp automation improves response times without
+                  removing human control.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
 
         {/* PROBLEM */}
         <section className="bg-[var(--navy)] py-20 md:py-24">
@@ -858,12 +927,13 @@ export function WhatsAppAIPage() {
           </div>
           <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
             <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              Build a faster WhatsApp customer experience.
+              Bring AI into your WhatsApp conversations.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 md:text-lg">
-              See how AI replies, voice processing, lead collection, Human Handover and DRAIVA AI Conversation Assistant by
-              Dravonix can work together for your business.
+              See how DRAIVA can help your business handle customer enquiries, capture leads and
+              move seamlessly between AI and human conversations.
             </p>
+
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <button
                 type="button"
@@ -891,6 +961,20 @@ export function WhatsAppAIPage() {
             <p className="mt-6 text-sm text-white/85">
               Currently onboarding selected businesses through assisted setup.
             </p>
+            <p className="mt-4 text-sm text-white/80">
+              <Link to="/draiva" className="font-semibold underline underline-offset-4">
+                Explore DRAIVA Connect
+              </Link>{" "}
+              ·{" "}
+              <Link to="/crm-business-automation" className="underline underline-offset-4">
+                CRM &amp; business automation
+              </Link>{" "}
+              ·{" "}
+              <Link to="/contact" className="underline underline-offset-4">
+                Contact Dravonix
+              </Link>
+            </p>
+
           </div>
         </section>
       </main>
