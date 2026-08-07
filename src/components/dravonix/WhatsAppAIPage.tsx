@@ -157,8 +157,9 @@ const features = [
   },
   {
     icon: Plug,
-    title: "Official WhatsApp Integration",
-    desc: "Connect through Meta’s official WhatsApp Cloud API and route conversations securely to the correct company workspace.",
+    title: "WhatsApp Business Integration",
+    desc: "Connect through the WhatsApp Business Platform (Cloud API) and route conversations securely to the correct company workspace.",
+
   },
 ];
 
