@@ -23,7 +23,7 @@ export function WhatsAppAIHighlight() {
               New · Private Beta
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-              Meet Dravonix WhatsApp AI.
+              Meet Draiva WhatsApp AI.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
               An intelligent WhatsApp business assistant that answers customer enquiries,
