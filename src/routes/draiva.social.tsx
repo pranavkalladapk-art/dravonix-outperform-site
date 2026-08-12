@@ -72,7 +72,7 @@ function SocialPage() {
         headline: "AI when it helps. Humans when they matter.",
         body: "As with DRAIVA WhatsApp today, the design intent for DRAIVA Social is that staff can take over any conversation and that assistant output stays a draft until a person sends it.",
       }}
-      connectCopy="DRAIVA Social is planned as a channel inside DRAIVA Connect so social conversations can share the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is not available yet, and no launch date or platform integration is confirmed."
+      connectCopy="DRAIVA Social is planned as a channel inside DRAIVA Connect so social conversations can share the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is designed to support multilingual customer conversations across future DRAIVA channels, responding in the customer's language whenever it can reasonably determine the language. It is not available yet, and no launch date or platform integration is confirmed."
       faqs={[
         {
           q: "What is DRAIVA Social?",

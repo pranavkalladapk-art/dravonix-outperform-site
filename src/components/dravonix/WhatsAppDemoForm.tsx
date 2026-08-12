@@ -37,7 +37,7 @@ const schema = z.object({
   region: z.string().trim().min(1, "Country or region is required").max(100),
   volume: z.string().min(1, "Select approximate monthly enquiries"),
   setup: z.string().min(1, "Select your current WhatsApp setup"),
-  languages: z.array(z.string()).min(1, "Select at least one language"),
+  languages: z.array(z.string()).min(1, "Select at least one preferred language"),
   requirements: z.string().trim().max(2000).optional(),
   consent: z.literal(true, { errorMap: () => ({ message: "Please accept the consent statement" }) }),
 });
@@ -95,7 +95,7 @@ export function WhatsAppDemoForm() {
             `Country / region: ${d.region}`,
             `Approx. monthly enquiries: ${d.volume}`,
             `Current WhatsApp setup: ${d.setup}`,
-            `Required languages: ${d.languages.join(", ")}`,
+            `Preferred business languages: ${d.languages.join(", ")}`,
             `Main requirements: ${d.requirements || "—"}`,
             `Consent: Accepted`,
             `Source: whatsapp-ai-landing-page`,
@@ -200,7 +200,12 @@ export function WhatsAppDemoForm() {
                 </div>
 
                 <fieldset>
-                  <legend className={labelClass}>Required Languages</legend>
+                  <legend className={labelClass}>Preferred business languages</legend>
+                  <p className="mt-2 text-xs leading-relaxed text-[var(--muted-text)]">
+                    These languages guide DRAIVA's default communication style. DRAIVA can still
+                    respond in other customer languages when it can reasonably determine the
+                    language.
+                  </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {languageOptions.map((l) => (
                       <label
