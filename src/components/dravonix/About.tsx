@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 
 const paragraphs = [
-  "Dravonix is built for brands that refuse to settle for average.",
+  "Dravonix Media is built for brands that refuse to settle for average.",
   "Our team brings hands-on experience across both national and international markets, giving us a sharp understanding of what truly drives sustainable business growth.",
-  "At Dravonix, this is more than just work \u2014 it\u2019s what drives us. We don\u2019t operate with a transactional mindset or chase quick wins. Instead, we invest in building long-term value, aligning deeply with your vision to create meaningful and lasting impact.",
+  "At Dravonix Media, this is more than just work \u2014 it\u2019s what drives us. We don\u2019t operate with a transactional mindset or chase quick wins. Instead, we invest in building long-term value, aligning deeply with your vision to create meaningful and lasting impact.",
   "We blend strategy, data, and creative execution into a seamless process designed to deliver measurable results. Every project begins with clarity \u2014 understanding your business, uncovering opportunities, and executing with precision.",
   "Collaboration is at the core of how we work. From start to finish, we stay closely connected with our clients, ensuring transparency, consistency, and outcomes that truly reflect your goals.",
   "No shortcuts. No inflated promises. Just focused, performance-driven work.",
@@ -19,7 +19,7 @@ export function About() {
         <Reveal className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-accent)]" />
-            About Dravonix
+            About Dravonix Media
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
             Precision. Innovation.{" "}
