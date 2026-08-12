@@ -72,7 +72,7 @@ function VoicePage() {
         headline: "AI when it helps. Humans when they matter.",
         body: "DRAIVA Voice is being designed so a conversation can be escalated to a person whenever human judgement is needed. Appointment requests are intended to be captured as requests for the team to confirm, not automatically booked.",
       }}
-      connectCopy="DRAIVA Voice is planned as a channel inside DRAIVA Connect so voice enquiries can share the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is not available yet, and no launch date is confirmed."
+      connectCopy="DRAIVA Voice is planned as a channel inside DRAIVA Connect so voice enquiries can share the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is designed to support multilingual customer conversations across future DRAIVA channels, responding in the customer's language whenever it can reasonably determine the language. It is not available yet, and no launch date is confirmed."
       faqs={[
         {
           q: "What is DRAIVA Voice?",

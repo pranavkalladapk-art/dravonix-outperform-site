@@ -786,15 +786,15 @@ export function WhatsAppAIPage() {
         <section className="bg-[var(--navy)] py-20 md:py-24">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <Reveal className="text-center">
-              <SectionLabel>Language and voice</SectionLabel>
+              <SectionLabel>Multilingual WhatsApp conversations</SectionLabel>
               <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
-                Built for how customers actually communicate.
+                Multilingual WhatsApp conversations, built for how customers actually communicate.
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted-text)]">
-                Customers do not always send perfectly written messages. They use short enquiries,
-                voice notes, informal language, mixed-language messages and multiple rapid replies.
-                Dravonix WhatsApp AI is being developed to understand natural customer conversations
-                without forcing every customer through rigid menus.
+                DRAIVA can understand and respond to customers in different languages, adapting its
+                replies to the language used in the conversation whenever it can reasonably determine
+                the language. Short enquiries, voice notes, informal writing and mixed-language
+                messages are all part of normal customer communication.
               </p>
             </Reveal>
 

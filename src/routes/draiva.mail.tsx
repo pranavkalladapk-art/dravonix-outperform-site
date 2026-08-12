@@ -73,7 +73,7 @@ function MailPage() {
         headline: "AI prepares. Your team stays in control.",
         body: "DRAIVA Mail is intended to assist teams rather than act on their behalf. Assistant output is planned to stay a draft, with review and approval in human hands wherever a message goes to a customer. DRAIVA Mail is not designed to send emails autonomously.",
       }}
-      connectCopy="DRAIVA Mail is planned as an email channel inside DRAIVA Connect, sharing the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is not available yet, and no launch date is confirmed."
+      connectCopy="DRAIVA Mail is planned as an email channel inside DRAIVA Connect, sharing the same intelligence layer, staff controls and company workspace used by DRAIVA WhatsApp today. It is designed to support multilingual customer conversations across future DRAIVA channels, responding in the customer's language whenever it can reasonably determine the language. It is not available yet, and no launch date is confirmed."
       faqs={[
         {
           q: "What is DRAIVA Mail?",

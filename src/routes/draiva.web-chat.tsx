@@ -73,7 +73,7 @@ function WebChatPage() {
         headline: "AI when it helps. Humans when they matter.",
         body: "DRAIVA Web Chat is being designed so a conversation can move to a staff member whenever a human should take over. The intent is that people stay in control of what gets committed to a customer, with the assistant supporting rather than replacing the team.",
       }}
-      connectCopy="DRAIVA Web Chat is planned as a channel inside DRAIVA Connect, sharing the same intelligence layer, staff controls and company workspace that DRAIVA WhatsApp uses today. It is not available yet, and no launch date is confirmed."
+      connectCopy="DRAIVA Web Chat is planned as a channel inside DRAIVA Connect, sharing the same intelligence layer, staff controls and company workspace that DRAIVA WhatsApp uses today. It is designed to support multilingual customer conversations across future DRAIVA channels, responding in the customer's language whenever it can reasonably determine the language. It is not available yet, and no launch date is confirmed."
       faqs={[
         {
           q: "What is DRAIVA Web Chat?",
