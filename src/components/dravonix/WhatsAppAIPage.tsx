@@ -55,8 +55,12 @@ export const whatsappFaqs = [
     a: "Yes. Conversations can be moved into Human Handover so an authorised team member can review the conversation and respond manually. Staff can also pause or resume AI on a conversation.",
   },
   {
-    q: "Does DRAIVA support multiple languages?",
-    a: "English, Malayalam, Hindi and Arabic are currently supported. Malayalam-English mixed conversations are also supported.",
+    q: "Which languages does DRAIVA support?",
+    a: "DRAIVA is designed for multilingual customer conversations and responds in the customer's language whenever it can reasonably determine the language. Its multilingual capability is not limited to a fixed two-language list, and naturally mixed-language messages are handled too.",
+  },
+  {
+    q: "What happens when DRAIVA cannot determine a customer's language?",
+    a: "It can ask the customer which language they prefer rather than assuming or claiming that the language is unsupported.",
   },
   {
     q: "Can DRAIVA capture leads from WhatsApp conversations?",
