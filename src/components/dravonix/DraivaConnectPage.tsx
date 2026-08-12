@@ -25,7 +25,7 @@ const intelligenceLayer = [
   {
     icon: Languages,
     title: "Multilingual communication",
-    desc: "English, Malayalam, Hindi and Arabic are currently supported in DRAIVA WhatsApp, including Malayalam-English mixed conversations.",
+    desc: "DRAIVA responds in the customer's language whenever it can reasonably determine the language, including naturally mixed conversations.",
   },
   {
     icon: ClipboardList,
@@ -443,6 +443,39 @@ export function DraivaConnectPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* MULTILINGUAL */}
+        <section className="bg-[var(--navy)] py-20 md:py-24">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <Reveal className="text-center">
+              <SectionLabel>Multilingual customer communication</SectionLabel>
+              <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+                Speak to customers in the language they prefer.
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted-text)]">
+                DRAIVA responds in the customer's language whenever it can reasonably determine the
+                language, helping businesses communicate naturally across multilingual customer
+                conversations.
+              </p>
+            </Reveal>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                "Multilingual customer conversations",
+                "Automatic language adaptation",
+                "Natural replies in the customer's language",
+                "Clarification when the language is unclear",
+              ].map((t, i) => (
+                <Reveal key={t} delay={i * 70}>
+                  <div className="flex h-full items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+                    <Languages className="mt-0.5 h-4 w-4 flex-shrink-0 text-[var(--cyan-accent)]" aria-hidden />
+                    <span className="text-sm leading-relaxed text-white/85">{t}</span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* RELATED */}
         <section className="bg-[var(--navy)] pb-20 md:pb-24">
