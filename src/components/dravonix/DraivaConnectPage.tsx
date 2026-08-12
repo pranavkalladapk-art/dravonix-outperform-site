@@ -25,7 +25,7 @@ const intelligenceLayer = [
   {
     icon: Languages,
     title: "Multilingual communication",
-    desc: "English, Malayalam, Hindi and Arabic are currently supported in DRAIVA WhatsApp, including Malayalam-English mixed conversations.",
+    desc: "DRAIVA responds in the customer's language whenever it can reasonably determine the language, including naturally mixed conversations.",
   },
   {
     icon: ClipboardList,
