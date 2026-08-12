@@ -84,7 +84,7 @@ export const whatsappFaqs = [
   },
   {
     q: "How does onboarding work?",
-    a: "Onboarding is assisted. Dravonix reviews the WhatsApp number, configures the business profile, services, supported languages and AI response rules, then activates the workspace with your team.",
+    a: "Onboarding is assisted. Dravonix reviews the WhatsApp number, configures the business profile, services, preferred business languages and AI response rules, then activates the workspace with your team.",
   },
   {
     q: "Is DRAIVA WhatsApp available in India and the UAE?",
@@ -152,7 +152,7 @@ const features = [
   {
     icon: Languages,
     title: "Multilingual Conversations",
-    desc: "Support conversations in English, Malayalam, Hindi and Arabic, including natural Malayalam-English mixed communication.",
+    desc: "DRAIVA responds in the customer's language whenever it can reasonably determine the language, including naturally mixed-language messages.",
   },
   {
     icon: Bell,
@@ -197,7 +197,7 @@ const handoverActions = [
 
 const steps = [
   { n: "01", title: "Connect WhatsApp", desc: "Connect an eligible WhatsApp Business number using Meta’s official Cloud API." },
-  { n: "02", title: "Configure the Business", desc: "Add services, supported languages, communication instructions and AI response rules." },
+  { n: "02", title: "Configure the Business", desc: "Add services, preferred business languages, communication instructions and AI response rules." },
   { n: "03", title: "Receive Conversations", desc: "Customers send text messages, voice notes and supported media through WhatsApp." },
   { n: "04", title: "AI Responds or Escalates", desc: "The AI handles supported enquiries and surfaces conversations that require human attention." },
   { n: "05", title: "Staff Take Over", desc: "Authorised staff can review the conversation, use DRAIVA AI Conversation Assistant by Dravonix and respond manually." },
@@ -388,7 +388,7 @@ export function WhatsAppAIPage() {
                 </h1>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted-text)] md:text-lg">
                   Turn WhatsApp enquiries into intelligent customer conversations with AI-powered
-                  replies, multilingual support, lead capture and seamless human handover — all
+                  replies, multilingual customer conversations, lead capture and seamless human handover — all
                   through DRAIVA by Dravonix.
                 </p>
                 <p className="mt-4 text-sm font-semibold text-white/85">
@@ -462,7 +462,7 @@ export function WhatsAppAIPage() {
                   It is designed for retail and e-commerce, clinics, education, real estate,
                   hospitality, automotive and professional-services teams that rely on WhatsApp for
                   customer support, sales enquiries and lead generation. Conversations happen in
-                  English, Malayalam, Hindi or Arabic, customer requirements are captured as
+                  the language each customer uses, customer requirements are captured as
                   organised leads, and anything needing judgement moves to a staff member through
                   Human Handover. Every conversation, lead and AI status stays visible in one
                   business dashboard, so WhatsApp automation improves response times without
@@ -838,7 +838,7 @@ export function WhatsAppAIPage() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-              {["English", "Malayalam", "Hindi", "Arabic"].map((l) => (
+              {["English", "Malayalam", "Hindi", "Tamil", "Telugu", "Kannada", "Spanish", "Arabic", "French", "German", "Portuguese"].map((l) => (
                 <span
                   key={l}
                   className="rounded-full border border-white/12 bg-white/[0.03] px-4 py-1.5 text-sm font-semibold text-white/85"
@@ -848,7 +848,9 @@ export function WhatsAppAIPage() {
               ))}
             </div>
             <p className="mt-4 text-center text-sm text-[var(--muted-text)]">
-              Malayalam-English mixed conversations supported.
+              Examples only — not an exhaustive list. Designed for multilingual customer
+              conversations across a growing range of languages, including naturally mixed-language
+              messages.
             </p>
           </div>
         </section>

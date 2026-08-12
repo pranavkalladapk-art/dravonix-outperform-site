@@ -92,7 +92,7 @@ function VoicePage() {
         },
         {
           q: "Which languages will DRAIVA Voice support?",
-          a: "Language availability for voice has not been finalised and will be announced as development progresses. DRAIVA WhatsApp currently supports English, Malayalam, Hindi and Arabic.",
+          a: "DRAIVA is designed for multilingual customer conversations and responds in the customer's language whenever it can reasonably determine the language. For voice specifically, spoken language availability may depend on the configured speech provider and voice model, and will be announced as development progresses.",
         },
       ]}
     />
