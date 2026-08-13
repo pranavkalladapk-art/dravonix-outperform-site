@@ -250,6 +250,11 @@ export function DraivaConnectPage() {
                   DRAIVA WhatsApp is currently onboarding selected businesses through assisted
                   setup.
                 </p>
+                <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--muted-text)]">
+                  DRAIVA WhatsApp helps businesses manage customer conversations with AI-powered
+                  responses, lead handling, conversation management, and human handover through
+                  WhatsApp.
+                </p>
               </Reveal>
 
               <Reveal delay={120}>
