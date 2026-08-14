@@ -166,7 +166,7 @@ function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="10. Changes to This Policy">
+          <Section title="12. Changes to This Policy">
             <p>
               We may update this Privacy & Policy from time to time. The effective date will be
               updated accordingly. Continued use of the website constitutes acceptance of the
