@@ -136,7 +136,29 @@ function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="9. Portfolio & Case Studies">
+          <Section title="10. Data Deletion / Disconnecting DRAIVA">
+            <p>
+              A business can disconnect DRAIVA at any time by removing the integration from its
+              WhatsApp Business (or other channel) account, or by emailing us at{" "}
+              <a
+                href="mailto:admin@dravonixmedia.com"
+                className="text-[var(--cyan-accent)] transition-colors hover:text-white"
+              >
+                admin@dravonixmedia.com
+              </a>
+              . On disconnection, DRAIVA stops receiving and processing new messages for that
+              account immediately.
+            </p>
+            <p>
+              To request deletion of stored data, email us from the registered business email with
+              the subject "Data Deletion Request" and include the connected business name and phone
+              number. We will confirm the request and delete the associated conversation data,
+              media, and AI-generated records within 30 days, except where retention is required by
+              law. Backup copies are purged within the normal backup rotation cycle.
+            </p>
+          </Section>
+
+          <Section title="11. Portfolio & Case Studies">
             <p>
               Unless a separate confidentiality agreement exists, Dravonix Media Private Limited may
               reference completed work in our portfolio, website, social media, and marketing
