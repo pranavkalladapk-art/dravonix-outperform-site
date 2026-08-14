@@ -65,7 +65,30 @@ function PrivacyPolicy() {
             </ul>
           </Section>
 
-          <Section title="4. Data Storage & Security">
+          <Section title="4. DRAIVA Connect & WhatsApp Business Data">
+            <p>
+              Where a business connects a WhatsApp Business account (or another supported channel)
+              to DRAIVA Connect, we process the data required to operate that service on the
+              business's behalf. This may include the connected business phone number and account
+              profile details, customer messages and message metadata (sender number, timestamps,
+              delivery status), media shared in a conversation, AI-generated replies and
+              conversation summaries, and lead or enquiry details captured during a conversation.
+            </p>
+            <p>
+              For these conversations, the connecting business is the data controller and Dravonix
+              Media Private Limited acts as a data processor, handling the data solely to deliver
+              the service. We do not sell conversation data, do not use it for advertising, and do
+              not share it with third parties except the infrastructure and messaging providers
+              needed to deliver messages.
+            </p>
+            <p>
+              Use of WhatsApp is additionally governed by WhatsApp's and Meta's own terms and
+              privacy policies. If you are a customer messaging a business that uses DRAIVA, please
+              contact that business directly regarding your conversation data.
+            </p>
+          </Section>
+
+          <Section title="5. Data Storage & Security">
             <p>
               Your data is stored securely using Supabase (a secure cloud database platform). We
               implement appropriate technical and organizational measures to protect your personal
@@ -73,7 +96,7 @@ function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="5. Cookies & Analytics">
+          <Section title="6. Cookies & Analytics">
             <p>
               Our website may use cookies and analytics tools including Google Analytics to
               understand how visitors interact with our site. You may disable cookies through your
@@ -81,22 +104,25 @@ function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="6. Third-Party Services">
+          <Section title="7. Third-Party Services">
             <p>
               We use the following third-party services: Google Analytics (website analytics),
-              Supabase (data storage). These services have their own privacy policies and we
+              Supabase (data storage), and — for DRAIVA Connect — the WhatsApp Business Platform
+              (Meta) for message delivery. These services have their own privacy policies and we
               recommend reviewing them.
             </p>
           </Section>
 
-          <Section title="7. Data Retention">
+          <Section title="8. Data Retention">
             <p>
               We retain your personal data only as long as necessary to fulfil the purposes outlined
-              in this policy or as required by law.
+              in this policy or as required by law. DRAIVA conversation data is retained for the
+              duration of the business's active engagement and deleted on request as described in
+              Section 10.
             </p>
           </Section>
 
-          <Section title="8. Your Rights">
+          <Section title="9. Your Rights">
             <p>
               You have the right to request access to, correction of, or deletion of your personal
               data held by us. To exercise these rights, contact us at{" "}
