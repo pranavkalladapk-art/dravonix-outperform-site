@@ -174,7 +174,7 @@ function PrivacyPolicy() {
             </p>
           </Section>
 
-          <Section title="11. Contact">
+          <Section title="13. Contact">
             <p>
               For any privacy-related concerns:{" "}
               <a
