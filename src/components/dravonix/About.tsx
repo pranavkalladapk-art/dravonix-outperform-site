@@ -56,14 +56,24 @@ export function About() {
         </Reveal>
 
         <Reveal delay={200} className="text-center">
-          <Link
-            to="/team"
-            className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan-accent)]"
-          >
-            Meet the Team
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            <Link
+              to="/process"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan-accent)]"
+            >
+              Our Process
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/team"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan-accent)]"
+            >
+              Meet the Team
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </Reveal>
+
       </div>
     </section>
   );
