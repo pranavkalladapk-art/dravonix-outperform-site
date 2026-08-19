@@ -134,6 +134,10 @@ export function Reviews() {
     }
   };
 
+  // Hide the whole section (including the submission form) until at least one
+  // approved review exists.
+  if (reviews.length === 0) return null;
+
   return (
     <section id="reviews" className="bg-[var(--navy)] py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
