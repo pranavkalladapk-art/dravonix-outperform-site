@@ -3,7 +3,7 @@ import { Layout, Code2, ShoppingCart, Rocket, LifeBuoy, FileEdit } from "lucide-
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Website Development Company Kerala | Dravonix Media";
+const title = "Website Development Company in Kerala | Dravonix Media";
 const description =
   "Website development company in Kerala building fast, mobile-first, conversion-focused business websites — UI/UX design, landing pages, CMS and ongoing support.";
 

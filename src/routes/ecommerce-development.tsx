@@ -10,7 +10,7 @@ import {
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Ecommerce Website Development Kerala | Dravonix";
+const title = "E-commerce Development Company in Kerala | Dravonix Media";
 const description =
   "Ecommerce website development in Kerala — product catalogues, secure checkout, payment gateway integration, mobile-first shopping experiences and product-page SEO.";
 

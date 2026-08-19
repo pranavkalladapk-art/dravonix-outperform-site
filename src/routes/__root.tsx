@@ -1,6 +1,14 @@
 import { useEffect, useRef } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
 import { trackEvent, trackViewContent } from "@/lib/metaPixel";
+import { SITE_PHONE_TEL } from "@/lib/site";
+
+const SAME_AS = [
+  "https://www.facebook.com/profile.php?id=61588836449902",
+  "https://www.instagram.com/dravonixmedia/",
+  "https://www.linkedin.com/in/dravonix/",
+  "https://x.com/dravonixmedia",
+];
 
 import appCss from "../styles.css?url";
 
