@@ -172,7 +172,7 @@ export function EstimateCard() {
           <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-2">
             <ul className="space-y-0.5 text-[14px] text-white/80">
               {[
-                "100+ Projects Delivered",
+                "10+ Projects Delivered",
                 "Trusted by Businesses in UAE • UK • India",
                 "Transparent Pricing",
               ].map((item) => (
