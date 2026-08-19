@@ -23,7 +23,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
     const color = variant === "blue" ? "var(--blue-brand)" : "#FFFFFF";
     return (
       <Link
-        to="/home"
+        to="/"
         aria-label="Dravonix — Engineered to Outperform"
         className={cn("inline-flex items-center", className)}
       >
@@ -34,7 +34,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
 
   return (
     <Link
-      to="/home"
+      to="/"
       aria-label="Dravonix — Engineered to Outperform"
       className={cn("group inline-flex items-center gap-2.5", className)}
     >
@@ -47,8 +47,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
       ) : (
         <img
           src={dMark}
-          alt=""
-          aria-hidden="true"
+          alt="Dravonix Media"
           width={40}
           height={40}
           onError={() => setImgFailed(true)}

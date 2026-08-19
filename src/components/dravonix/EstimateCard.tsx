@@ -6,7 +6,9 @@ const PRICE_MAX = 50000;
 const CONFIDENCE = 92;
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
-  const [value, setValue] = useState(0);
+  // Start at the final value so the server-rendered HTML (and any user with
+  // JS/animations disabled) shows real numbers instead of "0 – 0".
+  const [value, setValue] = useState(target);
   useEffect(() => {
     if (!active) return;
     let raf = 0;
@@ -16,6 +18,7 @@ function useCountUp(target: number, active: boolean, duration = 1400) {
       const eased = 1 - Math.pow(1 - t, 3);
       setValue(Math.round(target * eased));
       if (t < 1) raf = requestAnimationFrame(step);
+      else setValue(target);
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
@@ -111,7 +114,7 @@ export function EstimateCard() {
               className="pointer-events-none absolute left-1/2 top-1/2 h-36 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--blue-brand)]/40 blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
             />
             <div
-              className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[36px] md:text-[40px] lg:text-[56px] xl:text-[64px] transition-opacity duration-1000 ${active ? "opacity-100" : "opacity-0"}`}
+              className={`relative font-display font-extrabold leading-none tracking-tight text-white text-[36px] md:text-[40px] lg:text-[56px] xl:text-[64px]`}
             >
               <span className="drop-shadow-[0_0_28px_rgba(37,99,235,0.65)]">
                 {minVal.toLocaleString()} –{" "}
@@ -172,7 +175,7 @@ export function EstimateCard() {
           <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-2">
             <ul className="space-y-0.5 text-[14px] text-white/80">
               {[
-                "100+ Projects Delivered",
+                "10+ Projects Delivered",
                 "Trusted by Businesses in UAE • UK • India",
                 "Transparent Pricing",
               ].map((item) => (

@@ -3,7 +3,7 @@ import { PenTool, Palette, MessageSquare, BookOpen, Target, Lightbulb } from "lu
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Branding Agency in Kerala | Brand Identity | Dravonix";
+const title = "Brand Identity & Branding Agency in Kerala | Dravonix Media";
 const description =
   "Branding agency in Kerala building complete brand identity systems — logo design, visual identity, positioning, tone of voice and brand guidelines built to endure.";
 

@@ -3,9 +3,9 @@ import { Wand2, Clapperboard, Film, Sparkles, Layers, UserCheck } from "lucide-r
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "AI Video and Creative Agency India | Dravonix";
+const title = "AI Video & Design Studio in Kerala, India | Dravonix Media";
 const description =
-  "AI-powered video production and creative design from Dravonix Media — promotional videos, social reels, motion graphics and product visuals, with human creative supervision.";
+  "AI video and design studio in Kerala, India — promotional videos, social reels, motion graphics and product visuals with human creative supervision.";
 
 const faqs = [
   {

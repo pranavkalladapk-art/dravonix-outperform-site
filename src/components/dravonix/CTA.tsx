@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { trackContact, trackSchedule } from "@/lib/metaPixel";
+import { SITE_PHONE, SITE_PHONE_TEL } from "@/lib/site";
 
 export function CTA() {
   return (
@@ -37,6 +38,14 @@ export function CTA() {
           >
             Book a Free Strategy Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href={`tel:${SITE_PHONE_TEL}`}
+            onClick={() => trackContact("phone", { content_name: "CTA Phone" })}
+            className="mt-6 flex items-center justify-center gap-2 text-base font-semibold text-white/90 transition-colors hover:text-white"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {SITE_PHONE}
           </a>
         </Reveal>
       </div>

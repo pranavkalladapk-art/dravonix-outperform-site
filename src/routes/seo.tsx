@@ -3,7 +3,7 @@ import { Search, FileSearch, PenLine, MapPin, Link2, BarChart3 } from "lucide-re
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "SEO Services Kerala | Rank Higher on Google | Dravonix";
+const title = "SEO Services in Kerala | Dravonix Media";
 const description =
   "SEO services in Kerala — technical audits, on-page optimisation, local SEO, content strategy and link building that improve rankings and drive qualified organic traffic.";
 

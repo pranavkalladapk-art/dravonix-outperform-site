@@ -10,7 +10,7 @@ import {
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Performance Marketing Agency Kerala | Dravonix Media";
+const title = "Performance Marketing Agency in Kerala | Dravonix Media";
 const description =
   "Performance marketing agency in Kerala running Meta and Google Ads campaigns built for ROI — audience targeting, funnel strategy, ad creative and transparent reporting.";
 

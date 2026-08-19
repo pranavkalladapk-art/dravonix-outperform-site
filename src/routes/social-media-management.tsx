@@ -10,7 +10,7 @@ import {
 import { ServiceDetail } from "@/components/dravonix/ServiceDetail";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Social Media Marketing Agency Kerala | Dravonix Media";
+const title = "Social Media Management in Kerala | Dravonix Media";
 const description =
   "Social media marketing agency in Kerala — content strategy, reels and post production, daily scheduling, community management and monthly performance reporting.";
 

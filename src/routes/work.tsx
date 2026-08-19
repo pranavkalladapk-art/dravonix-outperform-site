@@ -29,7 +29,7 @@ function WorkPage() {
           <div className="relative mx-auto max-w-5xl px-5 md:px-8">
             <Reveal>
               <Link
-                to="/home"
+                to="/"
                 hash="work"
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--cyan-accent)] transition-opacity hover:opacity-80"
               >
