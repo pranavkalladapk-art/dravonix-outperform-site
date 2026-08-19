@@ -71,27 +71,6 @@ export function Nav() {
     setDraivaOpen(false);
   }, [pathname]);
 
-  // Track whether the estimator section is currently visible so the nav
-  // item highlights while the user is reading that section on /.
-  useEffect(() => {
-    if (pathname !== "/") {
-      setEstimatorInView(false);
-      return;
-    }
-    const el = document.getElementById("project-estimator");
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          setEstimatorInView(entry.isIntersecting && entry.intersectionRatio > 0.3);
-        }
-      },
-      { threshold: [0, 0.3, 0.6], rootMargin: "-80px 0px -40% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [pathname]);
-
   const closeMobile = () => {
     setOpen(false);
     setMobileDraivaOpen(false);
@@ -109,8 +88,33 @@ export function Nav() {
               : "bg-[var(--navy)]/80 backdrop-blur-sm",
         )}
       >
+        {/* Slim utility bar — desktop only; on mobile it lives in the menu */}
+        <div className="hidden border-b border-white/10 lg:block">
+          <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-5 py-1.5 text-xs text-white/55 md:px-8">
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-white/85"
+            >
+              <Phone className="h-3.5 w-3.5" aria-hidden />
+              {SITE_PHONE}
+            </a>
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-white/85"
+            >
+              <Mail className="h-3.5 w-3.5" aria-hidden />
+              {SITE_EMAIL}
+            </a>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" aria-hidden />
+              Kollam, Kerala
+            </span>
+          </div>
+        </div>
+
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
           <Logo className="shrink-0" />
+
 
           <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
             {navLinks.map((l) => {
