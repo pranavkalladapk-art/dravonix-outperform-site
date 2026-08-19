@@ -6,7 +6,9 @@ const PRICE_MAX = 50000;
 const CONFIDENCE = 92;
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
-  const [value, setValue] = useState(0);
+  // Start at the final value so the server-rendered HTML (and any user with
+  // JS/animations disabled) shows real numbers instead of "0 – 0".
+  const [value, setValue] = useState(target);
   useEffect(() => {
     if (!active) return;
     let raf = 0;
@@ -16,6 +18,7 @@ function useCountUp(target: number, active: boolean, duration = 1400) {
       const eased = 1 - Math.pow(1 - t, 3);
       setValue(Math.round(target * eased));
       if (t < 1) raf = requestAnimationFrame(step);
+      else setValue(target);
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
