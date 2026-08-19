@@ -27,16 +27,14 @@ export function Nav() {
   const draivaRef = useRef<HTMLDivElement | null>(null);
   const menuBg = "#0B1220";
   const { pathname } = useRouterState({ select: (s) => s.location });
-  const [estimatorInView, setEstimatorInView] = useState(false);
 
   const inDraiva = DRAIVA_PATHS.includes(pathname) || pathname.startsWith("/draiva");
 
   const isLinkActive = (l: NavLink) => {
     if (l.draiva) return inDraiva;
-    if (l.hash === "project-estimator") return pathname === "/" && estimatorInView;
-    if (l.to === "/") return pathname === "/" && !estimatorInView;
     return pathname === l.to || pathname.startsWith(`${l.to}/`);
   };
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
