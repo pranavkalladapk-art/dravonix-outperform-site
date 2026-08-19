@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { trackContact } from "@/lib/metaPixel";
+import { SITE_PHONE, SITE_PHONE_TEL } from "@/lib/site";
 
 const serviceLinks = [
   { label: "Website Development", href: "/website-development" },
@@ -131,6 +132,13 @@ export function Footer() {
               className="mt-6 inline-block text-sm text-[var(--muted-text)] transition-colors hover:text-white"
             >
               admin@dravonixmedia.com
+            </a>
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              onClick={() => trackContact("phone", { content_name: "Footer Phone" })}
+              className="mt-2 block text-sm text-[var(--muted-text)] transition-colors hover:text-white"
+            >
+              {SITE_PHONE}
             </a>
           </div>
         </div>

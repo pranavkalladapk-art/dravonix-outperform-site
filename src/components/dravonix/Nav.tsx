@@ -5,6 +5,8 @@ import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 import { DRAIVA_PRODUCTS, DRAIVA_PATHS } from "./draiva-products";
+import { SITE_PHONE, SITE_PHONE_TEL } from "@/lib/site";
+import { Phone } from "lucide-react";
 
 type NavLink = { to: string; label: string; hash?: string; draiva?: boolean };
 
@@ -243,6 +245,13 @@ export function Nav() {
           </nav>
 
           <a
+            href={`tel:${SITE_PHONE_TEL}`}
+            className="hidden shrink-0 items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white lg:inline-flex"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {SITE_PHONE}
+          </a>
+          <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
             rel="noopener noreferrer"
@@ -374,6 +383,15 @@ export function Nav() {
             className="mt-6 rounded-full bg-[var(--blue-brand)] px-8 py-3.5 text-center text-base font-semibold text-white shadow-glow-brand"
           >
             Get a Free Estimate
+          </a>
+
+          <a
+            href={`tel:${SITE_PHONE_TEL}`}
+            onClick={closeMobile}
+            className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-center text-base font-semibold text-white"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {SITE_PHONE}
           </a>
         </div>
       </div>
