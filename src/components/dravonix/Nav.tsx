@@ -379,14 +379,29 @@ export function Nav() {
             Get a Free Estimate
           </a>
 
-          <a
-            href={`tel:${SITE_PHONE_TEL}`}
-            onClick={closeMobile}
-            className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-center text-base font-semibold text-white"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            {SITE_PHONE}
-          </a>
+          <div className="mt-8 space-y-3 border-t border-white/10 pt-6 text-sm text-white/60">
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              onClick={closeMobile}
+              className="flex items-center gap-2.5 transition-colors hover:text-white"
+            >
+              <Phone className="h-4 w-4 flex-shrink-0" aria-hidden />
+              {SITE_PHONE}
+            </a>
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              onClick={closeMobile}
+              className="flex items-center gap-2.5 break-all transition-colors hover:text-white"
+            >
+              <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
+              {SITE_EMAIL}
+            </a>
+            <p className="flex items-center gap-2.5">
+              <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden />
+              Kollam, Kerala
+            </p>
+          </div>
+
         </div>
       </div>
     </>
