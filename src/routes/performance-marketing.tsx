@@ -12,7 +12,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Performance Marketing Agency in Kerala | Dravonix Media";
 const description =
-  "Performance marketing agency in Kerala running Meta and Google Ads campaigns built for ROI — audience targeting, funnel strategy, ad creative and transparent reporting.";
+  "Performance marketing agency in Kerala running Meta and Google Ads for ROI — audience targeting, funnel strategy, ad creative and transparent monthly reporting.";
 
 const faqs = [
   {

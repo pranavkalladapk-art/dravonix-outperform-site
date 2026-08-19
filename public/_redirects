@@ -1,0 +1,5 @@
+# This app is TanStack Start SSR on a Cloudflare Worker (assets binding +
+# main worker script), not a static SPA — there is no built index.html for
+# a catch-all rewrite to target, so no "/*  /index.html  200" fallback is
+# added here: unmatched paths already fall through to the Worker for SSR.
+/home    /    301

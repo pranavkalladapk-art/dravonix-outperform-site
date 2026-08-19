@@ -5,7 +5,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "SEO Services in Kerala | Dravonix Media";
 const description =
-  "SEO services in Kerala — technical audits, on-page optimisation, local SEO, content strategy and link building that improve rankings and drive qualified organic traffic.";
+  "SEO services in Kerala — technical audits, on-page optimisation, local SEO, content strategy and link building that improve rankings and organic traffic.";
 
 const faqs = [
   {

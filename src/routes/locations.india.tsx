@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Digital Marketing Agency in India | Dravonix Media";
 const description =
-  "Dravonix Media delivers branding, website development, SEO, social media and performance marketing to startups and growing businesses across India through a digital-first workflow.";
+  "Dravonix Media delivers branding, website development, SEO, social media and performance marketing to startups and growing businesses across India remotely.";
 
 const faqs = [
   {
