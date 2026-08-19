@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "We operate remotely across the UK, UAE, and India — working with brands internationally.",
+    a: "We're based in Kollam, Kerala, India — working with brands across India, the UAE, the UK and internationally.",
   },
 ];
 
