@@ -234,7 +234,7 @@ export function Nav() {
                   to={l.to}
                   hash={l.hash}
                   className={cn(
-                    "text-sm transition-colors hover:text-white",
+                    "whitespace-nowrap text-sm transition-colors hover:text-white",
                     active ? "font-semibold text-white" : "font-normal text-white/70",
                   )}
                 >
@@ -244,13 +244,7 @@ export function Nav() {
             })}
           </nav>
 
-          <a
-            href={`tel:${SITE_PHONE_TEL}`}
-            className="hidden shrink-0 items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white lg:inline-flex"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            {SITE_PHONE}
-          </a>
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
