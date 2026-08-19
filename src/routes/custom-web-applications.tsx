@@ -19,9 +19,9 @@ import { Reveal } from "@/components/dravonix/Reveal";
 import { Breadcrumbs, serviceBreadcrumbs } from "@/components/dravonix/Breadcrumbs";
 import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 
-const title = "Custom Web Application Development in Kerala | Dravonix Media";
+const title = "Custom Web Applications in Kerala | Dravonix Media";
 const description =
-  "Custom web application development in Kerala — SaaS platforms, client portals, dashboards and internal business systems built by Dravonix Media.";
+  "Custom web application development in Kerala — SaaS platforms, client portals, dashboards and internal business systems engineered and built by Dravonix Media.";
 
 const faqs = [
   {

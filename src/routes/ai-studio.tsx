@@ -5,7 +5,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "AI Video & Design Studio in Kerala, India | Dravonix Media";
 const description =
-  "AI video and design studio in Kerala, India — promotional videos, social reels, motion graphics and product visuals with human creative supervision.";
+  "AI video and design studio in Kerala, India — promotional videos, social reels, motion graphics and product visuals with human creative oversight throughout.";
 
 const faqs = [
   {

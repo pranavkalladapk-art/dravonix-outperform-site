@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Digital Marketing Services for UAE Businesses | Dravonix";
 const description =
-  "Remote branding, website development, social media, SEO and performance marketing for businesses across the UAE, delivered by Dravonix Media with time-zone aligned collaboration.";
+  "Remote branding, website development, social media, SEO and performance marketing for businesses across the UAE, delivered with time-zone aligned collaboration.";
 
 const faqs = [
   {

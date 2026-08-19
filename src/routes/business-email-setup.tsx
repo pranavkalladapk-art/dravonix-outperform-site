@@ -21,7 +21,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Business Email Setup in Kerala | Dravonix Media";
 const description =
-  "Business email setup in Kerala — professional domain email, authentication, migration, DNS configuration and ongoing support from Dravonix Media.";
+  "Business email setup in Kerala — professional domain email, authentication, migration, DNS configuration and ongoing technical support from Dravonix Media.";
 
 const faqs = [
   {

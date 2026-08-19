@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Global Digital Marketing Agency | Dravonix Media";
 const description =
-  "Dravonix Media is a remote-first global digital marketing agency delivering branding, website development, SEO, social media and AI-powered creative production worldwide.";
+  "Dravonix Media is a remote-first global digital marketing agency delivering branding, website development, SEO, social media and AI-powered creative production.";
 
 const faqs = [
   {

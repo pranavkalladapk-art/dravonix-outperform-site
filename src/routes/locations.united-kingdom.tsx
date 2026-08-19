@@ -4,7 +4,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "Digital Marketing Services for UK Businesses | Dravonix";
 const description =
-  "Website development, brand identity, social media and SEO for UK businesses — delivered remotely by Dravonix Media with UK-hours collaboration and clear reporting.";
+  "Website development, brand identity, social media and SEO for UK businesses — delivered remotely by Dravonix Media with UK-hours collaboration and reporting.";
 
 const faqs = [
   {

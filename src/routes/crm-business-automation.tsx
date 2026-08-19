@@ -21,7 +21,7 @@ import { buildHead, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo
 
 const title = "CRM & Business Automation in Kerala | Dravonix Media";
 const description =
-  "CRM and business automation services in Kerala — CRM setup, lead management, workflow automation and WhatsApp integration for growing businesses.";
+  "CRM and business automation services in Kerala — CRM setup, lead management, workflow automation and WhatsApp integration built for growing businesses to scale.";
 
 const faqs = [
   {
