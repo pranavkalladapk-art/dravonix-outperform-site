@@ -1,25 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Mail } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 import { DRAIVA_PRODUCTS, DRAIVA_PATHS } from "./draiva-products";
-import { SITE_PHONE, SITE_PHONE_TEL } from "@/lib/site";
+import { SITE_PHONE, SITE_PHONE_TEL, SITE_EMAIL } from "@/lib/site";
 import { Phone } from "lucide-react";
 
 type NavLink = { to: string; label: string; hash?: string; draiva?: boolean };
 
 const navLinks: Array<NavLink> = [
-  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/draiva", label: "DRAIVA Connect", draiva: true },
   { to: "/work", label: "Work" },
-  { to: "/process", label: "Our Process" },
-  { to: "/", hash: "project-estimator", label: "Project Estimator" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,16 +27,14 @@ export function Nav() {
   const draivaRef = useRef<HTMLDivElement | null>(null);
   const menuBg = "#0B1220";
   const { pathname } = useRouterState({ select: (s) => s.location });
-  const [estimatorInView, setEstimatorInView] = useState(false);
 
   const inDraiva = DRAIVA_PATHS.includes(pathname) || pathname.startsWith("/draiva");
 
   const isLinkActive = (l: NavLink) => {
     if (l.draiva) return inDraiva;
-    if (l.hash === "project-estimator") return pathname === "/" && estimatorInView;
-    if (l.to === "/") return pathname === "/" && !estimatorInView;
     return pathname === l.to || pathname.startsWith(`${l.to}/`);
   };
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -75,27 +71,6 @@ export function Nav() {
     setDraivaOpen(false);
   }, [pathname]);
 
-  // Track whether the estimator section is currently visible so the nav
-  // item highlights while the user is reading that section on /.
-  useEffect(() => {
-    if (pathname !== "/") {
-      setEstimatorInView(false);
-      return;
-    }
-    const el = document.getElementById("project-estimator");
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          setEstimatorInView(entry.isIntersecting && entry.intersectionRatio > 0.3);
-        }
-      },
-      { threshold: [0, 0.3, 0.6], rootMargin: "-80px 0px -40% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [pathname]);
-
   const closeMobile = () => {
     setOpen(false);
     setMobileDraivaOpen(false);
@@ -113,8 +88,33 @@ export function Nav() {
               : "bg-[var(--navy)]/80 backdrop-blur-sm",
         )}
       >
+        {/* Slim utility bar — desktop only; on mobile it lives in the menu */}
+        <div className="hidden border-b border-white/10 lg:block">
+          <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-5 py-1.5 text-xs text-white/55 md:px-8">
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-white/85"
+            >
+              <Phone className="h-3.5 w-3.5" aria-hidden />
+              {SITE_PHONE}
+            </a>
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-white/85"
+            >
+              <Mail className="h-3.5 w-3.5" aria-hidden />
+              {SITE_EMAIL}
+            </a>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" aria-hidden />
+              Kollam, Kerala
+            </span>
+          </div>
+        </div>
+
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8">
           <Logo className="shrink-0" />
+
 
           <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
             {navLinks.map((l) => {
@@ -234,7 +234,7 @@ export function Nav() {
                   to={l.to}
                   hash={l.hash}
                   className={cn(
-                    "text-sm transition-colors hover:text-white",
+                    "whitespace-nowrap text-sm transition-colors hover:text-white",
                     active ? "font-semibold text-white" : "font-normal text-white/70",
                   )}
                 >
@@ -244,13 +244,7 @@ export function Nav() {
             })}
           </nav>
 
-          <a
-            href={`tel:${SITE_PHONE_TEL}`}
-            className="hidden shrink-0 items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white lg:inline-flex"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            {SITE_PHONE}
-          </a>
+
           <a
             href="https://estimate.dravonix.dev/"
             target="_blank"
@@ -385,14 +379,29 @@ export function Nav() {
             Get a Free Estimate
           </a>
 
-          <a
-            href={`tel:${SITE_PHONE_TEL}`}
-            onClick={closeMobile}
-            className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-center text-base font-semibold text-white"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            {SITE_PHONE}
-          </a>
+          <div className="mt-8 space-y-3 border-t border-white/10 pt-6 text-sm text-white/60">
+            <a
+              href={`tel:${SITE_PHONE_TEL}`}
+              onClick={closeMobile}
+              className="flex items-center gap-2.5 transition-colors hover:text-white"
+            >
+              <Phone className="h-4 w-4 flex-shrink-0" aria-hidden />
+              {SITE_PHONE}
+            </a>
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              onClick={closeMobile}
+              className="flex items-center gap-2.5 break-all transition-colors hover:text-white"
+            >
+              <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
+              {SITE_EMAIL}
+            </a>
+            <p className="flex items-center gap-2.5">
+              <MapPin className="h-4 w-4 flex-shrink-0" aria-hidden />
+              Kollam, Kerala
+            </p>
+          </div>
+
         </div>
       </div>
     </>

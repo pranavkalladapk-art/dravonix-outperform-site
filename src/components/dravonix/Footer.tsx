@@ -24,11 +24,13 @@ const locationLinks = [
 
 const companyLinks = [
   { label: "About", href: "/about" },
+  { label: "Our Process", href: "/process" },
   { label: "Work", href: "/work" },
   { label: "Team", href: "/team" },
   { label: "Project Estimator", href: "/project-estimator" },
   { label: "Contact", href: "/contact" },
 ];
+
 
 const socials = [
   { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61588836449902", label: "Facebook" },
