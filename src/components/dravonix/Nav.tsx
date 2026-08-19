@@ -1,25 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Mail } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { trackLead } from "@/lib/metaPixel";
 import { DRAIVA_PRODUCTS, DRAIVA_PATHS } from "./draiva-products";
-import { SITE_PHONE, SITE_PHONE_TEL } from "@/lib/site";
+import { SITE_PHONE, SITE_PHONE_TEL, SITE_EMAIL } from "@/lib/site";
 import { Phone } from "lucide-react";
 
 type NavLink = { to: string; label: string; hash?: string; draiva?: boolean };
 
 const navLinks: Array<NavLink> = [
-  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/draiva", label: "DRAIVA Connect", draiva: true },
   { to: "/work", label: "Work" },
-  { to: "/process", label: "Our Process" },
-  { to: "/", hash: "project-estimator", label: "Project Estimator" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
