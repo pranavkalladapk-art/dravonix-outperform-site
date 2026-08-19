@@ -31,6 +31,7 @@ const routes: Array<{ loc: string; changefreq: string; priority: string }> = [
   { loc: `${SITE}/team`, changefreq: "monthly", priority: "0.7" },
   { loc: `${SITE}/privacy-policy`, changefreq: "yearly", priority: "0.5" },
   { loc: `${SITE}/terms-and-conditions`, changefreq: "yearly", priority: "0.5" },
+  { loc: `${SITE}/data-deletion`, changefreq: "yearly", priority: "0.5" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
