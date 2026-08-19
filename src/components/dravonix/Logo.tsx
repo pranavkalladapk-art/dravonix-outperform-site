@@ -47,8 +47,7 @@ export function Logo({ className, variant = "auto" }: LogoProps) {
       ) : (
         <img
           src={dMark}
-          alt=""
-          aria-hidden="true"
+          alt="Dravonix Media"
           width={40}
           height={40}
           onError={() => setImgFailed(true)}
