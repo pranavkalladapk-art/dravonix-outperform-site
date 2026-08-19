@@ -74,6 +74,7 @@ export const Route = createRootRoute({
           description:
             "Data-driven strategy, creative excellence, and AI-integrated production for brands that refuse to be average.",
           email: "admin@dravonixmedia.com",
+          telephone: SITE_PHONE_TEL,
           identifier: {
             "@type": "PropertyValue",
             name: "CIN",
@@ -87,11 +88,41 @@ export const Route = createRootRoute({
             postalCode: "691502",
             addressCountry: "IN",
           },
-          sameAs: [
-            "https://www.instagram.com/dravonixmedia/",
-            "https://www.linkedin.com/in/dravonix/",
-            "https://x.com/dravonixmedia",
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: SITE_PHONE_TEL,
+              email: "admin@dravonixmedia.com",
+              contactType: "customer service",
+              areaServed: ["IN", "AE", "GB"],
+              availableLanguage: ["en", "ml"],
+            },
           ],
+          sameAs: SAME_AS,
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": "https://dravonixmedia.com/#localbusiness",
+          name: "Dravonix Media Private Limited",
+          image: "https://dravonixmedia.com/og-image.jpg",
+          url: "https://dravonixmedia.com",
+          email: "admin@dravonixmedia.com",
+          telephone: SITE_PHONE_TEL,
+          priceRange: "$$",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "East Kallada",
+            addressLocality: "Kollam",
+            addressRegion: "Kerala",
+            postalCode: "691502",
+            addressCountry: "IN",
+          },
+          areaServed: ["Kerala", "India", "United Arab Emirates", "United Kingdom", "Worldwide"],
+          sameAs: SAME_AS,
         }),
       },
     ],
