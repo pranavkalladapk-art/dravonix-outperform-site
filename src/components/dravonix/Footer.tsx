@@ -166,6 +166,12 @@ export function Footer() {
               >
                 Terms & Conditions
               </Link>
+              <Link
+                to="/data-deletion"
+                className="text-xs text-[var(--muted-text)] transition-colors hover:text-white"
+              >
+                Data Deletion
+              </Link>
               <span className="text-xs text-[var(--muted-text)]">www.dravonixmedia.com</span>
             </div>
           </div>
