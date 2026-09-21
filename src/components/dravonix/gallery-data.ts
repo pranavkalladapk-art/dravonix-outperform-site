@@ -253,6 +253,19 @@ export const galleryItems: GalleryItem[] = [
     featured: true,
   },
   {
+    id: "ar-hydraulics-sealing-solutions",
+    type: "website",
+    title: "AR Hydraulics & Sealing Solutions",
+    client: "AR Hydraulics & Sealing Solutions",
+    description: "Website development + SEO",
+    niche: "Hydraulics & Engineering · Kerala, India",
+    thumb:
+      "https://arhydraulicssolutions.com/media/company/contact-workshop-exterior.webp",
+    link: "https://arhydraulicssolutions.com/",
+    domain: "arhydraulicssolutions.com",
+    featured: true,
+  },
+  {
     id: "reel-joinery-ad",
     type: "reel",
     title: "AI Joinery Ad",

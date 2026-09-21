@@ -8,7 +8,7 @@ export function GalleryPreview() {
   const featured = galleryItems.filter((i) => i.featured);
   const items = featured.length > 0 ? featured : galleryItems;
   const hero = items.slice(0, 3);
-  const rest = items.slice(3, 6);
+  const rest = items.slice(3);
 
   return (
     <section id="work" className="relative bg-[var(--navy)] py-20 md:py-32">
