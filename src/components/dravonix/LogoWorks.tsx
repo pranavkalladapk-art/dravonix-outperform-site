@@ -64,9 +64,9 @@ export function LogoWorks() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+        <div className="mt-10 grid auto-rows-fr grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {logoWorks.map((logo, i) => (
-            <Reveal key={logo.id} delay={(i % 4) * 80} className="h-full">
+            <Reveal key={logo.id} delay={(i % 3) * 80} className="h-full">
               <LogoCard {...logo} />
             </Reveal>
           ))}
