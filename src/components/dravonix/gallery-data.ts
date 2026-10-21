@@ -267,6 +267,19 @@ export const galleryItems: GalleryItem[] = [
     featured: true,
   },
   {
+    id: "timeless-knot",
+    type: "website",
+    title: "Timeless Knot",
+    client: "Timeless Knot",
+    description:
+      "A premium wedding planning and venue website designed to capture the elegance and emotion of luxury weddings. Dravonix delivered a full website design and development solution — built to attract high-intent couples and convert visitors into enquiries.",
+    niche: "Website Design · Web Development · Wedding Industry",
+    thumb: timelessKnotThumb,
+    link: "https://timelessknot.in/",
+    domain: "timelessknot.in",
+    featured: true,
+  },
+  {
     id: "reel-joinery-ad",
     type: "reel",
     title: "AI Joinery Ad",
