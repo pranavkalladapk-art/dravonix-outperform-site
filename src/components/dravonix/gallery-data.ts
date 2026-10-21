@@ -18,6 +18,7 @@ import graceHiring from "@/assets/grace-hiring.jpg";
 import graceFlowerEye from "@/assets/grace-flower-eye.jpg";
 import graceReel02Thumb from "@/assets/grace-reel-02-thumb.jpg";
 import graceReel02Asset from "@/assets/grace-reel-02.mp4.asset.json";
+import timelessKnotThumb from "@/assets/work-timelessknot.webp";
 
 export interface BrandGroup {
   id: string;
