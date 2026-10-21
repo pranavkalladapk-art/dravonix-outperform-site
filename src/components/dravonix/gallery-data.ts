@@ -1,24 +1,25 @@
-import wizardfingersThumb from "@/assets/work-wizardfingers.webp";
-import dtsgulfThumb from "@/assets/work-dtsgulf.webp";
-import postDecolux01 from "@/assets/post-decolux-01.webp";
-import postDecolux02 from "@/assets/post-decolux-02.webp";
-import postDecolux03 from "@/assets/post-decolux-03.webp";
-import postDecolux04 from "@/assets/post-decolux-04.webp";
-import postDecolux05 from "@/assets/post-decolux-05.webp";
-import postDecolux06 from "@/assets/post-decolux-06.webp";
-import reelJoineryThumb from "@/assets/reel-joinery.jpg";
-import reelCityWalkThumb from "@/assets/reel-city-walk-502.jpg";
-import abodooThumb from "@/assets/work-abodoo.webp";
-import projectEstimatorThumb from "@/assets/work-project-estimator.webp";
-import graceOffer from "@/assets/grace-offer.jpg";
-import graceStorefront from "@/assets/grace-storefront.jpg";
-import graceEyechart from "@/assets/grace-eyechart.jpg";
-import graceTikitaka from "@/assets/grace-tikitaka.jpg";
-import graceHiring from "@/assets/grace-hiring.jpg";
-import graceFlowerEye from "@/assets/grace-flower-eye.jpg";
-import graceReel02Thumb from "@/assets/grace-reel-02-thumb.jpg";
 import graceReel02Asset from "@/assets/grace-reel-02.mp4.asset.json";
-import timelessKnotThumb from "@/assets/work-timelessknot.webp";
+
+const wizardfingersThumb = "/work/work-wizardfingers.webp";
+const dtsgulfThumb = "/work/work-dtsgulf.webp";
+const postDecolux01 = "/work/post-decolux-01.webp";
+const postDecolux02 = "/work/post-decolux-02.webp";
+const postDecolux03 = "/work/post-decolux-03.webp";
+const postDecolux04 = "/work/post-decolux-04.webp";
+const postDecolux05 = "/work/post-decolux-05.webp";
+const postDecolux06 = "/work/post-decolux-06.webp";
+const reelJoineryThumb = "/work/reel-joinery.jpg";
+const reelCityWalkThumb = "/work/reel-city-walk-502.jpg";
+const abodooThumb = "/work/work-abodoo.webp";
+const projectEstimatorThumb = "/work/work-project-estimator.webp";
+const graceOffer = "/work/grace-offer.jpg";
+const graceStorefront = "/work/grace-storefront.jpg";
+const graceEyechart = "/work/grace-eyechart.jpg";
+const graceTikitaka = "/work/grace-tikitaka.jpg";
+const graceHiring = "/work/grace-hiring.jpg";
+const graceFlowerEye = "/work/grace-flower-eye.jpg";
+const graceReel02Thumb = "/work/grace-reel-02-thumb.jpg";
+const timelessKnotThumb = "/work/work-timelessknot.webp";
 
 export interface BrandGroup {
   id: string;
@@ -260,8 +261,7 @@ export const galleryItems: GalleryItem[] = [
     client: "AR Hydraulics & Sealing Solutions",
     description: "Website development + SEO",
     niche: "Hydraulics & Engineering · Kerala, India",
-    thumb:
-      "https://arhydraulicssolutions.com/media/company/contact-workshop-exterior.webp",
+    thumb: "/work/work-ar-hydraulics.webp",
     link: "https://arhydraulicssolutions.com/",
     domain: "arhydraulicssolutions.com",
     featured: true,
