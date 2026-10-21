@@ -18,6 +18,7 @@ import graceHiring from "@/assets/grace-hiring.jpg";
 import graceFlowerEye from "@/assets/grace-flower-eye.jpg";
 import graceReel02Thumb from "@/assets/grace-reel-02-thumb.jpg";
 import graceReel02Asset from "@/assets/grace-reel-02.mp4.asset.json";
+import timelessKnotThumb from "@/assets/work-timelessknot.webp";
 
 export interface BrandGroup {
   id: string;
@@ -263,6 +264,19 @@ export const galleryItems: GalleryItem[] = [
       "https://arhydraulicssolutions.com/media/company/contact-workshop-exterior.webp",
     link: "https://arhydraulicssolutions.com/",
     domain: "arhydraulicssolutions.com",
+    featured: true,
+  },
+  {
+    id: "timeless-knot",
+    type: "website",
+    title: "Timeless Knot",
+    client: "Timeless Knot",
+    description:
+      "A premium wedding planning and venue website designed to capture the elegance and emotion of luxury weddings. Dravonix delivered a full website design and development solution — built to attract high-intent couples and convert visitors into enquiries.",
+    niche: "Website Design · Web Development · Wedding Industry",
+    thumb: timelessKnotThumb,
+    link: "https://timelessknot.in/",
+    domain: "timelessknot.in",
     featured: true,
   },
   {

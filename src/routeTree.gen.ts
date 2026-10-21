@@ -9,153 +9,48 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorkRouteImport } from './routes/work'
-import { Route as WhatsappAiRouteImport } from './routes/whatsapp-ai'
-import { Route as WebsiteDevelopmentRouteImport } from './routes/website-development'
-import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
-import { Route as TeamRouteImport } from './routes/team'
-import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SeoRouteImport } from './routes/seo'
-import { Route as ProjectEstimatorRouteImport } from './routes/project-estimator'
-import { Route as ProcessRouteImport } from './routes/process'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
-import { Route as HomeRouteImport } from './routes/home'
-import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
-import { Route as DataDeletionRouteImport } from './routes/data-deletion'
-import { Route as CustomWebApplicationsRouteImport } from './routes/custom-web-applications'
-import { Route as CrmBusinessAutomationRouteImport } from './routes/crm-business-automation'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BusinessEmailSetupRouteImport } from './routes/business-email-setup'
-import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
-import { Route as AiStudioRouteImport } from './routes/ai-studio'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LocationsIndexRouteImport } from './routes/locations.index'
-import { Route as DraivaIndexRouteImport } from './routes/draiva.index'
-import { Route as LocationsUnitedKingdomRouteImport } from './routes/locations.united-kingdom'
-import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
-import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
-import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
-import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
-import { Route as DraivaWhatsappAiRouteImport } from './routes/draiva.whatsapp-ai'
-import { Route as DraivaWebChatRouteImport } from './routes/draiva.web-chat'
-import { Route as DraivaVoiceRouteImport } from './routes/draiva.voice'
-import { Route as DraivaSocialRouteImport } from './routes/draiva.social'
-import { Route as DraivaMailRouteImport } from './routes/draiva.mail'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiStudioRouteImport } from './routes/ai-studio'
+import { Route as BrandIdentityRouteImport } from './routes/brand-identity'
+import { Route as BusinessEmailSetupRouteImport } from './routes/business-email-setup'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CrmBusinessAutomationRouteImport } from './routes/crm-business-automation'
+import { Route as CustomWebApplicationsRouteImport } from './routes/custom-web-applications'
+import { Route as DataDeletionRouteImport } from './routes/data-deletion'
+import { Route as EcommerceDevelopmentRouteImport } from './routes/ecommerce-development'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as PerformanceMarketingRouteImport } from './routes/performance-marketing'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as ProjectEstimatorRouteImport } from './routes/project-estimator'
+import { Route as SeoRouteImport } from './routes/seo'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as WebsiteDevelopmentRouteImport } from './routes/website-development'
+import { Route as WhatsappAiRouteImport } from './routes/whatsapp-ai'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as AdminEnquiriesRouteImport } from './routes/admin.enquiries'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as DraivaIndexRouteImport } from './routes/draiva.index'
+import { Route as DraivaMailRouteImport } from './routes/draiva.mail'
+import { Route as DraivaSocialRouteImport } from './routes/draiva.social'
+import { Route as DraivaVoiceRouteImport } from './routes/draiva.voice'
+import { Route as DraivaWebChatRouteImport } from './routes/draiva.web-chat'
+import { Route as DraivaWhatsappAiRouteImport } from './routes/draiva.whatsapp-ai'
+import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as LocationsGlobalRouteImport } from './routes/locations.global'
+import { Route as LocationsIndiaRouteImport } from './routes/locations.india'
+import { Route as LocationsKeralaRouteImport } from './routes/locations.kerala'
+import { Route as LocationsUaeRouteImport } from './routes/locations.uae'
+import { Route as LocationsUnitedKingdomRouteImport } from './routes/locations.united-kingdom'
 
-const WorkRoute = WorkRouteImport.update({
-  id: '/work',
-  path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WhatsappAiRoute = WhatsappAiRouteImport.update({
-  id: '/whatsapp-ai',
-  path: '/whatsapp-ai',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WebsiteDevelopmentRoute = WebsiteDevelopmentRouteImport.update({
-  id: '/website-development',
-  path: '/website-development',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
-  id: '/terms-and-conditions',
-  path: '/terms-and-conditions',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
-  id: '/social-media-management',
-  path: '/social-media-management',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SeoRoute = SeoRouteImport.update({
-  id: '/seo',
-  path: '/seo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectEstimatorRoute = ProjectEstimatorRouteImport.update({
-  id: '/project-estimator',
-  path: '/project-estimator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProcessRoute = ProcessRouteImport.update({
-  id: '/process',
-  path: '/process',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
-  id: '/performance-marketing',
-  path: '/performance-marketing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
-  id: '/ecommerce-development',
-  path: '/ecommerce-development',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DataDeletionRoute = DataDeletionRouteImport.update({
-  id: '/data-deletion',
-  path: '/data-deletion',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CustomWebApplicationsRoute = CustomWebApplicationsRouteImport.update({
-  id: '/custom-web-applications',
-  path: '/custom-web-applications',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CrmBusinessAutomationRoute = CrmBusinessAutomationRouteImport.update({
-  id: '/crm-business-automation',
-  path: '/crm-business-automation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessEmailSetupRoute = BusinessEmailSetupRouteImport.update({
-  id: '/business-email-setup',
-  path: '/business-email-setup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrandIdentityRoute = BrandIdentityRouteImport.update({
-  id: '/brand-identity',
-  path: '/brand-identity',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AiStudioRoute = AiStudioRouteImport.update({
-  id: '/ai-studio',
-  path: '/ai-studio',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -163,69 +58,119 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AiStudioRoute = AiStudioRouteImport.update({
+  id: '/ai-studio',
+  path: '/ai-studio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsIndexRoute = LocationsIndexRouteImport.update({
-  id: '/locations/',
-  path: '/locations/',
+const BrandIdentityRoute = BrandIdentityRouteImport.update({
+  id: '/brand-identity',
+  path: '/brand-identity',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaIndexRoute = DraivaIndexRouteImport.update({
-  id: '/draiva/',
-  path: '/draiva/',
+const BusinessEmailSetupRoute = BusinessEmailSetupRouteImport.update({
+  id: '/business-email-setup',
+  path: '/business-email-setup',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsUnitedKingdomRoute = LocationsUnitedKingdomRouteImport.update({
-  id: '/locations/united-kingdom',
-  path: '/locations/united-kingdom',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsUaeRoute = LocationsUaeRouteImport.update({
-  id: '/locations/uae',
-  path: '/locations/uae',
+const CrmBusinessAutomationRoute = CrmBusinessAutomationRouteImport.update({
+  id: '/crm-business-automation',
+  path: '/crm-business-automation',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsKeralaRoute = LocationsKeralaRouteImport.update({
-  id: '/locations/kerala',
-  path: '/locations/kerala',
+const CustomWebApplicationsRoute = CustomWebApplicationsRouteImport.update({
+  id: '/custom-web-applications',
+  path: '/custom-web-applications',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsIndiaRoute = LocationsIndiaRouteImport.update({
-  id: '/locations/india',
-  path: '/locations/india',
+const DataDeletionRoute = DataDeletionRouteImport.update({
+  id: '/data-deletion',
+  path: '/data-deletion',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
-  id: '/locations/global',
-  path: '/locations/global',
+const EcommerceDevelopmentRoute = EcommerceDevelopmentRouteImport.update({
+  id: '/ecommerce-development',
+  path: '/ecommerce-development',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaWhatsappAiRoute = DraivaWhatsappAiRouteImport.update({
-  id: '/draiva/whatsapp-ai',
-  path: '/draiva/whatsapp-ai',
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaWebChatRoute = DraivaWebChatRouteImport.update({
-  id: '/draiva/web-chat',
-  path: '/draiva/web-chat',
+const PerformanceMarketingRoute = PerformanceMarketingRouteImport.update({
+  id: '/performance-marketing',
+  path: '/performance-marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaVoiceRoute = DraivaVoiceRouteImport.update({
-  id: '/draiva/voice',
-  path: '/draiva/voice',
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaSocialRoute = DraivaSocialRouteImport.update({
-  id: '/draiva/social',
-  path: '/draiva/social',
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DraivaMailRoute = DraivaMailRouteImport.update({
-  id: '/draiva/mail',
-  path: '/draiva/mail',
+const ProjectEstimatorRoute = ProjectEstimatorRouteImport.update({
+  id: '/project-estimator',
+  path: '/project-estimator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoRoute = SeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
+  id: '/social-media-management',
+  path: '/social-media-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsiteDevelopmentRoute = WebsiteDevelopmentRouteImport.update({
+  id: '/website-development',
+  path: '/website-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatsappAiRoute = WhatsappAiRouteImport.update({
+  id: '/whatsapp-ai',
+  path: '/whatsapp-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEnquiriesRoute = AdminEnquiriesRouteImport.update({
+  id: '/admin/enquiries',
+  path: '/admin/enquiries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
@@ -233,9 +178,64 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminEnquiriesRoute = AdminEnquiriesRouteImport.update({
-  id: '/admin/enquiries',
-  path: '/admin/enquiries',
+const DraivaIndexRoute = DraivaIndexRouteImport.update({
+  id: '/draiva/',
+  path: '/draiva/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaMailRoute = DraivaMailRouteImport.update({
+  id: '/draiva/mail',
+  path: '/draiva/mail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaSocialRoute = DraivaSocialRouteImport.update({
+  id: '/draiva/social',
+  path: '/draiva/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaVoiceRoute = DraivaVoiceRouteImport.update({
+  id: '/draiva/voice',
+  path: '/draiva/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaWebChatRoute = DraivaWebChatRouteImport.update({
+  id: '/draiva/web-chat',
+  path: '/draiva/web-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DraivaWhatsappAiRoute = DraivaWhatsappAiRouteImport.update({
+  id: '/draiva/whatsapp-ai',
+  path: '/draiva/whatsapp-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsGlobalRoute = LocationsGlobalRouteImport.update({
+  id: '/locations/global',
+  path: '/locations/global',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsIndiaRoute = LocationsIndiaRouteImport.update({
+  id: '/locations/india',
+  path: '/locations/india',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsKeralaRoute = LocationsKeralaRouteImport.update({
+  id: '/locations/kerala',
+  path: '/locations/kerala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsUaeRoute = LocationsUaeRouteImport.update({
+  id: '/locations/uae',
+  path: '/locations/uae',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsUnitedKingdomRoute = LocationsUnitedKingdomRouteImport.update({
+  id: '/locations/united-kingdom',
+  path: '/locations/united-kingdom',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -526,158 +526,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/work': {
-      id: '/work'
-      path: '/work'
-      fullPath: '/work'
-      preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/whatsapp-ai': {
-      id: '/whatsapp-ai'
-      path: '/whatsapp-ai'
-      fullPath: '/whatsapp-ai'
-      preLoaderRoute: typeof WhatsappAiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/website-development': {
-      id: '/website-development'
-      path: '/website-development'
-      fullPath: '/website-development'
-      preLoaderRoute: typeof WebsiteDevelopmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms-and-conditions': {
-      id: '/terms-and-conditions'
-      path: '/terms-and-conditions'
-      fullPath: '/terms-and-conditions'
-      preLoaderRoute: typeof TermsAndConditionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/social-media-management': {
-      id: '/social-media-management'
-      path: '/social-media-management'
-      fullPath: '/social-media-management'
-      preLoaderRoute: typeof SocialMediaManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/seo': {
-      id: '/seo'
-      path: '/seo'
-      fullPath: '/seo'
-      preLoaderRoute: typeof SeoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/project-estimator': {
-      id: '/project-estimator'
-      path: '/project-estimator'
-      fullPath: '/project-estimator'
-      preLoaderRoute: typeof ProjectEstimatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/process': {
-      id: '/process'
-      path: '/process'
-      fullPath: '/process'
-      preLoaderRoute: typeof ProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/performance-marketing': {
-      id: '/performance-marketing'
-      path: '/performance-marketing'
-      fullPath: '/performance-marketing'
-      preLoaderRoute: typeof PerformanceMarketingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ecommerce-development': {
-      id: '/ecommerce-development'
-      path: '/ecommerce-development'
-      fullPath: '/ecommerce-development'
-      preLoaderRoute: typeof EcommerceDevelopmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/data-deletion': {
-      id: '/data-deletion'
-      path: '/data-deletion'
-      fullPath: '/data-deletion'
-      preLoaderRoute: typeof DataDeletionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/custom-web-applications': {
-      id: '/custom-web-applications'
-      path: '/custom-web-applications'
-      fullPath: '/custom-web-applications'
-      preLoaderRoute: typeof CustomWebApplicationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/crm-business-automation': {
-      id: '/crm-business-automation'
-      path: '/crm-business-automation'
-      fullPath: '/crm-business-automation'
-      preLoaderRoute: typeof CrmBusinessAutomationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business-email-setup': {
-      id: '/business-email-setup'
-      path: '/business-email-setup'
-      fullPath: '/business-email-setup'
-      preLoaderRoute: typeof BusinessEmailSetupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brand-identity': {
-      id: '/brand-identity'
-      path: '/brand-identity'
-      fullPath: '/brand-identity'
-      preLoaderRoute: typeof BrandIdentityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-studio': {
-      id: '/ai-studio'
-      path: '/ai-studio'
-      fullPath: '/ai-studio'
-      preLoaderRoute: typeof AiStudioRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -687,95 +540,165 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/ai-studio': {
+      id: '/ai-studio'
+      path: '/ai-studio'
+      fullPath: '/ai-studio'
+      preLoaderRoute: typeof AiStudioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/': {
-      id: '/locations/'
-      path: '/locations'
-      fullPath: '/locations/'
-      preLoaderRoute: typeof LocationsIndexRouteImport
+    '/brand-identity': {
+      id: '/brand-identity'
+      path: '/brand-identity'
+      fullPath: '/brand-identity'
+      preLoaderRoute: typeof BrandIdentityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/': {
-      id: '/draiva/'
-      path: '/draiva'
-      fullPath: '/draiva/'
-      preLoaderRoute: typeof DraivaIndexRouteImport
+    '/business-email-setup': {
+      id: '/business-email-setup'
+      path: '/business-email-setup'
+      fullPath: '/business-email-setup'
+      preLoaderRoute: typeof BusinessEmailSetupRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/united-kingdom': {
-      id: '/locations/united-kingdom'
-      path: '/locations/united-kingdom'
-      fullPath: '/locations/united-kingdom'
-      preLoaderRoute: typeof LocationsUnitedKingdomRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/uae': {
-      id: '/locations/uae'
-      path: '/locations/uae'
-      fullPath: '/locations/uae'
-      preLoaderRoute: typeof LocationsUaeRouteImport
+    '/crm-business-automation': {
+      id: '/crm-business-automation'
+      path: '/crm-business-automation'
+      fullPath: '/crm-business-automation'
+      preLoaderRoute: typeof CrmBusinessAutomationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/kerala': {
-      id: '/locations/kerala'
-      path: '/locations/kerala'
-      fullPath: '/locations/kerala'
-      preLoaderRoute: typeof LocationsKeralaRouteImport
+    '/custom-web-applications': {
+      id: '/custom-web-applications'
+      path: '/custom-web-applications'
+      fullPath: '/custom-web-applications'
+      preLoaderRoute: typeof CustomWebApplicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/india': {
-      id: '/locations/india'
-      path: '/locations/india'
-      fullPath: '/locations/india'
-      preLoaderRoute: typeof LocationsIndiaRouteImport
+    '/data-deletion': {
+      id: '/data-deletion'
+      path: '/data-deletion'
+      fullPath: '/data-deletion'
+      preLoaderRoute: typeof DataDeletionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/locations/global': {
-      id: '/locations/global'
-      path: '/locations/global'
-      fullPath: '/locations/global'
-      preLoaderRoute: typeof LocationsGlobalRouteImport
+    '/ecommerce-development': {
+      id: '/ecommerce-development'
+      path: '/ecommerce-development'
+      fullPath: '/ecommerce-development'
+      preLoaderRoute: typeof EcommerceDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/whatsapp-ai': {
-      id: '/draiva/whatsapp-ai'
-      path: '/draiva/whatsapp-ai'
-      fullPath: '/draiva/whatsapp-ai'
-      preLoaderRoute: typeof DraivaWhatsappAiRouteImport
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/web-chat': {
-      id: '/draiva/web-chat'
-      path: '/draiva/web-chat'
-      fullPath: '/draiva/web-chat'
-      preLoaderRoute: typeof DraivaWebChatRouteImport
+    '/performance-marketing': {
+      id: '/performance-marketing'
+      path: '/performance-marketing'
+      fullPath: '/performance-marketing'
+      preLoaderRoute: typeof PerformanceMarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/voice': {
-      id: '/draiva/voice'
-      path: '/draiva/voice'
-      fullPath: '/draiva/voice'
-      preLoaderRoute: typeof DraivaVoiceRouteImport
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/social': {
-      id: '/draiva/social'
-      path: '/draiva/social'
-      fullPath: '/draiva/social'
-      preLoaderRoute: typeof DraivaSocialRouteImport
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/draiva/mail': {
-      id: '/draiva/mail'
-      path: '/draiva/mail'
-      fullPath: '/draiva/mail'
-      preLoaderRoute: typeof DraivaMailRouteImport
+    '/project-estimator': {
+      id: '/project-estimator'
+      path: '/project-estimator'
+      fullPath: '/project-estimator'
+      preLoaderRoute: typeof ProjectEstimatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo': {
+      id: '/seo'
+      path: '/seo'
+      fullPath: '/seo'
+      preLoaderRoute: typeof SeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-management': {
+      id: '/social-media-management'
+      path: '/social-media-management'
+      fullPath: '/social-media-management'
+      preLoaderRoute: typeof SocialMediaManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-development': {
+      id: '/website-development'
+      path: '/website-development'
+      fullPath: '/website-development'
+      preLoaderRoute: typeof WebsiteDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whatsapp-ai': {
+      id: '/whatsapp-ai'
+      path: '/whatsapp-ai'
+      fullPath: '/whatsapp-ai'
+      preLoaderRoute: typeof WhatsappAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/enquiries': {
+      id: '/admin/enquiries'
+      path: '/admin/enquiries'
+      fullPath: '/admin/enquiries'
+      preLoaderRoute: typeof AdminEnquiriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/login': {
@@ -785,11 +708,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/enquiries': {
-      id: '/admin/enquiries'
-      path: '/admin/enquiries'
-      fullPath: '/admin/enquiries'
-      preLoaderRoute: typeof AdminEnquiriesRouteImport
+    '/draiva/': {
+      id: '/draiva/'
+      path: '/draiva'
+      fullPath: '/draiva/'
+      preLoaderRoute: typeof DraivaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/mail': {
+      id: '/draiva/mail'
+      path: '/draiva/mail'
+      fullPath: '/draiva/mail'
+      preLoaderRoute: typeof DraivaMailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/social': {
+      id: '/draiva/social'
+      path: '/draiva/social'
+      fullPath: '/draiva/social'
+      preLoaderRoute: typeof DraivaSocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/voice': {
+      id: '/draiva/voice'
+      path: '/draiva/voice'
+      fullPath: '/draiva/voice'
+      preLoaderRoute: typeof DraivaVoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/web-chat': {
+      id: '/draiva/web-chat'
+      path: '/draiva/web-chat'
+      fullPath: '/draiva/web-chat'
+      preLoaderRoute: typeof DraivaWebChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/draiva/whatsapp-ai': {
+      id: '/draiva/whatsapp-ai'
+      path: '/draiva/whatsapp-ai'
+      fullPath: '/draiva/whatsapp-ai'
+      preLoaderRoute: typeof DraivaWhatsappAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/global': {
+      id: '/locations/global'
+      path: '/locations/global'
+      fullPath: '/locations/global'
+      preLoaderRoute: typeof LocationsGlobalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/india': {
+      id: '/locations/india'
+      path: '/locations/india'
+      fullPath: '/locations/india'
+      preLoaderRoute: typeof LocationsIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/kerala': {
+      id: '/locations/kerala'
+      path: '/locations/kerala'
+      fullPath: '/locations/kerala'
+      preLoaderRoute: typeof LocationsKeralaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/uae': {
+      id: '/locations/uae'
+      path: '/locations/uae'
+      fullPath: '/locations/uae'
+      preLoaderRoute: typeof LocationsUaeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/united-kingdom': {
+      id: '/locations/united-kingdom'
+      path: '/locations/united-kingdom'
+      fullPath: '/locations/united-kingdom'
+      preLoaderRoute: typeof LocationsUnitedKingdomRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
