@@ -1,4 +1,6 @@
 import { Reveal } from "./Reveal";
+import sakhiLogo from "@/assets/logo-sakhi.png.asset.json";
+import twobloomsLogo from "@/assets/logo-twoblooms.png.asset.json";
 
 interface LogoItem {
   id: string;
@@ -12,6 +14,8 @@ const logoWorks: LogoItem[] = [
   { id: "logo-decolux", name: "Decolux Group", src: "/logos/decolux.png" },
   { id: "logo-threefold", name: "Threefold", src: "/logos/threefold.png" },
   { id: "logo-izhakadha", name: "IZHAKADHA", src: "/logos/izhakadha.png", dark: true },
+  { id: "logo-sakhi", name: "Sakhi Luxury Jewellery", src: sakhiLogo.url },
+  { id: "logo-twoblooms", name: "Twoblooms", src: twobloomsLogo.url },
 ];
 
 function LogoCard({ name, src, dark }: LogoItem) {
